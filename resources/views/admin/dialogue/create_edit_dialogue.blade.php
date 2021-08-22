@@ -1,0 +1,118 @@
+@extends('admin.layout')
+
+@section('admin-title') Dialogue @endsection
+
+@section('admin-content')
+{!! breadcrumbs(['Admin Panel' => 'admin', 'Dialogue' => 'admin/dialogue', 'Create/Edit Dialogue' => 'admin/dialogue/create']) !!}
+
+<h1>{{ $dialogue->id ? 'Edit' : 'Create'}} Dialogue</h1>
+
+@if($dialogue->id)
+<div class="text-right">
+    <div class="btn btn-danger delete-button"><i class="fas fa-trash"></i> Delete</div>   
+</div>
+@endif
+{!! Form::open(['url' => $dialogue->id ? 'admin/dialogue/edit/'.$dialogue->id : 'admin/dialogue/create']) !!}
+
+@if($dialogue->id)
+    <a class="btn btn-primary mb-1" data-toggle="collapse" href="#edit" role="button" aria-expanded="false" aria-controls="edit">
+        Show Edit Dialogue
+    </a>
+    <div class="collapse multi-collapse" id="edit">
+@endif
+<h4>Speaker Information</h4>
+<p>A speaker name is required. If you want the speaker to be a character or user, set it as such.</p>
+
+<div class="form-group">
+    {!! Form::label('speaker_name', 'Speaker Name:') !!}
+    {!! Form::text('speaker_name', $dialogue->speaker_name, ['class' => 'form-control', 'placeholder' => 'Type "Username" for the user\'s name']) !!}
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            {!! Form::label('speaker_type', 'Speaker Type:') !!}
+            {!! Form::select('speaker_type', ['None' => 'None', 'Character' => 'Character', 'User' => 'User', 'Response' => 'Response'], $dialogue->speaker_type, ['class' => 'form-control', 'id' => 'speaker-type']) !!}
+        </div>
+    </div>
+    <div class="col-md-6" id="speaker-group">
+        {!! Form::label('Speaker Id:') !!} 
+        {!! Form::select('speaker_id', $types, $dialogue->speaker_id, ['class' => 'form-control']) !!}
+    </div>
+</div>
+
+<div class="form-group">
+    {!! Form::label('Dialogue') !!}
+    {!! Form::textarea('dialogue', $dialogue->dialogue, ['class' => 'form-control']) !!}
+</div>
+
+<div class="text-right">
+    {!! Form::submit($dialogue->id ? 'Edit' : 'Create', ['class' => 'btn btn-primary']) !!}
+</div>
+
+{!! Form::close() !!}
+
+@if($dialogue->id)
+    </div>
+
+    <div class="card p-3 mb-2">
+        <h3>Children</h3>
+        <div class="text-right mb-3">
+            <a class="btn btn-primary dialogue-child" href="#"><i class="fas fa-plus"></i> Create Child</a>
+        </div>
+        <div class="text-center">
+            <div>
+                <div>
+                    <a href="{{ $dialogue->speaker->url }}"><img src="{{ $dialogue->image }}" class="img-thumbnail" /></a>
+                </div>
+                <div class="text-center">
+                <strong>{!! $dialogue->displayname !!}</strong>
+                
+                <p class="mb-0">
+                   {{ $dialogue->dialogue }}
+                </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            @foreach($dialogue->children as $child)
+            <div class="col-md  mx-auto body children-body children-scroll">
+                <div class="children-skill ">
+                    <ul>
+                        @include('admin.dialogue._dialogue_children', ['children' => $child, 'types' => $types])
+                    </ul>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+
+    <div class="card p-4">
+        <h3>Preview</h3>
+        @include('components.dialogue', ['id' => $dialogue->id])
+    </div>
+@endif
+
+
+<script>
+$( document ).ready(function() {   
+    $('#speaker-type').change(function() {
+        var type = $('#speaker-type').val();
+        $.ajax({
+        type: "GET", url: "{{ url('admin/dialogue/check-type') }}?type="+type, dataType: "text"
+      }).done(function (res) { $("#speaker-group").html(res); }).fail(function (jqXHR, textStatus, errorThrown) { alert("AJAX call failed: " + textStatus + ", " + errorThrown); });
+    });
+    //
+    $('.delete-button').on('click', function(e) {
+        e.preventDefault();
+        loadModal("{{ url('admin/dialogue/delete') }}/{{ $dialogue->id }}", 'Delete Dialogue');
+    });
+    //
+    $('.dialogue-child').on('click', function(e) {
+        e.preventDefault();
+        loadModal("{{ url('admin/dialogue/create/child') }}/{{ $dialogue->id }}", 'Create Child');
+    });
+});
+</script>
+@endsection

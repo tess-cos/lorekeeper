@@ -198,3 +198,10 @@ Route::group(['prefix' => 'comments', 'namespace' => 'Comments'], function() {
     Route::post('/{comment}', 'CommentController@reply')->name('comments.reply');
     Route::post('/{id}/feature', 'CommentController@feature')->name('comments.feature');
 });
+
+/**************************************************************************************************
+    Dialogue
+**************************************************************************************************/
+Route::group(['prefix' => 'dialogue'], function() {
+    Route::get('get-text', 'DialogueController@getText');
+});

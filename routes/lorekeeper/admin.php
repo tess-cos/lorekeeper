@@ -437,3 +437,23 @@ Route::group(['prefix' => 'designs', 'middleware' => 'power:manage_characters'],
     Route::post('vote/{id}/{action}', 'DesignController@postVote')->where('action', 'approve|reject');
 });
 Route::get('{type}/{status}', 'DesignController@getDesignIndex')->where('type', 'myo-approvals|design-approvals')->where('status', 'pending|approved|rejected');
+
+# DIALOGUES
+Route::group(['prefix' => 'dialogue', 'middleware' => 'power:manage_characters'], function() {
+    Route::get('/', 'DialogueController@getIndex');
+    Route::get('create', 'DialogueController@getCreateDialogue');
+    Route::get('edit/{id}', 'DialogueController@getEditDialogue');
+    Route::get('delete/{id}', 'DialogueController@getDeleteDialogue');
+    Route::post('create', 'DialogueController@postCreateEditDialogue');
+    Route::post('edit/{id?}', 'DialogueController@postCreateEditDialogue');
+    Route::post('delete/{id}', 'DialogueController@postDeleteDialogue');
+
+    Route::get('check-type', 'DialogueController@checkType');
+
+    # Children
+    Route::get('create/child/{id}', 'DialogueController@getCreateChildDialogue');
+    Route::post('create/child/{id}', 'DialogueController@postCreateChildDialogue');
+    Route::get('edit/child/{id}', 'DialogueController@getEditChildDialogue');
+    Route::post('edit/child/{id}', 'DialogueController@postEditChildDialogue');
+    
+});
