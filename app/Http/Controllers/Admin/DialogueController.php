@@ -151,7 +151,7 @@ class DialogueController extends Controller
         $data = $request->only([
             'dialogue', 'speaker_name', 'speaker_type', 'speaker_id'
         ]);
-        if($service->updateChildDialogue(Dialogue::find($id), $data)) {
+        if($service->editChildDialogue(Dialogue::find($id), $data)) {
             flash('Child dialogue updated successfully.')->success();
         }
         else {
