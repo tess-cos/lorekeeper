@@ -18,7 +18,7 @@ class CreateDialogueTables extends Migration
             $table->id();
             $table->text('dialogue')->default(null)->nullable()->index();
             //
-            $table->string('speaker_name');
+            $table->string('speaker_name')->default(null)->nullable();
             $table->integer('speaker_id')->default(null)->nullable();
             $table->string('speaker_type')->default(null)->nullable();
             //

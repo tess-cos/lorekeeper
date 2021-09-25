@@ -26,6 +26,13 @@ class DialogueManager extends Service
                 $data['speaker_type'] = null;
                 $data['speaker_id'] = null;
             } 
+            if(isset($data['speaker_type']) && $data['speaker_type'] == 'Response') {
+                $data['speaker_id'] = null;
+            } 
+            if(isset($data['speaker_type']) && $data['speaker_type'] == 'Narration') {
+                $data['speaker_id'] = null;
+                $data['speaker_name'] = '';
+            }
 
             $dialogue = Dialogue::create([
                 'dialogue' => $data['dialogue'],
@@ -51,6 +58,13 @@ class DialogueManager extends Service
             if(isset($data['speaker_type']) && $data['speaker_type'] == 'None') {
                 $data['speaker_type'] = null;
                 $data['speaker_id'] = null;
+            }
+            if(isset($data['speaker_type']) && $data['speaker_type'] == 'Response') {
+                $data['speaker_id'] = null;
+            } 
+            if(isset($data['speaker_type']) && $data['speaker_type'] == 'Narration') {
+                $data['speaker_id'] = null;
+                $data['speaker_name'] = '';
             }
 
             $dialogue->update([
@@ -85,6 +99,9 @@ class DialogueManager extends Service
             if(isset($data['speaker_type']) && $data['speaker_type'] == 'Response') {
                 $data['speaker_id'] = null;
             } 
+            if(isset($data['speaker_type']) && $data['speaker_type'] == 'Narration') {
+                $data['speaker_id'] = null;
+            }
 
             $dialogue = Dialogue::create([
                 'dialogue' => $data['dialogue'],
@@ -113,6 +130,9 @@ class DialogueManager extends Service
             if(isset($data['speaker_type']) && $data['speaker_type'] == 'Response') {
                 $data['speaker_id'] = null;
             } 
+            if(isset($data['speaker_type']) && $data['speaker_type'] == 'Narration') {
+                $data['speaker_id'] = null;
+            }
 
             $dialogue->update([
                 'dialogue' => $data['dialogue'],

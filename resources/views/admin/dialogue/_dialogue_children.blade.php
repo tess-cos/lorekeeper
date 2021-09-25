@@ -10,9 +10,15 @@
     </a>
     <div class="member-view-box" id="children-{{$children->id}}">
         <div class="member-image">
+            @if($children->image)
             <div>
                 <img src="{{ $children->image }}" class="dialogue-img" />
             </div>
+            @else
+            <div>
+                <h4>narrator</h4>
+            </div>
+            @endif
             <div class="member-details text-center">
             <strong>{!! $children->displayname !!}</strong>
             

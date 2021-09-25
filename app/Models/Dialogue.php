@@ -83,6 +83,7 @@ class Dialogue extends Model
     public function getImageAttribute()
     {
         if(!isset($this->speaker_type) && !isset($this->speaker_id)) return null;
+        if($this->speaker_type == 'Narration') return null;
 
         if($this->speaker_type == 'Character') {
             return $this->speaker->image->thumbnailUrl;

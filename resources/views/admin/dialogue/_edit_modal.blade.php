@@ -1,9 +1,10 @@
 {!! Form::open(['url' => 'admin/dialogue/edit/child/'.$dialogue->id]) !!}
 <h4>Speaker Information</h4>
 <p>A speaker name is required. If you want the speaker to be a character or user, set it as such.</p>
+<p>If you wish to include the currently logged in users name within the dialogue, use '{Username}', unlike the speaker type. It will only appear in the dialogue preview and page view.</p>
 
 <div class="form-group">
-    {!! Form::label('speaker_name', 'Speaker Name:') !!}
+    {!! Form::label('speaker_name', 'Speaker name (Optional):') !!}
     {!! Form::text('speaker_name', $dialogue->speaker_name, ['class' => 'form-control', 'placeholder' => 'Type "Username" for the user\'s name']) !!}
 </div>
 
@@ -11,7 +12,7 @@
     <div class="col-md-6">
         <div class="form-group">
             {!! Form::label('speaker_type', 'Speaker Type:') !!}
-            {!! Form::select('speaker_type', ['None' => 'None', 'Character' => 'Character', 'User' => 'User', 'Response' => 'Response'], $dialogue->speaker_type, ['class' => 'form-control', 'id' => 'speaker-type-edit']) !!}
+            {!! Form::select('speaker_type', ['Character' => 'Character', 'User' => 'User', 'Response' => 'Response', 'Narration' => 'Narration'], $dialogue->speaker_type, ['class' => 'form-control', 'id' => 'speaker-type-edit']) !!}
         </div>
     </div>
     <div class="col-md-6" id="speaker-group-edit">

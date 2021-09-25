@@ -1,7 +1,7 @@
 {!! Form::open(['url' => 'admin/dialogue/create/child/'.$id]) !!}
 
 <div class="form-group">
-    {!! Form::label('speaker_name', 'Speaker Name:') !!}
+    {!! Form::label('speaker_name', 'Speaker Name (Optional):') !!}
     {!! Form::text('speaker_name', null, ['class' => 'form-control', 'placeholder' => 'Type "Username" for the user\'s name']) !!}
 </div>
 
@@ -9,7 +9,7 @@
     <div class="col-md-6">
         <div class="form-group">
             {!! Form::label('speaker_type', 'Speaker Type:') !!}
-            {!! Form::select('speaker_type', ['None' => 'None', 'Character' => 'Character', 'User' => 'User', 'Response' => 'Response'], null, ['class' => 'form-control', 'id' => 'speaker-type-child']) !!}
+            {!! Form::select('speaker_type', ['Character' => 'Character', 'User' => 'User', 'Response' => 'Response', 'Narration' => 'Narration'], null, ['class' => 'form-control', 'id' => 'speaker-type-child']) !!}
         </div>
     </div>
     <div class="col-md-6" id="speaker-group-child">
