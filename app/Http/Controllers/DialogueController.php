@@ -12,6 +12,9 @@ use App\Models\Dialogue;
 
 class DialogueController extends Controller
 {
+    /**
+     * Returns next dialogue in sequence 
+     */
     public function getText(Request $request)
     {
         $id = $request->input('id');
@@ -31,7 +34,7 @@ class DialogueController extends Controller
         $dialogue->dialogue = str_replace('{Username}', Auth::user()->name, $dialogue->dialogue);
 
         return response()->json([
-            'image' => '<img src="'.$dialogue->image.'">',
+            'image' => $dialogue->image ? '<img src="'.$dialogue->image.'" class="img-fluid">' : null,
             'name' => $dialogue->displayName ?? ' ',
             'text' => $dialogue->dialogue,
             'responses' => $responses

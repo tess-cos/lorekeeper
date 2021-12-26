@@ -33,8 +33,12 @@ class DialogueManager extends Service
                 $data['speaker_id'] = null;
                 $data['speaker_name'] = '';
             }
+            if(!isset($data['dialogue_name'])) {
+                $data['dialogue_name'] = null;
+            }
 
             $dialogue = Dialogue::create([
+                'dialogue_name' => $data['dialogue_name'],
                 'dialogue' => $data['dialogue'],
                 'speaker_name' => $data['speaker_name'],
                 'speaker_type' => $data['speaker_type'],
@@ -66,8 +70,12 @@ class DialogueManager extends Service
                 $data['speaker_id'] = null;
                 $data['speaker_name'] = '';
             }
+            if(!isset($data['dialogue_name'])) {
+                $data['dialogue_name'] = null;
+            }
 
             $dialogue->update([
+                'dialogue_name' => $data['dialogue_name'],
                 'dialogue' => $data['dialogue'],
                 'speaker_name' => $data['speaker_name'],
                 'speaker_type' => $data['speaker_type'],
@@ -104,6 +112,7 @@ class DialogueManager extends Service
             }
 
             $dialogue = Dialogue::create([
+                'dialogue_name' => null,
                 'dialogue' => $data['dialogue'],
                 'speaker_name' => $data['speaker_name'],
                 'speaker_type' => $data['speaker_type'],
@@ -135,7 +144,7 @@ class DialogueManager extends Service
             }
 
             $dialogue->update([
-                'dialogue' => $data['dialogue'],
+                'dialogue' => null,
                 'speaker_name' => $data['speaker_name'],
                 'speaker_type' => $data['speaker_type'],
                 'speaker_id' => $data['speaker_id'],

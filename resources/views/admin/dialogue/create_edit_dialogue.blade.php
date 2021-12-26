@@ -25,6 +25,11 @@
 <p>If you wish to include the currently logged in users name within the dialogue, use '{Username}', unlike the speaker type. It will only appear in the dialogue preview and page view.</p>
 
 <div class="form-group">
+    {!! Form::label('dialogue_name', 'Dialogue Name:') !!} {!! add_help('For organisational purposes.') !!}
+    {!! Form::text('dialogue_name', $dialogue->dialogue_name, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group">
     {!! Form::label('speaker_name', 'Speaker name (Optional):') !!}
     {!! Form::text('speaker_name', $dialogue->speaker_name, ['class' => 'form-control', 'placeholder' => 'Type "Username" for the user\'s name']) !!}
 </div>

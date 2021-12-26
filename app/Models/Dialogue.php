@@ -16,7 +16,7 @@ class Dialogue extends Model
      * @var array
      */
     protected $fillable = [
-        'dialogue', 'speaker_name', 'speaker_id', 'speaker_type', 'parent_id'
+        'dialogue_name', 'dialogue', 'speaker_name', 'speaker_id', 'speaker_type', 'parent_id'
     ];
 
     /**

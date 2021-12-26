@@ -21,6 +21,7 @@
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Dialogue Name</th>
                 <th>Speaker Name</th>
                 <th>Dialogue</th>
                 <th>Actions</th>
@@ -30,6 +31,7 @@
             @foreach($dialogues as $dialogue)
                 <tr>
                     <td>#{{ $dialogue->id }}</td>
+                    <td>{{ $dialogue->dialogue_name }}</td>
                     <td>{{ $dialogue->speaker_name }}</td>
                     <td>{{ Illuminate\Support\Str::limit($dialogue->dialogue, 50, $end='...') }}</td>
                     <td>

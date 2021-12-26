@@ -89,7 +89,7 @@ class DialogueController extends Controller
     public function postCreateEditDialogue(Request $request, DialogueManager $service, $id = null)
     {
         $data = $request->only([
-            'dialogue', 'speaker_name', 'speaker_type', 'speaker_id'
+            'dialogue', 'speaker_name', 'speaker_type', 'speaker_id', 'dialogue_name'
         ]);
         if($id && $service->updateDialogue(Dialogue::find($id), $data)) {
             flash('Dialogue updated successfully.')->success();

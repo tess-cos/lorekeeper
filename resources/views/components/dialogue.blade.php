@@ -4,10 +4,10 @@
 
 @auth
 <div id="box" class="hide row no-gutters mb-2">
-    <div class="col-2">
+    <div id='image-container' class="col-2">
         <div id="image"></div>
     </div>
-    <div class="col-10">
+    <div id='main-dialogue' class="col-10">
         <h3 class="card-header" id="name"></h3>
         <div class="dialogue" id="dialogue"></div>
         <div class="dialogue-responses">
@@ -30,9 +30,26 @@
             $.ajax({
                     type: "GET", url: "{{ url('dialogue/get-text') }}?id="+id, dataType: "text"
                 }).done(function (data) { 
+                    //console.log(data);
                 var newData = JSON.parse(data);
-                if(newData['image']) $("#image").html(newData['image']);
+                $("#dialogue").html('');
+                if(newData['image']) {
+                    $('#image-container').addClass('col-2');
+                    $('#main-dialogue').removeClass('col-12');
+                    $('#main-dialogue').addClass('col-10');
+
+                    $("#image").html("");
+                    $("#image").html(newData['image']);
+                } 
+                else {
+                    $('#image-container').removeClass('col-2');
+                    $('#main-dialogue').removeClass('col-10');
+                    $('#main-dialogue').addClass('col-12');
+
+                    $("#image").html("");
+                }
                 if(newData['name']) $("#name").html(newData['name']);
+                else $("#name").html("");
 
                 typeWrite(newData['text'], newData);
             }).fail(function (jqXHR, textStatus, errorThrown) { 
@@ -86,7 +103,21 @@
             type: "GET", url: "{{ url('dialogue/get-text') }}?id="+id, dataType: "text"
             }).done(function (data) { 
             var newData = JSON.parse(data);
-            if(newData['image']) $("#image").html(newData['image']);
+            if(newData['image']) { 
+                $('#image-container').addClass('col-2');
+                    $('#main-dialogue').removeClass('col-12');
+                    $('#main-dialogue').addClass('col-10');
+
+                    $("#image").html("");
+                    $("#image").html(newData['image']);
+            } 
+            else {
+                $('#image-container').removeClass('col-2');
+                $('#main-dialogue').removeClass('col-10');
+                $('#main-dialogue').addClass('col-12');
+
+                $("#image").html("");
+            }
             if(newData['name']) $("#name").html(newData['name']);
 
             typeWrite(newData['text'], newData);
