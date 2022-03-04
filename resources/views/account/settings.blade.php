@@ -95,4 +95,57 @@
     {!! Form::close() !!}
 </div>
 
+<div class="card p-3 mb-2">
+    <h3>Accessibility</h3>
+    <hr class="w-50">
+    <h4>Dialogue Text Speed</h4>
+    {!! Form::open(['url' => 'account/text-speed']) !!}
+        <p>Default text speed is 30. The lower the number the faster the type speed is.</p>
+        <div class="form-group row">
+            <label class="col-md-2 col-form-label">Text Speed</label>
+            <div class="col-md-10">
+                {!! Form::text('text_speed', Auth::user()->settings->text_speed, ['class' => 'form-control text-speed']) !!}
+            </div>
+        </div>
+        <h5>Preview</h5>
+        <div class="card p-3" id="preview">
+            &nbsp;
+        </div>
+        <div class="text-right">
+            {!! Form::submit('Edit', ['class' => 'btn btn-primary mt-2']) !!}
+        </div>
+    {!! Form::close() !!}
+</div>
+
+@endsection
+@section('scripts')
+<script>
+    $(document).ready(function(){
+
+        let speed = "<?php echo Auth::user()->settings->text_speed; ?>";
+        let target = document.getElementById('preview');
+        $('.text-speed').change(function() {
+            speed = $(this).val();
+        });
+
+        // call typewrite function and once typewrite is complete wait three seconds before calling it again
+        setInterval(function() {
+            target.innerHTML = '&nbsp;';
+            typeWrite();
+        }, 3000);
+        
+        function typeWrite() {
+            // (A) SET DEFAULT OPTIONS
+            text = 'This is a preview.'
+            // (B) DRAW TYPEWRITER
+            let pointer = 0;
+            setInterval(function() {
+                pointer++;
+                if (pointer <= text.length) {
+                    target.innerHTML = text.substring(0, pointer);
+                } 
+            }, speed);
+        }
+    });
+</script>
 @endsection

@@ -31,7 +31,10 @@ class DialogueController extends Controller
         }
 
         // if $dialogue->dialogue contains {Username} then replace it with the current user's username
-        $dialogue->dialogue = str_replace('{Username}', Auth::user()->name, $dialogue->dialogue);
+        if(Auth::check()) {
+            $dialogue->dialogue = str_replace('{Username}', Auth::user()->username, $dialogue->dialogue);
+        }
+        else $dialogue->dialogue = str_replace('{Username}', 'You', $dialogue->dialogue);
 
         return response()->json([
             'image' => $dialogue->image ? '<img src="'.$dialogue->image.'" class="img-fluid">' : null,

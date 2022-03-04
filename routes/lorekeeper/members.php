@@ -34,6 +34,7 @@ Route::group(['prefix' => 'account', 'namespace' => 'Users'], function() {
     Route::get('remove-alias/{id}', 'AccountController@getRemoveAlias');
     Route::post('remove-alias/{id}', 'AccountController@postRemoveAlias');
     Route::post('dob', 'AccountController@postBirthday');
+    Route::post('text-speed', 'AccountController@postTextSpeed');
 
     Route::get('bookmarks', 'BookmarkController@getBookmarks');
     Route::get('bookmarks/create', 'BookmarkController@getCreateBookmark');
@@ -197,11 +198,4 @@ Route::group(['prefix' => 'comments', 'namespace' => 'Comments'], function() {
     Route::put('/{comment}', 'CommentController@update')->name('comments.update');
     Route::post('/{comment}', 'CommentController@reply')->name('comments.reply');
     Route::post('/{id}/feature', 'CommentController@feature')->name('comments.feature');
-});
-
-/**************************************************************************************************
-    Dialogue
-**************************************************************************************************/
-Route::group(['prefix' => 'dialogue'], function() {
-    Route::get('get-text', 'DialogueController@getText');
 });

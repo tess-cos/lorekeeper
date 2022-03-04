@@ -22,8 +22,8 @@
             <div class="member-details text-center">
             <strong>{!! $children->displayname !!}</strong>
             
-            <p class="mb-0">
-               {{ $children->dialogue }}
+            <p class="mb-0" style="overflow-wrap: break-word;">
+                {{ Illuminate\Support\Str::limit($children->dialogue, 100, $end='...') }}
                <br>
             </p>
 

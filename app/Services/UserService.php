@@ -148,6 +148,17 @@ class UserService extends Service
     }
 
     /**
+     * Updates user's text speed setting
+     */
+    public function updateTextSpeed($data, $user)
+    {
+        $user->settings->text_speed = $data;
+        $user->settings->save();
+
+        return true;
+    }
+
+    /**
      * Updates the user's avatar. 
      *
      * @param  array                  $data

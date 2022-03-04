@@ -170,4 +170,9 @@ Route::group(['prefix' => 'reports', 'namespace' => 'Users'], function() {
     Route::get('/bug-reports', 'ReportController@getBugIndex');
 });
 
-
+/**************************************************************************************************
+    Dialogue
+**************************************************************************************************/
+Route::group(['prefix' => 'dialogue'], function() {
+    Route::get('get-text', 'DialogueController@getText');
+});

@@ -449,6 +449,18 @@ Route::group(['prefix' => 'dialogue', 'middleware' => 'power:manage_characters']
     Route::post('delete/{id}', 'DialogueController@postDeleteDialogue');
 
     Route::get('check-type', 'DialogueController@checkType');
+    Route::get('get-images', 'DialogueController@getImages');
+
+    # Character Images
+    Route::get('character-images', 'DialogueController@getCharacterImages');
+    Route::get('character-images/create', 'DialogueController@getCreateCharacterImage');
+    Route::post('character-images/create', 'DialogueController@postCreateEditCharacterImage');
+    #
+    Route::get('character-images/edit/{id}', 'DialogueController@getEditCharacterImage');
+    Route::post('character-images/edit/{id}', 'DialogueController@postCreateEditCharacterImage');
+    #
+    Route::get('character-images/delete/{id}', 'DialogueController@getDeleteCharacterImage');
+    Route::post('character-images/delete/{id}', 'DialogueController@postDeleteCharacterImage');
 
     # Children
     Route::get('create/child/{id}', 'DialogueController@getCreateChildDialogue');

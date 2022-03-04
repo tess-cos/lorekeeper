@@ -16,7 +16,7 @@ class Dialogue extends Model
      * @var array
      */
     protected $fillable = [
-        'dialogue_name', 'dialogue', 'speaker_name', 'speaker_id', 'speaker_type', 'parent_id'
+        'dialogue_name', 'dialogue', 'speaker_name', 'speaker_id', 'speaker_type', 'parent_id', 'image_id'
     ];
 
     /**
@@ -71,6 +71,14 @@ class Dialogue extends Model
             return $this->belongsTo('App\Models\Loot\Loot', 'rewardable_id', 'loot_table_id')->whereNull('loot_table_id');
     }
 
+    /**
+     * Get the image if set
+     */
+    public function dialogueImage()
+    {
+        return $this->belongsTo('App\Models\Character\CharacterDialogueImage', 'image_id');
+    }
+
     /**********************************************************************************************
     
         ATTRIBUTES
@@ -86,6 +94,7 @@ class Dialogue extends Model
         if($this->speaker_type == 'Narration') return null;
 
         if($this->speaker_type == 'Character') {
+            if($this->image_id) return $this->dialogueImage->imageUrl;
             return $this->speaker->image->thumbnailUrl;
         }
         elseif($this->speaker_type == 'Response') {
@@ -99,7 +108,14 @@ class Dialogue extends Model
      */
     public function getDisplayNameAttribute()
     {
-        if($this->speaker_name != 'Username') return $this->speaker_name;
-        else return Auth::user()->displayname;
+        if($this->speaker_type == 'Narration') return null;
+        if(!$this->speaker_name) {
+            if($this->speaker_type == 'Character') { if($this->speaker->name) return $this->speaker->name; else return $this->speaker->fullName; }
+            if($this->speaker_type == 'User') return $this->speaker->name;
+            if($this->speaker_type == 'Response' && Auth::check()) return Auth::user()->name; else return 'You';
+        }
+        if($this->speaker_name == 'Username' && Auth::check()) return Auth::user()->name;
+        else if($this->speaker_name == 'Username' && !Auth::check()) return 'You';
+        else return $this->speaker_name;
     }
 }

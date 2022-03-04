@@ -38,7 +38,7 @@
     <div class="col-md-6">
         <div class="form-group">
             {!! Form::label('speaker_type', 'Speaker Type:') !!}
-            {!! Form::select('speaker_type', ['Character' => 'Character', 'User' => 'User', 'Response' => 'Response', 'Narration' => 'Narration'], $dialogue->speaker_type, ['class' => 'form-control', 'id' => 'speaker-type']) !!}
+            {!! Form::select('speaker_type', ['None' => 'Choose a Type', 'Character' => 'Character', 'User' => 'User', 'Response' => 'Response', 'Narration' => 'Narration'], $dialogue->speaker_type, ['class' => 'form-control', 'id' => 'speaker-type']) !!}
         </div>
     </div>
     <div class="col-md-6" id="speaker-group">
@@ -46,10 +46,14 @@
         {!! Form::select('speaker_id', $types, $dialogue->speaker_id, ['class' => 'form-control']) !!}
     </div>
 </div>
+<div class="form-group {{ $dialogue->image_id ? '' : 'hide' }}" id="character-emotion">
+    {!! Form::label('Speaker Image:') !!} 
+    {!! Form::select('image_id', $images, $dialogue->image_id, ['class' => 'form-control']) !!}
+</div>
 
 <div class="form-group">
     {!! Form::label('Dialogue') !!}
-    {!! Form::textarea('dialogue', $dialogue->dialogue, ['class' => 'form-control']) !!}
+    {!! Form::textarea('dialogue', $dialogue->dialogue, ['class' => 'form-control ']) !!}
 </div>
 
 <div class="text-right">
@@ -108,7 +112,8 @@
 
 
 <script>
-$( document ).ready(function() {   
+$( document ).ready(function() {  
+    $('.selectize').selectize();
     $('#speaker-type').change(function() {
         var type = $('#speaker-type').val();
         $.ajax({
@@ -124,6 +129,13 @@ $( document ).ready(function() {
     $('.dialogue-child').on('click', function(e) {
         e.preventDefault();
         loadModal("{{ url('admin/dialogue/create/child') }}/{{ $dialogue->id }}", 'Create Child');
+    });
+    // speaker id
+    $('#speaker-group').change(function() {
+        var id = $('#speaker-group').find(":selected").val();
+        $.ajax({
+        type: "GET", url: "{{ url('admin/dialogue/get-images') }}?id="+id+"&dialogue={{ $dialogue->id }}", dataType: "text"
+      }).done(function (res) { $("#character-emotion").html(res); }).fail(function (jqXHR, textStatus, errorThrown) { alert("AJAX call failed: " + textStatus + ", " + errorThrown); });
     });
 });
 </script>

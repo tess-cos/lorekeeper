@@ -17,15 +17,19 @@
     </div>
     <div class="col-md-6" id="speaker-group-edit">
         {!! Form::label('Speaker Id:') !!} 
-        {!! Form::select('speaker_id', $types, $dialogue->speaker_id, ['class' => 'form-control']) !!}
+        {!! Form::select('speaker_id', $types, $dialogue->speaker_id, ['class' => 'form-control selectize']) !!}
     </div>
 </div>
-
+<div class="form-group" id="character-emotion">
+    {!! Form::label('Speaker Image:') !!} 
+    {!! Form::select('image_id', $images, $dialogue->image_id, ['class' => 'form-control']) !!}
+</div>
+@if($dialogue->speaker_type == 'Character')
 <div class="form-group">
     {!! Form::label('Dialogue') !!}
     {!! Form::textarea('dialogue', $dialogue->dialogue, ['class' => 'form-control']) !!}
 </div>
-
+@endif
 <div class="text-right">
     {!! Form::submit($dialogue->id ? 'Edit' : 'Create', ['class' => 'btn btn-primary']) !!}
 </div>
@@ -33,12 +37,20 @@
 {!! Form::close() !!}
 
 <script>
+$('.selectize').selectize();
 $( document ).ready(function() {   
     $('#speaker-type-edit').change(function() {
         var type = $('#speaker-type-edit').val();
         $.ajax({
         type: "GET", url: "{{ url('admin/dialogue/check-type') }}?type="+type, dataType: "text"
       }).done(function (res) { $("#speaker-group-edit").html(res); }).fail(function (jqXHR, textStatus, errorThrown) { alert("AJAX call failed: " + textStatus + ", " + errorThrown); });
+    });
+    // speaker id
+    $('#speaker-group').change(function() {
+    var id = $('#speaker-group-edit').find(":selected").val();
+    $.ajax({
+        type: "GET", url: "{{ url('admin/dialogue/get-images') }}?id="+id, dataType: "text"
+    }).done(function (res) { $("#character-emotion").html(res); }).fail(function (jqXHR, textStatus, errorThrown) { alert("AJAX call failed: " + textStatus + ", " + errorThrown); });
     });
 });
 </script>

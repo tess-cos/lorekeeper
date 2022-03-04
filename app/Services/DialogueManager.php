@@ -36,6 +36,9 @@ class DialogueManager extends Service
             if(!isset($data['dialogue_name'])) {
                 $data['dialogue_name'] = null;
             }
+            if((isset($data['image_id']) && $data['image_id'] == 'None') || $data['speaker_type'] != 'Character') {
+                $data['image_id'] = null;
+            }
 
             $dialogue = Dialogue::create([
                 'dialogue_name' => $data['dialogue_name'],
@@ -44,6 +47,7 @@ class DialogueManager extends Service
                 'speaker_type' => $data['speaker_type'],
                 'speaker_id' => $data['speaker_id'],
                 'parent_id' => null,
+                'image_id' => $data['image_id'],
             ]);
 
             return $this->commitReturn($dialogue);
@@ -73,6 +77,9 @@ class DialogueManager extends Service
             if(!isset($data['dialogue_name'])) {
                 $data['dialogue_name'] = null;
             }
+            if((isset($data['image_id']) && $data['image_id'] == 'None') || $data['speaker_type'] != 'Character') {
+                $data['image_id'] = null;
+            }
 
             $dialogue->update([
                 'dialogue_name' => $data['dialogue_name'],
@@ -81,6 +88,7 @@ class DialogueManager extends Service
                 'speaker_type' => $data['speaker_type'],
                 'speaker_id' => $data['speaker_id'],
                 'parent_id' => null,
+                'image_id' => $data['image_id'],
             ]);
 
             return $this->commitReturn($dialogue);
@@ -110,6 +118,9 @@ class DialogueManager extends Service
             if(isset($data['speaker_type']) && $data['speaker_type'] == 'Narration') {
                 $data['speaker_id'] = null;
             }
+            if((isset($data['image_id']) && $data['image_id'] == 'None') || $data['speaker_type'] != 'Character') {
+                $data['image_id'] = null;
+            }
 
             $dialogue = Dialogue::create([
                 'dialogue_name' => null,
@@ -118,6 +129,7 @@ class DialogueManager extends Service
                 'speaker_type' => $data['speaker_type'],
                 'speaker_id' => $data['speaker_id'],
                 'parent_id' => $id,
+                'image_id' => $data['image_id'],
             ]);
 
             return $this->commitReturn($dialogue);
@@ -142,12 +154,16 @@ class DialogueManager extends Service
             if(isset($data['speaker_type']) && $data['speaker_type'] == 'Narration') {
                 $data['speaker_id'] = null;
             }
+            if((isset($data['image_id']) && $data['image_id'] == 'None') || $data['speaker_type'] != 'Character') {
+                $data['image_id'] = null;
+            }
 
             $dialogue->update([
-                'dialogue' => null,
+                'dialogue' => $data['dialogue'],
                 'speaker_name' => $data['speaker_name'],
                 'speaker_type' => $data['speaker_type'],
                 'speaker_id' => $data['speaker_id'],
+                'image_id' => $data['image_id'],
             ]);
 
             return $this->commitReturn($dialogue);

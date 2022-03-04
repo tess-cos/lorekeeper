@@ -10,6 +10,7 @@
 <p>This is a list of dialogue trees in the game. Each tree should be it's own 'conversation'.</p>
 
 <div class="text-right mb-3">
+    <a class="btn btn-primary" href="{{ url('admin/dialogue/character-images') }}"><i class="fas fa-pencil-alt"></i> Create New Character Dialogue Image</a>
     <a class="btn btn-primary" href="{{ url('admin/dialogue/create') }}"><i class="fas fa-plus"></i> Create New Tree</a>
 </div>
 

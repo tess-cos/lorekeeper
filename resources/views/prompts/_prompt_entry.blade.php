@@ -21,7 +21,11 @@
             <div class="collapse" id="prompt-{{ $prompt->id }}">
                 <h4>Details</h4>
                 @if($prompt->parsed_description)
-                    {!! $prompt->parsed_description !!}
+                    @php
+                        // replace <p>@dialogue(int)</p> with view('components.dialogue', ['id' => 'int'])
+                        $text = preg_replace('/<p>@dialogue\(([0-9]+)\)<\/p>/', ''.view("components.dialogue", ["id" => "$1"]).'', $prompt->parsed_description);
+                    @endphp
+                    {!! $text !!}
                 @else
                     <p>No further details.</p>
                 @endif

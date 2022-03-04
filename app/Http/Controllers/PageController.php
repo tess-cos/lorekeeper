@@ -32,7 +32,6 @@ class PageController extends Controller
         $page = SitePage::where('key', $key)->where('is_visible', 1)->first();
         if(!$page) abort(404);
 
-
         // replace <p>@dialogue(int)</p> with view('components.dialogue', ['id' => 'int'])
         $text = preg_replace('/<p>@dialogue\(([0-9]+)\)<\/p>/', ''.view("components.dialogue", ["id" => "$1"]).'', $page->parsed_text);
 
