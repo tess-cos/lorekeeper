@@ -118,7 +118,10 @@ $( document ).ready(function() {
         var type = $('#speaker-type').val();
         $.ajax({
         type: "GET", url: "{{ url('admin/dialogue/check-type') }}?type="+type, dataType: "text"
-      }).done(function (res) { $("#speaker-group").html(res); }).fail(function (jqXHR, textStatus, errorThrown) { alert("AJAX call failed: " + textStatus + ", " + errorThrown); });
+        }).done(function (res) { 
+            $("#speaker-group").html(res); 
+            if(type != 'Character') $('#character-emotion').addClass('hide');
+        }).fail(function (jqXHR, textStatus, errorThrown) { alert("AJAX call failed: " + textStatus + ", " + errorThrown); });
     });
     //
     $('.delete-button').on('click', function(e) {

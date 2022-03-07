@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<div class="btn btn-primary dialogue-button mx-2 mb-1">Begin Dialogue</div>
+<div class="btn btn-primary dialogue-button mx-2 mb-1 float-right">Begin Dialogue</div>
 
 {{-- SCRIPTS AREA --}}
 <script>
