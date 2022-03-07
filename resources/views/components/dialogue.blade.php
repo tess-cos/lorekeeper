@@ -16,48 +16,56 @@
     </div>
 </div>
 
-<div class="btn btn-primary dialogue-button mx-2 mb-1 float-right">Begin Dialogue</div>
+<div class="hide btn btn-primary dialogue-button mx-2 mb-1"></div>
 
 {{-- SCRIPTS AREA --}}
 <script>
     $( document ).ready(function() {  
+        // we now want to do this on load
+        startDialogue();
+
         $('.dialogue-button').on("click", function(e) {
-            $("#box").removeClass('hide');
-            var id = "<?php echo($id) ?>";
-            $("#responses").html("");
-            $('.dialogue-button').addClass('hide');
-
-            $.ajax({
-                    type: "GET", url: "{{ url('dialogue/get-text') }}?id="+id, dataType: "text"
-                }).done(function (data) { 
-                    //console.log(data);
-                var newData = JSON.parse(data);
-                $("#dialogue").html('');
-                if(newData['image']) {
-                    $('#image-container').addClass('col-2');
-                    $('#main-dialogue').removeClass('col-12');
-                    $('#main-dialogue').addClass('col-10');
-
-                    $("#image").html("");
-                    $("#image").html(newData['image']);
-                } 
-                else {
-                    $('#image-container').removeClass('col-2');
-                    $('#main-dialogue').removeClass('col-10');
-                    $('#main-dialogue').addClass('col-12');
-
-                    $("#image").html("");
-                }
-                if(newData['name'] && newData['name'] != ' ') $("#name").html(newData['name']);
-                else if(newData['name'] && newData['name'] == ' ') $("#name").html("");
-                else $("#name").html("");
-
-                typeWrite(newData['text'], newData);
-            }).fail(function (jqXHR, textStatus, errorThrown) { 
-                alert("AJAX call failed: " + textStatus + ", " + errorThrown); 
-            });
+            startDialogue();
         });
     });
+
+    function startDialogue()
+    {
+        $("#box").removeClass('hide');
+        var id = "<?php echo($id) ?>";
+        $("#responses").html("");
+        $('.dialogue-button').addClass('hide');
+
+        $.ajax({
+                type: "GET", url: "{{ url('dialogue/get-text') }}?id="+id, dataType: "text"
+            }).done(function (data) { 
+                //console.log(data);
+            var newData = JSON.parse(data);
+            $("#dialogue").html('');
+            if(newData['image']) {
+                $('#image-container').addClass('col-2');
+                $('#main-dialogue').removeClass('col-12');
+                $('#main-dialogue').addClass('col-10');
+
+                $("#image").html("");
+                $("#image").html(newData['image']);
+            } 
+            else {
+                $('#image-container').removeClass('col-2');
+                $('#main-dialogue').removeClass('col-10');
+                $('#main-dialogue').addClass('col-12');
+
+                $("#image").html("");
+            }
+            if(newData['name'] && newData['name'] != ' ') $("#name").html(newData['name']);
+            else if(newData['name'] && newData['name'] == ' ') $("#name").html("");
+            else $("#name").html("");
+
+            typeWrite(newData['text'], newData);
+        }).fail(function (jqXHR, textStatus, errorThrown) { 
+            alert("AJAX call failed: " + textStatus + ", " + errorThrown); 
+        });
+    }
 
     // INITIALIASATION //
     //                 //

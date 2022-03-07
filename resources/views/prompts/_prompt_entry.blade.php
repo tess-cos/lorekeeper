@@ -16,13 +16,17 @@
             @endif
         </div>
         <div class="world-entry-text">
-            <p>{{ $prompt->summary }}</p>
+            @if($prompt->summary)
+                @php
+                    $summary = preg_replace('/\@dialogue\(([0-9]+)\)/', ''.view("components.dialogue", ["id" => "$1"]).'', $prompt->summary);
+                @endphp
+                <p>{!! $summary !!}</p>
+            @endif
             <div class="text-right"><a data-toggle="collapse" href="#prompt-{{ $prompt->id }}" class="text-primary"><strong>Show details...</strong></a></div>
             <div class="collapse" id="prompt-{{ $prompt->id }}">
                 <h4>Details</h4>
                 @if($prompt->parsed_description)
                     @php
-                        // replace <p>@dialogue(int)</p> with view('components.dialogue', ['id' => 'int'])
                         $text = preg_replace('/<p>@dialogue\(([0-9]+)\)<\/p>/', ''.view("components.dialogue", ["id" => "$1"]).'', $prompt->parsed_description);
                     @endphp
                     {!! $text !!}
