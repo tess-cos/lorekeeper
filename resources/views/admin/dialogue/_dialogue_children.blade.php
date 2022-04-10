@@ -1,11 +1,11 @@
 <li class="mx-auto">
-    <a class="btn btn-primary mb-1" onClick="createChild({{$children->id}})">
+    <a class="btn btn-primary btn-sm mb-1" onClick="createChild({{$children->id}})">
         <i class="fas fa-plus"></i>
     </a>
-    <a class="btn btn-primary mb-1" onClick="editChild({{$children->id}})">
+    <a class="btn btn-primary btn-sm mb-1" onClick="editChild({{$children->id}})">
         <i class="fas fa-pencil-alt"></i>
     </a>
-    <a class="btn btn-danger mb-1" onClick="deleteChild({{$children->id}})">
+    <a class="btn btn-danger btn-sm mb-1" onClick="deleteChild({{$children->id}})">
         <i class="fas fa-trash"></i>
     </a>
     <div class="member-view-box" id="children-{{$children->id}}">
@@ -23,7 +23,7 @@
             <strong>{!! $children->displayname !!}</strong>
             
             <p class="mb-0" style="overflow-wrap: break-word;">
-                {{ Illuminate\Support\Str::limit($children->dialogue, 100, $end='...') }}
+                {{ Illuminate\Support\Str::limit($children->dialogue, 20, $end='...') }}
                <br>
             </p>
 
