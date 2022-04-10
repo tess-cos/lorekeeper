@@ -90,20 +90,33 @@
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            @foreach($dialogue->children as $child)
-            <div class="col-md  mx-auto body children-body children-scroll">
-                <div class="children-skill ">
-                    <ul>
-                        @include('admin.dialogue._dialogue_children', ['children' => $child, 'types' => $types])
-                    </ul>
-                </div>
-            </div>
-            @endforeach
-        </div>
     </div>
 
+
+    <nav class=" text-center mt-3">
+        <div class="nav nav-tabs mx-auto" id="nav-tab" role="tablist">
+            @foreach($dialogue->children as $child)
+                <a class="nav-link  {{ $loop->first ? 'active' : '' }}" data-toggle="tab" type="a"  href="#dialogue-{{ $child->id }}" role="tab">
+                    {{ strip_tags($child->displayName) }}
+                    <small>- "{{ Illuminate\Support\Str::limit($child->dialogue, 10, $end='...') }}"</small>
+                </a>
+            @endforeach
+        </div>
+    </nav>
+    <div class="tab-content card mt-0">
+        @foreach($dialogue->children as $child)
+            <div class="tab-pane fade  {{ $loop->first ? 'show active' : '' }}" id="dialogue-{{ $child->id }}">
+                <div class="mx-auto body children-body children-scroll">
+                    <div class="children-skill ">
+                        <ul>
+                            @include('admin.dialogue._dialogue_children', ['children' => $child, 'types' => $types])
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+    
     <div class="card p-4">
         <h3>Preview</h3>
         @include('components.dialogue', ['id' => $dialogue->id])
