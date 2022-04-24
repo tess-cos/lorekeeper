@@ -109,7 +109,6 @@
                             $('.stop').addClass('hide');
                             for(var i = 0; i < responses.length; i++) {
                                 var response = responses[i];
-                                console.log( response);
                                 $("#responses").append("<br><div class='btn btn-primary mr-1' onClick='response("+ response['id'] +")'>" + response['name'] + "</div>").hide().fadeIn(200);
                             }
                         }
