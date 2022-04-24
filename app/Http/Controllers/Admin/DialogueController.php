@@ -52,6 +52,11 @@ class DialogueController extends Controller
                 'type' => 'Character',
             ]);
         }
+        elseif($type == 'Narration') {
+            return view('admin.dialogue._type', [
+                'type' => 'Narration',
+            ]);
+        }
         else return '';
     }
 
@@ -116,7 +121,7 @@ class DialogueController extends Controller
     public function postCreateEditDialogue(Request $request, DialogueManager $service, $id = null)
     {
         $data = $request->only([
-            'dialogue', 'speaker_name', 'speaker_type', 'speaker_id', 'dialogue_name', 'image_id'
+            'dialogue', 'speaker_name', 'speaker_type', 'speaker_id', 'dialogue_name', 'image_id', 'img_url'
         ]);
         if($id && $service->updateDialogue(Dialogue::find($id), $data)) {
             flash('Dialogue updated successfully.')->success();
@@ -147,7 +152,7 @@ class DialogueController extends Controller
     public function postCreateChildDialogue(Request $request, DialogueManager $service, $id)
     {
         $data = $request->only([
-            'dialogue', 'speaker_name', 'speaker_type', 'speaker_id', 'image_id', 'dialogue_name'
+            'dialogue', 'speaker_name', 'speaker_type', 'speaker_id', 'image_id', 'dialogue_name', 'img_url'
         ]);
 
         if($service->createChildDialogue($id, $data)) {
@@ -181,7 +186,7 @@ class DialogueController extends Controller
     public function postEditChildDialogue(Request $request, DialogueManager $service, $id)
     {
         $data = $request->only([
-            'dialogue', 'speaker_name', 'speaker_type', 'speaker_id', 'image_id', 'dialogue_name'
+            'dialogue', 'speaker_name', 'speaker_type', 'speaker_id', 'image_id', 'dialogue_name', 'img_url'
         ]);
         if($service->editChildDialogue(Dialogue::find($id), $data)) {
             flash('Child dialogue updated successfully.')->success();

@@ -97,7 +97,11 @@
         let timer = setInterval(function() {
         pointer++;
             if (pointer <= text.length) {
-                target.innerHTML = text.substring(0, pointer);
+                // set image above text
+                if(data['img_url'] && data['img_url'] != '') {
+                    target.innerHTML = data['img_url'] + '<hr> <br>' + text.substring(0, pointer);
+                }
+                else target.innerHTML = text.substring(0, pointer);
             } 
             else {
                 if (loop) { pointer = 0; }

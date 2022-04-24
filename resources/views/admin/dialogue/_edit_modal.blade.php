@@ -21,8 +21,13 @@
         </div>
     </div>
     <div class="col-md-6" id="speaker-group-edit">
-        {!! Form::label('Speaker Id:') !!} 
-        {!! Form::select('speaker_id', $types, $dialogue->speaker_id, ['class' => 'form-control selectize']) !!}
+        @if($dialogue->speaker_type != 'Narration' && $dialogue->type != 'Response')
+            {!! Form::label('Speaker Id:') !!} 
+            {!! Form::select('speaker_id', $types, $dialogue->speaker_id, ['class' => 'form-control']) !!}
+        @elseif($dialogue->speaker_type == 'Narration')
+            {!! Form::label('img_url', 'Dialogue Image (Optional):') !!} {!! add_help('Appears above text, unlike characters. Only works for Narration.') !!}
+            {!! Form::text('img_url', $dialogue->img_url, ['class' => 'form-control']) !!}
+        @endif
     </div>
 </div>
 <div class="form-group" id="character-emotion">

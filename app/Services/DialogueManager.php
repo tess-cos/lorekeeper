@@ -39,7 +39,10 @@ class DialogueManager extends Service
             if((isset($data['image_id']) && $data['image_id'] == 'None') || $data['speaker_type'] != 'Character') {
                 $data['image_id'] = null;
             }
-
+            if(!isset($data['img_url']) || $data['speaker_type'] != 'Narration') {
+                $data['img_url'] = null;
+            }
+            
             $dialogue = Dialogue::create([
                 'dialogue_name' => $data['dialogue_name'],
                 'dialogue' => $data['dialogue'],
@@ -48,6 +51,7 @@ class DialogueManager extends Service
                 'speaker_id' => $data['speaker_id'],
                 'parent_id' => null,
                 'image_id' => $data['image_id'],
+                'img_url' => $data['img_url']
             ]);
 
             return $this->commitReturn($dialogue);
@@ -80,6 +84,9 @@ class DialogueManager extends Service
             if((isset($data['image_id']) && $data['image_id'] == 'None') || $data['speaker_type'] != 'Character') {
                 $data['image_id'] = null;
             }
+            if(!isset($data['img_url']) || $data['speaker_type'] != 'Narration') {
+                $data['img_url'] = null;
+            }
 
             $dialogue->update([
                 'dialogue_name' => $data['dialogue_name'],
@@ -89,6 +96,7 @@ class DialogueManager extends Service
                 'speaker_id' => $data['speaker_id'],
                 'parent_id' => null,
                 'image_id' => $data['image_id'],
+                'img_url' => $data['img_url'],
             ]);
 
             return $this->commitReturn($dialogue);
@@ -124,6 +132,9 @@ class DialogueManager extends Service
             if((isset($data['image_id']) && $data['image_id'] == 'None') || $data['speaker_type'] != 'Character') {
                 $data['image_id'] = null;
             }
+            if(!isset($data['img_url']) || $data['speaker_type'] != 'Narration') {
+                $data['img_url'] = null;
+            }
 
             $dialogue = Dialogue::create([
                 'dialogue_name' => $data['dialogue_name'],
@@ -133,6 +144,7 @@ class DialogueManager extends Service
                 'speaker_id' => $data['speaker_id'],
                 'parent_id' => $id,
                 'image_id' => $data['image_id'],
+                'img_url' => $data['img_url'],
             ]);
 
             return $this->commitReturn($dialogue);
@@ -163,6 +175,9 @@ class DialogueManager extends Service
             if((isset($data['image_id']) && $data['image_id'] == 'None') || $data['speaker_type'] != 'Character') {
                 $data['image_id'] = null;
             }
+            if(!isset($data['img_url']) || $data['speaker_type'] != 'Narration') {
+                $data['img_url'] = null;
+            }
 
             $dialogue->update([
                 'dialogue_name' => $data['dialogue_name'],
@@ -171,6 +186,7 @@ class DialogueManager extends Service
                 'speaker_type' => $data['speaker_type'],
                 'speaker_id' => $data['speaker_id'],
                 'image_id' => $data['image_id'],
+                'img_url' => $data['img_url'],
             ]);
 
             return $this->commitReturn($dialogue);

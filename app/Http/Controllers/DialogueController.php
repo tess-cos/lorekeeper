@@ -42,7 +42,8 @@ class DialogueController extends Controller
             'image' => $dialogue->image ? '<img src="'.$dialogue->image.'" class="img-fluid">' : null,
             'name' => $dialogue->displayName ?? ' ',
             'text' => $dialogue->dialogue,
-            'responses' => $responses
+            'responses' => $responses,
+            'img_url' => $dialogue->img_url ? '<img src="'.$dialogue->img_url.'" class="img-fluid mx-auto">' : null,
         ]);
     }
 }
