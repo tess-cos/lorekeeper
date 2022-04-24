@@ -1,6 +1,11 @@
 {!! Form::open(['url' => 'admin/dialogue/create/child/'.$id]) !!}
 
 <div class="form-group">
+    {!! Form::label('dialogue_name', 'Dialogue Name (Optional):') !!} {!! add_help('Used for the response name.') !!}
+    {!! Form::text('dialogue_name', null, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group">
     {!! Form::label('speaker_name', 'Speaker Name (Optional):') !!}
     {!! Form::text('speaker_name', null, ['class' => 'form-control', 'placeholder' => 'Type "Username" for the user\'s name']) !!}
 </div>

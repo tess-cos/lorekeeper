@@ -98,7 +98,7 @@
             @foreach($dialogue->children as $child)
                 <a class="nav-link  {{ $loop->first ? 'active' : '' }}" data-toggle="tab" type="a"  href="#dialogue-{{ $child->id }}" role="tab">
                     {{ strip_tags($child->displayName) }}
-                    <small>- "{{ Illuminate\Support\Str::limit($child->dialogue, 10, $end='...') }}"</small>
+                    <small>- "{{ Illuminate\Support\Str::limit($child->dialogue_name ?? $child->dialogue, 10, $end='...') }}"</small>
                 </a>
             @endforeach
         </div>

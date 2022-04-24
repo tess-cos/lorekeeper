@@ -4,6 +4,11 @@
 <p>If you wish to include the currently logged in users name within the dialogue, use '{Username}', unlike the speaker type. It will only appear in the dialogue preview and page view.</p>
 
 <div class="form-group">
+    {!! Form::label('dialogue_name', 'Dialogue Name (Optional):') !!} {!! add_help('Used for the response name.') !!}
+    {!! Form::text('dialogue_name', $dialogue->dialogue_name, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group">
     {!! Form::label('speaker_name', 'Speaker name (Optional):') !!}
     {!! Form::text('speaker_name', $dialogue->speaker_name, ['class' => 'form-control', 'placeholder' => 'Type "Username" for the user\'s name']) !!}
 </div>
@@ -21,15 +26,15 @@
     </div>
 </div>
 <div class="form-group" id="character-emotion">
-    {!! Form::label('Speaker Image:') !!} 
-    {!! Form::select('image_id', $images, $dialogue->image_id, ['class' => 'form-control']) !!}
+    @if($dialogue->type == 'Character')
+        {!! Form::label('Speaker Image:') !!} 
+        {!! Form::select('image_id', $images, $dialogue->image_id, ['class' => 'form-control']) !!}
+    @endif
 </div>
-@if($dialogue->speaker_type == 'Character')
 <div class="form-group">
     {!! Form::label('Dialogue') !!}
     {!! Form::textarea('dialogue', $dialogue->dialogue, ['class' => 'form-control']) !!}
 </div>
-@endif
 <div class="text-right">
     {!! Form::submit($dialogue->id ? 'Edit' : 'Create', ['class' => 'btn btn-primary']) !!}
 </div>

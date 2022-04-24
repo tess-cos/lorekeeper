@@ -147,7 +147,7 @@ class DialogueController extends Controller
     public function postCreateChildDialogue(Request $request, DialogueManager $service, $id)
     {
         $data = $request->only([
-            'dialogue', 'speaker_name', 'speaker_type', 'speaker_id', 'image_id'
+            'dialogue', 'speaker_name', 'speaker_type', 'speaker_id', 'image_id', 'dialogue_name'
         ]);
 
         if($service->createChildDialogue($id, $data)) {
@@ -181,7 +181,7 @@ class DialogueController extends Controller
     public function postEditChildDialogue(Request $request, DialogueManager $service, $id)
     {
         $data = $request->only([
-            'dialogue', 'speaker_name', 'speaker_type', 'speaker_id', 'image_id'
+            'dialogue', 'speaker_name', 'speaker_type', 'speaker_id', 'image_id', 'dialogue_name'
         ]);
         if($service->editChildDialogue(Dialogue::find($id), $data)) {
             flash('Child dialogue updated successfully.')->success();

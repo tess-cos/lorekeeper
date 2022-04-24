@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use DB;
 use Auth;
+use Str;
 
 use App\Models\User\User;
 use App\Models\Dialogue;
@@ -27,6 +28,7 @@ class DialogueController extends Controller
             $responses[] = [
                 'id' => $child->id,
                 'dialogue' => $child->dialogue,
+                'name' => $child->dialogue_name ?? Str::limit($child->dialogue, 25, $end='...')
             ];
         }
 
