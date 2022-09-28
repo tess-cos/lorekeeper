@@ -41,12 +41,12 @@
             {!! Form::select('speaker_type', ['None' => 'Choose a Type', 'Character' => 'Character', 'User' => 'User', 'Response' => 'Response', 'Narration' => 'Narration'], $dialogue->speaker_type, ['class' => 'form-control', 'id' => 'speaker-type']) !!}
         </div>
     </div>
-    @if($dialogue->type != 'Narration' && $dialogue->type != 'Response')
+    @if($dialogue->speaker_type != 'Narration' && $dialogue->speaker_type != 'Response')
         <div class="col-md-6" id="speaker-group">
             {!! Form::label('Speaker Id:') !!} 
             {!! Form::select('speaker_id', $types, $dialogue->speaker_id, ['class' => 'form-control']) !!}
         </div>
-    @elseif($dialogue->type == 'Narration')
+    @elseif($dialogue->speaker_type == 'Narration')
         <div class="form-group">
             {!! Form::label('img_url', 'Dialogue Image (Optional):') !!} {!! add_help('Appears above text, unlike characters. Only works for Narration.') !!}
             {!! Form::text('img_url', $dialogue->img_url, ['class' => 'form-control']) !!}

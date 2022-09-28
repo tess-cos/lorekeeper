@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="col-md-6" id="speaker-group-edit">
-        @if($dialogue->speaker_type != 'Narration' && $dialogue->type != 'Response')
+        @if($dialogue->speaker_type != 'Narration' && $dialogue->speaker_type != 'Response')
             {!! Form::label('Speaker Id:') !!} 
             {!! Form::select('speaker_id', $types, $dialogue->speaker_id, ['class' => 'form-control']) !!}
         @elseif($dialogue->speaker_type == 'Narration')
@@ -31,7 +31,7 @@
     </div>
 </div>
 <div class="form-group" id="character-emotion">
-    @if($dialogue->type == 'Character')
+    @if($dialogue->speaker_type == 'Character')
         {!! Form::label('Speaker Image:') !!} 
         {!! Form::select('image_id', $images, $dialogue->image_id, ['class' => 'form-control']) !!}
     @endif
