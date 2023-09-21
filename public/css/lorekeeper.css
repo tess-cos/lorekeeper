@@ -115,7 +115,6 @@ main > .row {
 .sidebar {
     text-align: right;
     padding-right: 0px;
-width: 75%;
 }
 
 .sidebar ul {
@@ -139,6 +138,7 @@ width: 75%;
     text-transform: uppercase;
     font-family: Roboto Condensed, serif; 
     font-weight: bold;
+width: 75%;
 }
 
 .sidebar .sidebar-header {
