@@ -106,10 +106,10 @@ main > .row {
 .navbar .navbar-brand, .navbar .nav-item {
     text-transform: uppercase;
     font-family: Roboto Condensed, serif; 
+width: 75%;
 }
 
-.navbar .row { display: flex;
-	flex: 1 1 100px;}
+.navbar .row { width: 100%;}
 
 /* Sidebar */
 
