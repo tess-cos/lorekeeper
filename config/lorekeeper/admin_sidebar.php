@@ -96,7 +96,7 @@ return [
             ],
             [
                 'name' => 'Memento Grants',
-                'url' => 'admin/grants/mementos'
+                'url' => 'admin/grants/awards'
             ],
         ]
     ],
@@ -138,11 +138,11 @@ return [
             ],
             [
                 'name' => 'Memento Categories',
-                'url' => 'admin/data/memento-categories'
+                'url' => 'admin/data/award-categories'
             ],
             [
                 'name' => 'Mementos',
-                'url' => 'admin/data/mementos'
+                'url' => 'admin/data/awards'
             ],
             [
                 'name' => 'Character Categories',

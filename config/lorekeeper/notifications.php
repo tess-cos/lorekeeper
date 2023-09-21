@@ -322,21 +322,21 @@ return [
     // MEMENTO_GRANT
     341 => [
         'name' => 'Memento Grant',
-        'message' => 'You have earned the following memento(s): {memento_name} (×{memento_quantity}). Yay! (<a href="{url}">View Mementos</a>)',
+        'message' => 'You have earned the following memento(s): {award_name} (×{award_quantity}). Yay! (<a href="{url}">View Mementos</a>)',
         'url' => 'scrapbook'
     ],
 
     // AWARD_REMOVAL
     342 => [
         'name' => 'Memento Removal',
-        'message' => '{memento_name} (×{memento_quantity}) was removed from your Mementos by <a href="{sender_url}">{sender_name}</a>. (<a href="{url}">View Mementos</a>)',
+        'message' => '{award_name} (×{award_quantity}) was removed from your Mementos by <a href="{sender_url}">{sender_name}</a>. (<a href="{url}">View Mementos</a>)',
         'url' => 'scrapbook'
     ],
 
     // AWARD_TRANSFER
     343 => [
         'name' => 'Memento Transfer',
-        'message' => 'You have received {memento_name} (×{memento_quantity}) from <a href="{sender_url}">{sender_name}</a>. (<a href="{url}">View Mementos</a>)',
+        'message' => 'You have received {award_name} (×{award_quantity}) from <a href="{sender_url}">{sender_name}</a>. (<a href="{url}">View Mementos</a>)',
         'url' => 'scrapbook'
     ],
 
