@@ -46,7 +46,7 @@ a:hover {
 
 body {
     background-color: transparent;
-    font-family: Lato, sans-serif; 
+    font-family: verdana, sans-serif; 
     min-height: 100vh;
     font-size: 80%;
 }
@@ -108,7 +108,8 @@ main > .row {
     font-family: Roboto Condensed, serif; 
 }
 
-.navbar .row { width: 100%; }
+.navbar .row { flex-grow: 1;
+    display: flex; }
 
 /* Sidebar */
 
