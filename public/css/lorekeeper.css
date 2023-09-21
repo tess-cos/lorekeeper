@@ -106,7 +106,6 @@ main > .row {
 .navbar .navbar-brand, .navbar .nav-item {
     text-transform: uppercase;
     font-family: Roboto Condensed, serif; 
-width: 75%;
 }
 
 .navbar .row { width: 100%;}
@@ -116,6 +115,7 @@ width: 75%;
 .sidebar {
     text-align: right;
     padding-right: 0px;
+width: 75%;
 }
 
 .sidebar ul {
