@@ -101,6 +101,7 @@ main > .row {
     /*background-color: #eee;*/
     background-repeat: repeat;
     min-height: 200px;
+width: 75%;
 }
 
 .navbar .navbar-brand, .navbar .nav-item {
@@ -138,7 +139,6 @@ main > .row {
     text-transform: uppercase;
     font-family: Roboto Condensed, serif; 
     font-weight: bold;
-width: 75%;
 }
 
 .sidebar .sidebar-header {
