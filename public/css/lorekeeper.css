@@ -85,7 +85,7 @@ main {
 }
 
 main > .row {
-    flex-grow: 2;
+    flex-grow: 1;
 }
 
 .main-content {
@@ -108,7 +108,7 @@ main > .row {
     font-family: Roboto Condensed, serif; 
 }
 
-.navbar .row { width: 100%; }
+.navbar .row { width: 50%; margin: auto;}
 
 /* Sidebar */
 
