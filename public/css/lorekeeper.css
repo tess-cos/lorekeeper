@@ -108,7 +108,8 @@ main > .row {
     font-family: Roboto Condensed, serif; 
 }
 
-.navbar .row { width: 50%; margin: auto;}
+.navbar .row { width: 100%;
+	flex-direction: column;}
 
 /* Sidebar */
 
