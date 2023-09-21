@@ -319,46 +319,46 @@ return [
         'message' => '<a href="{sender_url}">{sender}</a> has made a reply to your comment. <a href="comment/{comment_url}">See Reply.</a>',
         'url' => ''
     ],
-    // AWARD_GRANT
+    // MEMENTO_GRANT
     341 => [
-        'name' => 'Award Grant',
-        'message' => 'You have earned the following award(s): {award_name} (×{award_quantity}). Congratulations! (<a href="{url}">View Awards</a>)',
-        'url' => 'awardcase'
+        'name' => 'Memento Grant',
+        'message' => 'You have earned the following memento(s): {memento_name} (×{memento_quantity}). Yay! (<a href="{url}">View Mementos</a>)',
+        'url' => 'scrapbook'
     ],
 
     // AWARD_REMOVAL
     342 => [
-        'name' => 'Award Removal',
-        'message' => '{award_name} (×{award_quantity}) was removed from your Awards by <a href="{sender_url}">{sender_name}</a>. (<a href="{url}">View Awards</a>)',
-        'url' => 'awardcase'
+        'name' => 'Memento Removal',
+        'message' => '{memento_name} (×{memento_quantity}) was removed from your Mementos by <a href="{sender_url}">{sender_name}</a>. (<a href="{url}">View Mementos</a>)',
+        'url' => 'scrapbook'
     ],
 
     // AWARD_TRANSFER
     343 => [
-        'name' => 'Award Transfer',
-        'message' => 'You have received {award_name} (×{award_quantity}) from <a href="{sender_url}">{sender_name}</a>. (<a href="{url}">View Awards</a>)',
-        'url' => 'awardcase'
+        'name' => 'Memento Transfer',
+        'message' => 'You have received {memento_name} (×{memento_quantity}) from <a href="{sender_url}">{sender_name}</a>. (<a href="{url}">View Mementos</a>)',
+        'url' => 'scrapbook'
     ],
 
     // FORCED_AWARD_TRANSFER
     344 => [
-        'name' => 'Forced Award Transfer',
+        'name' => 'Forced Memento Transfer',
         'message' => '{item_name} (×{item_quantity}) was removed from {character_name} by <a href="{sender_url}">{sender_name}</a>. (<a href="{url}">View Inventory</a>)',
         'url' => 'character/{character_slug}/inventory'
     ],
 
     // CHARACTER_AWARD_GRANT
     345 => [
-        'name' => 'Character Award Grant',
-        'message' => '{character_name} has received a staff grant of {award_name} (×{award_quantity}) from <a href="{sender_url}">{sender_name}</a>. (<a href="{url}">View Awards</a>)',
-        'url' => 'character/{character_slug}/awards'
+        'name' => 'Character Memento Grant',
+        'message' => '{character_name} has received a staff grant of {memento_name} (×{memento_quantity}) from <a href="{sender_url}">{sender_name}</a>. (<a href="{url}">View Mementos</a>)',
+        'url' => 'character/{character_slug}/mementos'
     ],
 
     // CHARACTER_AWARD_REMOVAL
     346 => [
-        'name' => 'Character Award Removal',
-        'message' => '{award_name} (×{award_quantity}) was removed from {character_name} by <a href="{sender_url}">{sender_name}</a>. (<a href="{url}">View Awards</a>)',
-        'url' => 'character/{character_slug}/awards'
+        'name' => 'Character Memento Removal',
+        'message' => '{memento_name} (×{memento_quantity}) was removed from {character_name} by <a href="{sender_url}">{sender_name}</a>. (<a href="{url}">View Mementos</a>)',
+        'url' => 'character/{character_slug}/mementos'
     ],
 
     // CHARACTER_ITEM_GRANT
