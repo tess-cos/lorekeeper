@@ -25,6 +25,10 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
     font-weight: bold;
 }
 
+h5, .h5 {
+    padding: 5px;
+}
+
 h1 a, h2 a, h3 a, h4 a, h5 a,
 a.h1, a.h2, a.h3, a.h4, a.h5 {
     color: rgba(0,0,0,0.7);
@@ -47,7 +51,7 @@ body {
     background-color: transparent;
     font-family: verdana, sans-serif; 
     min-height: 100vh;
-    font-size: 80%;
+    font-size: 9.5pt;
 }
 
 /**************************************************************************************************
@@ -85,6 +89,8 @@ main {
 
 main > .row {
     flex-grow: 1;
+    margin-left: 2.5%;
+    margin-right: 4.5%;
 }
 
 .main-content {
@@ -100,8 +106,10 @@ main > .row {
     /*background-color: #eee;*/
     background-repeat: repeat;
     min-height: 200px;
-width: 66.7%;
+    width: 60.85%;
 margin: auto;
+border-top-left-radius: 95px;
+border-top-right-radius: 95px;
 }
 
 .navbar .nav-item {
@@ -112,18 +120,21 @@ margin: auto;
 
 .navbar .navbar-brand {
     text-transform: lowercase;
-    font-family: Mali, serif; 
+    font-family: Hachi Maru Pop, serif; 
+   margin-top: -6px;
 }
 
 .navbar .row { width: 100%;}
 
-.navbar { width: 66.7%; margin: auto; }
+.navbar { width: 60.85%; margin: auto; }
 
 /* Sidebar */
 
 .sidebar {
-    text-align: right;
+    text-align: center;
     padding-right: 0px;
+    display: inline-block;
+    margin-right: 15px;
 }
 
 .sidebar ul {
@@ -139,13 +150,13 @@ margin: auto;
     margin-bottom: 1em;
     padding: 0.4em 0;
     
-    box-shadow: 0px 0px 6px 3px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.1);
 }
 
 .sidebar .sidebar-header,
 .sidebar .sidebar-section .sidebar-section-header {
     text-transform: lowercase;
-    font-family: verdana, serif; 
+    font-family: Hachi Maru Pop, serif; 
     font-weight: bold;
 }
 
@@ -168,7 +179,7 @@ margin: auto;
 
 .sidebar a {
     text-transform: uppercase;
-    font-family: monospace, serif;
+    font-family: verdana, serif;
     color: rgba(0,0,0,0.4);
 }
 .sidebar a:hover {
@@ -331,6 +342,7 @@ margin: auto;
 
 .display-user, .display-character {
     font-weight: bold;
+   margin-left: 20px;
 }
 
 .help-icon {
@@ -343,15 +355,20 @@ margin: auto;
 .breadcrumb {
     background-color: transparent;
     padding: 0;
-    font-family: Roboto Condensed, serif;
+    font-family: verdana, serif;
     text-transform: uppercase;
     align-items: center;
+    padding: 5px;
 }
 .breadcrumb a {
     color: rgba(0,0,0,0.3);
+    background-color: #dee2e6;
+    border-radius: 999px;
+    padding: 8px;
 }
 .breadcrumb a:hover {
     color: rgba(0,0,0,0.4);
+    background-color: #dee2e6;
     text-decoration: none;
 }
 .breadcrumb-item+.breadcrumb-item:before {
@@ -474,7 +491,9 @@ tr.outflow {
 .profile-assets-card .card-body {
     display: flex;
     flex-direction: column;
+    background-color: #dee2e6;
 }
+
 .profile-assets-card .card-body .profile-assets-content {
     flex-grow: 1;
 }
@@ -482,6 +501,10 @@ tr.outflow {
 .profile-assets .profile-inventory .profile-inventory-item img {
     max-width: 100%;
 }
+
+.profile-assets-card h5 { padding: 0px; font-size: 14pt;}
+
+.col-md-2 h5 { padding: 5px; font-size: 9pt; margin-top: -2px; font-family: Mali, sans-serif;}
 
 .character-bio .nav-tabs.card-header-tabs .active {
     background-color: white;
