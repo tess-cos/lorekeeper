@@ -108,8 +108,7 @@ main > .row {
     font-family: Roboto Condensed, serif; 
 }
 
-.navbar .row { width: 100%;
-	flex-direction: column;}
+.navbar .row { flex: 1 1 100px;}
 
 /* Sidebar */
 
