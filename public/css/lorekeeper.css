@@ -113,7 +113,6 @@ margin: auto;
 .navbar .navbar-brand {
     text-transform: lowercase;
     font-family: Mali, serif; 
-
 }
 
 .navbar .row { width: 100%;}
@@ -146,7 +145,7 @@ margin: auto;
 .sidebar .sidebar-header,
 .sidebar .sidebar-section .sidebar-section-header {
     text-transform: lowercase;
-    font-family: Roboto Condensed, serif; 
+    font-family: verdana, serif; 
     font-weight: bold;
 }
 
@@ -169,7 +168,7 @@ margin: auto;
 
 .sidebar a {
     text-transform: uppercase;
-    font-family: Roboto Condensed, serif;
+    font-family: monospace, serif;
     color: rgba(0,0,0,0.4);
 }
 .sidebar a:hover {
