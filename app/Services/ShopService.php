@@ -207,57 +207,7 @@ class ShopService extends Service
         }
         return $this->rollbackReturn(false);
     }
-
-    /**
-     * Updates shop stock.
-     *
-     * @param  \App\Models\Shop\Shop  $shop
-     * @param  array                  $data 
-     * @param  \App\Models\User\User  $user
-     * @return bool|\App\Models\Shop\Shop
-     */
-    public function editShopStock($stock, $data, $user)
-    {
-        DB::beginTransaction();
-
-        try {
-
-            $stock->update([
-                'shop_id'               => $stock->shop->id,
-                'item_id'               => $data['item_id'],
-                'currency_id'           => $data['currency_id'],
-                'cost'                  => $data['cost'],
-                'use_user_bank'         => isset($data['use_user_bank']),
-                'use_character_bank'    => isset($data['use_character_bank']),
-                'is_fto'                => isset($data['is_fto']),
-                'is_limited_stock'      => isset($data['is_limited_stock']),
-                'quantity'              => isset($data['is_limited_stock']) ? $data['quantity'] : 0,
-                'purchase_limit'        => $data['purchase_limit'],
-                'stock_type'            => $data['stock_type'],
-            ]);
-
-            return $this->commitReturn($stock);
-        } catch(\Exception $e) { 
-            $this->setError('error', $e->getMessage());
-        }
-        return $this->rollbackReturn(false);
-    }
-
-    public function deleteStock($stock)
-    {
-        DB::beginTransaction();
-
-        try {
-
-            $stock->delete();
-
-            return $this->commitReturn(true);
-        } catch(\Exception $e) { 
-            $this->setError('error', $e->getMessage());
-        }
-        return $this->rollbackReturn(false);
-    }
-
+    
     /**
      * Processes user input for creating/updating a shop.
      *

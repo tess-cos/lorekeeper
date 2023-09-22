@@ -8,7 +8,6 @@
         <div class="sidebar-item"><a href="{{ url(__('awards.awardcase')) }}" class="{{ set_active(__('awards.awardcase').'*') }}">{{__('awards.awardcase')}}</a></div>
         <div class="sidebar-item"><a href="{{ url('bank') }}" class="{{ set_active('bank*') }}">Bank</a></div>
         <div class="sidebar-item"><a href="{{ url('wishlists') }}" class="{{ set_active('wishlists*') }}">Wishlists</a></div>
-        @if(Auth::check())<div class="sidebar-item"><a href="{{ url(Auth::user()->url . '/level') }}" class="{{ set_active(Auth::user()->url . '/level') }}">Level Logs</a></div>@endif
     </li>
     <li class="sidebar-section">
         <div class="sidebar-section-header">Activity</div>
