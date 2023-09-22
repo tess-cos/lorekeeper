@@ -25,10 +25,6 @@ h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
     font-weight: bold;
 }
 
-h5, .h5 {
-    padding: 5px;
-}
-
 h1 a, h2 a, h3 a, h4 a, h5 a,
 a.h1, a.h2, a.h3, a.h4, a.h5 {
     color: rgba(0,0,0,0.7);
@@ -501,10 +497,6 @@ tr.outflow {
 .profile-assets .profile-inventory .profile-inventory-item img {
     max-width: 100%;
 }
-
-.profile-assets-card h5 { padding: 0px; font-size: 14pt;}
-
-.col-md-2 h5 { padding: 5px; font-size: 9pt; margin-top: -2px; font-family: Mali, sans-serif;}
 
 .character-bio .nav-tabs.card-header-tabs .active {
     background-color: white;
