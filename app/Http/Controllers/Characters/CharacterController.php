@@ -275,43 +275,6 @@ class CharacterController extends Controller
             ] : []));
     }
 
-
-    /**
-     * Shows a character's awards.
-     *
-     * @param  string  $slug
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function getCharacterAwards($slug)
-    {
-        $categories = AwardCategory::orderBy('sort', 'DESC')->get();
-        $awardOptions = Award::where('is_character_owned', '1');
-
-        $awards = count($categories) ?
-            $this->character->awards()
-                ->where('count', '>', 0)
-                ->orderByRaw('FIELD(award_category_id,'.implode(',', $categories->pluck('id')->toArray()).')')
-                ->orderBy('name')
-                ->orderBy('updated_at')
-                ->get()
-                ->groupBy(['award_category_id', 'id']) :
-            $this->character->awards()
-                ->where('count', '>', 0)
-                ->orderBy('name')
-                ->orderBy('updated_at')
-                ->get()
-                ->groupBy(['award_category_id', 'id']);
-        return view('character.awards', [
-            'character' => $this->character,
-            'categories' => $categories->keyBy('id'),
-            'awards' => $awards,
-            'logs' => $this->character->getAwardLogs(),
-            ] + (Auth::check() && (Auth::user()->hasPower('edit_inventories') || Auth::user()->id == $this->character->user_id) ? [
-                'awardOptions' => $awardOptions->pluck('name', 'id'),
-                'page' => 'character'
-            ] : []));
-    }
-
     
     /**
      * Transfers currency between the user and character.
