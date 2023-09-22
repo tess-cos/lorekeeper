@@ -12,7 +12,7 @@ return [
     //     'version' => '1.0.0',
     // ],
 
-<<<<<<< HEAD
+
     'awards' => [
         'key' => 'awards',
         'wiki_key' => 'Awards',
@@ -23,8 +23,6 @@ return [
         ]),
         'version' => '2.0.0',
     ],
-
-=======
     'selected_character' => [
         'key' => 'selected_character',
         'wiki_key' => 'Selected_Character',
@@ -33,5 +31,4 @@ return [
         ]),
         'version' => '1.0.1',
     ],
->>>>>>> 80cfaff0e2e2ee810c7fd3accff33df00dd52306
 ];
