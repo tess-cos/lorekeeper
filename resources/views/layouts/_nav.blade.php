@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark" id="headerNav">
     <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url('/') }}" style="margin-top: 0px;">✿
+        </a>
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('lorekeeper.settings.site_name', 'Lorekeeper') }}
         </a>
