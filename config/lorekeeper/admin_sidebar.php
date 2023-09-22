@@ -98,6 +98,26 @@ return [
                 'name' => 'Memento Grants',
                 'url' => 'admin/grants/awards'
             ],
+            [
+                'name' => 'EXP Grants',
+                'url' => 'admin/grants/exp'
+            ],
+            [
+                'name' => 'Pet Grants',
+                'url' => 'admin/grants/pets'
+            ],
+            [
+                'name' => 'Gear Grants',
+                'url' => 'admin/grants/gear'
+            ],
+            [
+                'name' => 'Weapon Grants',
+                'url' => 'admin/grants/weapons'
+            ],
+            [
+                'name' => 'Skill Grants',
+                'url' => 'admin/grants/skills'
+            ]
         ]
     ],
     'Masterlist' => [
@@ -126,6 +146,28 @@ return [
             [
                 'name' => 'MYO Approvals',
                 'url' => 'admin/myo-approvals/pending'
+            ],
+        ]
+    ],
+    'Stats' => [
+        'power' => 'edit_stats',
+        'links' => [
+            [
+                'name' => 'Stats',
+                'url' => 'admin/stats'
+            ],
+        ]
+    ],
+    'Levels' => [
+        'power' => 'edit_levels',
+        'links' => [
+            [
+                'name' => 'User Levels',
+                'url' => 'admin/levels/user'
+            ],
+            [
+                'name' => 'Character Levels',
+                'url' => 'admin/levels/character'
             ],
         ]
     ],
@@ -188,6 +230,31 @@ return [
                 'name' => 'Items',
                 'url' => 'admin/data/items'
             ],
+            [
+                'name' => 'Pets',
+                'url' => 'admin/data/pets'
+            ],
+        ]
+    ],
+    'Claymores' => [
+        'power' => 'edit_claymores',
+        'links' => [
+            [
+                'name' => 'Gear',
+                'url' => 'admin/gear'
+            ],
+            [
+                'name' => 'Weapons',
+                'url' => 'admin/weapon'
+            ],
+            [
+                'name' => 'Character Classes',
+                'url' => 'admin/character-classes'
+            ],
+            [
+                'name' => 'Character Skills',
+                'url' => 'admin/data/skills'
+            ]
         ]
     ],
     'Raffles' => [

@@ -10,6 +10,7 @@ use Route;
 use Settings;
 use App\Models\User\User;
 use App\Models\Character\Character;
+use App\Models\Level\CharacterLevel;
 use App\Models\Species\Species;
 use App\Models\Rarity;
 use App\Models\Feature\Feature;
@@ -42,6 +43,7 @@ use App\Services\CharacterManager;
 
 use App\Http\Controllers\Controller;
 
+use App\Models\Skill\Skill;
 class CharacterController extends Controller
 {
     /*
@@ -68,6 +70,11 @@ class CharacterController extends Controller
             if(!$this->character) abort(404);
 
             $this->character->updateOwner();
+            if(!$this->character->level) {
+                $this->character->level()->create([
+                    'character_id' => $this->character->id
+                ]);
+            }
             return $next($request);
         });
     }
@@ -82,6 +89,7 @@ class CharacterController extends Controller
     {
         return view('character.character', [
             'character' => $this->character,
+            'skills' => Skill::where('parent_id', null)->orderBy('name', 'ASC')->get()
         ]);
     }
 
@@ -268,6 +276,43 @@ class CharacterController extends Controller
     }
 
 
+    /**
+     * Shows a character's awards.
+     *
+     * @param  string  $slug
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getCharacterAwards($slug)
+    {
+        $categories = AwardCategory::orderBy('sort', 'DESC')->get();
+        $awardOptions = Award::where('is_character_owned', '1');
+
+        $awards = count($categories) ?
+            $this->character->awards()
+                ->where('count', '>', 0)
+                ->orderByRaw('FIELD(award_category_id,'.implode(',', $categories->pluck('id')->toArray()).')')
+                ->orderBy('name')
+                ->orderBy('updated_at')
+                ->get()
+                ->groupBy(['award_category_id', 'id']) :
+            $this->character->awards()
+                ->where('count', '>', 0)
+                ->orderBy('name')
+                ->orderBy('updated_at')
+                ->get()
+                ->groupBy(['award_category_id', 'id']);
+        return view('character.awards', [
+            'character' => $this->character,
+            'categories' => $categories->keyBy('id'),
+            'awards' => $awards,
+            'logs' => $this->character->getAwardLogs(),
+            ] + (Auth::check() && (Auth::user()->hasPower('edit_inventories') || Auth::user()->id == $this->character->user_id) ? [
+                'awardOptions' => $awardOptions->pluck('name', 'id'),
+                'page' => 'character'
+            ] : []));
+    }
+
+    
     /**
      * Transfers currency between the user and character.
      *
@@ -504,6 +549,66 @@ class CharacterController extends Controller
     }
 
     /**
+     * Shows a character's item logs.
+     *
+     * @param  string  $name
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getCharacterExpLogs($slug)
+    {
+        $character = $this->character;
+        return view('character.stats.exp_logs', [
+            'character' => $this->character,
+            'logs' => $this->character->getExpLogs(0)
+        ]);
+    }
+
+    /**
+     * Shows a user's stat logs.
+     *
+     * @param  string  $name
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getCharacterStatLogs($slug)
+    {
+        $character = $this->character;
+        return view('character.stats.stat_logs', [
+            'character' => $this->character,
+            'logs' => $this->character->getStatLogs(0)
+        ]);
+    }
+
+    /**
+     * Shows a user's level logs.
+     *
+     * @param  string  $name
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getCharacterLevelLogs($slug)
+    {
+        $character = $this->character;
+        return view('character.stats.level_logs', [
+            'character' => $this->character,
+            'logs' => $this->character->getLevelLogs(0)
+        ]);
+    }
+
+    /**
+     * Shows a user's count logs.
+     *
+     * @param  string  $name
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getCharacterCountLogs($slug)
+    {
+        $character = $this->character;
+        return view('character.stats.count_logs', [
+            'character' => $this->character,
+            'logs' => $this->character->getCountLogs(0)
+        ]);
+    }
+
+    /**
      * Shows a character's ownership logs.
      *
      * @param  string  $slug
@@ -541,6 +646,20 @@ class CharacterController extends Controller
         return view('character.submission_logs', [
             'character' => $this->character,
             'logs' => $this->character->getSubmissions()
+        ]);
+    }
+
+    /**
+     * Shows a character's skill logs.
+     *
+     * @param  string  $slug
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getCharacterSkillLogs($slug)
+    {
+        return view('character.character_skill_logs', [
+            'character' => $this->character,
+            'logs' => $this->character->getCharacterSkillLogs()
         ]);
     }
 
