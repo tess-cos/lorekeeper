@@ -58,6 +58,7 @@ body {
     font-family: verdana, sans-serif; 
     min-height: 100vh;
     font-size: 9.5pt;
+    background-color: #ddd;
 }
 
 /**************************************************************************************************
@@ -85,7 +86,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: #ddd;
+    background-color: transparent;
+    margin-top: 35px;
 }
 
 main {

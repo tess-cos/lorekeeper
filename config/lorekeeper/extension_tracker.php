@@ -29,8 +29,7 @@ return [
             'Mercury' => 'https://github.com/itinerare/',
         ]),
         'version' => '1.0.1',
-    ],
-        
+    ], 
     'trade_listings' => [
         'key' => 'Trade_Listings',
         'wiki_key' => 'Trade_Listings',
@@ -39,7 +38,6 @@ return [
         ]),
         'version' => '1.0.1',
     ],
-    
     'wishlists' => [
         'key' => 'wishlists',
         'wiki_key' => 'Wishlists',

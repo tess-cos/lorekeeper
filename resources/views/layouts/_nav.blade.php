@@ -19,6 +19,7 @@
                         <a class="nav-link" href="{{ url('news') }}">News</a>
                     @endif
                 </li>
+                
                 <li class="nav-item">
                     @if(Auth::check() && Auth::user()->is_sales_unread && Config::get('lorekeeper.extensions.navbar_news_notif'))
                         <a class="nav-link d-flex text-warning" href="{{ url('sales') }}"><strong>Sales</strong><i class="fas fa-bell"></i></a>
@@ -45,14 +46,12 @@
                             <a class="dropdown-item" href="{{ url('bank') }}">
                                 Bank
                             </a>
-<<<<<<< HEAD
+
                             <a class="dropdown-item" href="{{ url('awardcase') }}">
                                 {{ ucfirst(__('awards.awards')) }}
-=======
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('wishlists') }}">
                                 Wishlists
->>>>>>> bf6b18dc60c35f2a424d18ca2b64ad241caf09cb
                             </a>
                         </div>
                     </li>
@@ -117,11 +116,15 @@
                         <a class="dropdown-item" href="{{ url('world') }}">
                             Encyclopedia
                         </a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ url('prompts/prompts') }}">
                             Prompts
                         </a>
                         <a class="dropdown-item" href="{{ url('shops') }}">
                             Shops
+                        </a>
+                        <a class="dropdown-item" href="{{ url('/trades/listings') }}">
+                            Trades
                         </a>
                     </div>
                 </li>
