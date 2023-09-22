@@ -11,7 +11,6 @@ return [
     //     ]),
     //     'version' => '1.0.0',
     // ],
-
     
     'awards' => [
         'key' => 'awards',
@@ -30,5 +29,13 @@ return [
             'Mercury' => 'https://github.com/itinerare/',
         ]),
         'version' => '1.0.1',
+    ],
+    'wishlists' => [
+        'key' => 'wishlists',
+        'wiki_key' => 'Wishlists',
+        'creators' => json_encode([
+            'Mercury' => 'https://github.com/itinerare/',
+        ]),
+        'version' => '1.4.0',
     ],
 ];

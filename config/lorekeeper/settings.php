@@ -21,9 +21,11 @@ return [
     |--------------------------------------------------------------------------
     |
     | This is the current version of Lorekeeper that your site is on.
+    | This is the current version of Lorekeeper that your site is on.
     | Do not change this value!
     |
     */
+
     'version' => '2.1.2',
 
     /*
