@@ -54,24 +54,9 @@
     </div>
 @endif
 
-<<<<<<< HEAD
-
-<div class="card-deck mb-4 profile-assets" style="clear:both;">
-    <div class="card profile-currencies profile-assets-card">
-        <div class="card-body text-center">
-            <h5 class="card-title">Bank</h5>
-            <div class="profile-assets-content">
-                @foreach($user->getCurrencies(false) as $currency)
-                    <div>{!! $currency->display($currency->quantity) !!}</div>
-                @endforeach
-            </div>
-            <div class="text-right"><a href="{{ $user->url.'/bank' }}">View all...</a></div>
-        </div>
-=======
 <div class="row">
     <div class="col-md-6">
         @include('widgets._selected_character', ['character' => $user->settings->selectedCharacter, 'user' => $user, 'fullImage' => true])
->>>>>>> 80cfaff0e2e2ee810c7fd3accff33df00dd52306
     </div>
     <div class="col-md-6 mb-4 profile-assets" style="clear:both;">
         <div class="card profile-currencies profile-assets-card mb-4">
