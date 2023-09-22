@@ -141,23 +141,24 @@ border-top-right-radius: 95px;
 
 .sidebar ul li {
     background-color: white;
-    border-top-left-radius: .25rem;
-    border-bottom-left-radius: .25rem;
-    margin-bottom: 1em;
-    padding: 0.4em 0;
-    
+    margin-bottom: 0em;
+    padding: 0.2em 0; 
     box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.1);
 }
 
-.sidebar .sidebar-header,
 .sidebar .sidebar-section .sidebar-section-header {
     text-transform: lowercase;
-    font-family: Hachi Maru Pop, serif; 
+    letter-spacing: 0.5px;
+    font-family: Mali, serif; 
+    background-color: #dee2e6;
     font-weight: bold;
+    font-size: 11.5pt;
+    padding: 2.5px;
 }
 
 .sidebar .sidebar-header {
     background-color: #343a40;
+    padding-bottom: 4.5px;
 }
 .sidebar .sidebar-header a {
     color: white;
@@ -338,7 +339,7 @@ border-top-right-radius: 95px;
 
 .display-user, .display-character {
     font-weight: bold;
-   margin-left: 20px;
+   margin-left: 0px;
 }
 
 .help-icon {

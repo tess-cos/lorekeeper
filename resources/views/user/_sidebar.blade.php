@@ -1,7 +1,7 @@
 <ul>
-    <li class="sidebar-header"><a href="{{ $user->url }}" class="card-link">{{ Illuminate\Support\Str::limit($user->name, 10, $end='...') }}</a></li>
+    <li class="sidebar-header" style="border-top-left-radius: .50rem;  border-top-right-radius: .50rem; font-size: 11pt;"><a href="{{ $user->url }}" class="card-link" style="font-family: Hachi Maru Pop; text-transform: lowercase; font-weight: bold; padding: 2px;">{{ Illuminate\Support\Str::limit($user->name, 10, $end='...') }}</a></li>
     <li class="sidebar-section">
-        <div class="sidebar-section-header">Gallery</div>
+        <div class="sidebar-section-header" style="margin-top: -2.5px;">Gallery</div>
         <div class="sidebar-item"><a href="{{ $user->url.'/gallery' }}" class="{{ set_active('user/'.$user->name.'/gallery*') }}">Gallery</a></div>
         <div class="sidebar-item"><a href="{{ $user->url.'/favorites' }}" class="{{ set_active('user/'.$user->name.'/favorites*') }}">Favorites</a></div>
         <div class="sidebar-item"><a href="{{ $user->url.'/favorites/own-characters' }}" class="{{ set_active('user/'.$user->name.'/favorites/own-characters*') }}">Own Character Favorites</a></div>
@@ -21,7 +21,7 @@
         <div class="sidebar-item"><a href="{{ $user->url.'/bank' }}" class="{{ set_active('user/'.$user->name.'/bank*') }}">Bank</a></div>
         <div class="sidebar-item"><a href="{{ $user->url.'/wishlists' }}" class="{{ set_active('user/'.$user->name.'/wishlists*') }}">Wishlists</a></div>
     </li>
-    <li class="sidebar-section">
+    <li class="sidebar-section" style="border-bottom-left-radius: .50rem; border-bottom-right-radius: .50rem; padding-bottom: 10px;">
         <div class="sidebar-section-header">History</div>
         <div class="sidebar-item"><a href="{{ $user->url.'/ownership' }}" class="{{ $user->url.'/ownership*' }}">Ownership History</a></div>
         <div class="sidebar-item"><a href="{{ $user->url.'/item-logs' }}" class="{{ $user->url.'/currency-logs*' }}">Item Logs</a></div>
@@ -31,9 +31,9 @@
     </li>
 
     @if(Auth::check() && Auth::user()->hasPower('edit_user_info'))
-        <li class="sidebar-section">
-            <div class="sidebar-section-header">Admin</div>
-            <div class="sidebar-item"><a href="{{ $user->adminUrl }}">Edit User</a></div>
+        <li class="sidebar-section" style="border-radius: .50rem; margin-top: 12.5px; padding-bottom: 10px;">
+            <div class="sidebar-header" style="border-top-left-radius: .50rem;  border-top-right-radius: .50rem; font-size: 11pt; margin-top: -2.5px; color: #fff; font-family: Hachi Maru Pop; text-transform: lowercase; font-weight: bold; margin-bottom: 5px; padding-bottom: 5px;">Admin</div>
+            <div class="sidebar-item" "><a href="{{ $user->adminUrl }}">Edit User</a></div>
         </li>
     @endif
 </ul>
