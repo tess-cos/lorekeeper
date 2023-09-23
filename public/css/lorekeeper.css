@@ -65,6 +65,9 @@ body {
     min-height: 100vh;
     font-size: 9.5pt;
     background-color: #F1F8E9;
+    background-image: url('\images\bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /**************************************************************************************************
