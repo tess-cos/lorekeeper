@@ -92,7 +92,7 @@
     {!! Form::label('is_active', 'Is Active', ['class' => 'form-check-label ml-3']) !!} {!! add_help('Prompts that are not active will be hidden from the prompt list. The start/end time hide settings override this setting, i.e. if this is set to active, it will still be hidden outside of the start/end times.') !!}
 </div>
 <!----Level Area--->
-<h3>Level Rewards (Optional)</h3>
+<div style="display: none;"><h3>Level Rewards (Optional)</h3>
 <p>Leave the following forms blank if you want no reward</p>
 <div class="form-group">
     <p>User Rewards</p>
@@ -132,7 +132,7 @@
     <div class="level-form-group" style="display: none">
         {!! Form::number('level_req', $prompt->level_req ? $prompt->level_req : 1, ['class' => 'form-control mb-1', 'min' => 1]) !!}
     </div>
-</div>
+</div></div>
 <!------------------------------------->
 
 <div class="form-group">
@@ -144,21 +144,6 @@
 <p>Rewards are credited on a per-user basis. Mods are able to modify the specific rewards granted at approval time.</p>
 <p>You can add loot tables containing any kind of currencies (both user- and character-attached), but be sure to keep track of which are being distributed! Character-only currencies cannot be given to users.</p>
 @include('widgets._loot_select', ['loots' => $prompt->rewards, 'showLootTables' => true, 'showRaffles' => true])
-<hr class="w-70">
-<h3>Skill Rewards</h3>
-<p>Skills are rewarded to focus characters. These are the default rewards, however, they can be modified on approval.</p>
-<div class="form-group">
-    <div id="skillList">
-        @foreach($prompt->skills as $skill)
-            <div class="d-flex mb-2">
-                {!! Form::select('skill_id[]', $skills, $skill->skill_id, ['class' => 'form-control mr-2 skill-select original', 'placeholder' => 'Select Skill']) !!}
-                {!! Form::text('skill_quantity[]', $skill->quantity, ['class' => 'form-control mr-2', 'placeholder' => 'Amount of level']) !!}
-                <a href="#" class="remove-skill btn btn-danger mb-2">×</a>
-            </div>
-        @endforeach
-    </div>
-    <div><a href="#" class="btn btn-primary" id="add-skill">Add Skill Reward</a></div>
-</div>
 
 <div class="text-right">
     {!! Form::submit($prompt->id ? 'Edit' : 'Create', ['class' => 'btn btn-primary']) !!}
@@ -166,7 +151,7 @@
 
 {!! Form::close() !!}
 
-<div class="skill-row hide mb-2">
+<div class="skill-row hide mb-2" style="display: none;">
     {!! Form::select('skill_id[]', $skills, null, ['class' => 'form-control mr-2 skill-select', 'placeholder' => 'Select Skill']) !!}
     {!! Form::text('skill_quantity[]', null, ['class' => 'form-control mr-2', 'placeholder' => 'Amount of level']) !!}
     <a href="#" class="remove-skill btn btn-danger mb-2">×</a>

@@ -53,7 +53,7 @@
                 </table>
             @endif
             <hr>
-            <h4>Skills</h4>
+            <div style="display: none;"><h4>Skills</h4>
             @if(!count($prompt->skills))
                 No skill increase.
             @else
@@ -106,7 +106,7 @@
             </div>
             @else
                 @if(Auth::check() && Auth::user()->isStaff)<div class="alert alert-warning">There is currently no EXP rewards in existance on this prompt. Please press "edit" in the prompt admin page to allow it to generate! Users will see a blank block until it is generated.</div>@endif
-            @endif
+            @endif </div>
         </div>
         <div class="text-right mt-1">
             @if($prompt->level_req)
