@@ -157,6 +157,10 @@
                         </li>
                     @endif
 
+                    @foreach(Auth::user()->getCurrencies(true) as $currency)
+                    <li class="nav-item" style="margin-top: 5px; margin-left: 2.5px; padding: 2.5px;">{!! $currency->display($currency->quantity) !!}</li>
+            @endforeach
+
                     <li class="nav-item dropdown">
                         <a id="browseDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             Submit
