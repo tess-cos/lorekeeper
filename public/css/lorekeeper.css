@@ -1,6 +1,6 @@
 /**************************************************************************************************
-    
-    Font definitions 
+
+    Font definitions
 
 **************************************************************************************************/
 
@@ -24,21 +24,27 @@
 }
 
 /**************************************************************************************************
-    
+
     Base styles
-    
+
 **************************************************************************************************/
 
-h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     text-transform: lowercase;
-    font-family: Mali, serif; 
+    font-family: Mali, serif;
     font-weight: bold;
+}
+
+h6,
+.h6 {
+    text-transform: unset;
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a,
 a.h1, a.h2, a.h3, a.h4, a.h5 {
     color: rgba(0,0,0,0.7);
 }
+
 h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover,
 a.h1:hover, a.h2:hover, a.h3:hover, a.h4:hover, a.h5:hover {
     color: inherit;
@@ -62,9 +68,9 @@ body {
 }
 
 /**************************************************************************************************
-    
+
     Helpers
-    
+
 **************************************************************************************************/
 
 .hide {
@@ -77,9 +83,9 @@ body {
 }
 
 /**************************************************************************************************
-    
+
     Layout
-    
+
 **************************************************************************************************/
 
 #app {
@@ -217,7 +223,7 @@ border-top-right-radius: 95px;
 	.site-mobile-header {
 		top: 54px !important;
     }
-    
+
     .timestamp {
 		margin-left: 1rem!important;
 		margin-right: 1rem!important;
@@ -265,7 +271,7 @@ border-top-right-radius: 95px;
     }
     .sidebar.active {
         left: 0%;
-    } 
+    }
 
     .sidebar > ul {
         padding-top: 0px;
@@ -283,19 +289,19 @@ border-top-right-radius: 95px;
         border-radius: 0;
         margin-bottom: 1em;
         padding: 0.4em 0;
-        
+
         box-shadow: none;
     }
-	
+
 	/*fix for screen being over-wide on mobile*/
 	.row {
 		margin:0; max-width:100%;
 	}
-    
+
 	.container-fluid {
 		padding:0px;
 	}
-    
+
 	.site-footer .navbar .navbar-nav {
 		flex-wrap: wrap; justify-content: center;
 	}
@@ -328,9 +334,9 @@ border-top-right-radius: 95px;
 }
 
 /**************************************************************************************************
-    
+
     Content
-    
+
 **************************************************************************************************/
 .modal-header {
     border-bottom: 0px;
@@ -340,7 +346,7 @@ border-top-right-radius: 95px;
 }
 
 .tooltip-inner {
-    max-width: 350px !important; 
+    max-width: 350px !important;
 }
 
 .nav-tabs .nav-link.active {
@@ -645,6 +651,11 @@ tr.accountbound {
     width: 100px;
 }
 
+
+@media (min-width: 768px) {
+    .fb-md-50 { flex-basis:50%; }
+}
+
 /* BOOTSTRAP TABLES *************************************************************************************/
 .ubt-bottom {
   border-bottom:1px solid #dee2e6;
@@ -669,7 +680,7 @@ tr.accountbound {
         padding-left: 3rem;
         border-left-width: 2px!important;
     }
-    
+
 @media only screen and (max-width: 600px) {
     .comment_replies { padding-left:1rem;}
 }
