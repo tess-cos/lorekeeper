@@ -128,7 +128,7 @@
                                 @else {!!$pet->pet->displayName !!}
                                 @endif
                                 <br>
-                                <span class="text-light badge badge-dark" style="font-size:95%;">{!! $pet->pet_name !!}</span>
+                                <span class="badge" style="font-size:95%; background-color: #E5C1C7;">{!! $pet->pet_name !!}</span>
                             </div>
                         @endforeach
                         </div>
