@@ -1,8 +1,8 @@
 <div class="card mb-3">
-    <div class="card-header">
-        <h2 class="card-title mb-0">{!! $news->displayName !!}</h2>
+    <div class="card-header" style="background-color: #fbf5f6; border-bottom: 0px;">
+        <h2 class="card-title mb-0"><i class="fas fa-seedling" style="color: #95b582;"></i> {!! $news->displayName !!}</h2>
         <small>
-            Posted {!! $news->post_at ? pretty_date($news->post_at) : pretty_date($news->created_at) !!} :: Last edited {!! pretty_date($news->updated_at) !!} by {!! $news->user->displayName !!}
+            Posted {!! $news->post_at ? pretty_date($news->post_at) : pretty_date($news->created_at) !!} (Last edited {!! pretty_date($news->updated_at) !!}) by {!! $news->user->displayName !!}
         </small>
     </div>
     <div class="card-body">

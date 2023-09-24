@@ -380,8 +380,8 @@ border-bottom: 2.5px dashed #E5C1C7;}
     background-color: transparent;
 }
 .nav-tabs .nav-link {
-    text-transform: uppercase;
-    font-family: Roboto Condensed, serif;
+    text-transform: lowercase;
+    font-family: Poppins, sans-serif;
 }
 
 .display-user, .display-character {
@@ -458,7 +458,7 @@ border-bottom: 2.5px dashed #E5C1C7;}
     cursor: pointer;
     padding: .3rem 1.25rem;
     font-size: .9rem;
-    font-family: Roboto Condensed, serif;
+    font-family: Poppins, serif;
     color: inherit;
     text-transform: uppercase;
 }
@@ -473,6 +473,46 @@ border-bottom: 2.5px dashed #E5C1C7;}
 .small-icon {
     height: 2rem;
     padding-right: .5rem;
+}
+
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #bed0a6 !important; border-color: #bed0a6; color: #4a4a4a; text-transform: capitalize;
+} 
+
+.btn-outline-primary, .btn-outline-primary:hover, .btn-outline-primary:active, .btn-outline-primary:visited {
+    border-color: #bed0a6; color: #bed0a6;
+}
+
+.btn-outline-primary:hover {
+    background-color: #bed0a6 !important; color: #4a4a4a;
+}
+
+.text-success { color: #95b582 !important;}
+
+.btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
+    background-color: #E5C1C7 !important; border-color: #E5C1C7; color: #4a4a4a;
+} 
+
+.btn-outline-success, .btn-outline-success:hover, .btn-outline-success:active, .btn-outline-success:visited {
+    border-color: #E5C1C7; color: #E5C1C7;
+}
+
+.btn-outline-success:hover {
+    background-color: #E5C1C7 !important; color: #4a4a4a;
+}
+
+
+.btn-danger, .btn-danger:hover, .btn-danger:active, .btn-danger:visited, {
+    background-color: #E57373 !important; border-color: #E5C1C7; color: #fafafa;
+} 
+
+.btn-outline-danger, .btn-outline-danger:hover, .btn-outline-danger:active, .btn-outline-danger:visited {
+    border-color: #E57373; color: #E57373;
+}
+
+.btn-outline-danger:hover {
+    background-color: #E57373 !important; color: #fafafa;
 }
 
 /* NOTIFICATIONS *********************************************************************************/
@@ -536,7 +576,8 @@ tr.outflow {
 .profile-assets-card .card-body {
     display: flex;
     flex-direction: column;
-    background-color: #dee2e6;
+    background-color: #fbf5f6;
+    border: #95b582;
 }
 
 .profile-assets-card .card-body .profile-assets-content {
@@ -550,6 +591,8 @@ tr.outflow {
 .character-bio .nav-tabs.card-header-tabs .active {
     background-color: white;
 }
+
+.selec
 
 /* INVENTORY *************************************************************************************/
 
