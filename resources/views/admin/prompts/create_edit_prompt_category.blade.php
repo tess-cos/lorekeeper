@@ -32,7 +32,7 @@
     @endif
 </div>
 
-<div class="form-group">
+<div class="form-group" style="background-color: #fff;">
     {!! Form::label('Description (Optional)') !!}
     {!! Form::textarea('description', $category->description, ['class' => 'form-control wysiwyg']) !!}
 </div>

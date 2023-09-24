@@ -64,10 +64,7 @@ body {
     font-family: verdana, sans-serif; 
     min-height: 100vh;
     font-size: 9.5pt;
-    background-color: #F1F8E9;
-    background-image: url('\images\bg.jpg');
-    background-repeat: repeat;
-    background-attachment: fixed;
+    background-color: #fff;
 }
 
 /**************************************************************************************************
@@ -95,8 +92,9 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: transparent;
-    margin-top: 35px;
+    background-image: url(https://i.imgur.com/XxrmiPC.png);
+    background-repeat: repeat;
+    background-attachment: fixed;
 }
 
 main {
@@ -131,19 +129,42 @@ border-top-right-radius: 95px;
 
 .navbar .nav-item {
     text-transform: lowercase;
-    font-family: Mali, serif; 
+    font-family: Mali, serif;
+    color: #212121;
+}
 
+.navbar .navbar-f {
+    text-transform: lowercase;
+    font-family: Hachi Maru Pop, serif; 
+   margin-top: -2.5px;
+   font-size: 15pt;
+   padding-right: 4.5px;
+   color: #E5C1C7;
 }
 
 .navbar .navbar-brand {
     text-transform: lowercase;
-    font-family: Hachi Maru Pop, serif; 
+    font-family: Hachi Maru Pop, serif;
+    font-weight: bolder;
    margin-top: -6px;
+   color: #95b582;
 }
 
 .navbar .row { width: 100%;}
 
-.navbar { width: 60.85%; margin: auto; }
+.navbar { width: 60.85%; margin: auto; background-color: #fafafa;
+border-bottom: 2.5px dashed #E5C1C7;}
+
+.navimg {
+    height: 70px;
+    width: 100%;
+    background-image: url(https://i.imgur.com/BxvQMZ1.png);
+    background-repeat: repeat-x;
+    background-size: contain;
+    position: absolute;
+    top: -50px;
+    left: 0px;
+    z-index: 0; }
 
 /* Sidebar */
 
@@ -234,7 +255,7 @@ border-top-right-radius: 95px;
 }
 
 @media (max-width: 991px) {
-    .site-header-image {
+    .site-header-image, .navimg {
         display: none;
     }
     .site-mobile-header {
@@ -318,9 +339,12 @@ border-top-right-radius: 95px;
 
 .site-footer .navbar {
     padding-bottom: 0;
+    background: #fff;
+    border: 0px;
 }
 .site-footer .navbar .navbar-nav {
     flex-direction: row;
+    background: #fff;
 }
 .site-footer .navbar .navbar-nav .nav-link {
     padding-right: .5rem;
@@ -382,18 +406,18 @@ border-top-right-radius: 95px;
     letter-spacing: 0.5px;
 }
 .breadcrumb a {
-    color: rgba(0,0,0,0.3);
-    background-color: #dee2e6;
+    color: rgba(9, 9, 9, 0.568);
+    background-color: #EDD3A0;
     border-radius: 999px;
     padding: 8px;
 }
 .breadcrumb a:hover {
     color: rgba(0,0,0,0.4);
-    background-color: #dee2e6;
+    background-color: #f1e0c9;
     text-decoration: none;
 }
 .breadcrumb-item+.breadcrumb-item:before {
-    content: "»";
+    content: "/";
 }
 .collapse-title {
     position: relative;

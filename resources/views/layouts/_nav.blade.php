@@ -1,6 +1,7 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark" id="headerNav">
+<nav class="navbar navbar-expand-md navbar-dark" id="headerNav">
+   <div class="navimg"></div>
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ url('/') }}" style="margin-top: 0px;">✿
+        <a class="navbar-f" href="{{ url('/') }}">✿
         </a>
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('lorekeeper.settings.site_name', 'Lorekeeper') }}
@@ -16,7 +17,7 @@
                     @if(Auth::check() && Auth::user()->is_news_unread && Config::get('lorekeeper.extensions.navbar_news_notif'))
                         <a class="nav-link d-flex text-warning" href="{{ url('news') }}"><strong>News</strong><i class="fas fa-bell"></i></a>
                     @else
-                        <a class="nav-link" href="{{ url('news') }}">News</a>
+                        <a class="nav-link" style="color:#4A4A4A; font-size: 10pt;" href="{{ url('news') }}">News</a>
                     @endif
                 </li>
                 
@@ -24,12 +25,12 @@
                     @if(Auth::check() && Auth::user()->is_sales_unread && Config::get('lorekeeper.extensions.navbar_news_notif'))
                         <a class="nav-link d-flex text-warning" href="{{ url('sales') }}"><strong>Sales</strong><i class="fas fa-bell"></i></a>
                     @else
-                        <a class="nav-link" href="{{ url('sales') }}">Sales</a>
+                        <a class="nav-link" style="color:#4A4A4A; font-size: 10pt;" href="{{ url('sales') }}">Sales</a>
                     @endif
                 </li>
                 @if(Auth::check())
                     <li class="nav-item dropdown">
-                        <a id="inventoryDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="inventoryDropdown" class="nav-link dropdown-toggle" style="color:#4A4A4A; font-size: 10pt;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             Home
                         </a>
 
@@ -56,7 +57,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a id="queueDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="queueDropdown" class="nav-link dropdown-toggle" style="color:#4A4A4A; font-size: 10pt;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             Activity
                         </a>
                         <div class="dropdown-menu" aria-labelledby="queueDropdown">
@@ -83,7 +84,7 @@
                     </li>
                 @endif
                 <li class="nav-item dropdown">
-                    <a id="browseDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <a id="browseDropdown" class="nav-link dropdown-toggle" style="color:#4A4A4A; font-size: 10pt;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         Browse
                     </a>
 
@@ -108,7 +109,7 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a id="loreDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <a id="loreDropdown" class="nav-link dropdown-toggle" style="color:#4A4A4A; font-size: 10pt;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         World
                     </a>
 
@@ -148,7 +149,7 @@
                 @else
                     @if(Auth::user()->isStaff)
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('admin') }}"><i class="fas fa-crown"></i></a>
+                            <a class="nav-link" style="color: #E5C1C7;" href="{{ url('admin') }}"><i class="fas fa-crown"></i></a>
                         </li>
                     @endif
                     @if(Auth::user()->notifications_unread)
@@ -158,11 +159,11 @@
                     @endif
 
                     @foreach(Auth::user()->getCurrencies(true) as $currency)
-                    <li class="nav-item" style="margin-top: 5px; margin-left: 2.5px; padding: 2.5px;">{!! $currency->display($currency->quantity) !!}</li>
+                    <li class="nav-item" style="color: #4A4A4A; margin-top: 5px; margin-left: 2.5px; padding: 2.5px;">{!! $currency->display($currency->quantity) !!}</li>
             @endforeach
 
                     <li class="nav-item dropdown">
-                        <a id="browseDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="browseDropdown" class="nav-link dropdown-toggle" href="#" style="color:#4A4A4A; font-size: 10pt;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             Submit
                         </a>
 
@@ -180,7 +181,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{ Auth::user()->url }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color:#4A4A4A; font-size: 10pt;" href="{{ Auth::user()->url }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
