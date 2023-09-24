@@ -128,7 +128,7 @@ class PetDropService extends Service
             // Check first if the table is currently in use
             // - Prompts
             // - Box rewards (unfortunately this can't be checked easily)
-            if(PetDrop::where('drop_id', $drop->id)->exists()) throw new \Exception('A pet has drops using this data. Consider disabling drops instead.');
+            if(PetDropData::where('id', $drop->id)->exists()) throw new \Exception('A pet has drops using this data. Consider disabling drops instead.');
 
             $drop->petDrops()->delete();
             $drop->delete();
