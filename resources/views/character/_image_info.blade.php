@@ -1,7 +1,7 @@
 {{-- Image Data --}}
 <div class="col-md-5 d-flex">
     <div class="card character-bio w-100">
-        <div class="card-header">
+        <div class="card-header" style="background: none;">
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
                     <a class="nav-link active" id="infoTab-{{ $image->id }}" data-toggle="tab" href="#info-{{ $image->id }}" role="tab">Info</a>
@@ -115,7 +115,7 @@
                         <a href="#" class="btn btn-outline-info btn-sm edit-features mb-3" data-id="{{ $image->id }}"><i class="fas fa-cog"></i> Edit</a>
                     </div>
                 @endif
-
+<hr>
                 <div class="mb-1">
                     <div style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">Pets</div>
                         <div class="text-center row">

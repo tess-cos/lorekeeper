@@ -1,5 +1,6 @@
-<ul>
-    <li class="sidebar-header" style="border-top-left-radius: .50rem;  border-top-right-radius: .50rem; font-size: 11pt;"><a href="{{ $user->url }}" class="card-link" style="font-family: Hachi Maru Pop; text-transform: lowercase; font-weight: bold; padding: 2px;">{{ Illuminate\Support\Str::limit($user->name, 10, $end='...') }}</a></li>
+
+<ul><div class="sideimg"></div>
+    <li class="sidebar-header"><a href="{{ $user->url }}" class="card-link">{{ Illuminate\Support\Str::limit($user->name, 10, $end='...') }}</a></li>
     <li class="sidebar-section">
         <div class="sidebar-section-header" style="margin-top: -2.5px;">Gallery</div>
         <div class="sidebar-item"><a href="{{ $user->url.'/gallery' }}" class="{{ set_active('user/'.$user->name.'/gallery*') }}">Gallery</a></div>

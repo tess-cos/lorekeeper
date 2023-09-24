@@ -153,7 +153,7 @@ border-top-right-radius: 95px;
 .navbar .row { width: 100%;}
 
 .navbar { width: 60.85%; margin: auto; background-color: #fafafa;
-border-bottom: 2.5px dashed #E5C1C7;}
+border-bottom: 2px solid #E5C1C7;}
 
 .navimg {
     height: 70px;
@@ -173,6 +173,7 @@ border-bottom: 2.5px dashed #E5C1C7;}
     padding-right: 0px;
     display: inline-block;
     margin-right: 15px;
+    padding: 5px;
 }
 
 .sidebar ul {
@@ -186,24 +187,37 @@ border-bottom: 2.5px dashed #E5C1C7;}
     margin-bottom: 0em;
     padding: 0.2em 0; 
     box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.1);
+    width: 180px;
+    border-top: 1px solid #95b582;
 }
 
 .sidebar .sidebar-section .sidebar-section-header {
-    text-transform: lowercase;
+    text-transform: uppercase;
     letter-spacing: 0.5px;
-    font-family: Mali, serif; 
-    background-color: #dee2e6;
-    font-weight: bold;
-    font-size: 11.5pt;
-    padding: 2.5px;
+    font-family: Poppins, serif; 
+    background-color: #fafafa;
+    font-size: 1-9.5pt;
+    padding: 5px;
+    border-bottom: 1px solid #95b582;
 }
 
 .sidebar .sidebar-header {
-    background-color: #343a40;
+    background-color: #95b582;
     padding-bottom: 4.5px;
+    border-top-left-radius: .50rem; 
+    border-top-right-radius: .50rem;
+    font-size: 11pt;
+    font-family: Hachi Maru Pop, serif;
+    text-transform: lowercase;
+    font-weight: bold;
+    padding: 2px;
 }
+
 .sidebar .sidebar-header a {
     color: white;
+    font-family: Hachi Maru Pop, serif;
+    padding: 5.5px;
+    margin-top: -1.5px;
 }
 .sidebar .sidebar-header a:hover {
     background-color: transparent;
@@ -216,16 +230,26 @@ border-bottom: 2.5px dashed #E5C1C7;}
     padding: 0.1em 1em;
 }
 
+.sidebar-section-header {
+    margin-top: -2.5px;
+}
+
+.sidebar-item a {
+    text-align: left;
+}
+
 .sidebar a {
     text-transform: lowercase;
     font-family: Poppins, sans-serif;
-    color: rgba(0,0,0,0.4);
+    color: #4a4a4a;
     font-size: 10pt;
     letter-spacing: 0.5px;
+    padding: 5px;
+    padding-left: 15px;
 }
 .sidebar a:hover {
-    color: #16181b;
-    background-color: #f8f9fa;
+    color: #aaa;
+    background-color: #f4e3e6;
 }
 .sidebar a:hover, .sidebar a:active, .sidebar a:focus, .sidebar a:link {
     text-decoration: none;
@@ -234,8 +258,21 @@ border-bottom: 2.5px dashed #E5C1C7;}
     text-decoration: none;
 }
 .sidebar a.active, .sidebar a.active:hover {
-    color: white;
-    background-color: #343a40;
+    color: #4a4a4a;
+    background-color: #E5C1C7;
+    text-align: left;
+}
+
+.sideimg {
+    height: 100px;
+    width: 100%;
+    background-image: url(https://i.imgur.com/qdJQ8kC.png);
+    background-repeat: space;
+    background-size: contain;
+    position: absolute;
+    top: -19px;
+    left: -20px;
+    z-index: 3;
 }
 
 .site-mobile-header {
@@ -289,7 +326,6 @@ border-bottom: 2.5px dashed #E5C1C7;}
         bottom: 0px;
         top: 0px;
         overflow-y: scroll;
-
         left: -100%;
         transition: left 0.2s;
     }
@@ -591,7 +627,7 @@ tr.outflow {
     background-color: white;
 }
 
-.selec
+.card-header { background: none !important;}
 
 /* INVENTORY *************************************************************************************/
 
