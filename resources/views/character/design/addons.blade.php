@@ -16,7 +16,6 @@
         @include('widgets._bank_select', ['owner' => Auth::user(), 'selected' => $request->userBank])
 
         @if(!$request->character->is_myo_slot)
-            @include('widgets._bank_select', ['owner' => $request->character, 'selected' => $request->characterBank])
         @endif
 
         <div class="text-right">

@@ -32,7 +32,7 @@
             {{-- Basic info  --}}
             <div class="tab-pane fade show active" id="info-{{ $image->id }}">
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 col-4"><h5>Class</h5></div>
+                    <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">Class</div>
                     <div class="col-lg-8 col-md-6 col-8">{!! $image->character->class_id ? $image->character->class->displayName : 'None' !!} 
                         @if(Auth::check())
                         @if(Auth::user()->isStaff || Auth::user()->id == $image->character->user_id && $image->character->class_id == null) 
@@ -42,34 +42,34 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 col-4"><h5>Species</h5></div>
+                    <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">Species</div>
                     <div class="col-lg-8 col-md-6 col-8">{!! $image->species_id ? $image->species->displayName : 'None' !!}</div>
                 </div>
                 @if($image->subtype_id)
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 col-4"><h5>{{ ucfirst(__('lorekeeper.subtype'))}}</h5></div>
+                        <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">{{ ucfirst(__('lorekeeper.subtype'))}}</div>
                         <div class="col-lg-8 col-md-6 col-8">{!! $image->subtype_id ? $image->subtype->displayName : 'None' !!}</div>
                     </div>
                 @endif
                 @if($image->character->homeSetting)
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 col-4"><h5>Home</h5></div>
+                        <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">Home</div>
                         <div class="col-lg-8 col-md-6 col-8">{!! $image->character->location ? $image->character->location : 'None' !!}</div>
                     </div>
                 @endif
                 @if($image->character->factionSetting)
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 col-4"><h5>Faction</h5></div>
+                        <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">Faction</div>
                         <div class="col-lg-8 col-md-6 col-8">{!! $image->character->faction ? $image->character->currentFaction : 'None' !!}{!! $character->factionRank ? ' ('.$character->factionRank->name.')' : null !!}</div>
                     </div>
                 @endif
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 col-4"><h5>Rarity</h5></div>
+                    <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">Rarity</div>
                     <div class="col-lg-8 col-md-6 col-8">{!! $image->rarity_id ? $image->rarity->displayName : 'None' !!}</div>
                 </div>
 
                 <div class="mb-3">
-                    <div><h5>Traits</h5></div>
+                    <div style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">Traits</div>
                     @if(Config::get('lorekeeper.extensions.traits_by_category'))
                         <div>
                             @php $traitgroup = $image->features()->get()->groupBy('feature_category_id') @endphp
@@ -117,7 +117,7 @@
                 @endif
 
                 <div class="mb-1">
-                    <div><h5>Pets</h5></div>
+                    <div style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">Pets</div>
                         <div class="text-center row">
                         @foreach($image->character->pets as $pet)
                             <div class="ml-3 mr-3">
@@ -134,7 +134,7 @@
                         </div>
                 </div>
 
-                <div class="mb-1">
+                <div class="mb-1" style="display: none;">
                     <div><h5>Gear</h5></div>
                         <div class="text-center row">
                         @foreach($image->character->gear as $gear)
@@ -150,7 +150,7 @@
                         </div>
                 </div>
 
-                <div class="mb-1">
+                <div class="mb-1" style="display: none;">
                     <div><h5>Weapons</h5></div>
                         <div class="text-center row">
                         @foreach($image->character->weapons as $weapon)
@@ -185,7 +185,7 @@
             <div class="tab-pane fade" id="credits-{{ $image->id }}">
 
                 <div class="row mb-2">
-                    <div class="col-lg-4 col-md-6 col-4"><h5>Design</h5></div>
+                    <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">Design</div>
                     <div class="col-lg-8 col-md-6 col-8">
                         @foreach($image->designers as $designer)
                             <div>{!! $designer->displayLink() !!}</div>
@@ -193,7 +193,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 col-4"><h5>Art</h5></div>
+                    <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">Art</div>
                     <div class="col-lg-8 col-md-6 col-8">
                         @foreach($image->artists as $artist)
                             <div>{!! $artist->displayLink() !!}</div>

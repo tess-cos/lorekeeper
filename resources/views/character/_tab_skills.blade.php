@@ -1,4 +1,4 @@
-@foreach($skills->chunk(2) as $chunk)
+<div style="display: none;">@foreach($skills->chunk(2) as $chunk)
 <div class="row">
     @foreach($chunk as $skill)
     <div class="col-md">
@@ -46,4 +46,4 @@
             e.stopPropagation();
         });
     });
-</script>
+</script></div>

@@ -1,3 +1,4 @@
+<div style="display: none;">
 @if($character->skills()->where('skill_id', $children->id)->exists())
     @php $characterSkill = $character->skills()->where('skill_id', $children->id)->first() @endphp
 @else
@@ -34,4 +35,4 @@
         @endforeach
     </ul>
 @endif
-</li>
+</li></div>

@@ -42,7 +42,7 @@
                 <a class="nav-link" id="notesTab" data-toggle="tab" href="#notes" role="tab">Description</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="skillsTab" data-toggle="tab" href="#skills" role="tab">Skills</a>
+                <a class="nav-link" id="skillsTab" style="display: none;" data-toggle="tab" href="#skills" role="tab">Skills</a>
             </li>
             @if(Auth::check() && Auth::user()->hasPower('manage_characters'))
                 <li class="nav-item">
@@ -58,7 +58,7 @@
         <div class="tab-pane fade" id="notes">
             @include('character._tab_notes', ['character' => $character])
         </div>
-        <div class="tab-pane fade" id="skills">
+        <div class="tab-pane fade" id="skills" style="display: none;">
             @include('character._tab_skills', ['character' => $character, 'skills' => $skills])
         </div>
         @if(Auth::check() && Auth::user()->hasPower('manage_characters'))
