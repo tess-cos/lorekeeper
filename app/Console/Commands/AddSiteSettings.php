@@ -107,6 +107,8 @@ class AddSiteSettings extends Command
 
         $this->addSiteSetting('trade_listing_duration', 14, 'Number of days a trade listing is displayed for.');
 
+        $this->addSiteSetting('max_strike_count', 3, 'Number of strikes a user can have before being automatically banned.');
+
         $this->line("\nSite settings up to date!");
 
         $this->addSiteSetting('claymore_cooldown', 0, 'Number of days to add to the cooldown timer when a pet/weapon/gear is attached.');

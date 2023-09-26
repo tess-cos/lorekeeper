@@ -267,4 +267,10 @@ Route::group(['prefix' => 'world', 'namespace' => 'WorldExpansion'], function() 
     Route::get('concept-categories', 'ConceptController@getConceptCategories');
     Route::get('concept-categories/{id}', 'ConceptController@getConceptCategory');
 });
-
+/**************************************************************************************************
+    Mail - this has to be in browse so banned users can view mail
+**************************************************************************************************/
+Route::group(['prefix' => 'mail', 'namespace' => 'Users'], function() {
+    Route::get('/', 'MailController@getIndex');
+    Route::get('view/{id}', 'MailController@getMail');
+});

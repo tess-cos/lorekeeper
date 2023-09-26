@@ -11,6 +11,7 @@ use Auth;
 use Config;
 use Carbon\Carbon;
 
+use App\Models\Mail\ModMail;
 use App\Models\Character\Character;
 use App\Models\Character\CharacterImageCreator;
 use App\Models\Rank\RankPower;
@@ -569,6 +570,15 @@ class User extends Authenticatable implements MustVerifyEmail
         }
     }
 
+
+    /** 
+     * Check if user has any unseen mod mail
+     */
+    public function gethasUnseenMailAttribute()
+    {
+        if(ModMail::where('user_id', $this->id)->where('seen', 0)->exists()) return true;
+        else return false;
+    }
     /**********************************************************************************************
 
         OTHER FUNCTIONS

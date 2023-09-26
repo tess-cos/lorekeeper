@@ -789,3 +789,11 @@ Route::group(['prefix' => 'world',  'namespace' => 'World', 'middleware' => 'pow
     Route::post('glossary/delete/{id}', 'GlossaryController@postDeleteTerm');
 
 });
+
+# MOD MAIL
+Route::group(['prefix' => 'mail', 'middleware' => 'power:send_mod_mail'], function() {
+    Route::get('/', 'ModMailController@getIndex');
+    Route::get('/view/{id}', 'ModMailController@getMail');
+    Route::get('/create', 'ModMailController@getCreateMail');
+    Route::post('/create', 'ModMailController@postCreateMail');
+});

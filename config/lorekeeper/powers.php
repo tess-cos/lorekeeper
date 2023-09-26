@@ -55,6 +55,10 @@ return [
         'name' => 'Manage Reports',
         'description' => 'Allow rank to view the reports queue.'
     ],
+    'send_mod_mail' => [
+        'name' => 'Send Mod Mail',
+        'description' => 'Allow rank to send mod mail to other site members.'
+    ],
     'edit_stats' => [
         'name' => 'Edit Stats',
         'description' => 'Allow rank to edit stats.'
@@ -67,5 +71,4 @@ return [
         'name' => 'Edit Claymores & Companions',
         'description' => 'Allow rank to edit claymore & companions data.'
     ]
-
 ];
