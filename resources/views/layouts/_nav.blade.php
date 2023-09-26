@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark" id="headerNav">
+<nav class="navbar navbar-expand-md navbar-light" id="headerNav">
    <div class="navimg"></div>
     <div class="container-fluid">
         <a class="navbar-f" href="{{ url('/') }}">✿
@@ -41,6 +41,8 @@
                             <a class="dropdown-item" href="{{ url('characters/myos') }}">
                                 My MYO Slots
                             </a>
+                            <a class="dropdown-item" href="{{ url('pets') }}">Pets</a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('inventory') }}">
                                 Inventory
                             </a>
@@ -54,9 +56,6 @@
                             <a class="dropdown-item" href="{{ url('wishlists') }}">
                                 Wishlists
                             </a>
-                            <a class="dropdown-item" href="{{ url('inbox') }}">
-                                Inbox
-                            </a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -64,63 +63,39 @@
                             Activity
                         </a>
                         <div class="dropdown-menu" aria-labelledby="queueDropdown">
+                        <a class="dropdown-item" href="{{ url('inbox') }}">
+                                Inbox
+                            </a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('submissions') }}">
                                 Prompt Submissions
                             </a>
-                            <a class="dropdown-item" href="{{ url('claims') }}">
-                                Claims
-                            </a>
-                            <a class="dropdown-item" href="{{ url('reports') }}">
-                                My Reports
-                            </a>
                             <a class="dropdown-item" href="{{ url('designs') }}">
                                 Design Approvals
+                            </a>
+                            <a class="dropdown-item" href="{{ url('claims') }}">
+                                Claims
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('characters/transfers/incoming') }}">
                                 Character Transfers
                             </a>
                             <a class="dropdown-item" href="{{ url('trades/open') }}">
-                                Trades
+                                Trade Listings
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ url('reports') }}">
+                                My Reports
                             </a>
                         </div>
                     </li>
                 @endif
                 <li class="nav-item dropdown">
-                    <a id="browseDropdown" class="nav-link dropdown-toggle" style="color:#4A4A4A; font-size: 10pt;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        Browse
-                    </a>
-
-                    <div class="dropdown-menu" aria-labelledby="browseDropdown">
-                        <a class="dropdown-item" href="{{ url('users') }}">
-                            Users
-                        </a>
-                        <a class="dropdown-item" href="{{ url('masterlist') }}">
-                            Character Masterlist
-                        </a>
-                        <a class="dropdown-item" href="{{ url('myos') }}">
-                            MYO Slot Masterlist
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ url('raffles') }}">
-                            Raffles
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ url('reports/bug-reports') }}">
-                            Bug Reports
-                        </a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
                     <a id="loreDropdown" class="nav-link dropdown-toggle" style="color:#4A4A4A; font-size: 10pt;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        World
+                        Play
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="loreDropdown">
-                        <a class="dropdown-item" href="{{ url('world') }}">
-                            Encyclopedia
-                        </a>
-                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ url('prompts/prompts') }}">
                             Prompts
                         </a>
@@ -128,12 +103,36 @@
                             Shops
                         </a>
                         <a class="dropdown-item" href="{{ url('/trades/listings') }}">
-                            Trades
+                            Trade Plaza
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ url('world') }}">
+                           World
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ url('raffles') }}">
+                            Raffles
                         </a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="color:#4A4A4A; font-size: 10pt;" href="{{ url('gallery') }}">Gallery</a>
+                <li class="nav-item dropdown">
+                    <a id="browseDropdown" class="nav-link dropdown-toggle" style="color:#4A4A4A; font-size: 10pt;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        Browse
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="browseDropdown">
+                        <a class="dropdown-item" href="{{ url('gallery') }}">Gallery</a>
+                        <div class="dropdown-divider"></div> 
+                        <a class="dropdown-item" href="{{ url('users') }}">
+                            Users
+                        </a>
+                        <a class="dropdown-item" href="{{ url('masterlist') }}">
+                            Cossetling Masterlist
+                        </a>
+                        <a class="dropdown-item" href="{{ url('myos') }}">
+                            MYO Masterlist
+                        </a>
+                    </div>
                 </li>
             </ul>
 
