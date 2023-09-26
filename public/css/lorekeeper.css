@@ -112,6 +112,7 @@ main > .row {
     background-color: white;
     box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.1);
     display: flex;
+    max-width: 1000px;
     flex-direction: column;
 }
 
@@ -270,8 +271,8 @@ border-bottom: 2px solid #E5C1C7;}
     background-repeat: space;
     background-size: contain;
     position: absolute;
-    top: -14px;
-    left: -16px;
+    top: -9px;
+    left: -13px;
     z-index: 3;
 }
 
@@ -611,8 +612,6 @@ tr.outflow {
 .profile-assets-card .card-body {
     display: flex;
     flex-direction: column;
-    background-color: #fbf5f6;
-    border: #95b582;
 }
 
 .profile-assets-card .card-body .profile-assets-content {

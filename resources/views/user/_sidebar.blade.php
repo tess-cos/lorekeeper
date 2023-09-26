@@ -20,8 +20,8 @@
         <div class="sidebar-item"><a href="{{ $user->url.'/inventory' }}" class="{{ set_active('user/'.$user->name.'/inventory*') }}">Inventory</a></div>
         <div class="sidebar-item"><a href="{{ $user->url.'/'.__('awards.awardcase') }}" class="{{ set_active('user/'.$user->name.'/awardcase*') }}">{{ucfirst(ucfirst(__('awards.awardcase')))}}</a></div>
         <div class="sidebar-item"><a href="{{ $user->url.'/bank' }}" class="{{ set_active('user/'.$user->name.'/bank*') }}">Bank</a></div>
-        <div class="sidebar-item"><a href="{{ $user->url.'/wishlists' }}" class="{{ set_active('user/'.$user->name.'/wishlists*') }}">Wishlists</a></div>
         <div class="sidebar-item"><a href="{{ $user->url.'/pets' }}" class="{{ set_active('user/'.$user->name.'/pets*') }}">Pets</a></div>
+        <div class="sidebar-item"><a href="{{ $user->url.'/wishlists' }}" class="{{ set_active('user/'.$user->name.'/wishlists*') }}">Wishlists</a></div>
     </li>
     <li class="sidebar-section" style="border-bottom-left-radius: .50rem; border-bottom-right-radius: .50rem; padding-bottom: 10px;">
         <div class="sidebar-section-header">History</div>
