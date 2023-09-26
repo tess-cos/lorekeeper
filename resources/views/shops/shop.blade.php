@@ -22,7 +22,7 @@
 </div>
 
 @foreach($stocks as $type => $stock)
-    @if(count($stock))<h3>{{ $type }}</h3>@endif
+    @if(count($stock))<br /><div style="display: none;"><h3>{{ $type }}</h3></div>@endif
         @if(Settings::get('shop_type'))
             @include('shops._tab', ['items' => $stock, 'shop' => $shop])
         @else

@@ -1,4 +1,4 @@
-<ul>
+<ul><div class="sideimg"></div>
     <li class="sidebar-header"><a href="{{ url('gallery') }}" class="card-link">Gallery</a></li>
 
     @auth
@@ -19,7 +19,7 @@
         </li>
     @endif
 
-    <li class="sidebar-section">
+    <li class="sidebar-section" style="border-bottom-left-radius: .50rem; border-bottom-right-radius: .50rem; padding-bottom: 10px;">
         <div class="sidebar-section-header">Galleries</div>
         @foreach($sidebarGalleries as $gallery)
             <div class="sidebar-item"><a href="{{ url('gallery/'.$gallery->id) }}" class="{{ set_active('gallery/.$gallery->id') }}">{{ $gallery->name }}</a></div>

@@ -1,4 +1,4 @@
-<ul>
+<ul><div class="sideimg"></div>
     <li class="sidebar-header"><a href="{{ $character->url }}" class="card-link">{{ $character->fullName }}</a></li>
     <li class="sidebar-section">
         <div class="sidebar-section-header">{{ucfirst(__('lorekeeper.character'))}}</div>
@@ -10,7 +10,7 @@
         <div class="sidebar-item"><a href="{{ $character->url . '/ownership' }}" class="{{ set_active('myo/'.$character->id.'/ownership') }}">Ownership History</a></div>
     </li>
     @if(Auth::check() && (Auth::user()->id == $character->user_id || Auth::user()->hasPower('manage_characters')))
-        <li class="sidebar-section">
+        <li class="sidebar-section" style="border-bottom-left-radius: .50rem; border-bottom-right-radius: .50rem; padding-bottom: 10px;">
             <div class="sidebar-section-header">Settings</div>
             <div class="sidebar-item"><a href="{{ $character->url . '/profile/edit' }}" class="{{ set_active('myo/'.$character->id.'/profile/edit') }}">Edit Profile</a></div>
             <div class="sidebar-item"><a href="{{ $character->url . '/transfer' }}" class="{{ set_active('myo/'.$character->id.'/transfer') }}">Transfer</a></div>

@@ -130,7 +130,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('gallery') }}">Gallery</a>
+                    <a class="nav-link" style="color:#4A4A4A; font-size: 10pt;" href="{{ url('gallery') }}">Gallery</a>
                 </li>
             </ul>
 

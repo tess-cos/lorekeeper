@@ -1,4 +1,4 @@
-<ul>
+<ul><div class="sideimg"></div>
     <li class="sidebar-header"><a href="{{ $character->url }}" class="card-link">{{ $character->slug }}</a></li>
     <li class="sidebar-section">
         <div class="sidebar-section-header">{{ ucfirst(__('lorekeeper.character')) }}</div>
@@ -20,7 +20,7 @@
         <div class="sidebar-item"><a href="{{ $character->url . '/'.__('awards.award').'-logs' }}" class="{{ set_active('character/'.$character->slug.'/'.__('awards.award').'-logs') }}">{{ucfirst(__('awards.award'))}} Logs</a></div>
     </li>
     @if(Auth::check() && (Auth::user()->id == $character->user_id || Auth::user()->hasPower('manage_characters')))
-        <li class="sidebar-section">
+        <li class="sidebar-section" style="border-bottom-left-radius: .50rem; border-bottom-right-radius: .50rem; padding-bottom: 10px;">
             <div class="sidebar-section-header">Settings</div>
             <div class="sidebar-item"><a href="{{ $character->url . '/profile/edit' }}" class="{{ set_active('character/'.$character->slug.'/profile/edit') }}">Edit Profile</a></div>
             <div class="sidebar-item"><a href="{{ $character->url . '/transfer' }}" class="{{ set_active('character/'.$character->slug.'/transfer') }}">Transfer</a></div>

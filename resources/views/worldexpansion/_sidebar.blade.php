@@ -1,4 +1,4 @@
-<ul>
+<ul><div class="sideimg"></div>
     <li class="sidebar-header"><a href="{{ url('world/info') }}" class="card-link">World Expanded</a></li>
     <li class="sidebar-section">
         <div class="sidebar-item"><a href="{{ url('world') }}">Encyclopedia</a></div>
@@ -22,7 +22,7 @@
         <div class="sidebar-item"><a href="{{ url('world/faction-types') }}" class="{{ set_active('world/faction-types*') }}">Faction Types</a></div>
         <div class="sidebar-item"><a href="{{ url('world/factions') }}" class="{{ set_active('world/factions*') }}">All Factions</a></div>
     </li>
-    <li class="sidebar-section">
+    <li class="sidebar-section" style="border-bottom-left-radius: .50rem; border-bottom-right-radius: .50rem; padding-bottom: 10px;">
         <div class="sidebar-section-header">Nature</div>
         <div class="sidebar-item"><a href="{{ url('world/fauna-categories') }}" class="{{ set_active('world/fauna-categories*') }}">Fauna Types</a></div>
         <div class="sidebar-item"><a href="{{ url('world/faunas') }}" class="{{ set_active('world/faunas*') }}">All Fauna</a></div>

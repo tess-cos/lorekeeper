@@ -264,14 +264,14 @@ border-bottom: 2px solid #E5C1C7;}
 }
 
 .sideimg {
-    height: 100px;
+    height: 90px;
     width: 100%;
     background-image: url(https://i.imgur.com/qdJQ8kC.png);
     background-repeat: space;
     background-size: contain;
     position: absolute;
-    top: -19px;
-    left: -20px;
+    top: -14px;
+    left: -16px;
     z-index: 3;
 }
 

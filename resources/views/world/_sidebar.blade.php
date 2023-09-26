@@ -1,8 +1,5 @@
-<ul>
-    <li class="sidebar-header"><a href="{{ url('world') }}" class="card-link">Encyclopedia</a></li>
-    <li class="sidebar-section">
-        <div class="sidebar-item"><a href="{{ url('world/info') }}">World Expanded</a></div>
-    </li>
+<ul><div class="sideimg"></div>
+    <li class="sidebar-header"><a href="{{ url('world') }}" class="card-link">Glossary</a></li>
     <li class="sidebar-section">
         <div class="sidebar-section-header">Characters</div>
         <div class="sidebar-item"><a href="{{ url('world/species') }}" class="{{ set_active('world/species*') }}">{{ __('lorekeeper.specieses') }}</a></div>
@@ -18,7 +15,7 @@
         <div class="sidebar-item"><a href="{{ url('world/items') }}" class="{{ set_active('world/items*') }}">All Items</a></div>
         <div class="sidebar-item"><a href="{{ url('world/currencies') }}" class="{{ set_active('world/currencies*') }}">Currencies</a></div>
     </li>
-    <li class="sidebar-section">
+    <li class="sidebar-section" style="border-bottom-left-radius: .50rem; border-bottom-right-radius: .50rem; padding-bottom: 10px;">
         <div class="sidebar-section-header">{{ ucfirst(__('awards.awards')) }}</div>
         <div class="sidebar-item"><a href="{{ url('world/'. __('awards.award') .'-categories') }}" class="{{ set_active('world/'. __('awards.award') .'-categories*') }}">{{ ucfirst(__('awards.award')) }} Categories</a></div>
         <div class="sidebar-item"><a href="{{ url('world/'. __('awards.awards')) }}" class="{{ set_active('world/'. __('awards.awards') .'*') }}">All {{ ucfirst(__('awards.awards')) }} </a></div>
