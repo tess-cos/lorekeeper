@@ -156,7 +156,7 @@
                     @endif
                     @if(Auth::user()->notifications_unread)
                         <li class="nav-item">
-                            <a class="nav-link btn btn-secondary btn-sm" href="{{ url('notifications') }}"><span class="fas fa-envelope"></span> {{ Auth::user()->notifications_unread }}</a>
+                            <a class="nav-link btn btn-sm" style="background-color: #EDD3A0;" href="{{ url('notifications') }}"><span class="fas fa-envelope"></span> {{ Auth::user()->notifications_unread }}</a>
                         </li>
                     @endif
 
