@@ -120,8 +120,11 @@ main > .row {
 
 .site-header-image {
     /*background-color: #eee;*/
-    background-repeat: repeat;
-    min-height: 200px;
+    background-repeat: no-repeat;
+    background-size: 870px;
+    min-height: 320px;
+    background-attachment: fixed;
+  background-position: top;
     width: 60.85%;
 margin: auto;
 border-top-left-radius: 95px;
