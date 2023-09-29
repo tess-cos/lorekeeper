@@ -179,6 +179,54 @@ border-bottom: 2px solid #E5C1C7;}
     top: -50px;
     left: 0px;
     z-index: 0; }
+    
+.dash {
+    width: 75%;
+    margin: auto;
+    background-image: url(https://i.imgur.com/TRNxyda.png);
+    background-repeat: repeat;
+    border-radius: 25px;
+    padding: 15px;
+}
+.top1 {
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #E5C1C7;
+    border-right: 0px;
+    border-radius: 25px 0px 0px 25px;
+}
+
+.top2 {
+    padding: 15px;
+    padding-left: 2px;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #E5C1C7;
+    border-left: 0px;
+    border-radius: 0px 25px 25px 0px;
+}
+
+.top2txt {
+    margin-top: 38px;
+}
+
+.abt {
+    padding: 15px;
+    background-color: #fff;
+    border: 2px dashed #95b582;
+    border-radius: 25px;
+    width: 90%;
+}
+
+.abth {
+    padding: 25px;
+    width: 100%;
+    background-color: #fafafa;
+    font-family: Poppins, serif;
+    font-size: 10.5pt;
+    text-align: center;
+    border-radius: 12.5px;
+}
 
 /* Sidebar */
 
@@ -321,6 +369,18 @@ border-bottom: 2px solid #E5C1C7;}
         position: fixed;
         z-index: 5;
         width: 100%;
+    }
+
+    .dash {
+        width: 100%;
+    }
+
+    .top1, .top2 {
+        width: 40%;
+    }
+
+    .top2txt {
+        margin-top: 0px;
     }
 
     main.container-fluid {
