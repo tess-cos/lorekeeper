@@ -12,6 +12,8 @@ use DB;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 
+use App\Models\User\UserIp;
+use App\Services\DeviantArtService;
 class HomeController extends Controller
 {
     /*
@@ -163,6 +165,27 @@ class HomeController extends Controller
         return view('auth.blocked');
     }
 
+      /**
+     * Shows the menacing no access page
+     *
+     * @param  \Illuminate\Http\Request        $request
+     * @param  App\Services\DeviantArtService  $deviantart
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getIpBlocked(Request $request)
+    {
+        // if the ip has never been logged 
+        if(!UserIp::where('ip', $request->ip())->exists()) return redirect()->to('/');
+
+        // If the user is logged in 
+        if(Auth::check() && !Auth::user()->is_banned) return redirect()->to('/');
+
+        // Step 1: display a login birthday
+        return view('auth.ip_blocked', [
+            'ip' => $request->ip() 
+        ]);
+    }  
+
     private function checkProvider($provider, $user)
     {
         // Check if the site can be used for authentication
@@ -196,4 +219,4 @@ class HomeController extends Controller
 
         return true;
     }
-}
+    }   

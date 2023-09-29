@@ -31,6 +31,7 @@ use App\Models\Claymore\Weapon;
 use App\Services\Stat\ExperienceManager;
 use App\Services\Stat\StatManager;
 use App\Services\SkillManager;
+use App\Models\User\UserIp;
 
 class SubmissionManager extends Service
 {
@@ -67,7 +68,7 @@ class SubmissionManager extends Service
                 if(!$prompt) throw new \Exception("Invalid prompt selected.");
             }
             else $prompt = null;
-
+            
             // The character identification comes in both the slug field and as character IDs
             // that key the reward ID/quantity arrays.
             // We'll need to match characters to the rewards for them.

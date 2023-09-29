@@ -10,48 +10,51 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', 'HomeController@getIndex')->name('home');
+Route::get('/ip-block', 'HomeController@getIpBlocked');
 Route::get('login', 'Auth\LoginController@getNewReply');
 Auth::routes(['verify' => true]);
 
-# BROWSE
-require_once __DIR__.'/lorekeeper/browse.php';
+Route::group(['middleware' => ['ip']], function() {
+    Route::get('/', 'HomeController@getIndex')->name('home');;
 
-/**************************************************************************************************
-    Routes that require login
-**************************************************************************************************/
-Route::group(['middleware' => ['auth', 'verified']], function() {
+    # BROWSE
+    require_once __DIR__.'/lorekeeper/browse.php';
 
-    # LINK DA ACCOUNT
-    Route::get('/link', 'HomeController@getLink')->name('link');
-    
-    Route::get('/auth/redirect/{driver}', 'HomeController@getAuthRedirect');
-    Route::get('/auth/callback/{driver}', 'HomeController@getAuthCallback');
+    /**************************************************************************************************
+        Routes that require login
+    **************************************************************************************************/
+    Route::group(['middleware' => ['auth', 'verified']], function() {
 
-    # SET BIRTHDATE
-    Route::get('/birthday', 'HomeController@getBirthday')->name('birthday');
-    Route::post('/birthday', 'HomeController@postBirthday');
+        # LINK DA ACCOUNT
+        Route::get('/link', 'HomeController@getLink')->name('link');
+        
+        Route::get('/auth/redirect/{driver}', 'HomeController@getAuthRedirect');
+        Route::get('/auth/callback/{driver}', 'HomeController@getAuthCallback');
 
-    Route::get('/blocked', 'HomeController@getBirthdayBlocked')->name('blocked');
+        # SET BIRTHDATE
+        Route::get('/birthday', 'HomeController@getBirthday')->name('birthday');
+        Route::post('/birthday', 'HomeController@postBirthday');
 
-    # BANNED
-    Route::get('banned', 'Users\AccountController@getBanned');
+        Route::get('/blocked', 'HomeController@getBirthdayBlocked')->name('blocked');
 
-    /**********************************************************************************************
-        Routes that require having a linked dA account (also includes blocked routes when banned)
-    **********************************************************************************************/
-    Route::group(['middleware' => ['alias']], function() {
-
-        require_once __DIR__.'/lorekeeper/members.php';
+        # BANNED
+        Route::get('banned', 'Users\AccountController@getBanned');
 
         /**********************************************************************************************
-            Admin panel routes
+            Routes that require having a linked dA account (also includes blocked routes when banned)
         **********************************************************************************************/
-        Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['staff']], function() {
+        Route::group(['middleware' => ['alias']], function() {
 
-            require_once __DIR__.'/lorekeeper/admin.php';
+            require_once __DIR__.'/lorekeeper/members.php';
 
+            /**********************************************************************************************
+                Admin panel routes
+            **********************************************************************************************/
+            Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => ['staff']], function() {
+
+                require_once __DIR__.'/lorekeeper/admin.php';
+
+            });
         });
     });
 });

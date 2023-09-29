@@ -29,6 +29,8 @@ class CheckAlias
             return redirect('/banned');
         }
 
+        storeIp($request->ip(), $request->user()->id);
+
         return $next($request);
     }
 }

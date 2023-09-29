@@ -215,6 +215,14 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * Get the user's logged IPs
+     */
+    public function ips()
+    {
+        return $this->hasMany('App\Models\User\UserIp', 'user_id')->orderBy('id', 'DESC');
+    }
+
+    /**
      * Get all of the user's gallery submissions.
      */
     public function gallerySubmissions()

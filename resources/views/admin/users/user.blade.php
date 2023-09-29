@@ -160,4 +160,36 @@
         <p>No aliases found.</p>
     @endif
 </div>
+
+<div class="card p-3 mb-2">
+    <h3>Logged IPs</h3>
+    
+    <table class="table">
+        <thead>
+            <tr>
+              <th scope="col">IP</th>
+              <th scope="col">Stored At</th>
+              <th scope="col">Last Used At</th>
+              <th scope="col">Users with same IP</th>
+            </tr>
+          </thead>
+        <tbody>
+            @foreach($user->ips as $ip)
+                <tr>
+                    <td>{{ $ip->ip }}</td>
+                    <td>{!! format_date($ip->created_at) !!}</td>
+                    <td>{!! pretty_date($ip->updated_at) !!}</td>
+                    <td>
+                    @foreach($matching as $matches)
+                        @foreach($matches as $match)
+                            @if($match->ip == $ip->ip) <a href="{{ $match->user->url }}">{{ $match->user->name }}</a> @endif
+                        @endforeach
+                    @endforeach
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+    </div>
+    
 @endsection

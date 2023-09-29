@@ -304,7 +304,7 @@ class UserService extends Service
                 $submissionManager = new SubmissionManager;
                 $submissions = Submission::where('user_id', $user->id)->where('status', 'Pending')->get();
                 foreach($submissions as $submission)
-                    $submissionManager->rejectSubmission(['submission' => $submission, 'staff_comments' => 'User has been banned from site activity.']);
+                    $submissionManager->rejectSubmission(['submission' => $submission, 'staff_comments' => 'User has been banned from site activity.'], $staff);
 
                 // 3. Gallery Submissions
                 $galleryManager = new GalleryManager;

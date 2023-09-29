@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use App\Models\User\User;
 use App\Models\User\UserAlias;
 use App\Models\Rank\Rank;
+use App\Models\User\UserIp;
 use App\Models\User\UserUpdateLog;
 use App\Models\WorldExpansion\Location;
 use App\Models\WorldExpansion\Faction;
@@ -89,11 +90,17 @@ class UserController extends Controller
         );
 
         $user = User::where('name', $name)->first();
+        $matching = collect([]);
+        foreach($user->ips as $ip) {
+            $query = UserIp::where('ip', $ip->ip)->where('user_id', '!=', $user->id)->get();
+            $matching->push($query);
+        }
 
         if(!$user) abort(404);
 
         return view('admin.users.user', [
             'user' => $user,
+            'matching' => $matching,
             'ranks' => Rank::orderBy('ranks.sort')->pluck('name', 'id')->toArray(),
             'locations' => Location::all()->where('is_user_home')->pluck('style','id')->toArray(),
             'factions' => Faction::all()->where('is_user_faction')->pluck('style','id')->toArray(),

@@ -6,8 +6,10 @@ use Auth;
 use Settings;
 use File;
 use Image;
+use Carbon\Carbon;
 
 use App\Models\User\User;
+use App\Models\User\UserIp;
 use App\Models\User\UserAlias;
 
 use Illuminate\Http\Request;
@@ -50,7 +52,7 @@ class AccountController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function getSettings()
+    public function getSettings(Request $request)
     {
         $interval = array(
             0 => 'whenever',

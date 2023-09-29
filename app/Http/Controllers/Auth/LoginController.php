@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Models\User\User;
+use Illuminate\Http\Request;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -46,5 +48,10 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         return view('auth.login', ['userCount' => User::count()]);
+    }
+
+    protected function authenticated(Request $request)
+    {
+        storeIp($request->ip(), Auth::user()->id);
     }
 }

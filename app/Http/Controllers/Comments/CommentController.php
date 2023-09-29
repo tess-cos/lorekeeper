@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Comments;
 
 use Illuminate\Http\Request;
+
 use Settings;
+use Carbon\Carbon;
+
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Honeypot\ProtectAgainstSpam;
@@ -21,6 +24,7 @@ use App\Models\Gallery\GallerySubmission;
 use App\Models\Report\Report;
 use App\Models\SitePage;
 use App\Models\TradeListing;
+use App\Models\User\UserIp;
 
 use Notifications;
 
@@ -136,7 +140,6 @@ class CommentController extends Controller implements CommentControllerInterface
                 $link = (($type != 'User-User') ? $submission->queueUrl . '/#comment-' . $comment->getKey() : $submission->url . '/#comment-' . $comment->getKey());
                 break;
             }
-
 
         if($recipient != $sender) {
             Notifications::create('COMMENT_MADE', $recipient, [

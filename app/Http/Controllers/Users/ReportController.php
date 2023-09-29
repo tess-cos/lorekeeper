@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use DB;
 use Auth;
 use Settings;
+use Carbon\Carbon;
+
 use App\Models\User\User;
+use App\Models\User\UserIp;
 use App\Models\Character\Character;
 use App\Models\Item\Item;
 use App\Models\Currency\Currency;
@@ -105,6 +108,7 @@ class ReportController extends Controller
     public function postNewReport(Request $request, ReportManager $service)
     {
         $request->validate(Report::$createRules);
+        
         $request['url'] = strip_tags($request['url']);
 
         if($service->createReport($request->only(['url', 'comments', 'is_br', 'error']), Auth::user(), true)) {

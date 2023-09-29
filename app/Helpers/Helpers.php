@@ -318,3 +318,29 @@ function allAttachments($model)
     }
     return $totals;
 }
+
+/**
+ * Stores a user's IP
+ * 
+ * @param string $ip
+ * @param App\Models\User\User $user
+ * @return void
+ */
+function storeIp($ip, $id)
+{
+    $query = \App\Models\User\UserIp::where('user_id', $id)->where('ip', $ip)->first();
+    
+    if($query)
+    {
+        $query->updated_at = Carbon\Carbon::now();
+        $query->save();
+    }
+    else {
+        \App\Models\User\UserIp::create([
+            'user_id' => $id,
+            'ip' => $ip,
+            'created_at' => Carbon\Carbon::now(),
+            'updated_at' => Carbon\Carbon::now(),
+        ]);
+    }
+}
