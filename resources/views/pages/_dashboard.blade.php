@@ -7,8 +7,17 @@
         <div style="font-size: 9pt; font-weight: bold; color:#95b582;"> <i class="far fa-clock"></i> {!! format_date(Carbon\Carbon::now()) !!}</div>
     </div></div>
 </div>
+<div class="dash row justify-content-center" style="width: 84%; background-image: none;">
+<div class="top3"><br />
+  @include('widgets._news', ['textPreview' => true])
+  </div>
+  <div class="top4">
+  @include('widgets._selected_character', ['character' => Auth::user()->settings->selectedCharacter, 'user' => Auth::user(), 'fullImage' => true])
+  </div>
+</div>
+
 <div class="dash row justify-content-center" >
-@include('widgets._selected_character', ['character' => Auth::user()->settings->selectedCharacter, 'user' => Auth::user(), 'fullImage' => true])
+
   <div class="top1">
                 <ul class="list-group list-group-flush">
                 <li class="list-group-item"><a href="{{ Auth::user()->url }}">Profile</a></li>

@@ -1,5 +1,5 @@
-<div class="card mb-4">
-    <div class="card-body text-center">
+<div class="card mb-4" style="border: 0px;">
+    <div class="card-body text-center" style="background: transparent;">
         <h5 class="card-title">Selected Character</h5>
         <div class="profile-assets-content">
             @if($character)

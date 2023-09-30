@@ -206,6 +206,31 @@ border-bottom: 2px solid #E5C1C7;}
     border-radius: 0px 25px 25px 0px;
 }
 
+.top3 {
+    width: 65%;
+    padding: 15px;
+    padding-top: 5px;
+    background-color: #fff;
+    border: 1px solid #E5C1C7;
+    border-right: 0px;
+    border-radius: 25px 0px 0px 25px;
+    background-image: url(https://i.imgur.com/TRNxyda.png);
+    background-repeat: repeat;
+}
+
+.top4 {
+    width: 34%;
+    padding: 15px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #E5C1C7;
+    border-left: 0px;
+    border-radius: 0px 25px 25px 0px;
+    background-color: #f1e0c9;
+}
+
 .top2txt {
     margin-top: 38px;
 }
@@ -375,8 +400,8 @@ border-bottom: 2px solid #E5C1C7;}
         width: 100%;
     }
 
-    .top1, .top2 {
-        width: 40%;
+    .top1, .top2, .top3, .top4 {
+        width: 100%;
     }
 
     .top2txt {
@@ -698,7 +723,7 @@ tr.outflow {
     background-color: white;
 }
 
-.card-header { background: none !important;}
+.card-header { background: none;}
 
 /* INVENTORY *************************************************************************************/
 
