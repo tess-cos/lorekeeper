@@ -7,6 +7,8 @@ use Config;
 
 use App\Models\Gallery\Gallery;
 use App\Models\Gallery\GallerySubmission;
+use App\Models\Gallery\GalleryCriterion;
+use Illuminate\Support\Arr;
 
 class GalleryService extends Service
 {
@@ -39,6 +41,8 @@ class GalleryService extends Service
             if(!isset($data['location_selection'])) $data['location_selection'] = 0;
 
             $gallery = Gallery::create($data);
+            
+            (new CriterionService)->populateCriteria(Arr::only($data, ['criterion_id', 'criterion']), $gallery, GalleryCriterion::class);
 
             return $this->commitReturn($gallery);
         } catch(\Exception $e) {
@@ -71,6 +75,8 @@ class GalleryService extends Service
             if(!isset($data['location_selection'])) $data['location_selection'] = 0;
 
             $gallery->update($data);
+            
+            (new CriterionService)->populateCriteria(Arr::only($data, ['criterion_id', 'criterion']), $gallery, GalleryCriterion::class);
 
             return $this->commitReturn($gallery);
         } catch(\Exception $e) {

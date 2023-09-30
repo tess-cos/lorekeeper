@@ -49,7 +49,7 @@
         <div id="rewards" class="mb-3"></div>
     @endif
 
-    <h2>Characters</h2>
+    <div style="display: none;"><h2>Characters</h2>
     @if($isClaim)
         <p>If there are character-specific rewards you would like to claim, attach them here. Otherwise, this section can be left blank.</p>
     @endif
@@ -61,7 +61,7 @@
 
     <div class="text-right">
         <a href="#" class="btn btn-primary" id="submitButton">Submit</a>
-    </div>
+    </div></div>
 {!! Form::close() !!}
 
 @include('widgets._character_select', ['characterCurrencies' => $characterCurrencies])

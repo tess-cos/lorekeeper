@@ -52,7 +52,7 @@
                     </tbody>
                 </table>
             @endif
-            <hr>
+           <div class="display: none;"> <hr>
             <h4>Skill Rewards</h4>
             <table class="table table-sm mb-0">
                 <thead>
@@ -69,7 +69,7 @@
                         </tr>
                     @endforeach
                 </tbody>
-            </table>
+            </table></div>
         </div>
         <div class="text-right">
             @if($prompt->end_at && $prompt->end_at->isPast())

@@ -21,6 +21,7 @@ use App\Models\Claymore\Weapon;
 use App\Services\PromptService;
 
 use App\Http\Controllers\Controller;
+use App\Models\Criteria\Criterion;
 
 class PromptController extends Controller
 {
@@ -195,6 +196,7 @@ class PromptController extends Controller
             'weapons' => Weapon::orderBy('name')->pluck('name', 'id'),
             'tables' => LootTable::orderBy('name')->pluck('name', 'id'),
             'raffles' => Raffle::where('rolled_at', null)->where('is_active', 1)->orderBy('name')->pluck('name', 'id'),
+            'criteria' => Criterion::active()->orderBy('name')->pluck('name', 'id'),
             'skills' => Skill::pluck('name', 'id')->toArray()
         ]);
     }
@@ -220,6 +222,7 @@ class PromptController extends Controller
             'weapons' => Weapon::orderBy('name')->pluck('name', 'id'),
             'tables' => LootTable::orderBy('name')->pluck('name', 'id'),
             'raffles' => Raffle::where('rolled_at', null)->where('is_active', 1)->orderBy('name')->pluck('name', 'id'),
+            'criteria' => Criterion::active()->orderBy('name')->pluck('name', 'id'),
             'skills' => Skill::pluck('name', 'id')->toArray()
         ]);
     }
@@ -238,7 +241,7 @@ class PromptController extends Controller
         $data = $request->only([
             'name', 'prompt_category_id', 'summary', 'description', 'start_at', 'end_at', 'hide_before_start', 'hide_after_end', 'is_active', 'rewardable_type',
              'rewardable_id', 'quantity', 'image', 'remove_image', 'prefix', 'hide_submissions',
-             'chara_exp', 'chara_points', 'user_exp', 'user_points', 'level_req', 'level_check', 'skill_id', 'skill_quantity'
+             'chara_exp', 'chara_points', 'user_exp', 'user_points', 'level_req', 'level_check', 'skill_id', 'skill_quantity', 'criterion_id', 'criterion'
         ]);
         if($id && $service->updatePrompt(Prompt::find($id), $data, Auth::user())) {
             flash('Prompt updated successfully.')->success();

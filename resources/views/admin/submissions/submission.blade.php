@@ -53,10 +53,22 @@
 		</div></div>
     @endif
 
-    {!! Form::open(['url' => url()->current(), 'id' => 'submissionForm']) !!}
+    {!! Form::open(['url' => url()->current(), 'id' => 'submissionForm', 'onsubmit' => "$(this).find('input').prop('disabled', false)"]) !!}
+        @if(isset($submission->data['criterion']))
+        <h2 class="mt-5">Criteria Rewards</h2>
+        @foreach($submission->data['criterion'] as $key => $criterionData)
+            <div class="card p-3 mb-2">
+            @php $criterion = \App\Models\Criteria\Criterion::where('id', $criterionData['id'])->first() @endphp
+            <h3>{!! $criterion->displayName !!}</h3>
+            {!! Form::hidden('criterion['.$key.'][id]', $criterionData['id']) !!}
+            @include('criteria._minimum_requirements', ['criterion' => $criterion, 'values' => $criterionData, 'minRequirements' => $submission->prompt->criteria->where('criterion_id', $criterionData['id'])->first()->minRequirements ?? null, 'title' => 'Selections', 'limitByMinReq' => true, 'id' => $key])
+            </div>
+        @endforeach
+        @endif
 
-        <h2>Rewards</h2>
-        @include('widgets._loot_select', ['loots' => $submission->rewards, 'showLootTables' => true, 'showRaffles' => true])
+
+        <h2 class="mt-4">Rewards</h2>
+        <div class=" display: none;"> @include('widgets._loot_select', ['loots' => $submission->rewards, 'showLootTables' => true, 'showRaffles' => true])
         @if($submission->prompt_id)
             <div class="mb-3">
                 <h2>Skill Rewards</h2>
@@ -70,7 +82,7 @@
                 </div>
 
                 <hr />
-            </div>
+            </div></div>
 
             <div class="mb-3">
                 @include('home._prompt', ['prompt' => $submission->prompt, 'staffView' => true])
@@ -78,7 +90,7 @@
         @endif
         
         <h2>Characters</h2>
-        <p>Focus characters will receive skill rewards and EXP/stat rewards.</p>
+        <div class=" display: none;"><p>Focus characters will receive skill rewards and EXP/stat rewards.</p>
         <div class="alert alert-warning">Only input values here if the focus characters in the submission is supposed to get more than the above value points</div>
         <div class="row">
             <div class="col-md-6">
@@ -93,7 +105,7 @@
                     {!! Form::number('bonus_points', null, ['class' => 'form-control',]) !!}
                 </div>
             </div>
-        </div>
+        </div></div>
         <div id="characters" class="mb-3">
             @foreach($submission->characters as $character)
                 @include('widgets._character_select_entry', ['characterCurrencies' => $characterCurrencies, 'items' => $items, 'tables' => $tables, 'character' => $character, 'characterAwards' => $characterAwards,'expanded_rewards' => $expanded_rewards, 'submission' => true])

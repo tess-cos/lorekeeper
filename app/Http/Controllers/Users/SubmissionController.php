@@ -27,6 +27,8 @@ use App\Models\Claymore\Weapon;
 use App\Services\SubmissionManager;
 
 use App\Http\Controllers\Controller;
+use App\Models\Criteria\Criterion;
+use App\Models\Prompt\PromptCriterion;
 
 class SubmissionController extends Controller
 {
@@ -97,6 +99,8 @@ class SubmissionController extends Controller
         $closed = !Settings::get('is_prompts_open');
         $awardcase = UserAward::with('award')->whereNull('deleted_at')->where('count', '>', '0')->where('user_id', Auth::user()->id)->get();
         $inventory = UserItem::with('item')->whereNull('deleted_at')->where('count', '>', '0')->where('user_id', Auth::user()->id)->get();
+        $prompt = $request->all()['prompt_id'] ?? null;
+        $promptCriteria = $prompt ? PromptCriterion::where('prompt_id', $prompt)->pluck('criterion_id')->toArray() : null;
         return view('home.create_submission', [
             'closed' => $closed,
             'isClaim' => false,
@@ -116,7 +120,8 @@ class SubmissionController extends Controller
             'weapons' => Weapon::orderBy('name')->pluck('name', 'id'),
             'inventory' => $inventory,
             'page' => 'submission',
-            'expanded_rewards' => Config::get('lorekeeper.extensions.character_reward_expansion.expanded')
+            'expanded_rewards' => Config::get('lorekeeper.extensions.character_reward_expansion.expanded'),
+            'criteria' => $prompt ? Criterion::active()->whereIn('id', $promptCriteria)->orderBy('name')->pluck('name', 'id') : null,
         ]));
     }
 
@@ -162,7 +167,7 @@ class SubmissionController extends Controller
     public function postNewSubmission(Request $request, SubmissionManager $service)
     {
         $request->validate(Submission::$createRules);
-        if($service->createSubmission($request->only(['url', 'prompt_id', 'comments', 'slug', 'character_rewardable_type', 'character_rewardable_id', 'character_rewardable_quantity',  'rewardable_type', 'rewardable_id', 'quantity', 'stack_id', 'stack_quantity', 'currency_id', 'currency_quantity', 'character_is_focus']), Auth::user())) {
+        if($service->createSubmission($request->only(['url', 'prompt_id', 'comments', 'slug', 'character_rewardable_type', 'character_rewardable_id', 'character_rewardable_quantity',  'rewardable_type', 'rewardable_id', 'quantity', 'stack_id', 'stack_quantity', 'currency_id', 'currency_quantity', 'character_is_focus', 'criterion_id', 'criterion']), Auth::user())) {
             flash('Prompt submitted successfully.')->success();
         }
         else {

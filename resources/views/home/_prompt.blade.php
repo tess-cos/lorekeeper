@@ -28,7 +28,7 @@
                 @endforeach
             </tbody>
         </table>
-        <hr>
+       <div style="display: none;"> <hr>
         <h4>Default Skill Rewards</h4>
         <table class="table table-sm mb-0">
             <thead>
@@ -70,6 +70,6 @@
                 {{ $prompt->expreward->chara_points ? $prompt->expreward->chara_points : 0  }} character points
                 @endif
             </div>
-        </div>
+        </div></div>
     </div>
 </div>

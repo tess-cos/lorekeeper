@@ -71,7 +71,7 @@
     </div>
 @endif
 
-<div class="row" style="padding: 15px; background-color: #fff;">
+<div class="row" style="padding: 15px;">
     <div class="col-md-6" style="border: 1px solid #dedede; border-radius: 2.5px;">
         @include('widgets._selected_character', ['character' => $user->settings->selectedCharacter, 'user' => $user, 'fullImage' => true])
     </div>

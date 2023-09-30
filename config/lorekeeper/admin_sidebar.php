@@ -301,6 +301,10 @@ return [
                 'name' => 'Concepts',
                 'url' => 'admin/world/concepts'
             ],
+            [
+                'name' => 'Criteria Rewards',
+                'url' => 'admin/data/criteria'
+            ]
         ]
     ],
     'Raffles' => [
