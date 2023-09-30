@@ -8,6 +8,7 @@
     </div></div>
 </div>
 <div class="dash row justify-content-center" >
+@include('widgets._selected_character', ['character' => Auth::user()->settings->selectedCharacter, 'user' => Auth::user(), 'fullImage' => true])
   <div class="top1">
                 <ul class="list-group list-group-flush">
                 <li class="list-group-item"><a href="{{ Auth::user()->url }}">Profile</a></li>

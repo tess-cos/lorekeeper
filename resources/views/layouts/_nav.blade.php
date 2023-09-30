@@ -81,7 +81,7 @@
                                 Character Transfers
                             </a>
                             <a class="dropdown-item" href="{{ url('trades/open') }}">
-                                Trade Listings
+                                Trades
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('reports') }}">
