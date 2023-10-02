@@ -227,11 +227,14 @@ border-bottom: 2px solid #E5C1C7;}
     border: 1px solid #E5C1C7;
     border-left: 0px;
     border-radius: 0px 25px 25px 0px;
-    background-color: #f1e0c9;
+    background-color: #fff;
 }
 
 .top2txt {
-    margin-top: 38px;
+    margin-top: 32px;
+    margin-left: -15px;
+    padding-left: 0px;
+    padding: 10px;
 }
 
 .abt {
@@ -329,7 +332,7 @@ border-bottom: 2px solid #E5C1C7;}
     font-family: Poppins, sans-serif;
     color: #4a4a4a;
     font-size: 10pt;
-    letter-spacing: 0.5px;
+    letter-spacing: -0.5px;
     padding: 5px;
     padding-left: 15px;
 }
@@ -402,8 +405,13 @@ border-bottom: 2px solid #E5C1C7;}
         width: 100%;
     }
 
-    .top1, .top2, .top3, .top4 {
+    .top1, .top2 {
+        width: 40%;
+    }
+    
+    .top3, .top4 {
         width: 100%;
+        margin-left: 35px;
     }
 
     .top2txt {

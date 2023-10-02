@@ -116,6 +116,11 @@ Route::group(['prefix' => 'weapons', 'namespace' => 'Users'], function() {
     Route::get('selector', 'WeaponController@getSelector');
 });
 
+Route::group(['prefix' => __('safetydeposit.url'), 'namespace' => 'Users'], function() {
+    Route::get('/', 'StorageController@getIndex');
+    Route::post('withdraw', 'StorageController@postWithdraw');
+});
+
 Route::group(['prefix' => 'characters', 'namespace' => 'Users'], function() {
     Route::get('/', 'CharacterController@getIndex');
     Route::post('sort', 'CharacterController@postSortCharacters');

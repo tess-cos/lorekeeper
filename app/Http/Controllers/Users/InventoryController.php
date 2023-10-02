@@ -10,12 +10,14 @@ use Carbon\Carbon;
 
 use App\Models\User\User;
 use App\Models\User\UserItem;
+use App\Models\User\UserStorage;
 use App\Models\Item\Item;
 use App\Models\Item\ItemCategory;
 use App\Models\Item\UserItemLog;
 use App\Models\Character\Character;
 use App\Models\Character\CharacterItem;
 use App\Services\InventoryManager;
+use App\Services\StorageManager;
 
 use App\Models\Trade;
 use App\Models\Character\CharacterDesignUpdate;
@@ -86,7 +88,7 @@ class InventoryController extends Controller
             'user' => Auth::user(),
             'userOptions' => ['' => 'Select User'] + User::visible()->where('id', '!=', $first_instance ? $first_instance->user_id : 0)->orderBy('name')->get()->pluck('verified_name', 'id')->toArray(),
             'readOnly' => $readOnly,
-            'characterOptions' => Character::visible()->myo(0)->where('user_id', optional(Auth::user())->id)->orderBy('sort','DESC')->get()->pluck('fullName','id')->toArray(),
+            'characterOptions' => Character::visible()->myo(0)->where('user_id', $first_instance->user_id)->orderBy('sort','DESC')->get()->pluck('fullName','id')->toArray(),
         ]);
     }
 
@@ -149,6 +151,9 @@ class InventoryController extends Controller
                     break;
                 case 'resell':
                     return $this->postResell($request, $service);
+                    break;
+                case 'deposit':
+                    return $this->postDeposit($request, (new StorageManager));
                     break;
                 case 'act':
                     return $this->postAct($request);
@@ -231,6 +236,25 @@ class InventoryController extends Controller
     }
 
     /**
+     * Deposits an inventory stack.
+     *
+     * @param  \Illuminate\Http\Request       $request
+     * @param  App\Services\StorageManager    $service
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    private function postDeposit(Request $request, StorageManager $service)
+    {
+        $stacks = UserItem::find($request->get('ids'));
+        if($service->depositStack(User::find($stacks->first()->user_id), $stacks, $request->get('quantities'))) {
+            flash('Item deposited successfully.')->success();
+        }
+        else {
+            foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
+        }
+        return redirect()->back();
+    }
+
+    /**
      * Shows the inventory selection widget.
      *
      * @param  int  $id
@@ -299,4 +323,5 @@ class InventoryController extends Controller
             'submissions' => $item ? $submissions : null,
         ]);
     }
+
 }
