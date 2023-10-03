@@ -427,9 +427,9 @@ border-bottom: 2px solid #E5C1C7;}
     }
     .sidebar {
         position: absolute;
-        padding-left: 0px;
-        text-align: left;
-        background-color: none;
+        padding-left: 75px;
+        text-align: center;
+        background-color: #fafafa;
         z-index: 3;
         right: 0px;
         bottom: 0px;
@@ -454,6 +454,8 @@ border-bottom: 2px solid #E5C1C7;}
     }
 
     .sidebar ul li {
+        width: 75%;
+        font-align: center;
         background-color: white;
         border-radius: 0;
         margin-bottom: 0;

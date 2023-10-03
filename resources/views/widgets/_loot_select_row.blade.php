@@ -1,4 +1,5 @@
 <div id="lootRowData" class="hide">
+    
     <table class="table table-sm">
         <tbody id="lootRow">
             <tr class="loot-row">
@@ -12,7 +13,7 @@
     {!! Form::select('rewardable_id[]', $items, null, ['class' => 'form-control item-select', 'placeholder' => 'Select Item']) !!}
     {!! Form::select('rewardable_id[]', $currencies, null, ['class' => 'form-control currency-select', 'placeholder' => 'Select Currency']) !!}
     {!! Form::select('rewardable_id[]', $awards, null, ['class' => 'form-control award-select', 'placeholder' => 'Select '.ucfirst(__('awards.award'))]) !!}
-    {!! Form::select('rewardable_id[]', $pets, null, ['class' => 'form-control pet-select', 'placeholder' => 'Select Pet']) !!}
+    {!! Form::select('rewardable_id[]', $pets = \App\Models\Pet\Pet::orderBy('name')->pluck('name', 'id'), null, ['class' => 'form-control pet-select', 'placeholder' => 'Select Pet']) !!}
     @if($showLootTables)
         {!! Form::select('rewardable_id[]', $tables, null, ['class' => 'form-control table-select', 'placeholder' => 'Select Loot Table']) !!}
     @endif

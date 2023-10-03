@@ -9,13 +9,13 @@
   </div>
 
   <div style="width: 80%; margin: auto;">
-    <center><a href="{{ Auth::user()->url }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E5C1C7;">profile</a>
-<a href="{{ url('account/settings') }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E5C1C7;">settings</a>
-<a href="{{ url('trades/open') }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E5C1C7;">trades</a>
+    <center><a href="{{ Auth::user()->url }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #f4e3e6;">profile</a>
+<a href="{{ url('account/settings') }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #f4e3e6;">settings</a>
+<a href="{{ url('trades/open') }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #f4e3e6;">trades</a>
 
-<a href="{{ Auth::user()->url . '/currency-logs' }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E5C1C7;">currency logs</a>
-<a href="{{ url('inventory') }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E5C1C7;">inventory</a>
-<a href="{{ url(__('awards.awardcase')) }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E5C1C7;">{{ ucfirst(__('awards.awards')) }}</a></center></div>
+<a href="{{ url('bank') }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #f4e3e6;">bank</a>
+<a href="{{ url('inventory') }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #f4e3e6;">inventory</a>
+<a href="{{ url(__('awards.awardcase')) }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #f4e3e6">{{ ucfirst(__('awards.awards')) }}</a></center></div>
 
 
 
@@ -29,11 +29,11 @@
 </div>
 
 <div style="width: 90%; margin: auto;">
-    <center><a href="{{ url('characters') }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E5C1C7;">characters</a>
-<a href="{{ url('characters/myos') }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E5C1C7;">myo slots</a>
-<a href="{{ url('characters/transfers/incoming') }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E5C1C7;">character transfers</a>
+    <center><a href="{{ url('characters') }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #f4e3e6;">characters</a>
+<a href="{{ url('characters/myos') }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #f4e3e6;">myo slots</a>
+<a href="{{ url('characters/transfers/incoming') }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #f4e3e6;">character transfers</a>
 
-<a href="{{ url('bank') }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E5C1C7;">Currency Logs</a>
-<a href="{{ Auth::user()->url . '/item-logs' }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E5C1C7;">item logs</a>
-<a href="{{ Auth::user()->url . '/'.__('awards.award').'-logs' }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E5C1C7;">{{ ucfirst(__('awards.award')) }} Logs</a></center></div>
+<a href="{{ Auth::user()->url . '/currency-logs' }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #f4e3e6;">Currency Logs</a>
+<a href="{{ Auth::user()->url . '/item-logs' }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #f4e3e6;">item logs</a>
+<a href="{{ Auth::user()->url . '/'.__('awards.award').'-logs' }}" class="btn" style="font-family: Mali, serif; text-transform: lowercase; background-color: #f4e3e6;">{{ ucfirst(__('awards.award')) }} Logs</a></center></div>
 

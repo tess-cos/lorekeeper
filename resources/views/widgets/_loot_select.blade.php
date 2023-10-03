@@ -23,7 +23,7 @@
                             @elseif($loot->rewardable_type == 'Award')
                                 {!! Form::select('rewardable_id[]', $awards, $loot->rewardable_id, ['class' => 'form-control award-select selectize', 'placeholder' => 'Select '.ucfirst(__('awards.award'))]) !!}
                             @elseif($loot->rewardable_type == 'Pet')
-                            {!! Form::select('rewardable_id[]', $pets, $loot->rewardable_id, ['class' => 'form-control pet-select selectize', 'placeholder' => 'Select Pet']) !!}
+                            {!! Form::select('rewardable_id[]', $pets = \App\Models\Pet\Pet::orderBy('name')->pluck('name', 'id'), $loot->rewardable_id, ['class' => 'form-control pet-select selectize', 'placeholder' => 'Select Pet']) !!}
                         @elseif($showLootTables && $loot->rewardable_type == 'LootTable')
                                 {!! Form::select('rewardable_id[]', $tables, $loot->rewardable_id, ['class' => 'form-control table-select selectize', 'placeholder' => 'Select Loot Table']) !!}
                             @elseif($showRaffles && $loot->rewardable_type == 'Raffle')
