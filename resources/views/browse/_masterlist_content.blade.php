@@ -141,9 +141,9 @@
     @foreach($characters->chunk(4) as $chunk)
         <div class="row" style="padding: 10px;">
             @foreach($chunk as $character)
-            <div class="col-md-3 col-6 text-center" style="background: #f4e3e6; padding: 10px; padding-top: 20px; border-radius: 15px;">
+            <div class="col-md-3 col-6 text-center" style="background: #fafafa; padding: 10px; padding-top: 20px; border-radius: 15px;">
                 <div>
-                    <a href="{{ $character->url }}"><img style="border: 0px; width: 80%;" src="{{ $character->image->thumbnailUrl }}" class="img-thumbnail" alt="Thumbnail for {{ $character->fullName }}"/></a>
+                    <a href="{{ $character->url }}"><img style="border: 0px; width: 80%; background: #f4e3e6;" src="{{ $character->image->thumbnailUrl }}" class="img-thumbnail" alt="Thumbnail for {{ $character->fullName }}"/></a>
                 </div>
                 <div class="mt-1">
                     <a href="{{ $character->url }}" class="h5 mb-0">@if(!$character->is_visible) <i class="fas fa-eye-slash"></i> @endif {{ $character->fullName }}</a>

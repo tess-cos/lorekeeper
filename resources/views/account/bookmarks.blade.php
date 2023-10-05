@@ -27,8 +27,8 @@
 </div>
 
 {!! $bookmarks->render() !!}
-<div class="table-responsive mb-3">
-    <table class="table table-sm bookmark-table mb-0">
+<div class="table-responsive-lg mb-3">
+    <table class="table table-sm mb-0">
         <thead>
             <tr>
                 <th class="thumbnail-hide bookmark-thumbnail"></th>

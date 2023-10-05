@@ -1,15 +1,15 @@
-<div class="card h-100">
+<div class="card h-100" style="border: 0px;">
     <div class="m-1">
         <div class="row">
             <div class="col-md-6 text-center align-self-center">
-                <a href="{{ $character->character->url }}"><img src="{{ $loop->count == 1 ? $character->image->imageUrl : $character->image->thumbnailUrl }}" class="mw-100 img-thumbnail" alt="{{ $character->fullName }}" /></a>
+                <a href="{{ $character->character->url }}"><img src="{{ $loop->count == 1 ? $character->image->imageUrl : $character->image->thumbnailUrl }}" alt="{{ $character->fullName }}" style="max-width: 250px; background-color: #fff; padding: 10px; border: 2px solid #fafafa;" /></a>
             </div>
-            <div class="col-md text-center">
+            <div class="col-md text-center" style="margin-top: 40px;">
                 <div class="mt-2">
                     <h5>
-                        {{ $character->displayType }}: <a href="{{ $character->character->url }}">{!! $character->character->slug !!}</a> ・ <span class="{{ $character->is_open && $character->sales->is_open ? 'text-success' : '' }}">[{{ $character->is_open && $character->sales->is_open ? 'Open' : 'Closed' }}]</span><br/>
+                        {{ $character->displayType }}: <a href="{{ $character->character->url }}">{!! $character->character->slug !!}</a><br /><span class="{{ $character->is_open && $character->sales->is_open ? 'text-success' : '' }}">[{{ $character->is_open && $character->sales->is_open ? 'Open' : 'Closed' }}]</span><br/>
                         <small>
-                            {!! $character->image->species->displayName !!} ・ {!! $character->image->rarity->displayName !!}<br/>
+                            {!! $character->image->species->displayName !!} ({!! $character->image->rarity->displayName !!})<br/>
                         </small>
                     </h5>
 
@@ -56,18 +56,18 @@
                         </div>
                     @endif
 
-                    <h6>
+                    <h6 style="text-transform: lowercase;">
                         <div class="mb-2">
-                            Design:
+                            design:
                             @foreach($character->image->designers as $designer)
                                 {!! $designer->displayLink() !!}{{ !$loop->last ? ', ' : '' }}
-                            @endforeach ・
-                            Art:
+                            @endforeach<br />
+                            art:
                             @foreach($character->image->artists as $artist)
                                 {!! $artist->displayLink() !!}{{ !$loop->last ? ', ' : '' }}
                             @endforeach
                         </div>
-
+                        
                         {!! $character->price !!}
                         {!! isset($character->link) || isset($character->data['end_point']) ? '<br/>' : '' !!}
                         @if(isset($character->data['end_point']))
