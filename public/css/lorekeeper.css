@@ -629,9 +629,12 @@ border-bottom: 2px solid #E5C1C7;}
     padding-right: .5rem;
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited, .badge-primary {
+.btn-primary:active, .btn-primary:visited, .badge-primary {
     background-color: #CFDEBA !important; border-color: #CFDEBA; color: #4a4a4a; text-transform: capitalize;
 } 
+
+.btn-primary {background-color:#EDD3A0; border-color: #EDD3A0; color: #4a4a4a;}
+.btn-primary:hover {background-color:#f1e0c9; border-color: #f1e0c9; color: #4a4a4a;}
 
 .btn-outline-primary, .btn-outline-primary:hover, .btn-outline-primary:active, .btn-outline-primary:visited {
     border-color: #bed0a6 !important; color: #bed0a6;
