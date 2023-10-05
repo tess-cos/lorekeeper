@@ -1,7 +1,7 @@
 {{-- Image Data --}}
 <div class="col-md-5 d-flex">
     <div class="card character-bio w-100">
-        <div class="card-header" style="background: none;">
+        <div class="card-header" style="background-color: #bed0a6;">
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
                     <a class="nav-link active" id="infoTab-{{ $image->id }}" data-toggle="tab" href="#info-{{ $image->id }}" role="tab">Info</a>
@@ -67,11 +67,11 @@
                     <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">Rarity</div>
                     <div class="col-lg-8 col-md-6 col-8">{!! $image->rarity_id ? $image->rarity->displayName : 'None' !!}</div>
                 </div>
-
+<hr>
                 <div class="mb-3">
                     <div style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">Traits</div>
                     @if(Config::get('lorekeeper.extensions.traits_by_category'))
-                        <div>
+                        <div style="font-size: 9pt;">
                             @php $traitgroup = $image->features()->get()->groupBy('feature_category_id') @endphp
                             @if($image->features()->count())
                                 @foreach($traitgroup as $key => $group)
@@ -103,6 +103,7 @@
                         </div>
                     @endif
                 </div>
+                <hr>
                 <div>
                     <strong>Uploaded:</strong> {!! pretty_date($image->created_at) !!}
                 </div>
@@ -115,25 +116,6 @@
                         <a href="#" class="btn btn-outline-info btn-sm edit-features mb-3" data-id="{{ $image->id }}"><i class="fas fa-cog"></i> Edit</a>
                     </div>
                 @endif
-<hr>
-                <div class="mb-1">
-                    <div style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">Pets</div>
-                        <div class="text-center row">
-                        @foreach($image->character->pets as $pet)
-                            <div class="ml-3 mr-3">
-                                @if($pet->has_image)
-                                <img src="{{ $pet->imageUrl }}" data-toggle="tooltip" title="{{ $pet->pet->name }}" style="max-width: 75px;"/>
-                                @elseif($pet->pet->imageurl)
-                                <img src="{{ $pet->pet->imageUrl }}" data-toggle="tooltip" title="{{ $pet->pet->name }}" style="max-width: 75px;"/>
-                                @else {!!$pet->pet->displayName !!}
-                                @endif
-                                <br>
-                                <span class="badge" style="font-size:95%; background-color: #E5C1C7;">{!! $pet->pet_name !!}</span>
-                            </div>
-                        @endforeach
-                        </div>
-                </div>
-
                 <div class="mb-1" style="display: none;">
                     <div><h5>Gear</h5></div>
                         <div class="text-center row">

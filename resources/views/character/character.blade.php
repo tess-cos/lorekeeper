@@ -32,14 +32,33 @@
 </div>
 
 {{-- Info --}}
+<div style="width: 80%; padding: 15px; margin: auto; text-align: center;">
+<div style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;text-align: left;"><h5 style="background-color: #fafafa; border: 1px solid #e5e5e5; padding: 15px; border-radius: 15px;">Pets</h5></div>
+                       
+                        @foreach($character->image->character->pets as $pet)
+                            <div class="ml-3 mr-3" style="margin: auto;">
+                                @if($pet->has_image)
+                                <img src="{{ $pet->imageUrl }}" data-toggle="tooltip" title="{{ $pet->pet->name }}" style="max-width: 20%; padding: 5px;"/>
+                                @elseif($pet->pet->imageurl)
+                                <img src="{{ $pet->pet->imageUrl }}" data-toggle="tooltip" title="{{ $pet->pet->name }}" style="max-width: 20%; padding: 5px;"/>
+                                @else {!!$pet->pet->displayName !!}
+                                @endif
+                                <br>
+                                <span class="badge" style="font-size:95%; background-color: #E5C1C7; color: #fff;">{!! $pet->pet_name !!}</span>
+                            </div>
+                        @endforeach</div>
 <div class="card character-bio">
-    <div class="card-header">
-        <ul class="nav nav-tabs card-header-tabs">
+    <div class="card-header" style="background-color: #fafafa;"><h5 style="padding: 10px; margin-bottom: -5px; margin-top: -2.5px; margin-left: -8.5px;">description</h5>
+</div>
+<div class="card-body tab-content">
+@include('character._tab_notes', ['character' => $character])
+</div>
+</div><br /><br />
+<div class="card character-bio">
+    <div class="card-header" style="background-color: #fafafa;">
+        <ul class="nav nav-tabs card-header-tabs" style="background-color: #fafafa;">
             <li class="nav-item">
                 <a class="nav-link active" id="statsTab" data-toggle="tab" href="#stats" role="tab">Stats</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="notesTab" data-toggle="tab" href="#notes" role="tab">Description</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="skillsTab" style="display: none;" data-toggle="tab" href="#skills" role="tab">Skills</a>

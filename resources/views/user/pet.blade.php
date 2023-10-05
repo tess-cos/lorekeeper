@@ -26,7 +26,7 @@
                                 <a href="#" class="inventory-stack inventory-stack-name">{{ $pet->VariantName($pet->pivot->variant_id) }} {{ $pet->name }}</a>
                             </div>
                             <div>
-                                <span class="text-dark badge px-3 py-2 mb-1" style="font-size:95%; background-color: #E5C1C7;">{{ $pet->pivot->pet_name }}</span>
+                                <span class="badge px-3 py-2 mb-1" style="font-size:95%; background-color: #E5C1C7; color: #fff;">{{ $pet->pivot->pet_name }}</span>
                             </div>
                         </div>
                     @endforeach

@@ -56,7 +56,7 @@
                         </div>
                     @endif
 
-                    <h6 style="text-transform: lowercase;">
+                    <h7 style="text-transform: lowercase; font-family: poppins; color: #666;">
                         <div class="mb-2">
                             design:
                             @foreach($character->image->designers as $designer)
@@ -66,8 +66,8 @@
                             @foreach($character->image->artists as $artist)
                                 {!! $artist->displayLink() !!}{{ !$loop->last ? ', ' : '' }}
                             @endforeach
-                        </div>
-                        
+                        </div></h7>
+                        <h6 style="text-transform: lowercase; font-family: poppins;">
                         {!! $character->price !!}
                         {!! isset($character->link) || isset($character->data['end_point']) ? '<br/>' : '' !!}
                         @if(isset($character->data['end_point']))

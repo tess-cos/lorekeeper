@@ -139,7 +139,7 @@
 {!! $characters->render() !!}
 <div id="gridView" class="hide">
     @foreach($characters->chunk(4) as $chunk)
-        <div class="row" style="padding: 10px;">
+        <div class="row" style="padding: 10px; row-gap: 20px; column-gap: 20px;">
             @foreach($chunk as $character)
             <div class="col-md-3 col-6 text-center" style="background: #fafafa; padding: 10px; padding-top: 20px; border-radius: 15px;">
                 <div>
