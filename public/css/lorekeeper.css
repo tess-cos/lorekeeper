@@ -51,7 +51,6 @@ a {
 a:hover {
     color: rgba(0, 0, 0, 1);
     text-decoration: none;
-    border-bottom: 1px solid #f4e3e6;
 }
 
 body {
@@ -657,22 +656,46 @@ border-bottom: 2px solid #E5C1C7;}
 }
 
 .btn-outline-info, .btn-outline-info:active, .btn-outline-info:visited {
-    color:#aac4fb; border-color: #aac4fb;}
+    color:#aac4fb; border-color: #b6caf7;}
 
-.btn-outline-info:hover {
+    .btn-info, .btn-info:active, .btn-info:visited {
         background-color: #aac4fb !important; border-color: #aac4fb; color: #4a4a4a;
+    } 
+
+.btn-outline-info:hover, .btn-info:hover {
+        background-color: #b6c9f7 !important; border-color: #b6c9f7; color: #4a4a4a;
     }
 
-.btn-danger, .btn-danger:hover, .btn-danger:active, .btn-danger:visited, {
-    background-color: #E57373 !important; border-color: #E5C1C7; color: #fafafa;
+.btn-danger, .btn-danger:hover, .btn-danger:active, .btn-danger:visited {
+    background-color: #E57373 !important; border-color: #E57373; color: #fafafa;
+} 
+
+.btn-danger:hover {
+    background-color: #df6e6e !important; border-color: #df6e6e; color: #fafafa;
 } 
 
 .btn-outline-danger, .btn-outline-danger:hover, .btn-outline-danger:active, .btn-outline-danger:visited {
-    border-color: #E57373 !important; color: #E57373;
+    border-color: #E57373 !important; color: ##E57373;
 }
 
 .btn-outline-danger:hover {
-    background-color: #E57373 !important; color: #fafafa;
+    background-color: #df6e6e !important; color: #fafafa;
+}
+
+.btn-secondary, .btn-secondary.focus, .btn-secondary:active, .btn-secondary:visited {
+    background-color: #f4e3e6 !important; border-color: #f4e3e6; color: #4a4a4a;
+}
+
+.grid-view-button, .list-view-button, .thumb-view-button {border: #fff;}
+
+.btn-secondary:hover {background-color:#E5C1C7; border-color: #E5C1C7; color: #4a4a4a;}
+
+.btn-outline-secondary, .btn-outline-secondary:hover, .btn-outline-secondary:active, .btn-outline-secondary:visited {
+    border-color: #f4e3e6 !important; color: #f4e3e6;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #E5C1C7 !important; color: #4a4a4a;
 }
 
 /* NOTIFICATIONS *********************************************************************************/

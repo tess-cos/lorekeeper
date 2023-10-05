@@ -195,6 +195,7 @@ class PromptController extends Controller
             'gears' => Gear::orderBy('name')->pluck('name', 'id'),
             'weapons' => Weapon::orderBy('name')->pluck('name', 'id'),
             'tables' => LootTable::orderBy('name')->pluck('name', 'id'),
+            'limit_periods' => [null => 'None', 'Hour' => 'Hour', 'Day' => 'Day', 'Week' => 'Week', 'Month' => 'Month', 'Year' => 'Year'],
             'raffles' => Raffle::where('rolled_at', null)->where('is_active', 1)->orderBy('name')->pluck('name', 'id'),
             'criteria' => Criterion::active()->orderBy('name')->pluck('name', 'id'),
             'skills' => Skill::pluck('name', 'id')->toArray()
@@ -210,6 +211,7 @@ class PromptController extends Controller
     public function getEditPrompt($id)
     {
         $prompt = Prompt::find($id);
+        
         if(!$prompt) abort(404);
         return view('admin.prompts.create_edit_prompt', [
             'prompt' => $prompt,
@@ -221,6 +223,7 @@ class PromptController extends Controller
             'gears' => Gear::orderBy('name')->pluck('name', 'id'),
             'weapons' => Weapon::orderBy('name')->pluck('name', 'id'),
             'tables' => LootTable::orderBy('name')->pluck('name', 'id'),
+            'limit_periods' => [null => 'None', 'Hour' => 'Hour', 'Day' => 'Day', 'Week' => 'Week', 'Month' => 'Month', 'Year' => 'Year'],
             'raffles' => Raffle::where('rolled_at', null)->where('is_active', 1)->orderBy('name')->pluck('name', 'id'),
             'criteria' => Criterion::active()->orderBy('name')->pluck('name', 'id'),
             'skills' => Skill::pluck('name', 'id')->toArray()
@@ -240,7 +243,8 @@ class PromptController extends Controller
         $id ? $request->validate(Prompt::$updateRules) : $request->validate(Prompt::$createRules);
         $data = $request->only([
             'name', 'prompt_category_id', 'summary', 'description', 'start_at', 'end_at', 'hide_before_start', 'hide_after_end', 'is_active', 'rewardable_type',
-             'rewardable_id', 'quantity', 'image', 'remove_image', 'prefix', 'hide_submissions',
+             'rewardable_id', 'quantity', 'image', 'remove_image',
+            'limit', 'limit_period', 'limit_character', 'prefix', 'hide_submissions',
              'chara_exp', 'chara_points', 'user_exp', 'user_points', 'level_req', 'level_check', 'skill_id', 'skill_quantity', 'criterion_id', 'criterion'
         ]);
         if($id && $service->updatePrompt(Prompt::find($id), $data, Auth::user())) {
