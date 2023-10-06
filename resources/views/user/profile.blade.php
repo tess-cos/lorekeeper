@@ -72,7 +72,7 @@
     </div>
 @endif
 
-<div class="row" style="width: 100%;">
+<div class="row" style="padding: 10px; margin-left: 5px; width: 100%;">
     <div class="col-md-6">
         @include('widgets._selected_character', ['character' => $user->settings->selectedCharacter, 'user' => $user, 'fullImage' => true])
     </div>
