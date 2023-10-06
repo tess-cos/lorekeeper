@@ -65,7 +65,7 @@
 </div>
 
 @if(isset($user->profile->parsed_text))
-    <div class="card mb-3" style="clear:both; border: 0px;">
+    <div class="card mb-3" style="clear:both; border: 0px; margin-bottom: 15px;">
         <div class="card-body">
             {!! $user->profile->parsed_text !!}
         </div>
