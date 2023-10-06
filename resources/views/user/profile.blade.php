@@ -65,7 +65,7 @@
 </div>
 
 @if(isset($user->profile->parsed_text))
-    <div class="card mb-3" style="clear:both; border: 0px; margin-bottom: 15px;">
+    <div class="card mb-3" style="clear:both; border: 0px;">
         <div class="card-body">
             {!! $user->profile->parsed_text !!}
         </div>
@@ -73,7 +73,7 @@
 @endif
 
 <div class="row" style="padding: 15px;">
-    <div class="col-md-6">
+    <div class="col-md-6" style="margin: auto;">
         @include('widgets._selected_character', ['character' => $user->settings->selectedCharacter, 'user' => $user, 'fullImage' => true])
     </div>
     <div class="col-md-6 mb-4 profile-assets" style="clear:both;">
