@@ -674,7 +674,7 @@ border-bottom: 2px solid #E5C1C7;}
     }
 
 .btn-danger, .btn-danger:hover, .btn-danger:active, .btn-danger:visited, .badge-danger {
-    background-color: #E57373 !important; border-color: #E57373; color: #fafafa;
+    background-color: #E57373 !important; border-color: #E57373; color: #fff;
 } 
 
 .btn-danger:hover {
