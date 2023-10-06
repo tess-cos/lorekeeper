@@ -192,7 +192,7 @@
             @endif
         </div>
         
-        <h3>Characters</h3>
+        <div style="display: none;"><h3>Characters</h3>
         <p>
             Add the characters included in this piece.
             @if($gallery->criteria)
@@ -208,7 +208,7 @@
         </div>
         <div class="text-right mb-3">
             <a href="#" class="btn btn-outline-info" id="addCharacter">Add Character</a>
-        </div>
+        </div></div>
         
        @if($gallery->criteria->count() > 0 && !$submission->id)
             <h2 id="criterion-section" class="mt-5">Criteria Rewards <button class="btn  btn-outline-info float-right add-calc" type="button">Add Criterion</a></h2>

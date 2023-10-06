@@ -58,7 +58,7 @@
             </div>
             <div class="col-md ml-md-2">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header" style="background-color: #FBF5F6;">
                         <h5>{{ $submission->displayTitle }}
                         <a class="float-right" href="{{ url('reports/new?url=') . $submission->url }}"><i class="fas fa-exclamation-triangle" data-toggle="tooltip" title="Click here to report this submission." style="opacity: 50%;"></i></a></h5>
                         <div class="float-right">
@@ -102,7 +102,7 @@
     <div class="col-md-4 col-lg-3">
         @if($submission->collaborators->count())
             <div class="card mb-4">
-                <div class="card-header">
+                <div class="card-header" style="background-color: #FBF5F6;">
                     <h5>Collaborators</h5>
                 </div>
                 <div class="card-body">
@@ -142,7 +142,7 @@
         @endif
         @if($submission->participants->count())
             <div class="card mb-4">
-                <div class="card-header">
+                <div class="card-header" style="background-color: #FBF5F6;">
                     <h5>Participants</h5>
                 </div>
                 <div class="card-body">
@@ -156,7 +156,7 @@
         @endif
         @if($submission->characters->count())
             <div class="card mb-4">
-                <div class="card-header">
+                <div class="card-header" style="background-color: #FBF5F6;">
                     <h5>Characters</h5>
                 </div>
                 <div class="card-body">
@@ -174,7 +174,7 @@
         @endif
         @if($submission->promptSubmissions->count())
             <div class="card mb-4">
-                <div class="card-header">
+                <div class="card-header" style="background-color: #FBF5F6;">
                     <h5>Prompt Submissions</h5>
                 </div>
                 <div class="card-body">
@@ -185,7 +185,7 @@
             </div>
         @endif
         <div class="card mb-4">
-            <div class="card-header">
+            <div class="card-header" style="background-color: #FBF5F6;">
                 <h5>Mention This</h5>
             </div>
             <div class="card-body">

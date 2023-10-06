@@ -58,6 +58,7 @@ body {
     font-family: verdana, sans-serif; 
     min-height: 100vh;
     font-size: 9.5pt;
+    line-height: 20.5px;
     background-color: #fff;
 }
 
@@ -628,9 +629,11 @@ border-bottom: 2px solid #E5C1C7;}
     padding-right: .5rem;
 }
 
-.btn-primary:active, .btn-primary:visited, .badge-primary {
+.btn-primary:active, .btn-primary:visited, .badge-primary, .badge-secondary, .badge-info {
     background-color: #CFDEBA !important; border-color: #CFDEBA; color: #4a4a4a; text-transform: capitalize;
 } 
+
+.badge-success {background-color: #95b582;}
 
 .btn-primary {background-color:#EDD3A0; border-color: #EDD3A0; color: #4a4a4a;}
 .btn-primary:hover {background-color:#f1e0c9; border-color: #f1e0c9; color: #4a4a4a;}
@@ -656,17 +659,21 @@ border-bottom: 2px solid #E5C1C7;}
 }
 
 .btn-outline-info, .btn-outline-info:active, .btn-outline-info:visited {
-    color:#aac4fb; border-color: #b6caf7;}
+    color:#E5C1C7; border-color: #E5C1C7;}
 
-    .btn-info, .btn-info:active, .btn-info:visited {
-        background-color: #aac4fb !important; border-color: #aac4fb; color: #4a4a4a;
+.btn-info, .btn-info:active, .btn-info:visited {
+        background-color: #E5C1C7 !important; border-color: #E5C1C7; color: #4a4a4a;
     } 
 
 .btn-outline-info:hover, .btn-info:hover {
-        background-color: #b6c9f7 !important; border-color: #b6c9f7; color: #4a4a4a;
+        background-color: #f4e3e6 !important; border-color: #f4e3e6; color: #4a4a4a;
     }
 
-.btn-danger, .btn-danger:hover, .btn-danger:active, .btn-danger:visited {
+.alert-secondary {
+        background-color: #E0ECD0 !important; border-color: #f4e3e6; color: #4a4a4a;
+    }
+
+.btn-danger, .btn-danger:hover, .btn-danger:active, .btn-danger:visited, .badge-danger {
     background-color: #E57373 !important; border-color: #E57373; color: #fafafa;
 } 
 
@@ -675,7 +682,7 @@ border-bottom: 2px solid #E5C1C7;}
 } 
 
 .btn-outline-danger, .btn-outline-danger:hover, .btn-outline-danger:active, .btn-outline-danger:visited {
-    border-color: #E57373 !important; color: ##E57373;
+    border-color: #E57373 !important; color: #E57373;
 }
 
 .btn-outline-danger:hover {

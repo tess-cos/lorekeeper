@@ -11,10 +11,10 @@
 
     @foreach($galleries as $gallery)
         <div class="card mb-4">
-            <div class="card-header">
-                <h4>
+            <div class="card-header" style="background-color: #FBF5F6;">
+                <h4 style="padding: 2px; margin-top: 5px;">
                     {!! $gallery->displayName !!}
-                    @if(Auth::check() && $gallery->canSubmit(Auth::user())) <a href="{{ url('gallery/submit/'.$gallery->id) }}" class="btn btn-primary float-right"><i class="fas fa-plus"></i></a> @endif
+                    @if(Auth::check() && $gallery->canSubmit(Auth::user())) <a href="{{ url('gallery/submit/'.$gallery->id) }}" class="btn btn-primary float-right" style="background-color: #fff !important; border: 1px solid #fff; margin-top: -3px;"><i class="fas fa-plus"></i></a> @endif
                 </h4>
                 @if($gallery->children->count() || (isset($gallery->start_at) || isset($gallery->end_at)))
                     <p>

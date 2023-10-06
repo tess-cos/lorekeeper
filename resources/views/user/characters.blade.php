@@ -14,7 +14,7 @@
         @foreach($characters as $character)
             <div class="col-md-3 col-6 text-center mb-2">
                 <div>
-                    <a href="{{ $character->url }}"><img src="{{ $character->image->thumbnailUrl }}" class="img-thumbnail" alt="Thumbnail for {{ $character->fullName }}" /></a>
+                    <a href="{{ $character->url }}"><img style="background: #fff; border: 1px solid #f4e3e6; padding: 5px;" src="{{ $character->image->thumbnailUrl }}" class="img-thumbnail" alt="Thumbnail for {{ $character->fullName }}" /></a>
                 </div>
                 <div class="mt-1 h5">
                     @if(!$character->is_visible) <i class="fas fa-eye-slash"></i> @endif {!! $character->displayName !!}

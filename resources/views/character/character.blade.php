@@ -32,9 +32,8 @@
 </div>
 
 {{-- Info --}}
-<div style="width: 80%; padding: 15px; margin: auto; text-align: center;">
-<div style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;text-align: left;"><h5 style="background-color: #fafafa; border: 1px solid #e5e5e5; padding: 15px; border-radius: 15px;">Pets</h5></div>
-                       
+<div style="width: 80%; padding: 15px; margin: auto; text-align: center; background: #fff; border: 1px solid #dedede; padding: 5px; padding-bottom: 10px; border-radius: 5px;">
+<h5 style="text-align: left; padding: 10px; background-color: #fafafa;">pets</h5>
                         @foreach($character->image->character->pets as $pet)
                             <div class="ml-3 mr-3" style="margin: auto;">
                                 @if($pet->has_image)
@@ -46,7 +45,7 @@
                                 <br>
                                 <span class="badge" style="font-size:95%; background-color: #E5C1C7; color: #fff;">{!! $pet->pet_name !!}</span>
                             </div>
-                        @endforeach</div>
+                        @endforeach</div><br />
 <div class="card character-bio">
     <div class="card-header" style="background-color: #fafafa;"><h5 style="padding: 10px; margin-bottom: -5px; margin-top: -2.5px; margin-left: -8.5px;">description</h5>
 </div>
