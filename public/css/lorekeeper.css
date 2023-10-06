@@ -782,6 +782,10 @@ tr.outflow {
 
 .card-header { background: none;}
 
+.tooltip.show {
+    opacity: 1.5;
+} 
+
 /* INVENTORY *************************************************************************************/
 
 .inventory-category .inventory-body .inventory-item img {

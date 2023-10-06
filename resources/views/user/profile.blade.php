@@ -14,18 +14,19 @@
 
 @include('widgets._awardcase_feature', ['target' => $user, 'count' => Config::get('lorekeeper.extensions.awards.user_featured'), 'float' => false])
 
+<div style="padding-top: 15px;">
 @if($user->is_banned)
     <div class="alert alert-danger">This user has been banned.</div>
 @endif
 <h1>
-    <img src="/images/avatars/{{ $user->avatar }}" style="width:125px; height:125px; float:left; border-radius:50%; margin-left: 20px; margin-right:25px; margin-top: -8px; margin-bottom: 20px; padding: 5px;" alt="{{ $user->name }}" >
+    <img src="/images/avatars/{{ $user->avatar }}" style="width:125px; height:125px; float:left; border-radius:50%; margin-left: 20px; margin-right:25px; margin-top: -8px; margin-bottom: 20px; padding: 10px; border: 1px solid #E5C1C7; background-color: #fff;" alt="{{ $user->name }}" >
     {!! $user->displayName !!}
 
     <a href="{{ url('reports/new?url=') . $user->url }}"><i class="fas fa-exclamation-triangle fa-xs" data-toggle="tooltip" title="Click here to report this user." style="opacity: 50%; font-size:0.5em;"></i></a>
     @if($user->settings->is_fto)
         <span class="badge badge-success float-right" data-toggle="tooltip" title="This user has not owned any characters from this world before.">FTO</span>
     @endif
-</h1>
+</h1></div>
 
 
 <div class="mb-4">
