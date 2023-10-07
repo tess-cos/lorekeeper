@@ -411,7 +411,7 @@ border-bottom: 2px solid #E5C1C7; position: relative;}
 }
 
 @media (max-width: 600px) {
-    .site-header-image, .navimg, .sideimg {
+    .site-header-image, .navimg {
         display: none;
     }
     .site-mobile-header {
@@ -421,6 +421,11 @@ border-bottom: 2px solid #E5C1C7; position: relative;}
         z-index: 4;
         width: 100%;
     }
+
+    .sideimg { width: 50%;
+    }
+
+    
 
     #headerNav {
         position: fixed;
@@ -461,7 +466,7 @@ border-bottom: 2px solid #E5C1C7; position: relative;}
         position: absolute;
         padding-left: 75px;
         text-align: center;
-        background-color: #fafafa;
+        background-color: rgb(250, 250, 250, .8);
         z-index: 3;
         right: 0px;
         bottom: 0px;
