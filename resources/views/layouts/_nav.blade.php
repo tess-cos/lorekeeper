@@ -1,6 +1,6 @@
-<div class="navimg"></div>
+
 <nav class="navbar navbar-expand-md navbar-light" id="headerNav">
-   <br />
+<div class="navimg"></div><br />
     <div class="container-fluid">
         <a class="navbar-f" href="{{ url('/') }}">✿
         </a>

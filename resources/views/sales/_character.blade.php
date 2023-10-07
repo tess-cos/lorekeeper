@@ -1,15 +1,15 @@
-<div class="card h-100" style="border: 0px;">
+<div class="card h-100" style="border: 0;">
     <div class="m-1">
         <div class="row">
             <div class="col-md-6 text-center align-self-center">
-                <a href="{{ $character->character->url }}"><img src="{{ $loop->count == 1 ? $character->image->imageUrl : $character->image->thumbnailUrl }}" alt="{{ $character->fullName }}" style="max-width: 250px; background-color: #fff; padding: 10px; border: 2px solid #fafafa;" /></a>
+                <a href="{{ $character->character->url }}"><img style="background: #fff; border: 1px solid #f4e3e6; padding: 5px;" src="{{ $loop->count == 1 ? $character->image->imageUrl : $character->image->thumbnailUrl }}" class="mw-100 img-thumbnail" alt="{{ $character->fullName }}" /></a>
             </div>
-            <div class="col-md text-center" style="margin-top: 40px;">
+            <div class="col-md text-center">
                 <div class="mt-2">
                     <h5>
                         {{ $character->displayType }}: <a href="{{ $character->character->url }}">{!! $character->character->slug !!}</a><br /><span class="{{ $character->is_open && $character->sales->is_open ? 'text-success' : '' }}">[{{ $character->is_open && $character->sales->is_open ? 'Open' : 'Closed' }}]</span><br/>
                         <small>
-                            {!! $character->image->species->displayName !!} ({!! $character->image->rarity->displayName !!})<br/>
+                            {!! $character->image->species->displayName !!} {!! $character->image->rarity->displayName !!}<br/>
                         </small>
                     </h5>
 
@@ -56,18 +56,18 @@
                         </div>
                     @endif
 
-                    <h7 style="text-transform: lowercase; font-family: poppins; color: #666;">
-                        <div class="mb-2">
-                            design:
+                    
+                        <div class="mb-2" style="font-size:8.5pt;">
+                           design:
                             @foreach($character->image->designers as $designer)
                                 {!! $designer->displayLink() !!}{{ !$loop->last ? ', ' : '' }}
-                            @endforeach<br />
-                            art:
+                            @endforeach <br />
+                            drt:
                             @foreach($character->image->artists as $artist)
                                 {!! $artist->displayLink() !!}{{ !$loop->last ? ', ' : '' }}
                             @endforeach
-                        </div></h7>
-                        <h6 style="text-transform: lowercase; font-family: poppins;">
+                        </div>
+                        <h6>
                         {!! $character->price !!}
                         {!! isset($character->link) || isset($character->data['end_point']) ? '<br/>' : '' !!}
                         @if(isset($character->data['end_point']))
