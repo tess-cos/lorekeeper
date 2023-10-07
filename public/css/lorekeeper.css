@@ -100,7 +100,7 @@ body {
 main {
     flex-grow: 1;
     display: flex;
-    max-width: 1000px;
+    max-width: 100%;
 }
 
 main > .row {
