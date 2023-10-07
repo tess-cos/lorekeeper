@@ -378,9 +378,6 @@ border-bottom: 2px solid #E5C1C7;}
         top: 54px !important;
     }
 
-    .navimg, .sideimg {
-        display: none;
-
     .timestamp {
         margin-left: 1rem !important;
         margin-right: 1rem !important;
@@ -404,6 +401,9 @@ border-bottom: 2px solid #E5C1C7;}
         z-index: 5;
         width: 100%;
     }
+
+    .ui 
+    { width: 100%; }
 
     .dash {
         width: 100%;

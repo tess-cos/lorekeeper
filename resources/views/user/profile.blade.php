@@ -29,7 +29,7 @@
 </h1></div>
 
 
-<div class="mb-4">
+<div class="ui"><div class="mb-4">
     <div class="row">
         <div class="row col-md-6">
             <div class="col-md-2 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Alias</div>
@@ -62,7 +62,7 @@
             </div>
         @endif
     </div>
-</div>
+</div></div>
 
 @if(isset($user->profile->parsed_text))
     <div class="card mb-3" style="clear:both; border: 0px;">
