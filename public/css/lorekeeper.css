@@ -101,6 +101,7 @@ main {
     flex-grow: 1;
     display: flex;
     max-width: 90%;
+    margin-right: -1%;
 }
 
 main > .row {
