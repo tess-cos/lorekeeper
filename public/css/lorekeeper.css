@@ -172,11 +172,12 @@ border-bottom: 2px solid #E5C1C7;}
 .navimg {
     height: 120%;
     width: 100%;
+    border-bottom: 3px solid #fafafa;
     background-image: url(https://i.imgur.com/BxvQMZ1.png);
     background-repeat: repeat-x;
     background-size: contain;
     position: absolute;
-    top: -80%;
+    top: -70%;
     left: 0px;
     z-index: 0; }
     
