@@ -373,12 +373,6 @@ border-bottom: 2px solid #E5C1C7;}
     padding: 10px 20px;
 }
 
-@media (min-width: 1024px) and (max-width: 1025px) {
-    .site-header-image, .navimg, .sideimg {
-        display: none;
-    }
-   }
-
 @media (max-width: 767px) {
     .site-mobile-header {
         top: 54px !important;
