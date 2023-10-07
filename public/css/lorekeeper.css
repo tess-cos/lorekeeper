@@ -378,13 +378,13 @@ border-bottom: 2px solid #E5C1C7;}
         top: 54px !important;
     }
 
+    .navimg, .sideimg {
+        display: none;
+
     .timestamp {
         margin-left: 1rem !important;
         margin-right: 1rem !important;
     }
-}
-@media only screen and (max-width: 1200px) {
-   #app { width: 59%; }
 }
 
 @media (max-width: 991px) {
