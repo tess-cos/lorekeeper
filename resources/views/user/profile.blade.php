@@ -29,19 +29,19 @@
 </h1>
 
 
-<div class="mb-4">
+<div class="mb-2">
     <div class="row">
         <div class="row col-md-6">
-            <div class="col-md-2 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Alias</div>
-            <div class="col-md-10 col-8" style="text-transform: lowercase;">{!! $user->displayAlias !!}</div>
+            <div class="col-md-4 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Alias</div>
+            <div class="col-md-8 col-8" style="text-transform: lowercase;">{!! $user->displayAlias !!}</div>
         </div>
         <div class="row col-md-6">
-            <div class="col-md-2 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Joined</div>
+            <div class="col-md-4 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Joined</div>
             <div class="col-md-10 col-8" style="text-transform: lowercase;">{!! format_date($user->created_at, false) !!} ({{ $user->created_at->diffForHumans() }})</div>
         </div>
         <div class="row col-md-6">
-            <div class="col-md-2 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Rank</div>
-            <div class="col-md-10 col-8" style="text-transform: lowercase;">{!! $user->rank->displayName !!} {!! add_help($user->rank->parsed_description) !!}</div>
+            <div class="col-md-4 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Rank</div>
+            <div class="col-md-8 col-8" style="text-transform: lowercase;">{!! $user->rank->displayName !!} {!! add_help($user->rank->parsed_description) !!}</div>
         </div>
         @if($user->birthdayDisplay && isset($user->birthday))
             <div class="row col-md-6">
