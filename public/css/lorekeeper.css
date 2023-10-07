@@ -98,7 +98,7 @@ body {
 }
 
 main {
-    flex-grow: 1;
+    flex-grow: inherit;
     display: flex;
     max-width: 1400px;
 }
