@@ -402,8 +402,10 @@ border-bottom: 2px solid #E5C1C7;}
         width: 100%;
     }
 
-    .ui 
-    { width: 100%; }
+    .col {
+        width: 100%;
+    }
+    }
 
     .dash {
         width: 100%;
