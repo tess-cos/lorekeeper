@@ -26,7 +26,7 @@
     @if($user->settings->is_fto)
         <span class="badge badge-success float-right" data-toggle="tooltip" title="This user has not owned any characters from this world before.">FTO</span>
     @endif
-</h1></div>
+</h1>
 
 
 <div class="mb-2">
@@ -62,7 +62,7 @@
             </div>
         @endif
     </div>
-</div>
+</div></div>
 
 @if(isset($user->profile->parsed_text))
     <div class="card mb-3" style="clear:both; border: 0px;">
