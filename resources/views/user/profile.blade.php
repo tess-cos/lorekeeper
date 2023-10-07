@@ -32,7 +32,7 @@
 <div class="mb-2">
     <div class="row no-gutters">
         <div class="row col-md-6">
-            <div class="col-md-4 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Alias</div>
+        <div class="col-3"><h5 class="mt-1 mb-0" style="font-size: 1.25em;">Alias</h5></div>
             <div class="col-md-8 col-8" style="text-transform: lowercase;">{!! $user->displayAlias !!}</div>
         </div>
         <div class="row col-md-6">
