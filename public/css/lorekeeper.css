@@ -104,8 +104,6 @@ main {
 
 main > .row {
     flex-grow: 1;
-    margin-left: 2.5%;
-    margin-right: 4.5%;
 }
 
 .main-content {
