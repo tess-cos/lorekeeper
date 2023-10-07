@@ -176,7 +176,7 @@ border-bottom: 2px solid #E5C1C7;}
     background-repeat: repeat-x;
     background-size: contain;
     position: absolute;
-    top: -50px;
+    top: -50%;
     left: 0px;
     z-index: 0; }
     
