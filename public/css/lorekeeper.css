@@ -382,6 +382,10 @@ border-bottom: 2px solid #E5C1C7;}
         margin-left: 1rem !important;
         margin-right: 1rem !important;
     }
+
+    .sidebar {
+        margin-left: -35px;
+    }
 }
 
 @media (max-width: 991px) {
