@@ -15,7 +15,7 @@
 @include('widgets._awardcase_feature', ['target' => $user, 'count' => Config::get('lorekeeper.extensions.awards.user_featured'), 'float' => false])
 
 
-<div class="col-lg-10 p-1"><div style="padding-top: 15px;">@if($user->is_banned)
+<div style="padding-top: 15px;">@if($user->is_banned)
     <div class="alert alert-danger">This user has been banned.</div>
 @endif
 <h1>
@@ -26,7 +26,7 @@
     @if($user->settings->is_fto)
         <span class="badge badge-success float-right" data-toggle="tooltip" title="This user has not owned any characters from this world before.">FTO</span>
     @endif
-</h1></div></div>
+</h1></div>
 
 
 <div class="mb-2">

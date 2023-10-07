@@ -402,7 +402,17 @@ border-bottom: 2px solid #E5C1C7;}
         width: 100%;
     }
 
-    .ui {width: 100%;}
+    .flex-lg-row {
+        flex-direction: row !important;
+      }
+    
+      .flex-lg-column {
+        flex-direction: column !important;
+      }
+    
+      .flex-lg-row-reverse {
+        flex-direction: row-reverse !important;
+      }    
 
     .dash {
         width: 100%;
