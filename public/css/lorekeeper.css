@@ -378,6 +378,10 @@ border-bottom: 2px solid #E5C1C7;}
         top: 54px !important;
     }
 
+    .navimg { top: -70px; }
+
+    .sidebar { width: 40%; }
+
     .timestamp {
         margin-left: 1rem !important;
         margin-right: 1rem !important;
