@@ -384,7 +384,7 @@ border-bottom: 2px solid #E5C1C7;}
     }
 }
 @media only screen and (max-width: 600px) {
-    main.container-fluid { width: 59%; }
+   #app { width: 59%; }
 }
 
 @media (max-width: 991px) {
