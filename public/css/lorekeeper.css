@@ -98,8 +98,9 @@ body {
 }
 
 main {
-    flex-grow: inherit;
+    flex-grow: 1;
     display: flex;
+    margin: auto;
     max-width: 1400px;
 }
 
