@@ -170,13 +170,13 @@ border-top-right-radius: 95px;
 border-bottom: 2px solid #E5C1C7;}
 
 .navimg {
-    height: 95%;
+    height: 100%;
     width: 100%;
     background-image: url(https://i.imgur.com/BxvQMZ1.png);
     background-repeat: repeat-x;
     background-size: contain;
     position: absolute;
-    top: -20%;
+    top: -60%;
     left: 0px;
     z-index: 0; }
     
