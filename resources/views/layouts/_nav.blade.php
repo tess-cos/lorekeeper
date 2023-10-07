@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light" id="headerNav">
-   <div class="navimg"></div>
+   <div class="d-md-block d-none"><div class="navimg"></div></div>
     <div class="container-fluid">
         <a class="navbar-f" href="{{ url('/') }}">✿
         </a>
