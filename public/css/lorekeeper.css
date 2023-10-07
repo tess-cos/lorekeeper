@@ -385,6 +385,7 @@ border-bottom: 2px solid #E5C1C7;}
     
 }
 
+
 @media (max-width: 991px) {
     .site-header-image, .navimg, .sideimg {
         display: none;
