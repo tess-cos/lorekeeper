@@ -382,13 +382,8 @@ border-bottom: 2px solid #E5C1C7;}
         margin-left: 1rem !important;
         margin-right: 1rem !important;
     }
-    
 }
 
-@media (min-width: 600px) {
-    .cards { grid-template-columns: repeat(2, 1fr); }
-  }
-  
 @media (max-width: 991px) {
     .site-header-image, .navimg, .sideimg {
         display: none;
