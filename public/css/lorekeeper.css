@@ -98,8 +98,9 @@ body {
 }
 
 main {
-    flex-grow: 0.8;
+    flex-grow: 1;
     display: flex;
+    width: 80%;
 }
 
 main > .row {
