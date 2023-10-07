@@ -104,6 +104,8 @@ main {
 
 main > .row {
     flex-grow: 1;
+    margin-left: 2.5%;
+    margin-right: 4.5%;
 }
 
 .main-content {
@@ -260,7 +262,7 @@ border-bottom: 2px solid #E5C1C7;}
     text-align: center;
     padding-right: 0px;
     display: inline-block;
-    margin-left: -15px;
+    margin-right: 15px;
     padding: 5px;
 }
 
@@ -370,6 +372,12 @@ border-bottom: 2px solid #E5C1C7;}
     display: none;
     padding: 10px 20px;
 }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .site-header-image, .navimg, .sideimg {
+        display: none;
+    }
+   }
 
 @media (max-width: 767px) {
     .site-mobile-header {
