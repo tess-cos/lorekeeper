@@ -135,6 +135,7 @@ border-top-right-radius: 95px;
     text-transform: lowercase;
     font-family: Mali, serif;
     color: #4a4a4a;
+    z-index: 1;
 }
 
 .navbar .nav-item:hover {
@@ -170,9 +171,8 @@ border-top-right-radius: 95px;
 border-bottom: 2px solid #E5C1C7;}
 
 .navimg {
-    height: 120%;
+    height: 125%;
     width: 100%;
-    border-bottom: 3px solid #fafafa;
     background-image: url(https://i.imgur.com/BxvQMZ1.png);
     background-repeat: repeat-x;
     background-size: contain;
