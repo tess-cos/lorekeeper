@@ -133,7 +133,7 @@
                         <a class="dropdown-item" href="{{ url('masterlist') }}">
                             Cossetling Masterlist
                         </a>
-                        <a class="dropdown-item" href="{{ url('myos') }}">
+                        <a class="dropdown-item" href="{{ url('sublist/myo') }}">
                             MYO Masterlist
                         </a>
                     </div>
