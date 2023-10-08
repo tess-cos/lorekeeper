@@ -147,6 +147,11 @@ border-top-right-radius: 95px;
     color: #aaa;
 }
 
+.dropdown-menu {
+    border: 1px solid #CFDEBA;
+    background-color: #CFDEBA;
+}
+
 .navbar .navbar-f {
     text-transform: lowercase;
     font-family: Hachi Maru Pop, serif; 
