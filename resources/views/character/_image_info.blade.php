@@ -1,7 +1,7 @@
 {{-- Image Data --}}
 <div class="col-md-5 d-flex">
     <div class="card character-bio w-100">
-        <div class="card-header" style="background-color: #bed0a6;">
+        <div class="card-header" style="background-color: #f4e3e6;">
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
                     <a class="nav-link active" id="infoTab-{{ $image->id }}" data-toggle="tab" href="#info-{{ $image->id }}" role="tab">Info</a>

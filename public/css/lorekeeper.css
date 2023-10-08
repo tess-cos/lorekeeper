@@ -671,8 +671,8 @@ border-bottom: 2px solid #E5C1C7; position: relative;}
 
 .badge-success {background-color: #95b582;}
 
-.btn-primary {background-color:#EDD3A0; border-color: #EDD3A0; color: #4a4a4a;}
-.btn-primary:hover {background-color:#f1e0c9; border-color: #f1e0c9; color: #4a4a4a;}
+.btn-primary {background-color:#CFDEBA; border-color: #CFDEBA; color: #4a4a4a;}
+.btn-primary:hover {background-color:#EBF0E3; border-color: #EBF0E3; color: #4a4a4a;}
 
 .btn-outline-primary, .btn-outline-primary:hover, .btn-outline-primary:active, .btn-outline-primary:visited {
     border-color: #bed0a6 !important; color: #bed0a6;
