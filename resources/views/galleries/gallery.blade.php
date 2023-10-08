@@ -20,7 +20,7 @@
         @endif
     </p>
 @endif
-<p>{!! $gallery->description !!}</p>
+<p style="padding: 15px;">{!! $gallery->description !!}</p>
 @if(!$gallery->submissions->count() && $gallery->children->count() && $childSubmissions->count())
     <p>This gallery has no submissions; instead, displayed is a selection of the most recent submissions from its sub-galleries. Please navigate to one of the sub-galleries to view more.</p>
 @endif
