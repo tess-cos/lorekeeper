@@ -139,11 +139,11 @@
 {!! $characters->render() !!}
 <div id="gridView" class="hide">
     @foreach($characters->chunk(4) as $chunk)
-        <div class="row" style="padding: 10px; row-gap: 20px; column-gap: 20px;">
+        <div class="row" style="padding: 0px; row-gap: 20px; column-gap: 0px;">
             @foreach($chunk as $character)
-            <div class="col-md-3 col-6 text-center" style="background: #fafafa; padding: 10px; padding-top: 20px; border-radius: 15px;">
+            <div class="col-md-3 col-6 text-center" style="background: none; border: 0px solid #f4e3e6; padding: 0px; padding-top: 20px; padding-bottom: 15px; border-radius: 5px;">
                 <div>
-                    <a href="{{ $character->url }}"><img style="border: 0px; width: 80%; background: #f4e3e6;" src="{{ $character->image->thumbnailUrl }}" class="img-thumbnail" alt="Thumbnail for {{ $character->fullName }}"/></a>
+                    <a href="{{ $character->url }}"><img style="width: 80%; background: none; border: 1px solid #f4e3e6;" src="{{ $character->image->thumbnailUrl }}" class="img-thumbnail" alt="Thumbnail for {{ $character->fullName }}"/></a>
                 </div>
                 <div class="mt-1">
                     <a href="{{ $character->url }}" class="h5 mb-0">@if(!$character->is_visible) <i class="fas fa-eye-slash"></i> @endif {{ $character->fullName }}</a>
