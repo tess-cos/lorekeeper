@@ -18,55 +18,63 @@
 <div style="padding-top: 15px;">@if($user->is_banned)
     <div class="alert alert-danger">This user has been banned.</div>
 @endif
-<h1>
-    <img src="/images/avatars/{{ $user->avatar }}" style="width:125px; height:125px; float:left; border-radius:50%; margin-left: 20px; margin-right:25px; margin-top: -8px; margin-bottom: 20px; padding: 10px; border: 1px solid #E5C1C7; background-color: #fff;" alt="{{ $user->name }}" >
-    {!! $user->displayName !!}
+<hr style="border: 0px solid #fff; width: 100%;">
+<div class="row no-gutters">
+    <div class="col-lg-2 p-2 d-flex justify-content-center align-items-center">
+        <img src="/images/avatars/{{ $user->avatar }}" style="max-width:125px; max-height:125px; margin-left: 0px; margin-right: 0px; margin-top: -8px; margin-bottom: 20px; border-radius:50%; padding: 10px; border: 1px solid #E5C1C7; background-color: #fff;" alt="{{ $user->name }}" >
+    </div>
 
-    <a href="{{ url('reports/new?url=') . $user->url }}"><i class="fas fa-exclamation-triangle fa-xs" data-toggle="tooltip" title="Click here to report this user." style="opacity: 50%; font-size:0.5em;"></i></a>
+    <div class="col-lg-10 p-2">
+        <div class="d-flex justify-content-between align-items-center">
+            <h1>
+            {!! $user->displayName !!}
+            </h1>
+            <h3>
+            <a href="{{ url('reports/new?url=') . $user->url }}"><i class="fas fa-exclamation-triangle fa-xs" data-toggle="tooltip" title="Click here to report this user." style="opacity: 50%; font-size:0.5em; color: #DFA4AF;"></i></a>
     @if($user->settings->is_fto)
         <span class="badge badge-success float-right" data-toggle="tooltip" title="This user has not owned any characters from this world before.">FTO</span>
     @endif
-</h1>
+            </h3>
+        </div>
 
-
-<div class="mb-2">
-<div class="col-md mb-4">
-                <div class="row no-gutters">
+        <div class="mb-2">
+        <div class="row no-gutters">
                     <div class="row col-md-6">
-            <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Alias</div>
+            <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;"">Alias</div>
             <div class="col-9" style="text-transform: lowercase;">{!! $user->displayAlias !!}</div>
         </div>
         <div class="row col-md-6">
-            <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Joined</div>
+            <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">Joined</div>
             <div class="col-9" style="text-transform: lowercase;">{!! format_date($user->created_at, false) !!} ({{ $user->created_at->diffForHumans() }})</div>
         </div>
         <div class="row col-md-6">
-            <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Rank</div>
+            <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;"">Rank</div>
             <div class="col-9" style="text-transform: lowercase;">{!! $user->rank->displayName !!} {!! add_help($user->rank->parsed_description) !!}</div>
         </div>
         @if($user->birthdayDisplay && isset($user->birthday))
             <div class="row col-md-6">
-                <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Birthday</div>
+                <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;"">Birthday</div>
                 <div class="col-9">{!! $user->birthdayDisplay !!}</div>
             </div>
         @endif
         @if($user_enabled && isset($user->home_id))
             <div class="row col-md-6">
-                <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Home</div>
+                <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;"">Home</div>
                 <div class="col-9">{!! $user->home ? $user->home->fullDisplayName : '-Deleted Location-' !!}</div>
             </div>
         @endif
         @if($user_factions_enabled && isset($user->faction_id))
             <div class="row col-md-6">
-                <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Faction</div>
+                <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;"">Faction</div>
                 <div class="col-9">{!! $user->faction ? $user->faction->fullDisplayName : '-Deleted Faction-' !!}{!! $user->factionRank ? ' ('.$user->factionRank->name.')' : null !!}</div>
             </div>
         @endif
     </div>
-</div></div></div>
+    </div>
+</div></div>
 
 @if(isset($user->profile->parsed_text))
-    <div class="card mb-3" style="clear:both; border: 0px;">
+    <div class="card mb-3" style="clear:both; border: 0px; padding: 15px;">
         <div class="card-body">
             {!! $user->profile->parsed_text !!}
         </div>
