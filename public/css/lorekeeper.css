@@ -704,11 +704,11 @@ border-bottom: 2px solid #E5C1C7; position: relative;}
         background-color: #E5C1C7 !important; border-color: #E5C1C7; color: #4a4a4a;
     } 
 
-.btn-outline-info:hover, .btn-info:hover {
+.btn-outline-info:hover, .btn-info:hover, .alert-warning {
         background-color: #f4e3e6 !important; border-color: #f4e3e6; color: #4a4a4a;
     }
 
-.alert-secondary, .alert-warning {
+.alert-secondary {
         background-color: #E0ECD0 !important; border-color: #f4e3e6; color: #4a4a4a;
     }
 
