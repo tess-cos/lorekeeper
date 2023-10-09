@@ -446,7 +446,7 @@ border-bottom: 2px solid #E5C1C7; position: relative;}
     }
 
     .top1, .top2 {
-        width: 40%;
+        width: 50%;
     }
     
     .top3, .top4 {
@@ -704,7 +704,7 @@ border-bottom: 2px solid #E5C1C7; position: relative;}
         background-color: #E5C1C7 !important; border-color: #E5C1C7; color: #4a4a4a;
     } 
 
-.btn-outline-info:hover, .btn-info:hover, .alert-warning {
+.btn-outline-info:hover, .btn-info:hover {
         background-color: #f4e3e6 !important; border-color: #f4e3e6; color: #4a4a4a;
     }
 
