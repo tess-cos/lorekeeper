@@ -686,7 +686,11 @@ border-bottom: 2px solid #E5C1C7; position: relative;}
 }
 
 .btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
-    background-color: #E5C1C7 !important; border-color: #E5C1C7; color: #4a4a4a;
+    background-color: #E5C1C7 !important; border-color: #E5C1C7; color: #4a4a4a !important;
+} 
+
+.badge {
+    background-color: #EDD3A0 !important; border-color: #EDD3A0; color: #4a4a4a !important;
 } 
 
 .btn-outline-success, .btn-outline-success:hover, .btn-outline-success:active, .btn-outline-success:visited {
