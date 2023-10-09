@@ -48,8 +48,11 @@ a.h1:hover, a.h2:hover, a.h3:hover, a.h4:hover, a.h5:hover {
 a {
     color: rgba(0, 0, 0, 0.7);
 }
+
+p a {color: #DFA4AF;}
+
 a:hover {
-    color: rgba(0, 0, 0, 1);
+    color: #CFDEBA;
     text-decoration: none;
 }
 
@@ -636,7 +639,7 @@ border-bottom: 2px solid #E5C1C7; position: relative;}
 }
 
 .spoiler {
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 0px solid #C0D1A6;
     border-radius: 5px;
     margin-bottom: 1rem;
     background: transparent;
@@ -644,7 +647,7 @@ border-bottom: 2px solid #E5C1C7; position: relative;}
 }
 .spoiler-toggle {
     font-weight: bold;
-    background-color: #f5f5f5;
+    background-color: #C0D1A6;
     cursor: pointer;
     padding: .3rem 1.25rem;
     font-size: .9rem;
@@ -654,7 +657,7 @@ border-bottom: 2px solid #E5C1C7; position: relative;}
 }
 .spoiler-text {
     padding: 0.75rem 1.25rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 0px solid rgba(0, 0, 0, 0.1);
 }
 .text-break {
     overflow-wrap: break-word;
@@ -737,7 +740,7 @@ border-bottom: 2px solid #E5C1C7; position: relative;}
     border-color: #f4e3e6 !important; color: #f4e3e6;
 }
 
-.btn-outline-secondary:hover {
+.btn-outline-secondary:hover, btn-outline-secondary:show active {
     background-color: #E5C1C7 !important; color: #4a4a4a;
 }
 

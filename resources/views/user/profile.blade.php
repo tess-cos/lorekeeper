@@ -7,7 +7,7 @@
 @section('profile-content')
 
 @if(Auth::check() && Auth::user()->id != $user->id)
-    <a class="btn btn-primary btn-sm float-right" href="{{ url('inbox/new?recipient_id=' . $user->id) }}"><i class="fas fa-envelope"></i> Message User</a>
+    <a class="btn btn-info btn-sm float-right" href="{{ url('inbox/new?recipient_id=' . $user->id) }}"><i class="fas fa-envelope"></i> Message User</a>
 @endif
 
 {!! breadcrumbs(['Users' => 'users', $user->name => $user->url]) !!}
@@ -30,39 +30,40 @@
 
 
 <div class="mb-2">
-    <div class="row no-gutters">
-        <div class="row col-md-6">
-            <div class="col-md-4 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Alias</div>
-            <div class="col-md-8 col-8" style="text-transform: lowercase;">{!! $user->displayAlias !!}</div>
+<div class="col-md mb-4">
+                <div class="row no-gutters">
+                    <div class="row col-md-6">
+            <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Alias</div>
+            <div class="col-9" style="text-transform: lowercase;">{!! $user->displayAlias !!}</div>
         </div>
         <div class="row col-md-6">
-            <div class="col-md-4 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Joined</div>
-            <div class="col-md-10 col-8" style="text-transform: lowercase;">{!! format_date($user->created_at, false) !!} ({{ $user->created_at->diffForHumans() }})</div>
+            <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Joined</div>
+            <div class="col-9" style="text-transform: lowercase;">{!! format_date($user->created_at, false) !!} ({{ $user->created_at->diffForHumans() }})</div>
         </div>
         <div class="row col-md-6">
-            <div class="col-md-4 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Rank</div>
-            <div class="col-md-8 col-8" style="text-transform: lowercase;">{!! $user->rank->displayName !!} {!! add_help($user->rank->parsed_description) !!}</div>
+            <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Rank</div>
+            <div class="col-9" style="text-transform: lowercase;">{!! $user->rank->displayName !!} {!! add_help($user->rank->parsed_description) !!}</div>
         </div>
         @if($user->birthdayDisplay && isset($user->birthday))
             <div class="row col-md-6">
-                <div class="col-md-4 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Birthday</div>
-                <div class="col-md-8 col-8">{!! $user->birthdayDisplay !!}</div>
+                <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Birthday</div>
+                <div class="col-9">{!! $user->birthdayDisplay !!}</div>
             </div>
         @endif
         @if($user_enabled && isset($user->home_id))
             <div class="row col-md-6">
-                <div class="col-md-4 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Home</div>
-                <div class="col-md-8 col-8">{!! $user->home ? $user->home->fullDisplayName : '-Deleted Location-' !!}</div>
+                <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Home</div>
+                <div class="col-9">{!! $user->home ? $user->home->fullDisplayName : '-Deleted Location-' !!}</div>
             </div>
         @endif
         @if($user_factions_enabled && isset($user->faction_id))
             <div class="row col-md-6">
-                <div class="col-md-4 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Faction</div>
-                <div class="col-md-8 col-8">{!! $user->faction ? $user->faction->fullDisplayName : '-Deleted Faction-' !!}{!! $user->factionRank ? ' ('.$user->factionRank->name.')' : null !!}</div>
+                <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold;">Faction</div>
+                <div class="col-9">{!! $user->faction ? $user->faction->fullDisplayName : '-Deleted Faction-' !!}{!! $user->factionRank ? ' ('.$user->factionRank->name.')' : null !!}</div>
             </div>
         @endif
     </div>
-</div></div>
+</div></div></div>
 
 @if(isset($user->profile->parsed_text))
     <div class="card mb-3" style="clear:both; border: 0px;">
