@@ -672,7 +672,9 @@ border-bottom: 2px solid #E5C1C7; position: relative;}
     background-color: #CFDEBA; !important; border-color: #CFDEBA; color: #4a4a4a; text-transform: capitalize;
 } 
 
-.badge-success, .text-success {background-color: #95b582 !important;}
+.badge-success {background-color: #95b582 !important;}
+
+.text-success {color: #95b582 !important;}
 
 .btn-primary {background-color:#CFDEBA; border-color: #CFDEBA; color: #4a4a4a;}
 .btn-primary:hover {background-color:#EBF0E3; border-color: #EBF0E3; color: #4a4a4a;}
