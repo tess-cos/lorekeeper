@@ -193,8 +193,11 @@ class PromptService extends Service
 
         try {
             if(isset($data['prompt_category_id']) && $data['prompt_category_id'] == 'none') $data['prompt_category_id'] = null;
-
             if((isset($data['prompt_category_id']) && $data['prompt_category_id']) && !PromptCategory::where('id', $data['prompt_category_id'])->exists()) throw new \Exception("The selected prompt category is invalid.");
+
+            if(isset($data['parent_id']) && $data['parent_id'] == 'none') $data['parent_id'] = null;
+            if((isset($data['parent_id']) && $data['parent_id']) && !Prompt::where('id', $data['parent_id'])->exists()) throw new \Exception("The selected prompt is invalid.");
+            if($data['parent_id'] == null) $data['parent_quantity'] = null;
 
             $data = $this->populateData($data);
 
@@ -208,7 +211,8 @@ class PromptService extends Service
 
             if(!isset($data['hide_submissions']) && !$data['hide_submissions']) $data['hide_submissions'] = 0;
 
-            $prompt = Prompt::create(Arr::only($data, ['prompt_category_id', 'name', 'summary', 'description', 'parsed_description', 'is_active', 'start_at', 'end_at', 'hide_before_start', 'hide_after_end', 'has_image', 'prefix', 'hide_submissions', 'level_req',
+            $prompt = Prompt::create(Arr::only($data, ['prompt_category_id', 'name', 'summary', 'description', 'parsed_description', 'is_active', 'start_at', 'end_at', 'hide_before_start', 'hide_after_end', 'has_image', 'prefix', 'hide_submissions', 
+            'parent_id', 'parent_quantity', 'level_req',
             'limit', 'limit_period', 'limit_character']));
             
             $prompt->expreward()->create([
@@ -253,6 +257,10 @@ class PromptService extends Service
             if((isset($data['prompt_category_id']) && $data['prompt_category_id']) && !PromptCategory::where('id', $data['prompt_category_id'])->exists()) throw new \Exception("The selected prompt category is invalid.");
             if(isset($data['prefix']) && Prompt::where('prefix', $data['prefix'])->where('id', '!=', $prompt->id)->exists()) throw new \Exception("That prefix has already been taken.");
 
+            if(isset($data['parent_id']) && $data['parent_id'] == 'none') $data['parent_id'] = null;
+            if((isset($data['parent_id']) && $data['parent_id']) && !Prompt::where('id', $data['parent_id'])->exists()) throw new \Exception("The selected prompt is invalid.");
+            if($data['parent_id'] == null) $data['parent_quantity'] = null;
+
             $data = $this->populateData($data, $prompt);
 
             $image = null;
@@ -264,7 +272,8 @@ class PromptService extends Service
 
             if(!isset($data['hide_submissions']) && !$data['hide_submissions']) $data['hide_submissions'] = 0;
 
-            $prompt->update(Arr::only($data, ['prompt_category_id', 'name', 'summary', 'description', 'parsed_description', 'is_active', 'start_at', 'end_at', 'hide_before_start', 'hide_after_end', 'has_image', 'prefix', 'hide_submissions', 'level_req',
+            $prompt->update(Arr::only($data, ['prompt_category_id', 'name', 'summary', 'description', 'parsed_description', 'is_active', 'start_at', 'end_at', 'hide_before_start', 'hide_after_end', 'has_image', 'prefix', 'hide_submissions', 
+            'parent_id', 'parent_quantity', 'level_req',
             'limit', 'limit_period', 'limit_character']));
 
             if($prompt->expreward) {
@@ -391,6 +400,7 @@ class PromptService extends Service
         try {
             // Check first if the category is currently in use
             if(Submission::where('prompt_id', $prompt->id)->exists()) throw new \Exception("A submission under this prompt exists. Deleting the prompt will break the submission page - consider setting the prompt to be not active instead.");
+            if(Prompt::where('parent_id', $prompt->id)->exists()) throw new \Exception("A prompt currently has this prompt as its parent.");
 
             $prompt->rewards()->delete();
             $prompt->expreward()->delete();
