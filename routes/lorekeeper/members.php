@@ -302,7 +302,17 @@ Route::group(['prefix' => 'shops'], function() {
 **************************************************************************************************/
 
 Route::group(['prefix' => __('dailies.dailies')], function() {
+    Route::get('/', 'DailyController@getIndex');
+    Route::get('{id}', 'DailyController@getDaily')->where(['id' => '[0-9]+']);
     Route::post('{id}', 'DailyController@postRoll');
+});
+
+/**************************************************************************************************
+    Raffles
+**************************************************************************************************/
+Route::group(['prefix' => 'raffles'], function () {
+    Route::get('/', 'RaffleController@getRaffleIndex');
+    Route::get('view/{id}', 'RaffleController@getRaffleTickets');
 });
 
 

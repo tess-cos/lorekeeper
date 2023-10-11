@@ -707,7 +707,7 @@ border-bottom: 2px solid #E5C1C7; position: relative;}
     } 
 
 .btn-outline-info:hover, .btn-info:hover, .alert {
-        background-color: #f4e3e6 !important; border-color: #f4e3e6; color: #4a4a4a; text-transform: capitalize;
+        background-color: #f4e3e6 !important; border-color: #f4e3e6; color: #4a4a4a;
     }
 
 .alert-secondary {

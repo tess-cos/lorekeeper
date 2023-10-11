@@ -170,11 +170,6 @@ Route::group(['prefix' => 'shops'], function() {
     Route::get('{id}/{stockId}', 'ShopController@getShopStock')->where(['id' => '[0-9]+', 'stockId' => '[0-9]+']);
 });
 
-Route::group(['prefix' => __('dailies.dailies')], function() {
-    Route::get('/', 'DailyController@getIndex');
-    Route::get('{id}', 'DailyController@getDaily')->where(['id' => '[0-9]+']);
-});
-
 
 /**************************************************************************************************
     Pet Drops
@@ -186,14 +181,6 @@ Route::get('pets/pet/{id}', 'Users\PetController@getPetDrops');
 **************************************************************************************************/
 Route::get('credits', 'PageController@getCreditsPage');
 Route::get('info/{key}', 'PageController@getPage');
-
-/**************************************************************************************************
-    Raffles
-**************************************************************************************************/
-Route::group(['prefix' => 'raffles'], function () {
-    Route::get('/', 'RaffleController@getRaffleIndex');
-    Route::get('view/{id}', 'RaffleController@getRaffleTickets');
-});
 
 /**************************************************************************************************
     Submissions
