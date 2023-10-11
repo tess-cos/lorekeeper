@@ -107,13 +107,13 @@
                             Trade Plaza
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ url('world') }}">
-                           World
+                        <a class="dropdown-item" href="{{ url(__('dailies.dailies')) }}">
+                        {{__('dailies.dailies')}}
                         </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ url('raffles') }}">
                             Raffles
-                        </a>
+</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -124,6 +124,9 @@
                     <div class="dropdown-menu" aria-labelledby="browseDropdown">
                     <a class="dropdown-item" href="{{ url('info/rules') }}">Rules & FAQ</a>
                     <a class="dropdown-item" href="{{ url('info/guide') }}">Guidebook</a>
+                    <a class="dropdown-item" href="{{ url('world') }}">
+                    Encyclopedia
+                        </a>
                         <div class="dropdown-divider"></div> 
                         <a class="dropdown-item" href="{{ url('gallery') }}">Gallery</a>
                         <div class="dropdown-divider"></div> 
