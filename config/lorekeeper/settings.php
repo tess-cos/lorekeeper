@@ -50,7 +50,7 @@ return [
     | It is not, however, displayed on the site itself. This should be kept short and snappy!
     |
     */
-    'site_desc' => 'A Lorekeeper ARPG',
+    'site_desc' => 'Cossetlings ARPG',
 
     /*
     |--------------------------------------------------------------------------
