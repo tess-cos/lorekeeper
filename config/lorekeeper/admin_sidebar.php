@@ -224,7 +224,7 @@ return [
                 'url' => 'admin/data/shops'
             ],
             [
-                'name' => 'Dailies',
+                'name' => 'Activities',
                 'url' => 'admin/data/dailies'
             ],
             [
