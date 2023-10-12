@@ -676,6 +676,14 @@ border-bottom: 2px solid #E5C1C7; position: relative;}
 
 .cos-talk2 {width: 70%; margin: auto; padding: 25px; border-radius: 15px; background-color: #ffffff; border: 2.5px solid #F4DE99; text-align: left;}
 
+.whit-talk1 {color: #A36959; text-shadow:
+    -1px -1px 0 #4a4a4a, 
+    1px -1px 0 #4a4a4a,
+    -1px 1px 0 #4a4a4a,
+     1px 1px 0 #4a4a4a; width: 70%; padding-bottom: 2.5px; font-family: Mali, serif; font-weight: bold; font-size: 16.5pt; letter-spacing: 1.5px; margin: auto; text-align: left;}
+
+.whit-talk2 {width: 70%; margin: auto; padding: 25px; border-radius: 15px; background-color: #ffffff; border: 2.5px solid #A36959; text-align: left;}
+
 .btn-primary:active, .btn-primary:visited, .badge-primary, .badge-secondary, .badge-info {
     background-color: #CFDEBA !important; border-color: #CFDEBA; color: #4a4a4a; text-transform: capitalize;
 } 
