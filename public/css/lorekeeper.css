@@ -49,7 +49,7 @@ a {
     color: rgba(0, 0, 0, 0.7);
 }
 
-p a {color: #D48C99;}
+p a, li a {color: #D48C99;}
 
 a:hover {
     color: #CFDEBA;
