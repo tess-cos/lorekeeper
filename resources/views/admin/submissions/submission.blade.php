@@ -72,7 +72,7 @@
 
     {!! Form::open(['url' => url()->current(), 'id' => 'submissionForm', 'onsubmit' => "$(this).find('input').prop('disabled', false)"]) !!}
         @if(isset($submission->data['criterion']))
-        <h2 class="mt-5">Criteria Rewards</h2>
+        <h2 class="mt-5">Reward Total</h2>
         @foreach($submission->data['criterion'] as $key => $criterionData)
             <div class="card p-3 mb-2">
             @php $criterion = \App\Models\Criteria\Criterion::where('id', $criterionData['id'])->first() @endphp

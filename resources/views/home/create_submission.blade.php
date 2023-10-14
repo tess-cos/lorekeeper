@@ -45,9 +45,8 @@
 
         @if(!$isClaim)
         <div id="criterion-section" class="{{ Request::get('prompt_id') ? '' : 'hide' }}">
-            <h2 class="mt-5">Criteria Rewards <button class="btn btn-outline-info float-right add-calc" type="button" style="font-family: Verdana, serif;" >Add Criterion</a></h2>
-            <p>Criteria can be used in addition to or in replacment of rewards. They take input on what you are turning in for the prompt in order to calculate your final reward.</p>
-            <p>Criteria may populate in with pre-selected minimum requirements for this prompt. </p>
+            <h2 class="mt-5">Reward Total <button class="btn btn-outline-info float-right add-calc" type="button" style="font-family: Verdana, serif;" >Tally</a></h2>
+            <p>Criteria determines how many goldleaves to reward you. There may also be pre-selected minimum requirements for this submission.</p>
             <div id="criteria"></div>
             <div class="mb-4"></div>
         </div>
@@ -55,7 +54,7 @@
 
 
         <h2>Characters</h2>
-        <p>Select characters you own that are featured in this prompt submission.</p>
+        <p>Select characters that are featured in this prompt submission.</p>
         <div id="characters" class="mb-3">
         </div>
         <div class="text-right mb-3">

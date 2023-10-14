@@ -306,7 +306,7 @@ return [
                 'url' => 'admin/world/concepts'
             ],
             [
-                'name' => 'Criteria Rewards',
+                'name' => 'Reward Calculator',
                 'url' => 'admin/data/criteria'
             ]
         ]

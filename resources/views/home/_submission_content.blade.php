@@ -142,7 +142,7 @@
 @endif</div>
 
 @if(isset($submission->data['criterion']))
-<h2 class="mt-5">Criteria Rewards</h2>
+<h2 class="mt-5">Reward Total</h2>
 @foreach($submission->data['criterion'] as $criterionData)
     <div class="card p-3 mb-2">
     @php $criterion = \App\Models\Criteria\Criterion::where('id', $criterionData['id'])->first() @endphp
