@@ -5,13 +5,13 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="padding: 25px;">
             <div class="modal-header" style="border-top: 2px dashed #e5c1c7;">
-                <h5 class="modal-title">{{ Config::get('lorekeeper.settings.terms_popup')['title'] }}</h5>
+                <h5 class="modal-title" style="color: #95b582;">{{ Config::get('lorekeeper.settings.terms_popup')['title'] }}</h5>
             </div>
             <div class="modal-body">
                 {!! Config::get('lorekeeper.settings.terms_popup')['text'] !!}
             </div>
             
-            <div class="modal-footer" style="border-bottom: 2px dashed #e5c1c7;">
+            <div class="modal-footer" style="border-top: 0px; border-bottom: 2px dashed #e5c1c7;">
                 <button type="button" class="btn btn-primary" id="termsButton">               
                     {{ Config::get('lorekeeper.settings.terms_popup')['button'] }}
                 </button>
