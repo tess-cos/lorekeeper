@@ -241,8 +241,10 @@ return [
     'show_terms_popup' => 1,
     'terms_popup' => [
         "title" => "✿ Notice: Cossetlings is an +18 site", 
-        "text" => "You must be 18+ to access this site. By clicking 'Accept', you are confirming to be 18 years or older and to follow the json_encode([
-            'Terms of Service' => '/info/terms',]).", 
+        "text" => "You must be 18+ to access this site. By clicking 'Accept', you are confirming to be 18 years or older and to follow the 
+        'terms' => json_encode([
+            'Terms of Service' => 'https://github.com/ne-wt/',
+        ]).", 
         "button" => "Accept"
     ],
 ];
