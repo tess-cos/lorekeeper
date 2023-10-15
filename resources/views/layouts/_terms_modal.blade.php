@@ -4,8 +4,7 @@
     data-keyboard="false">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="padding: 25px;">
-        <hr style="border: 2px dashed #e5c1c7;" />
-            <div class="modal-header">
+            <div class="modal-header" style="border: border: 2px dashed #e5c1c7;">
                 <h5 class="modal-title">{{ Config::get('lorekeeper.settings.terms_popup')['title'] }}</h5>
             </div>
             <div class="modal-body">
@@ -13,7 +12,7 @@
                 <hr style="border: 2px dashed #e5c1c7;" />
             </div>
             
-            <div class="modal-footer" style="border: 0px;">
+            <div class="modal-footer" style="border: border: 2px dashed #e5c1c7;">
                 <button type="button" class="btn btn-primary" id="termsButton">               
                     {{ Config::get('lorekeeper.settings.terms_popup')['button'] }}
                 </button>
