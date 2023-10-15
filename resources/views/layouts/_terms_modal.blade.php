@@ -9,10 +9,9 @@
             </div>
             <div class="modal-body">
                 {!! Config::get('lorekeeper.settings.terms_popup')['text'] !!}
-                <hr style="border: 2px dashed #e5c1c7;" />
             </div>
             
-            <div class="modal-footer" style="border: border: 2px dashed #e5c1c7;">
+            <div class="modal-footer" style="border: 2px dashed #e5c1c7;">
                 <button type="button" class="btn btn-primary" id="termsButton">               
                     {{ Config::get('lorekeeper.settings.terms_popup')['button'] }}
                 </button>
