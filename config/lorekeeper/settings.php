@@ -224,6 +224,24 @@ return [
     | Symbol for the (real world) currency used for sales posts.
     |
     */
-    'currency_symbol' => '$'
+    'currency_symbol' => '$',
 
+    /*
+    |--------------------------------------------------------------------------
+    | Terms Popup
+    |--------------------------------------------------------------------------
+    |
+    | Defines the content of the terms popup that appears on your site. 
+    | For the text field, some html is fine.
+    |
+    | 0: do not show terms popup ever. 
+    | 1: Show terms popup until the visitor or user agreed.
+    */
+
+    'show_terms_popup' => 1,
+    'terms_popup' => [
+        "title" => "✿ Notice: Cossetlings is an +18 site", 
+        "text" => "You must be 18+ to access this site. By clicking 'Accept', you are confirming to be 18 years or older and to follow the Terms of Service.", 
+        "button" => "Accept"
+    ],
 ];
