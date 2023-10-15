@@ -11,7 +11,7 @@
                 {!! Config::get('lorekeeper.settings.terms_popup')['text'] !!}
             </div>
             
-            <div class="modal-footer" style="border-top: 2px dashed #e5c1c7;">
+            <div class="modal-footer" style="border-bottom: 2px dashed #e5c1c7;">
                 <button type="button" class="btn btn-primary" id="termsButton">               
                     {{ Config::get('lorekeeper.settings.terms_popup')['button'] }}
                 </button>
