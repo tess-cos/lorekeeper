@@ -11,7 +11,7 @@
             <p>You must be 18+ to access this site.<br />By clicking 'Accept', you are confirming to be 18 years or older and to follow the <a href="{{ url('info/terms') }}">Terms of Service</a>.</p>
             </div>
             
-            <div class="modal-footer" style="border-top: 0px; border-bottom: 2px dashed #e5c1c7;">
+            <div class="modal-footer" style="border-top: 0px; border-bottom: 2px dashed #e5c1c7; margin-top: -5px;">
                 <button type="button" class="btn btn-primary" id="termsButton">               
                     {{ Config::get('lorekeeper.settings.terms_popup')['button'] }}
                 </button>
