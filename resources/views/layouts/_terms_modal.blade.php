@@ -3,18 +3,19 @@
 <div class="modal fade d-none" id="termsModal" role="dialog" style="display:inline;" data-backdrop="static"
     data-keyboard="false">
     <div class="modal-dialog" role="document">
+    <hr style="border: 2px dashed #e5c1c7;" />
         <div class="modal-content" style="padding: 25px;">
         
             <div class="modal-header">
-            <hr style="border: 2px dashed #e5c1c7;" />
                 <h5 class="modal-title">{{ Config::get('lorekeeper.settings.terms_popup')['title'] }}</h5>
             </div>
             <div class="modal-body">
                 {!! Config::get('lorekeeper.settings.terms_popup')['text'] !!}
-                <hr style="border: 2px dashed #e5c1c7;" />
+                
             </div>
             
             <div class="modal-footer" style="border: 0px;">
+            <hr style="border: 2px dashed #e5c1c7;" />
                 <button type="button" class="btn btn-primary" id="termsButton">               
                     {{ Config::get('lorekeeper.settings.terms_popup')['button'] }}
                 </button>
