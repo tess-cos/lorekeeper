@@ -3,7 +3,7 @@
 <div class="modal fade d-none" id="termsModal" role="dialog" style="display:inline;" data-backdrop="static"
     data-keyboard="false">
     <div class="modal-dialog" role="document">
-    <hr style="border: 2px dashed #e5c1c7;" />
+    <div class="navimg"></div>
         <div class="modal-content" style="padding: 25px;">
         
             <div class="modal-header">
@@ -13,9 +13,8 @@
                 {!! Config::get('lorekeeper.settings.terms_popup')['text'] !!}
                 
             </div>
-            
-            <div class="modal-footer" style="border: 0px;">
             <hr style="border: 2px dashed #e5c1c7;" />
+            <div class="modal-footer" style="border: 0px;">
                 <button type="button" class="btn btn-primary" id="termsButton">               
                     {{ Config::get('lorekeeper.settings.terms_popup')['button'] }}
                 </button>
