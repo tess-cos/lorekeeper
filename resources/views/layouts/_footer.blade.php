@@ -5,6 +5,6 @@
         <li class="nav-item"><a href="{{ url('info/privacy') }}" class="nav-link">Privacy</a></li>
         <li class="nav-item"><a href="{{ url('reports/bug-reports') }}" class="nav-link">Bug Reports</a></li>
         <li class="nav-item"><a href="{{ url('credits') }}" class="nav-link">Credits</a></li>
-    </ul>
+        {{ url('info/terms') }} </ul> 
 </nav>
 <div class="copyright">&copy; {{ config('lorekeeper.settings.site_name', 'Lorekeeper') }} v{{ config('lorekeeper.settings.version') }} {{ Carbon\Carbon::now()->year }}</div>

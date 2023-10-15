@@ -32,20 +32,24 @@
 </div>
 
 {{-- Info --}}
-<div style="width: 80%; padding: 15px; margin: auto; text-align: center; background: #fff; border: 1px solid #dedede; padding: 5px; padding-bottom: 10px; border-radius: 5px;">
-<h5 style="text-align: left; padding: 10px; background-color: #fafafa;">pets</h5>
+@if($character->pets()->exists())<div style="width: 80%; padding: 15px; margin: auto; text-align: center; background: #fff; border: 0px solid #dedede; padding: 5px; padding-bottom: 10px; border-radius: 5px;">
+<h5 style="text-align: left; padding: 10px; background-color: none; display: none;">cosprouts</h5>
                         @foreach($character->image->character->pets as $pet)
                             <div class="ml-3 mr-3" style="margin: auto;">
                                 @if($pet->has_image)
-                                <img src="{{ $pet->imageUrl }}" data-toggle="tooltip" title="{{ $pet->pet->name }}" style="max-width: 20%; padding: 5px;"/>
+                                <img src="{{ $pet->imageUrl }}" data-toggle="tooltip" title="{{ $pet->pet->name }}" style="max-width: 22%; padding: 5px;"/>
                                 @elseif($pet->pet->imageurl)
-                                <img src="{{ $pet->pet->imageUrl }}" data-toggle="tooltip" title="{{ $pet->pet->name }}" style="max-width: 20%; padding: 5px;"/>
+                                <img src="{{ $pet->pet->imageUrl }}" data-toggle="tooltip" title="{{ $pet->pet->name }}" style="max-width: 22%; padding: 5px;"/>
                                 @else {!!$pet->pet->displayName !!}
                                 @endif
                                 <br>
-                                <span class="badge" style="font-size:95%; background-color: #E5C1C7; color: #fff;">{!! $pet->pet_name !!}</span>
+                                <span class="badge" style="font-size:95%; background-color: #CFDEBA; color: #4a4a4a;">{!! $pet->pet_name !!}</span>
                             </div>
-                        @endforeach</div><br />
+                        @endforeach</div>
+                        @else
+                                <div style="display: none;">No Cosprouts owned.</div>
+                            @endif
+                        <br />
 <div class="card character-bio">
     <div class="card-header" style="background-color: #fafafa;"><h5 style="padding: 10px; margin-bottom: -5px; margin-top: -2.5px; margin-left: -8.5px;">description</h5>
 </div>

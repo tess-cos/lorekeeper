@@ -105,10 +105,10 @@
                 </div>
                 <hr>
                 <div>
-                    <strong>Uploaded:</strong> {!! pretty_date($image->created_at) !!}
+                    <small><strong>Uploaded:</strong> {!! pretty_date($image->created_at) !!}</small>
                 </div>
-                <div>
-                    <strong>Last Edited:</strong> {!! pretty_date($image->updated_at) !!}
+                <div style="margin-top: -5px;">
+                <small><strong>Last Edited:</strong> {!! pretty_date($image->updated_at) !!}</small>
                 </div>
 
                 @if(Auth::check() && Auth::user()->hasPower('manage_characters'))

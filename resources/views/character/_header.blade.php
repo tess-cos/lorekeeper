@@ -5,7 +5,7 @@
         {{ __('lorekeeper.myo') }} @if($character->image->species_id) ・ {!! $character->image->species->displayName !!}@endif @if($character->image->rarity_id) ・ {!! $character->image->rarity->displayName !!}@endif
     @endif
 </div>
-<h1 class="mb-0">
+<h1 class="ct mb-0">
     @if(Config::get('lorekeeper.extensions.character_status_badges'))
         <!-- character trade/gift status badges -->
         <div class="float-right">
@@ -25,6 +25,6 @@
         @endif
     @if(!$character->is_visible) <i class="fas fa-eye-slash"></i> @endif {!! $character->displayName !!}
 </h1>
-<div class="mb-3">
+<div class="cu mb-3">
     Owned by {!! $character->displayOwner !!}
 </div>
