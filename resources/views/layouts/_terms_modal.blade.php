@@ -3,7 +3,8 @@
 <div class="modal fade d-none" id="termsModal" role="dialog" style="display:inline;" data-backdrop="static"
     data-keyboard="false">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content" style="padding: 25px;">
+        <br />
             <div class="modal-header">
                 <h5 class="modal-title">{{ Config::get('lorekeeper.settings.terms_popup')['title'] }}</h5>
             </div>
