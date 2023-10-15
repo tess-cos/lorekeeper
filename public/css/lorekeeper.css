@@ -688,7 +688,11 @@ border-bottom: 2px solid #E5C1C7; position: relative;}
     background-color: #CFDEBA !important; border-color: #CFDEBA; color: #4a4a4a; text-transform: capitalize;
 } 
 
-.badge-success {background-color: #95b582 !important;}
+.badge-success {background-color: #bed0a6 !important;}
+
+.badge-warning {background-color: #E0ECD0 !important; color: #ccc;}
+
+.badge-danger {background-color: #f4e3e6 !important; color: #f8f8f8;}
 
 .text-success {color: #95b582 !important;}
 
@@ -730,7 +734,7 @@ border-bottom: 2px solid #E5C1C7; position: relative;}
         background-color: #E0ECD0 !important; border-color: #f4e3e6; color: #4a4a4a;
     }
 
-.btn-danger, .btn-danger:hover, .btn-danger:active, .btn-danger:visited, .badge-danger {
+.btn-danger, .btn-danger:hover, .btn-danger:active, .btn-danger:visited, {
     background-color: #E57373 !important; border-color: #E57373; color: #fafafa; text-transform: capitalize; text-transform: capitalize;
 } 
 
