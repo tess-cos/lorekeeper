@@ -7,7 +7,7 @@
             <div class="modal-header" style="border-top: 2px dashed #e5c1c7;">
                 <h5 class="modal-title" style="color: #95b582;">{{ Config::get('lorekeeper.settings.terms_popup')['title'] }}</h5>
             </div>
-            <div class="modal-body" style="margin-bottom: -30px;">
+            <div class="modal-body" style="margin-bottom: -30px; margin-top: -10px;">
             <p>You must be 18+ to access this site.<br />By clicking 'Accept', you are confirming to be 18 years or older and to follow the <a href="{{ url('info/terms') }}">Terms of Service</a>.</p>
             </div>
             
