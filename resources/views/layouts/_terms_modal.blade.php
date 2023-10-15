@@ -4,7 +4,7 @@
     data-keyboard="false">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="padding: 25px;">
-        <br />
+        <div class="navimg"></div><br />
             <div class="modal-header">
                 <h5 class="modal-title">{{ Config::get('lorekeeper.settings.terms_popup')['title'] }}</h5>
             </div>
