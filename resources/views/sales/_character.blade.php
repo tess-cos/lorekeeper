@@ -4,7 +4,7 @@
             <div class="col-md-6 text-center align-self-center">
                 <a href="{{ $character->character->url }}"><img style="background: #fff; border: 1px solid #f4e3e6; padding: 5px;" src="{{ $loop->count == 1 ? $character->image->imageUrl : $character->image->thumbnailUrl }}" class="mw-100 img-thumbnail" alt="{{ $character->fullName }}" /></a>
             </div>
-            <div class="col-md text-center">
+            <div class="col-md text-center" style="padding: 15px;">
                 <div class="mt-2">
                     <h5>
                         {{ $character->displayType }}: <a href="{{ $character->character->url }}">{!! $character->character->slug !!}</a><br /><span class="{{ $character->is_open && $character->sales->is_open ? 'text-success' : '' }}">[{{ $character->is_open && $character->sales->is_open ? 'Open' : 'Closed' }}]</span><br/>

@@ -34,11 +34,11 @@
         <?php $commentCount = App\Models\Comment::where('commentable_type', 'App\Models\Sales\Sales')->where('commentable_id', $sales->id)->count(); ?>
         @if(!$page)
             <div class="text-right mb-2 mr-2">
-                <a class="btn" href="{{ $sales->url }}"><i class="fas fa-comment"></i> {{ $commentCount }} Comment{{ $commentCount != 1 ? 's' : ''}}</a>
+                <a class="btn" href="{{ $sales->url }}" style="background-color: #FBF5F6; border-radius: 15px;"><i class="fas fa-comment"></i> {{ $commentCount }} Comment{{ $commentCount != 1 ? 's' : ''}}</a>
             </div>
         @else
             <div class="text-right mb-2 mr-2">
-                <span class="btn"><i class="fas fa-comment"></i> {{ $commentCount }} Comment{{ $commentCount != 1 ? 's' : ''}}</span>
+                <span class="btn" style="background-color: #FBF5F6; border-radius: 15px;"><i class="fas fa-comment"></i> {{ $commentCount }} Comment{{ $commentCount != 1 ? 's' : ''}}</span>
             </div>
         @endif
     @endif
