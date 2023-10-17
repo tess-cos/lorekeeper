@@ -15,9 +15,9 @@ return [
     /
     */
 
-    'daily' => 'activity',                         // use __
-    'dailies' => 'activities',                       // use __
-    'dailies_' => 'activity|activities',                // Use trans_choice instead of __
+    'daily' => 'daily',                         // use __
+    'dailies' => 'dailies',                       // use __
+    'dailies_' => 'daily|dailies',                // Use trans_choice instead of __
 
 
 ];
