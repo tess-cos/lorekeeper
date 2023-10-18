@@ -16,30 +16,30 @@ return [
     'box' => [
         'name' => 'Box',
         'text_color' => '#ffffff',
-        'background_color' => '#f6993f'
+        'background_color' => '#EDD3A0'
     ],
 
     'slot' => [
         'name' => 'Slot',
         'text_color' => '#ffffff',
-        'background_color' => '#1fd1a7'
+        'background_color' => '#EDD3A0'
     ],
 
     'splice' => [
         'name' => 'Splice',
         'text_color' => '#ffffff',
-        'background_color' => '#a69bc6'
+        'background_color' => '#EDD3A0'
     ],
 
     'coupon' => [
         'name' => 'Coupon',
         'text_color' => '#ffffff',
-        'background_color' => '#ff5ca8'
+        'background_color' => '#EDD3A0'
     ],
 
     'choicebox' => [
         'name' => 'Choice Box',
         'text_color' => '#ffffff',
-        'background_color' => '#56639E'
+        'background_color' => '#EDD3A0'
     ],
 ];

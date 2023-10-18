@@ -176,6 +176,9 @@ class PetController extends Controller
     public function postVariant(Request $request, PetManager $service, $id, $isStaff = false) 
     {
         $pet = UserPet::find($id);
+        if(!$request->input('stack_id') || !Auth::user()->isStaff) {  flash('No item selected.')->error();   
+            return redirect()->back();
+        }
         if($service->editVariant($request->input('variant_id'), $pet, $request->input('stack_id'), $request->input('is_staff'))) {
             flash('Pet variant changed successfully.')->success();
         }
