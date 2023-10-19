@@ -44,8 +44,8 @@
                                 @include('widgets._wishlist_check')
                                         <div><strong>Cost: </strong> {!! $currencies[$item->pivot->currency_id]->display((int)$item->pivot->cost) !!}</div>
                                         @if($item->pivot->is_limited_stock) <div>Stock: {{ $item->pivot->quantity }}</div> @endif
-                                        @if($item->pivot->purchase_limit) <div class="text-danger">Max {{ $item->pivot->purchase_limit }} @if($item->pivot->purchase_limit_timeframe !== 'lifetime') {{ $item->pivot->purchase_limit_timeframe }} @endif per user</div> @endif
-                                        @if($item->pivot->disallow_transfer) <div class="text-danger">Cannot be transferred after purchase</div> @endif
+                                        @if($item->pivot->purchase_limit) <div style="color: #E5C1C7;">Max {{ $item->pivot->purchase_limit }} @if($item->pivot->purchase_limit_timeframe !== 'lifetime') {{ $item->pivot->purchase_limit_timeframe }} @endif per user</div> @endif
+                                        @if($item->pivot->disallow_transfer) <div style="color: #E5C1C7;">Cannot be transferred after purchase</div> @endif
                                     </div>
                                 </div>
                             @endforeach
