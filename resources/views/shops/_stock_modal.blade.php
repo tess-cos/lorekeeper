@@ -4,7 +4,7 @@
     <div class="text-center mb-3">
         <div class="mb-1"><a href="{{ $stock->item->idUrl }}"><img src="{{ $stock->item->imageUrl }}" alt="{{ $stock->item->name }}" /></a></div>
         <div>
-            <a href="{{ $stock->item->idUrl }}"><strong>{{ $stock->item->name }}</strong></a>
+            <a style="color: #D48C99;" href="{{ $stock->item->idUrl }}"><strong>{{ $stock->item->name }}</strong></a>
             @if(Auth::check())
                 @include('widgets._wishlist_add', ['item' => $stock->item, 'small' => true])
             @endif
@@ -35,7 +35,7 @@
 
     @if(Auth::check())
     @if($stock->is_fto && Auth::user()->settings->is_fto || !$stock->is_fto)
-        <h5>
+        <h5 style="color:#95b582;">
             Purchase
             <span class="float-right">
                 In Inventory: {{ $userOwned->pluck('count')->sum() }}

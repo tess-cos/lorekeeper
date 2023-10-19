@@ -567,9 +567,12 @@ border-bottom: 2px solid #E5C1C7; position: relative;}
 **************************************************************************************************/
 .modal-header {
     border-bottom: 0px;
+    background:url(https://i.imgur.com/XxrmiPC.png) repeat;
 }
+
 .modal-header .modal-title {
     line-height: 1em;
+     color: #95b582;
 }
 
 .tooltip-inner {
