@@ -198,6 +198,17 @@ border-bottom: 2px solid #F5F5F5; position: relative;}
     left: 0;
     z-index: 0; }
     
+.clk {position: absolute;
+    top: -148%;
+    left: 73.3%;
+    background-color: #CFDEBA;
+    font-family: Mali, serif;
+    color: #566250;
+    text-transform: lowercase;
+    border-radius: 15px;
+    font-size: 8.5pt;
+    padding: 5px;}
+    
 .dash {
     width: 75%;
     margin: auto;
