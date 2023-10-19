@@ -4,7 +4,7 @@
     data-keyboard="false">
     <div class="modal-dialog" role="document">
         <div class="modal-content" style="padding: 25px;">
-            <div class="modal-header" style="border-top: 2px dashed #e5c1c7;">
+            <div class="modal-header" style="border-top: 2px dashed #e5c1c7; background: none;">
                 <h5 class="modal-title" style="color: #95b582;">{{ Config::get('lorekeeper.settings.terms_popup')['title'] }}</h5>
             </div>
             <div class="modal-body" style="margin-bottom: -30px; margin-top: -10px;">
