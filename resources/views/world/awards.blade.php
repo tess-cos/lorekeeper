@@ -53,11 +53,11 @@
             <div class="card-body text-center">
                 <h5 class="mt-3">{!! $award->displayName !!}</h5>
                 <div>
-                    @if($award->is_character_owned)<i class="fas fa-paw mx-2" data-toggle="tooltip" title="This {{ __('awards.award') }} can be held by {{ __('lorekeeper.characters') }}."></i>@endif
-                    @if($award->is_user_owned)<i class="fas fa-user mx-2" data-toggle="tooltip" title="This {{ __('awards.award') }} can be held by users."></i>@endif
+                    @if($award->is_character_owned)<i class="fas fa-seedling mx-2" style="color: #95b582" data-toggle="tooltip" title="This {{ __('awards.award') }} can be held by {{ __('lorekeeper.characters') }}."></i>@endif
+                    @if($award->is_user_owned)<i class="fas fa-user mx-2" style="color: #95b582" data-toggle="tooltip" title="This {{ __('awards.award') }} can be held by users."></i>@endif
                 </div>
                 @if(isset($award->category) && $award->category)
-                    {!! $award->category->displayName !!}
+                    <div class="hd">{!! $award->category->displayName !!}</div>
                 @endif
                 @if(isset($award->rarity) && isset($award->category)) | @endif
                 @if(isset($award->rarity) && $award->rarity)

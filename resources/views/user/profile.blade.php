@@ -12,9 +12,6 @@
 
 {!! breadcrumbs(['Users' => 'users', $user->name => $user->url]) !!}
 
-@include('widgets._awardcase_feature', ['target' => $user, 'count' => Config::get('lorekeeper.extensions.awards.user_featured'), 'float' => false])
-
-
 <div style="padding-top: 15px;">@if($user->is_banned)
     <div class="alert alert-danger">This user has been banned.</div>
 @endif
@@ -132,7 +129,7 @@
                         @foreach($awards as $award)
                             <div class="col-md-3 col-6 profile-inventory-item">
                                 @if($award->imageUrl)
-                                    <img src="{{ $award->imageUrl }}" data-toggle="tooltip" title="{{ $award->name }}" />
+                                    <img src="{{ $award->imageUrl }}" class="img-fluid" data-toggle="tooltip" title="{{ $award->name }}" />
                                 @else
                                     <p>{{ $award->name }}</p>
                                 @endif

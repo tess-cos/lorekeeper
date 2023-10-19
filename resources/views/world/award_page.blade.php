@@ -22,11 +22,11 @@
     @endif
     <div class="{{ $imageUrl ? 'col-md-9' : 'col-12' }}">
         <div class="card mb-2">
-            <div class="card-header d-flex flex-wrap no-gutters">
+            <div class="card-header d-flex flex-wrap no-gutters" style="background-color: #fbf5f6;">
                 <h1 class="col-12">{!! $name !!}
                     <div class="float-md-right small">
-                        @if($award->is_character_owned)<i class="fas fa-paw mx-2 small" data-toggle="tooltip" title="This {{__('awards.award')}} can be held by {{ __('lorekeeper.characters') }}."></i>@endif
-                        @if($award->is_user_owned)<i class="fas fa-user mx-2 small" data-toggle="tooltip" title="This {{__('awards.award')}} can be held by users."></i>@endif
+                        @if($award->is_character_owned)<i class="fas fa-seedling mx-2 small" style="color: #95b582" data-toggle="tooltip" title="This {{__('awards.award')}} can be held by {{ __('lorekeeper.characters') }}."></i>@endif
+                        @if($award->is_user_owned)<i class="fas fa-user mx-2 small" style="color: #95b582" data-toggle="tooltip" title="This {{__('awards.award')}} can be held by users."></i>@endif
                     </div>
                 </h1>
                 @if(isset($award->category) && $award->category)

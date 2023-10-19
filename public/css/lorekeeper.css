@@ -51,6 +51,8 @@ a {
 
 p a, li a {color: #D48C99;}
 
+.hd a {color: #D48C99;}
+
 .ct a {color: #4a4a4a;}
 
 .ct a:hover {
@@ -59,6 +61,8 @@ p a, li a {color: #D48C99;}
 }
 
 .cu a {color: #95b582;}
+
+.ma a {color: #E5C1C7;}
 
 a:hover {
     color: #CFDEBA;
