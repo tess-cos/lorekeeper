@@ -104,7 +104,7 @@ class UserController extends Controller
             'awards' => $this->user->awards()->orderBy('user_awards.updated_at', 'DESC')->whereNull('deleted_at')->where('count','>',0)->take(4)->get(),
             'pets' => $this->user->pets()->orderBy('user_pets.updated_at', 'DESC')->take(5)->get(),
             'sublists' => Sublist::orderBy('sort', 'DESC')->get(),
-            'characters' =>$this->user->characters()->orderBy('sort', 'DESC')->get(),
+            'characters' => $characters,
             'armours' => $armours,
             'user_enabled' => Settings::get('WE_user_locations'),
             'user_factions_enabled' => Settings::get('WE_user_factions')
