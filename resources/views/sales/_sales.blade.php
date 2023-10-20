@@ -1,5 +1,5 @@
 <div class="card mb-3">
-    <div class="card-header" style="background-color: #fbf5f6; border-bottom: 0px;">
+    <div class="card-header" style="border-bottom: 0px;">
         <h2 class="card-title mb-0"><i class="fas fa-seedling" style="color: #95b582;"></i> {!! $sales->displayName !!}</h2>
         <small>
             Posted {!! $sales->post_at ? pretty_date($sales->post_at) : pretty_date($sales->created_at) !!} (Last edited {!! pretty_date($sales->updated_at) !!}) by {!! $sales->user->displayName !!}

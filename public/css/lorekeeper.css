@@ -201,6 +201,8 @@ border-bottom: 2px solid #F5F5F5; position: relative;}
     top: -90%;
     left: 0;
     z-index: 0; }
+
+hr {border-color: #EBF0E3 !important;}
     
 .clk {position: absolute;
     top: -148%;
@@ -868,9 +870,11 @@ tr.outflow {
 
 .character-bio .nav-tabs.card-header-tabs .active {
     background-color: white;
+    border-color: #f4e3e6;
+    border-bottom: #fff;
 }
 
-.card-header { background: none;}
+.card-header, .nav-tabs { background: #FBF5F6 !important; border: 0px;}
 
 .tooltip.show {
     opacity: 1.5;
