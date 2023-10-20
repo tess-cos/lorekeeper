@@ -107,7 +107,7 @@
             @else
                 @if(Auth::check() && Auth::user()->isStaff)<div class="alert alert-warning">There is currently no EXP rewards in existance on this prompt. Please press "edit" in the prompt admin page to allow it to generate! Users will see a blank block until it is generated.</div>@endif
             @endif </div>
-            @if($prompt->children)
+            @if($prompt->children()->exists())
             <h4 class="mt-2">Unlocks</h4>
                 @foreach($prompt->children as $children)
                     {!! $children->displayname !!}
