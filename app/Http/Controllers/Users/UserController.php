@@ -139,7 +139,7 @@ class UserController extends Controller
         $query = Character::myo(0)->where('user_id', $this->user->id);
         $imageQuery = CharacterImage::images(Auth::check() ? Auth::user() : null)->with('features')->with('rarity')->with('species')->with('features');
 
-        if($sublists = Sublist::where('show_main', 0)->get())
+        if($sublists = Sublist::where('show_main', 1)->get())
         $subCategories = []; $subSpecies = [];
         {   foreach($sublists as $sublist)
             {
