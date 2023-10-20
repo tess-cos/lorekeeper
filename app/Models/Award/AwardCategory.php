@@ -119,6 +119,6 @@ class AwardCategory extends Model
      */
     public function getSearchUrlAttribute()
     {
-        return url('world/'.__('awards.awards').'s?'.__('awards.award').'_category_id='.$this->id);
+        return url('world/'.__('awards.award').'s?'.__('awards.award').'_category_id='.$this->id);
     }
 }
