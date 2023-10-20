@@ -11,6 +11,12 @@
 
 @if($characters->count())
     <div class="row">
+    @if(isset($sublists) && $sublists->count() > 0)
+            @foreach($sublists as $sublist)
+            / <a href="{{ $user->url.'/sublist/'.$sublist->key }}">{{ $sublist->name }}</a>
+            @endforeach
+        @endif
+        
         @foreach($characters as $character)
             <div class="col-md-3 col-6 text-center mb-2">
                 <div>
