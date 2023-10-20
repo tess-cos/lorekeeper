@@ -21,10 +21,10 @@
                     @foreach($chunk as $awardId=>$stack)
                         <div class="col-sm-3 col-6 text-center case-award" data-id="{{ $stack->first()->pivot->id }}" data-name="{{ $user->name }}'s {{ $stack->first()->name }}">
                             <div class="mb-1">
-                                <a href="#" class="awardcase-stack {{ $stack->first()->is_featured ? 'alert alert-success' : '' }}"><img src="{{ $stack->first()->imageUrl }}" alt="{{ $stack->first()->name }}"  /></a>
+                                <a href="#" class="awardcase-stack {{ $stack->first()->is_featured ? 'alert alert-success' : '' }}"><img src="{{ $stack->first()->imageUrl }}" class="img-fluid" alt="{{ $stack->first()->name }}"  /></a>
                             </div>
                             <div>
-                                <a href="#" class="awardcase-stack awardcase-stack-name">{{ $stack->first()->name }}@if($stack->first()->user_limit != 1) x{{ $stack->sum('pivot.count') }}@endif</a>
+                                <a href="#" class="awardcase-stack awardcase-stack-name text-center">{{ $stack->first()->name }}@if($stack->first()->user_limit != 1) x{{ $stack->sum('pivot.count') }}@endif</a>
                             </div>
                         </div>
                     @endforeach
