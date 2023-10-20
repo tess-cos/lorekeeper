@@ -44,7 +44,7 @@
       <div class="col-4 col-md-3 font-weight-bold">Joined</div>
     </div>
     @foreach($users as $user)
-    <div class="d-flex row flex-wrap col-12 mt-1 pt-1 px-0 ubt-top" style="text-transform: lowercase;">
+    <div class="d-flex row flex-wrap col-12 mt-1 pt-1 px-0 ubt-top">
       <div class="col-12 col-md-4 ">{!! $user->displayName !!}</div>
       <div class="col-4 col-md-3">{!! $user->displayAlias !!}</div>
       <div class="col-4 col-md-2">{!! $user->rank->displayName !!}</div>
