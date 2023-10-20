@@ -44,7 +44,7 @@
     @foreach($awards as $award)
         <div class="col-md-4 mb-4"><div class="card h-100">
             @if($award->has_image)
-                <div class="card-header text-center">
+                <div class="card-header text-center" style="background-color: #fbf5f6;">
                     <a href="{{ $award->idUrl }}">
                         <img src="{{$award->imageUrl}}" class="img-fluid">
                     </a>

@@ -6,7 +6,7 @@
         <h3>
             {!! $name !!}
             @if(Auth::check() && Auth::user()->hasPower('edit_data')) <a data-toggle="tooltip" title="[ADMIN] Edit Category" href="{{ url('admin/data/award-categories/edit/').'/'.$category->id }}" class="float-right small ml-2"><i class="fas fa-crown"></i></a>@endif
-            @if(isset($searchUrl) && $searchUrl) <a href="{{ $category->searchUrl }}" class="world-entry-search text-muted float-right small"><i class="fas fa-search"></i></a>  @endif
+            @if(isset($searchUrl) && $searchUrl) <a href="{{ $searchUrl }}" class="world-entry-search text-muted float-right small"><i class="fas fa-search"></i></a>  @endif
         </h3>
 
         @if($category->is_character_owned == 1)
