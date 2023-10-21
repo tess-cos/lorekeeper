@@ -56,6 +56,7 @@
 
                             <a class="dropdown-item" href="{{ url('scrapbook') }}">
                                 {{ ucfirst(__('awards.awards')) }}
+                            </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('wishlists') }}">
                                 Wishlists

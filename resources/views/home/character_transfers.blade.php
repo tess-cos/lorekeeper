@@ -9,7 +9,7 @@
     Character Transfers
 </h1>
 
-<ul class="nav nav-tabs mb-3">
+<ul class="nav nav-tabs mb-3" style="background: none !important;">
   <li class="nav-item">
     <a class="nav-link {{ set_active('characters/transfers/incoming*') }}" href="{{ url('characters/transfers/incoming') }}">Incoming</a>
   </li>
