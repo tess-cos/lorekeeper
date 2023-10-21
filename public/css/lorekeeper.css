@@ -409,6 +409,8 @@ hr {border-color: #EBF0E3 !important;}
     z-index: 3;
 }
 
+.simg { width: 62%; }
+
 .site-mobile-header {
     display: none;
     padding: 10px 20px;
