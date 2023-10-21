@@ -35,7 +35,7 @@
             @if(!count($prompt->rewards))
                 No rewards.
             @else
-                <table class="table table-sm">
+                <table class="table table-sm" style="font-size: 9pt;">
                     <thead>
                         <tr>
                             <th width="70%">Reward</th>
@@ -46,7 +46,7 @@
                         @foreach($prompt->rewards as $reward)
                             <tr>
                                 <td class="hd">{!! $reward->reward->displayName !!}</td>
-                                <td>{{ $reward->quantity }}</td>
+                                <td style="color: #666;">{{ $reward->quantity }}</td>
                             </tr>
                         @endforeach
                     </tbody>
