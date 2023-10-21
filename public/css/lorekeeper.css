@@ -409,9 +409,9 @@ hr {border-color: #EBF0E3 !important;}
     z-index: 3;
 }
 
-.simg { width: 62%; }
+.simg { max-width: 62%; }
 
-.simg1 { width: 72%; }
+.simg1 { max-width: 72%; }
 
 .site-mobile-header {
     display: none;
