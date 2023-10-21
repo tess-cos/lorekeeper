@@ -886,13 +886,29 @@ tr.outflow {
 
 #inboxType {background: none !important;}
 
-table, th, td {
-    border: 3px solid white !important;
-    border-collapse: collapse;
-  }
+table {
+    border-collapse: collapse;}
+
   th, td {
-    background-color: #FBF5F6;
+    border: 1px solid #f4e3e6 !important;
+    background-color: none;
+    border-right-style: hidden !important;
   }
+
+table tr:first-child th {
+  border-bottom: 2px solid #f4e3e6 !important;
+}
+table tr:last-child td {
+  border-bottom: 0 !important;
+}
+table tr td:first-child,
+table tr th:first-child {
+  border-left: 0 !important;
+}
+table tr td:last-child,
+table tr th:last-child {
+  border-right: 0 !important;
+}
 
 .tooltip.show {
     opacity: 1.5;
