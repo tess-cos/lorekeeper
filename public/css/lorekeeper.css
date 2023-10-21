@@ -116,19 +116,20 @@ body {
 main {
     flex-grow: 1;
     display: flex;
+    background-position: top;
+    width: 60.85%;
+    max-width: 90vw;
 }
 
 main > .row {
     flex-grow: 1;
-    margin-left: 2.5%;
-    margin-right: 4.5%;
+    padding-right: 25px;
 }
 
 .main-content {
     background-color: white;
     box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.1);
     display: flex;
-    max-width: 1000px;
     flex-direction: column;
 }
 
@@ -142,6 +143,8 @@ main > .row {
     background-attachment: fixed;
   background-position: top;
     width: 60.85%;
+    max-width: 80vw;
+    height: auto;
 margin: auto;
 border-top-left-radius: 95px;
 border-top-right-radius: 95px;
@@ -187,12 +190,15 @@ border-top-right-radius: 95px;
 
 .navbar .row { width: 100%;}
 
-.navbar { width: 60.85%; margin: auto; background-color: #fafafa;
+.navbar {  background-position: top;
+    width: 60.85%;
+    max-width: 100vw; margin: auto; background-color: #fafafa;
 border-bottom: 2px solid #F5F5F5; position: relative;}
 
 .navimg {
     height: 110%;
     width: 100%;
+    max-width: 100vw;
     background-image: url(https://i.imgur.com/BxvQMZ1.png);
     background-repeat: repeat-x;
     background-size: contain;
@@ -445,7 +451,7 @@ hr {border-color: #EBF0E3 !important;}
 }
 
 @media (max-width: 600px) {
-    .site-header-image, .navimg {
+    .site-header-image, .navimg, .clk {
         display: none;
     }
     .site-mobile-header {
