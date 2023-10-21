@@ -17,7 +17,7 @@
         </div>
         <div class="world-entry-text">
             <p>{{ $prompt->summary }}</p>
-            <div class="text-right"><a data-toggle="collapse" href="#prompt-{{ $prompt->id }}" class="text-primary"><strong>Show details...</strong></a></div>
+            <div class="text-right"><a data-toggle="collapse" href="#prompt-{{ $prompt->id }}" class="text-primary" style="color: #D48C99 !important;"><strong>Show details...</strong></a></div>
             <div class="collapse" id="prompt-{{ $prompt->id }}">
                 <h4>Details</h4>
                 @if($prompt->parsed_description)
@@ -45,14 +45,13 @@
                     <tbody>
                         @foreach($prompt->rewards as $reward)
                             <tr>
-                                <td>{!! $reward->reward->displayName !!}</td>
+                                <td class="hd">{!! $reward->reward->displayName !!}</td>
                                 <td>{{ $reward->quantity }}</td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             @endif
-            <hr>
             <div style="display: none;"><h4>Skills</h4>
             @if(!count($prompt->skills))
                 No skill increase.

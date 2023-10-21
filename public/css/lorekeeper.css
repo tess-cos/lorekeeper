@@ -887,7 +887,8 @@ tr.outflow {
 #inboxType {background: none !important;}
 
 table {
-    border-collapse: collapse;}
+    border-collapse: collapse;
+}
 
   th, td {
     border: 1px solid #f4e3e6 !important;
