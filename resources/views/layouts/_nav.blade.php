@@ -161,8 +161,14 @@
                     @endif
                 @else
                     @if(Auth::user()->isStaff)
-                        <li class="nav-item">
-                            <a class="nav-link" style="color: #E5C1C7;" href="{{ url('admin') }}"><i class="fas fa-crown"></i></a>
+                        <li class="nav-item d-flex">
+                            <a class="nav-link position-relative display-inline-block"  style="color: #E5C1C7;" href="{{ url('admin') }}"><i class="fas fa-crown"></i>
+                              @if (Auth::user()->hasAdminNotification(Auth::user()))
+                                <span class="position-absolute text-dark" style="background-color: #EDD3A0; border-radius: 999px; height: auto; top: -2px; right: -5px; padding: 1px 6px 1px 6px; font-weight:bold; font-size: 0.8em;">
+                                  {{ Auth::user()->hasAdminNotification(Auth::user()) }}
+                                </span>
+                              @endif
+                            </a>
                         </li>
                     @endif
                     @if(Auth::user()->notifications_unread)
