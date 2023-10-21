@@ -411,6 +411,8 @@ hr {border-color: #EBF0E3 !important;}
 
 .simg { width: 62%; }
 
+.simg1 { width: 42%; }
+
 .site-mobile-header {
     display: none;
     padding: 10px 20px;
@@ -468,6 +470,8 @@ hr {border-color: #EBF0E3 !important;}
     }
 
     .simg { width: 85%; }
+
+    .simg1 { width: 85%; }
 
     #headerNav {
         position: fixed;
