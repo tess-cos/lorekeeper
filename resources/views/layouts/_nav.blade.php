@@ -3,7 +3,7 @@
 <div class="clk">
         <i class="far fa-clock"></i> {!! LiveClock() !!}
     </div>
-<div class="navimg"></div><br />
+<div class="navimg"></div><br /><div class="navimgbg">.<br />.<br /></div><br />
     <div class="container-fluid">
         <a class="navbar-f" href="{{ url('/') }}">✿
         </a>

@@ -177,7 +177,7 @@ class ChoiceboxService extends Service
      */
     private function getBoxRewardsString($rewards)
     {
-        $results = "You have received: ";
+        $results = "You received: ";
         $result_elements = [];
         foreach($rewards as $assetType)
         {
