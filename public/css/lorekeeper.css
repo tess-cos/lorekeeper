@@ -211,15 +211,16 @@ border-bottom: 2px solid #F5F5F5; position: relative;}
 hr {border-color: #EBF0E3 !important;}
     
 .clk {position: absolute;
-    top: -148%;
-    left: 73.3%;
+    top: -140%;
+    left: 75%;
     background-color: #CFDEBA;
     font-family: Mali, serif;
     color: #566250;
     text-transform: lowercase;
     border-radius: 15px;
     font-size: 8.5pt;
-    padding: 5px;}
+    padding: 5px;
+    clear: both;}
     
 .dash {
     width: 75%;
@@ -548,16 +549,20 @@ hr {border-color: #EBF0E3 !important;}
 
     main.container-fluid {
         margin-top: 110px;
+        max-width: 100%;
+        margin-left: 15px;
     }
 
     main.container-fluid > .row {
         position: relative;
     }
+
+    .site-mobile-header { background-color: #95b582;}
+
     .sidebar {
         position: absolute;
         padding-left: 75px;
         text-align: center;
-        background-color: rgb(250, 250, 250, .8);
         z-index: 3;
         right: 0px;
         bottom: 0px;
@@ -568,6 +573,7 @@ hr {border-color: #EBF0E3 !important;}
     }
     .sidebar.active {
         left: 0%;
+        background-color: rgb(250, 250, 250, .8);
     }
 
     .sidebar > ul {
@@ -583,7 +589,7 @@ hr {border-color: #EBF0E3 !important;}
 
     .sidebar ul li {
         width: 75%;
-        font-align: center;
+        text-align: center;
         background-color: white;
         border-radius: 0;
         margin-bottom: 0;
@@ -782,7 +788,7 @@ hr {border-color: #EBF0E3 !important;}
 
 .text-success {color: #95b582 !important;}
 
-.btn-primary {background-color:#CFDEBA; border-color: #CFDEBA; color: #4a4a4a; text-transform: capitalize;}
+.btn-primary {background-color:#cfdeba; border-color: #CFDEBA; color: #4a4a4a; text-transform: capitalize;}
 .btn-primary:hover {background-color:#EBF0E3; border-color: #EBF0E3; color: #4a4a4a; text-transform: capitalize;}
 
 .btn-outline-primary, .btn-outline-primary:hover, .btn-outline-primary:active, .btn-outline-primary:visited {

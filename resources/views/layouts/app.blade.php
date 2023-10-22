@@ -82,7 +82,7 @@
         <div class="site-header-image" id="header" style="background-image: url('{{ asset('images/header.png') }}');"></div>
         @include('layouts._nav')
         @if ( View::hasSection('sidebar') )
-			<div class="site-mobile-header bg-secondary"><a href="#" class="btn btn-sm btn-outline-light" id="mobileMenuButton">Menu <i class="fas fa-caret-right ml-1"></i></a></div>
+			<div class="site-mobile-header"><a href="#" class="btn btn-sm btn-outline-light" id="mobileMenuButton">Menu <i class="fas fa-caret-right ml-1"></i></a></div>
 		@endif
 
         <main class="container-fluid">
@@ -184,13 +184,13 @@
 				var day = date.getUTCDate();
 				var month = date.getUTCMonth().toString();
 				var year = date.getUTCFullYear();
-				const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+				const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 				
 				h = (h < 10) ? "0" + h : h;
 				m = (m < 10) ? "0" + m : m;
 				s = (s < 10) ? "0" + s : s;
 				
-				var time = day + " " + monthNames[month] + " " + year + ", " + h + ":" + m + ":" + s;
+				var time = monthNames[month] + " " + day + " " + year + ", " + h + ":" + m + ":" + s;
 				
 				var clocks = document.getElementsByClassName("LiveClock");
 				
