@@ -10,7 +10,7 @@
         @if($report->status == 'Closed' || ($report->status == 'Assigned' && $report->is_br && $report->error_type != 'exploit') || (Auth::check() && Auth::user()->id == $report->user_id)) 
             <a href="{{ $report->viewUrl }}" class="btn btn-primary btn-sm">Details</a>
         @else 
-            <a class="btn btn-dark btn-sm text-light">Report not closed</a>
+            <a class="btn btn-success btn-sm text-light">Report not closed</a>
         @endif
     </div>
 </div>

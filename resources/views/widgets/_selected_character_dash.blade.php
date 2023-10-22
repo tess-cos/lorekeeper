@@ -13,6 +13,6 @@
                 <p>{{ Auth::check() && Auth::user()->id == $user->id ? 'You have' : 'This user has' }} no selected character...</p>
             @endif
         </div>
-        <div class="text-center"><a href="{{ $user->url.'/characters' }}" class="btn" style="background-color: #E5C1C7;">View All Characters</a></div>
+        <div class="text-center"><a href="{{ $user->url.'/characters' }}" class="btn btn-dark" style="background-color: #E5C1C7; font-size: 10pt;">View All Characters</a></div>
     </div>
 </div>
