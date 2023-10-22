@@ -504,7 +504,7 @@ hr {border-color: #EBF0E3 !important;}
 
     .btn-dark { width: 100% !important;
     border: 0px !important;
-    color: #636363; }
+    color: #636363 !important; }
 
     .dimg {margin: auto; margin-top: 5px;}
 
@@ -816,7 +816,7 @@ hr {border-color: #EBF0E3 !important;}
     }
 
 .btn-dark { border: 0px !important;
-        color: #636363; }
+        color: #636363 !important; }
 
 .alert-secondary, .btn-dark:hover {
         background-color: #E0ECD0 !important; border-color: #E0ECD0; color: #4a4a4a;
