@@ -429,21 +429,21 @@ hr {border-color: #EBF0E3 !important;}
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: #f4e3e6;
+    background: #E0ECD0;
   }
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #E5C1C7; 
+    background: #C0D1A6; 
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #C0D1A6; 
+    background: #E5C1C7; 
   }
 
   ::-webkit-scrollbar-button {
-    background-color: #f4e3e6;
+    background-color: #E0ECD0;
     background-size: 10px 10px;
     background-repeat: no-repeat;
     background-position: center center;
