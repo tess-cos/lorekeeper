@@ -217,7 +217,7 @@ border-bottom: 2px solid #F5F5F5; position: relative; z-index: 2;}
         color: #fafafa;
         margin: auto;
     position: absolute;
-    top: -29.5%;
+    top: -28%;
     left: 0;
     z-index: 0;}
 
@@ -483,6 +483,8 @@ background-size: 7px;}
     }
 
     .navbar { width: 100%; }
+
+    .navimgbg {top: -29.5%;}
 
     main { width: 100%; position: relative; left: -0.5%; }
 
