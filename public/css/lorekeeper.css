@@ -537,7 +537,8 @@ hr {border-color: #EBF0E3 !important;}
 
     .top2txt {
         margin-top: 0px;
-        margin-left: 5px;
+        margin-left: 1%;
+        text-align: left;
     }
 
     .navbar .nav-item:hover {
