@@ -624,6 +624,10 @@ background-size: 7px;}
         background-color: rgb(250, 250, 250, .8);
     }
 
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
     .sidebar > ul {
         padding-top: 0px;
     }
