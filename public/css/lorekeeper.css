@@ -898,7 +898,7 @@ background-size: 7px;}
     color:#E5C1C7; border-color: #E5C1C7; text-transform: capitalize; }
 
 .btn-info, .btn-info:active, .btn-info:visited {
-        background-color: #E5C1C7 !important; border-color: #E5C1C7; color: #4a4a4a; text-transform: capitalize;
+        background-color: #E5C1C7 !important; border-color: #E5C1C7; color: #D48C99; text-transform: capitalize;
     } 
 
 .btn-outline-info:hover, .btn-info:hover, .alert {
