@@ -58,7 +58,7 @@
 </div>
 @endif
 
-<div class="form-group">
+<div class="form-group" style="display: none;">
     {!! Form::label('text', 'Profile Content') !!}
     {!! Form::textarea('text', $character->profile->text, ['class' => 'wysiwyg form-control']) !!}
 </div>
