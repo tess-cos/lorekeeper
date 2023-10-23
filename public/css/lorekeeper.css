@@ -549,6 +549,7 @@ background-size: 7px;}
         width: 100%;
     }
 
+    
     .sideimg { width: 50%;
     }
 
@@ -621,6 +622,8 @@ background-size: 7px;}
         background-color: #f4e3e6;
         border-radius: 0px;
     }
+
+    #app { overflow: hidden; }
 
     main.container-fluid {
         margin-top: 100px;
