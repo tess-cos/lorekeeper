@@ -537,7 +537,7 @@ background-size: 7px;}
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 991px) {
     .site-header-image, .navimg, .navimgbg, .clk {
         display: none;
     }
