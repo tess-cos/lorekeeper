@@ -19,8 +19,8 @@
 <div style="font-family: Poppins, serif;text-transform: lowercase; font-size: 9.5pt;"><i class="text-{{ $character->is_tradeable ? 'success far fa-circle' : 'danger fas fa-times'  }} fa-fw mr-2"></i> {{ $character->is_tradeable ? 'Can' : 'Cannot'  }} be traded</div>
 <div style="font-family: Poppins, serif;text-transform: lowercase; font-size: 9.5pt;"><i class="text-{{ $character->is_sellable ? 'success far fa-circle' : 'danger fas fa-times'  }} fa-fw mr-2"></i> {{ $character->is_sellable ? 'Can' : 'Cannot'  }} be sold</div>
 <div class="row">
-    <div class="col-lg-3 col-4" style="font-family: Poppins, serif;text-transform: lowercase; font-weight: bold; font-size: 10.5pt;">Sale Value</div>
-    <div class="col-lg-9 col-8">{{ Config::get('lorekeeper.settings.currency_symbol') }}{{ $character->sale_value }}</div>
+    <div class="col-lg-3 col-4" style="display: none; font-family: Poppins, serif;text-transform: lowercase; font-weight: bold; font-size: 10.5pt;">Sale Value</div>
+    <div class="col-lg-9 col-8" style="display: none;">{{ Config::get('lorekeeper.settings.currency_symbol') }}{{ $character->sale_value }}</div>
 </div>
 @if($character->transferrable_at && $character->transferrable_at->isFuture())
     <div class="row">

@@ -168,7 +168,7 @@
 
                 <div class="row mb-2">
                     <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">Design</div>
-                    <div class="col-lg-8 col-md-6 col-8">
+                    <div class="col-lg-8 col-md-6 col-8 hd">
                         @foreach($image->designers as $designer)
                             <div>{!! $designer->displayLink() !!}</div>
                         @endforeach
@@ -176,7 +176,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">Art</div>
-                    <div class="col-lg-8 col-md-6 col-8">
+                    <div class="col-lg-8 col-md-6 col-8 hd">
                         @foreach($image->artists as $artist)
                             <div>{!! $artist->displayLink() !!}</div>
                         @endforeach
