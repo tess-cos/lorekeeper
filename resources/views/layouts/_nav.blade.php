@@ -143,8 +143,11 @@
                         <a class="dropdown-item" href="{{ url('sublist/myo') }}">
                             MYO Masterlist
                         </a>
+                        <div class="dropdown-divider"></div> 
+                        <a class="dropdown-item" href="/">Discord</a>
                     </div>
                 </li>
+                <li>
             </ul>
 
             <!-- Right Side Of Navbar -->
