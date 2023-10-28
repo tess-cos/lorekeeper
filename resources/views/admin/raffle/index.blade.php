@@ -10,7 +10,7 @@
     <a class="btn btn-success edit-group" href="#" data-id="">Create Raffle Group</a>
     <a class="btn btn-success edit-raffle" href="#" data-id="">Create Raffle</a>
 </div>
-<ul class="nav nav-tabs mb-3">
+<ul class="nav nav-tabs mb-3" style="background: none !important;">
     <li class="nav-item"><a href="{{ url()->current() }}" class="nav-link {{ Request::get('is_active') ? '' : 'active' }}">Current Raffles</a></li>
     <li class="nav-item"><a href="{{ url()->current() }}?is_active=1" class="nav-link {{ Request::get('is_active') == 1 ? 'active' : '' }}">Open Raffles</a></li>
     <li class="nav-item"><a href="{{ url()->current() }}?is_active=2" class="nav-link {{ Request::get('is_active') == 2 ? 'active' : '' }}">Completed Raffles</a></li>
