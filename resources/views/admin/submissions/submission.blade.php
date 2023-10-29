@@ -108,7 +108,7 @@
         
         <h2>Characters</h2>
         <div class="row">
-            <div id="characters" class="mb-3" style="margin: auto; width:">
+            <div id="characters" class="mb-3" style="margin: auto; width: 90%;">
             @foreach($submission->characters as $character)
                 @include('widgets._character_select_entry', ['characterCurrencies' => $characterCurrencies, 'items' => $items, 'tables' => $tables, 'character' => $character, 'characterAwards' => $characterAwards,'expanded_rewards' => $expanded_rewards, 'submission' => true])
             @endforeach
