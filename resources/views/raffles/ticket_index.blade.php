@@ -38,18 +38,18 @@
 
   <div class="row ml-md-2">
     <div class="d-flex row flex-wrap col-12 mt-1 pt-1 px-0 ubt-bottom">
-      <div class="col-2 col-md-1 font-weight-bold">#</div>
-      <div class="col-10 col-md-11 font-weight-bold">User</div>
+      <div style="font-family: Poppins, serif;" class="col-2 col-md-1 font-weight-bold">#</div>
+      <div style="font-family: Poppins, serif;" class="col-10 col-md-11 font-weight-bold">User</div>
     </div>
         @foreach($tickets as $count=>$ticket)
           <div class="d-flex row flex-wrap col-12 mt-1 pt-1 px-0 ubt-top">
             <div class="col-2 col-md-1">
               {{ $page * 100 + $count + 1 }}
               @if (Auth::check() && $ticket->user_id && $ticket->user->name == Auth::user()->name)
-                <i class="fas fa-ticket-alt ml-2"></i>
+                <i style="color: #95b582;" class="fas fa-ticket-alt ml-2"></i>
               @endif
             </div>
-            <div class="col-10 col-md-11">{!! $ticket->displayHolderName !!}</div>
+            <div class="col-10 col-md-11 hd">{!! $ticket->displayHolderName !!}</div>
           </div>
         @endforeach
   </div>
