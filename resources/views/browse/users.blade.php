@@ -44,7 +44,7 @@
       <div class="col-4 col-md-3 font-weight-bold">Joined</div>
     </div>
     @foreach($users as $user)
-    <div class="d-flex row flex-wrap col-12 mt-1 pt-1 px-0 ubt-top" style="font-family: verdana; padding-bottom: 10px;">
+    <div class="d-flex row flex-wrap col-12 mt-1 pt-1 px-0 ubt-top" style="font-family: verdana;">
       <div class="col-12 col-md-4 hd">{!! $user->displayName !!}</div>
       <div class="col-4 col-md-3">{!! $user->displayAlias !!}</div>
       <div class="col-4 col-md-2">{!! $user->rank->displayName !!}</div>
@@ -53,7 +53,7 @@
     @endforeach
   </div>
 {!! $users->render() !!}
-
+<div style="padding: 2.5px;"></div>
 <div class="text-center mt-4 small text-muted">{{ $users->total() }} result{{ $users->total() == 1 ? '' : 's' }} found.</div>
 
 @endsection
