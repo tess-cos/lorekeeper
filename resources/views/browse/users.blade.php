@@ -52,8 +52,9 @@
     </div>
     @endforeach
   </div>
+  <div style="padding: 2.5px;"></div>
 {!! $users->render() !!}
-<div style="padding: 2.5px;"></div>
+
 <div class="text-center mt-4 small text-muted">{{ $users->total() }} result{{ $users->total() == 1 ? '' : 's' }} found.</div>
 
 @endsection
