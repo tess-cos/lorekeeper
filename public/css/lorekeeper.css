@@ -123,7 +123,7 @@ main {
 
 main > .row {
     flex-grow: 1;
-    padding-right: 25px;
+    padding-right: 30px;
 }
 
 .main-content {
