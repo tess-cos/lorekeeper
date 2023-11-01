@@ -51,8 +51,7 @@
       <div class="col-4 col-md-3">{!! pretty_date($user->created_at, false) !!}</div>
     </div>
     @endforeach
-  </div>
-  <div style="padding: 2.5px;"></div>
+  </div><br />
 {!! $users->render() !!}
 
 <div class="text-center mt-4 small text-muted">{{ $users->total() }} result{{ $users->total() == 1 ? '' : 's' }} found.</div>
