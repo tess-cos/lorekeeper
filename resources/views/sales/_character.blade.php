@@ -62,7 +62,7 @@
                             @foreach($character->image->designers as $designer)
                                 {!! $designer->displayLink() !!}{{ !$loop->last ? ', ' : '' }}
                             @endforeach <br />
-                            drt:
+                            art:
                             @foreach($character->image->artists as $artist)
                                 {!! $artist->displayLink() !!}{{ !$loop->last ? ', ' : '' }}
                             @endforeach
