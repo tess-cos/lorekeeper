@@ -9,12 +9,9 @@
     {{ $shop->name }}
 </h1>
 
-@if($shop->use_coupons)
-    <div class="alert alert-success">You can use coupons in this store!</div>
     @if($shop->allowed_coupons && count(json_decode($shop->allowed_coupons, 1)))
-        <div class="alert alert-info">You can use the following coupons: @foreach($shop->allAllowedCoupons as $coupon) {!! $coupon->displayName !!}{{$loop->last ? '' : ', '}} @endforeach</div>
+        <div class="alert alert-info">This shop accepts the following coupons: @foreach($shop->allAllowedCoupons as $coupon) {!! $coupon->displayName !!}{{$loop->last ? '' : ', '}} @endforeach</div>
     @endif
-@endif
 
 <div class="text-center">
     <img src="{{ $shop->shopImageUrl }}" style="max-width:100%" alt="{{ $shop->name }}" />
