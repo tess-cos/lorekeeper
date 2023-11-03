@@ -57,18 +57,18 @@
                     @endif
 
                     
-                        <div class="mb-2" style="font-size:8.5pt;">
-                           design:
+                        <div class="mb-2 sp" style="font-size:8.5pt;">
+                           <p style="margin-bottom: -5px;">design:
                             @foreach($character->image->designers as $designer)
                                 {!! $designer->displayLink() !!}{{ !$loop->last ? ', ' : '' }}
-                            @endforeach <br />
-                            art:
+                            @endforeach</p>
+                            <p style="margin-bottom: -5px;">art:
                             @foreach($character->image->artists as $artist)
                                 {!! $artist->displayLink() !!}{{ !$loop->last ? ', ' : '' }}
-                            @endforeach
+                            @endforeach</p>
                         </div>
 
-                        <p>{!! $character->description !!}</p>
+                        <p style="margin-bottom: 10px;">{!! $character->description !!}</p>
                         <h6 style="font-size: 10.5pt; font-family: Poppins, serif;">
                         {!! $character->price !!}
                         {!! isset($character->link) || isset($character->data['end_point']) ? '<br/>' : '' !!}
