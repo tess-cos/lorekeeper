@@ -1,8 +1,6 @@
 <?php
 return [
 
-
-
     // FORMAT EXAMPLE.
     //
     // 'extension_tracker' => [
@@ -13,7 +11,16 @@ return [
     //     ]),
     //     'version' => '1.0.0',
     // ],
-    
+
+    'event_tools' => [
+        'key' => 'Event_Tools',
+        'wiki_key' => 'Event_Tools',
+        'creators' => json_encode([
+            'Mercury' => 'https://github.com/itinerare/',
+        ]),
+        'version' => '1.1.0',
+    ],
+
     'dailies' => [
         'key' => 'dailies',
         'wiki_key' => 'Dailies',
@@ -22,6 +29,7 @@ return [
         ]),
         'version' => '1.1.0', 
     ], 
+
     'prompt_prerequisites' => [
         'key' => 'prompt_prerequisites',
         'wiki_key' => 'Prompt_Prerequisites',

@@ -126,6 +126,10 @@ return [
             [
                 'name' => 'Skill Grants',
                 'url' => 'admin/grants/skills'
+            ],
+            [
+                'name' => 'Event Settings',
+                'url' => 'admin/event-settings'
             ]
         ]
     ],

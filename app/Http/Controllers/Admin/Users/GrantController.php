@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Users;
 
 use Auth;
+use Settings;
 use Config;
 use Illuminate\Http\Request;
 
@@ -20,6 +21,8 @@ use App\Models\Character\CharacterItem;
 use App\Models\Trade;
 use App\Models\Character\CharacterDesignUpdate;
 use App\Models\Submission\Submission;
+use App\Models\User\UserCurrency;
+use App\Models\SitePage;
 
 use App\Models\Character\Character;
 use App\Services\CurrencyManager;

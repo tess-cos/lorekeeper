@@ -7,7 +7,7 @@
             <div class="col-md text-center" style="padding: 15px;">
                 <div class="mt-2">
                     <h5>
-                        {{ $character->displayType }}: <a href="{{ $character->character->url }}">{!! $character->character->slug !!}</a><br /><span class="{{ $character->is_open && $character->sales->is_open ? 'text-success' : '' }}">[{{ $character->is_open && $character->sales->is_open ? 'Open' : 'Closed' }}]</span><br/>
+                        {{ $character->displayType }}: <a href="{{ $character->character->url }}">{!! $character->character->slug !!}</a><br /><span class="{{ $character->is_open && $character->sales->is_open ? 'text-success' : 'text-primary' }}">[{{ $character->is_open && $character->sales->is_open ? 'Open' : 'Closed' }}]</span><br/>
                         <small>
                             {!! $character->image->species->displayName !!} {!! $character->image->rarity->displayName !!}<br/>
                         </small>
@@ -67,7 +67,9 @@
                                 {!! $artist->displayLink() !!}{{ !$loop->last ? ', ' : '' }}
                             @endforeach
                         </div>
-                        <h6>
+
+                        <p>{!! $character->description !!}</p>
+                        <h6 style="font-size: 10.5pt; font-family: Poppins, serif;">
                         {!! $character->price !!}
                         {!! isset($character->link) || isset($character->data['end_point']) ? '<br/>' : '' !!}
                         @if(isset($character->data['end_point']))
@@ -79,7 +81,6 @@
                         @endif
                     </h6>
 
-                    <p>{!! $character->description !!}</p>
                 </div>
             </div>
         </div>
