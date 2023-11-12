@@ -171,7 +171,7 @@
         <div class="submission-character-info card ml-2">
             <div class="card-body">
                 <div class="submission-character-info-content">
-                    <h3 class="mb-2 submission-character-info-header" style="><a href="{{ $character->character->url }}">{{ $character->character->fullName }}</a></h3>
+                    <h3 class="mb-2 submission-character-info-header"><a href="{{ $character->character->url }}">{{ $character->character->fullName }}</a></h3>
                     <div class="submission-character-info-body">
                     <table class="table table-sm mb-0">
                         <thead style="border-bottom: none !important;">
