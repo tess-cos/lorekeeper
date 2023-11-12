@@ -62,6 +62,8 @@ p a, li a {color: #D48C99;}
 
 .cu a {color: #95b582;}
 
+.sl a {font-weight: normal !important;}
+
 .ma a {color: #E5C1C7;}
 
 a:hover {

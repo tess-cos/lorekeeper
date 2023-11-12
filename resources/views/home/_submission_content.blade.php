@@ -130,7 +130,7 @@
                     <br>
                 {{ $bonus[0]['User_Bonus']['points'] ? $bonus[0]['User_Bonus']['points'] : 'No bonus'}} user points
             </div>
-            <div class="col-md">
+            <div class="col-md" style="display: none;">
                 <h5>Character Rewards</h5>
                 {{ $bonus[0]['Character_Bonus']['exp'] ? $bonus[0]['Character_Bonus']['exp'] : 'No bonus'}} character EXP
                     <br>
@@ -171,16 +171,23 @@
         <div class="submission-character-info card ml-2">
             <div class="card-body">
                 <div class="submission-character-info-content">
-                    <h3 class="mb-2 submission-character-info-header"><a href="{{ $character->character->url }}">{{ $character->character->fullName }}</a></h3>
+                    <h3 class="mb-2 submission-character-info-header" style="><a href="{{ $character->character->url }}">{{ $character->character->fullName }}</a></h3>
                     <div class="submission-character-info-body">
                     <table class="table table-sm mb-0">
-                        <thead>
-                            <tr>
+                        <thead style="border-bottom: none !important;">
+                        <tr>
+                                <th width="70%">Owned by</th>
+                                <th width="30%" class="sl">{!! $character->character->displayOwner !!}</th>
+                            </tr>
+                            <tr style="display: none;">
                                 <th width="70%">Reward</th>
                                 <th width="30%">Amount</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody style="display: none;">
+                        <tr>
+                                        <td></td>
+                                    </tr>
                             @foreach(parseAssetData($character->data) as $key => $type)
 
                                 @foreach($type as $asset)
