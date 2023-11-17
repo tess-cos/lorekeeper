@@ -948,6 +948,13 @@ background-size: 7px;}
     background-color: #E5C1C7 !important; color: #4a4a4a; text-transform: capitalize;
 }
 
+a[aria-expanded=true] .fa-chevron-right {
+    display: none;
+ }
+ a[aria-expanded=false] .fa-chevron-down {
+    display: none;
+ }
+
 /* NOTIFICATIONS *********************************************************************************/
 
 .notifications-table .unread,

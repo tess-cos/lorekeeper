@@ -43,13 +43,36 @@
                                 @else {!!$pet->pet->displayName !!}
                                 @endif
                                 <br>
-                                <span class="badge" style="font-size:95%; background-color: #CFDEBA; color: #4a4a4a;">{!! $pet->pet_name !!}</span>
+                                <span class="badge" style="font-size:95%; background-color: #fafafa; color: #95b582;">{!! $pet->pet_name !!}</span>
                             </div>
                         @endforeach</div>
                         @else
                                 <div style="display: none;">No Cosprouts owned.</div>
                             @endif
                         <br />
+                        
+                        @if($character->awards()->exists())<div class="card-header" style="width: 80%; padding: 15px; margin: auto; text-align: center; background-color: #fafafa; border: 1px solid #dedede; padding: 5px; padding-bottom: 10px; border-radius: 5px;">
+                        <h5 style="padding: 10px; margin-bottom: -5px; text-align: left;"><span style="color: #D48C99;">✿</span> <span style="color: #95b582;">{!! $character->name !!}'s</span> <a role="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">scrapbook
+        <i style="color: #D48C99;" class="fa fa-chevron-right pull-right"></i>
+        <i style="color: #D48C99;" class="fa fa-chevron-down pull-right"></i></a></h5></div>
+                    <div class="collapse card-body tab-content" id="collapseExample" style="width: 80%; margin: auto; text-align: center;">@foreach($character->awards as $award)
+                            <div class="ml-3 mr-3" style="margin: auto;">
+                                @if($award->has_image)
+                                <a href="{{$award->idUrl}}"><img src="{{ $award->imageUrl }}" style="max-width: 25%; padding: 5px;"/></a>
+                                @elseif($award->imageurl)
+                                <a href="{{$award->idUrl}}"><img src="{{ $award->imageUrl }}" style="max-width: 25%; padding: 5px;"/></a>
+                                @else {!!$award->displayName !!}
+                                @endif
+                                <br>
+                                <a href="{{$character->url . '/'.__('awards.awardcase')}}">{!! $award->name !!}</a>
+                            </div>
+                        @endforeach</div></div>
+                        @else
+                                <div style="display: none;">No Cosprouts owned.</div>
+                            @endif
+                        <br />
+
+
 <div class="card character-bio">
     <div class="card-header" style="background-color: #fafafa;"><h5 style="padding: 10px; margin-bottom: -5px; margin-top: -2.5px; margin-left: -8.5px;">description</h5>
 </div>
@@ -108,4 +131,12 @@
 @section('scripts')
     @parent
     @include('character._image_js', ['character' => $character])
+    <script>
+        $('#serviceList').on('shown.bs.collapse'), function() {
+    $(".servicedrop").addClass('glyphicon-chevron-up').removeClass('glyphicon-chevron-down');
+  }
+
+$('#serviceList').on('hidden.bs.collapse'), function() {
+    $(".servicedrop").addClass('glyphicon-chevron-down').removeClass('glyphicon-chevron-up');
+  }</script>
 @endsection
