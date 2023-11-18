@@ -4,14 +4,14 @@
 @endphp
 
 @if(isset($reply) && $reply === true)
-  <div id="comment-{{ $comment->getKey() }}" class="comment_replies border-left col-12 column mw-100 pr-0 pt-4" style="flex-basis: 100%;">
+  <div id="comment-{{ $comment->getKey() }}" class="comment_replies col-12 column mw-100 pr-0 pt-4" style="flex-basis: 100%;">
 @else
   <div id="comment-{{ $comment->getKey() }}"  class="pt-4" style="flex-basis: 100%;">
 @endif
     <div class="media-body row mw-100 mx-0" style="flex:1;flex-wrap:wrap;">
         @if(isset($compact) && !$compact)
         <div class="d-none d-md-block">
-            <img class="mr-3 mt-2" src="/images/avatars/{{ $comment->commenter->avatar }}" style="width:70px; height:70px; border-radius:50%;" alt="{{ $comment->commenter->name }} Avatar">
+            <img class="mr-3 mt-2" src="/images/avatars/{{ $comment->commenter->avatar }}" style="width:70px; height:70px; border-radius:50%; border: 2px solid #CFDEBA;" alt="{{ $comment->commenter->name }} Avatar">
         </div>
         @endif
         <div class="d-block" style="flex:1">
@@ -21,8 +21,8 @@
                 </h5>
                 @if($comment->is_featured)<div class="ml-1 text-muted text-right col-6 mx-0 pr-1"><small class="text-success">Featured by Owner</small></div> @endif
             </div>
-            <div class="border p-3 rounded {{ $comment->is_featured ? 'border-success bg-light' : '' }} "><p>{!! nl2br($markdown->line($comment->comment)) !!} </p>
-            <p class="border-top pt-1 text-right mb-0">
+            <div class="p-3 rounded {{ $comment->is_featured ? 'border-success bg-light' : '' }} " style="border: 1px solid #E0ECD0;"><p style="padding: 5px;">{!! nl2br($markdown->line($comment->comment)) !!} </p>
+            <p class="pt-1 text-right mb-0">
                 <small class="text-muted">{!! $comment->created_at !!}
                 @if($comment->created_at != $comment->updated_at) 
                     <span class="text-muted border-left mx-1 px-1">(Edited {!! ($comment->updated_at) !!})</span>
@@ -37,13 +37,13 @@
         @if(Auth::check())
             <div class="my-1">
                 @can('reply-to-comment', $comment)
-                    <button data-toggle="modal" data-target="#reply-modal-{{ $comment->getKey() }}" class="btn btn-sm px-3 py-2 px-sm-2 py-sm-1  btn-faded text-uppercase"><i class="fas fa-comment"></i><span class="ml-2 d-none d-sm-inline-block">Reply</span></button>
+                    <button data-toggle="modal" data-target="#reply-modal-{{ $comment->getKey() }}" class="btn btn-sm px-3 py-2 px-sm-2 py-sm-1  btn-dark text-uppercase" style="background-color: #EBF0E3;"><i class="fas fa-comment"></i><span class="ml-2 d-none d-sm-inline-block">Reply</span></button>
                 @endcan
                 @can('edit-comment', $comment)
-                    <button data-toggle="modal" data-target="#comment-modal-{{ $comment->getKey() }}" class="btn btn-sm px-3 py-2 px-sm-2 py-sm-1  btn-faded text-uppercase"><i class="fas fa-edit"></i><span class="ml-2 d-none d-sm-inline-block">Edit</span></button>
+                    <button data-toggle="modal" data-target="#comment-modal-{{ $comment->getKey() }}" class="btn btn-sm px-3 py-2 px-sm-2 py-sm-1  btn-dark text-uppercase" style="background-color: #EBF0E3;"><i class="fas fa-edit"></i><span class="ml-2 d-none d-sm-inline-block">Edit</span></button>
                 @endcan
                 @if(((Auth::user()->id == $comment->commentable_id) || Auth::user()->isStaff) && (isset($compact) && !$compact))
-                    <button data-toggle="modal" data-target="#feature-modal-{{ $comment->getKey() }}" class="btn btn-sm px-3 py-2 px-sm-2 py-sm-1  btn-faded text-success text-uppercase"><i class="fas fa-star"></i><span class="ml-2 d-none d-sm-inline-block">{{$comment->is_featured ? 'Unf' : 'F' }}eature Comment</span></button>
+                    <button data-toggle="modal" data-target="#feature-modal-{{ $comment->getKey() }}" class="btn btn-sm px-3 py-2 px-sm-2 py-sm-1  btn-dark text-success text-uppercase" style="background-color: #EBF0E3;"><i class="fas fa-star"></i><span class="ml-2 d-none d-sm-inline-block">{{$comment->is_featured ? 'Unf' : 'F' }}eature Comment</span></button>
                 @endif
                 @can('delete-comment', $comment)
                     <button data-toggle="modal" data-target="#delete-modal-{{ $comment->getKey() }}" class="btn btn-sm px-3 py-2 px-sm-2 py-sm-1 btn-outline-danger text-uppercase"><i class="fas fa-minus-circle"></i><span class="ml-2 d-none d-sm-inline-block">Delete</span></button>
