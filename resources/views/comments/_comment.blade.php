@@ -19,7 +19,7 @@
                 <h5 class="mt-0 mb-1 col mx-0 px-0">
                     {!! $comment->commenter->commentDisplayName !!} @if($comment->commenter->isStaff == true)<small class="text-success">Staff Member</small>@endif
                 </h5>
-                @if($comment->is_featured)<div class="ml-1 text-muted text-right col-6 mx-0 pr-1"><small class="text-success">Featured by Owner</small></div> @endif
+                @if($comment->is_featured)<div style="text-transform: lowercase;" class="ml-1 text-muted text-right col-6 mx-0 pr-1"><small class="text-success">Featured by Owner</small></div> @endif
             </div>
             <div class="p-3 rounded {{ $comment->is_featured ? 'cmtf' : '' }} " style="border: 1px solid #E0ECD0;"><p style="padding: 5px;">{!! nl2br($markdown->line($comment->comment)) !!} </p>
             <p class="pt-1 text-right mb-0">
