@@ -873,6 +873,8 @@ background-size: 7px;}
 
 .text-success {color: #95b582 !important;}
 
+.cmtf {border: #95b582; background-color: #EBF0E3; }
+
 .btn-primary {background-color:#cfdeba; border-color: #CFDEBA; color: #4a4a4a; text-transform: capitalize;}
 .btn-primary:hover {background-color:#EBF0E3; border-color: #EBF0E3; color: #4a4a4a; text-transform: capitalize;}
 
