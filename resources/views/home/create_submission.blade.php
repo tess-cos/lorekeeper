@@ -61,12 +61,12 @@
             <a href="#" class="btn btn-outline-info" id="addCharacter">Add Character</a>
         </div>
         
-        <div style="display: none;"><h2>Add-Ons</h2>
+        <h2>Add-Ons</h2>
         <p>If your {{ $isClaim ? 'claim' : 'submission' }} consumes items, attach them here. Otherwise, this section can be left blank. These items will be removed from your inventory but refunded if your {{ $isClaim ? 'claim' : 'submission' }} is rejected.</p>
         <div id="addons" class="mb-3">
         @include('widgets._inventory_select', ['user' => Auth::user(), 'inventory' => $inventory, 'categories' => $categories, 'selected' => [], 'page' => $page])
         @include('widgets._bank_select', ['owner' => Auth::user(), 'selected' => null])
-        </div></div></div>
+        </div></div>
 
         <div class="text-right">
             <a href="#" class="btn btn-primary" id="submitButton">Submit</a>
