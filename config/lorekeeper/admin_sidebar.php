@@ -312,7 +312,12 @@ return [
             [
                 'name' => 'Reward Calculator',
                 'url' => 'admin/data/criteria'
-            ]
+            ],
+            [   
+                'name' => 'Scavenger Hunts',
+                'url' => 'admin/data/hunts'
+            ],
+
         ]
     ],
     'Raffles' => [
