@@ -17,7 +17,7 @@
 @include('character._header', ['character' => $character])
 
 @if ($character->images()->where('is_valid', 1)->whereNotNull('transformation_id')->exists())
-        <div class="card-header mb-2">
+        <div class="card-header mb-2" style="display: none;">
             <ul class="nav nav-tabs card-header-tabs">
                 @foreach ($character->images()->where('is_valid', 1)->get() as $image)
                     <li class="nav-item">
