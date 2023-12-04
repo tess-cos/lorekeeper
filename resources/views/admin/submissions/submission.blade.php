@@ -115,7 +115,7 @@
         </div>
         <div class="text-right mb-3">
             <a href="#" class="btn btn-outline-info" id="addCharacter">Add Character</a>
-        </div></div>
+        </div>
 
         @if(isset($inventory['user_items']))
         <h2>Add-Ons</h2>
