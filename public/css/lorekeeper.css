@@ -861,6 +861,15 @@ background-size: 7px;}
 
 .whit-talk2 {width: 70%; margin: auto; padding: 25px; border-radius: 15px; background-color: #ffffff; border: 2.5px solid #A36959; text-align: left;}
 
+.lenn-talk1 {color: #5d675c; text-shadow:
+    -1px -1px 0 #4a4a4a, 
+    1px -1px 0 #4a4a4a,
+    -1px 1px 0 #4a4a4a,
+     1px 1px 0 #4a4a4a; width: 70%; padding-bottom: 2.5px; font-family: Mali, serif; font-weight: bold; font-size: 16.5pt; letter-spacing: 1.5px; margin: auto; text-align: left;}
+
+.lenn-talk2 {width: 70%; margin: auto; padding: 25px; border-radius: 15px; background-color: #ffffff; border: 2.5px solid #5d675c; text-align: left;}
+
+
 .btn-primary:active, .btn-primary:visited, .badge-primary, .badge-secondary, .badge-info {
     background-color: #CFDEBA !important; border-color: #CFDEBA; color: #4a4a4a; text-transform: capitalize;
 } 
@@ -878,8 +887,8 @@ background-size: 7px;}
 .btn-primary {background-color:#cfdeba; border-color: #CFDEBA; color: #4a4a4a; text-transform: capitalize;}
 .btn-primary:hover {background-color:#EBF0E3; border-color: #EBF0E3; color: #4a4a4a; text-transform: capitalize;}
 
-.btn-outline-primary, .btn-outline-primary:hover, .btn-outline-primary:active, .btn-outline-primary:visited {
-    border-color: #bed0a6 !important; color: #bed0a6;
+.btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary:visited {
+    border-color: #bed0a6 !important; color: #4a4a4a !important;
 }
 
 .btn-outline-primary:hover {

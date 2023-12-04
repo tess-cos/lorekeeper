@@ -108,6 +108,7 @@ Route::group(['prefix' => 'character', 'namespace' => 'Characters'], function() 
     Route::get('{slug}/count-logs', 'CharacterController@getCharacterCountLogs');
 
     Route::get('{slug}/gallery', 'CharacterController@getCharacterGallery');
+    Route::get('{slug}/image/{id}', 'CharacterController@getCharacterImage');
 });
 Route::group(['prefix' => 'myo', 'namespace' => 'Characters'], function() {
     Route::get('{id}', 'MyoController@getCharacter');
@@ -142,6 +143,7 @@ Route::group(['prefix' => 'world'], function() {
     Route::get('prompt-categories', 'WorldController@getPromptCategories');
     Route::get('prompts', 'WorldController@getPrompts');
     Route::get('character-categories', 'WorldController@getCharacterCategories');
+    Route::get(__('transformations.transformations'), 'WorldController@getTransformations');
     Route::get('levels', 'WorldController@getLevels');
     Route::get('levels/{type}', 'WorldController@getLevelTypes');
     Route::get('levels/{type}/{level}', 'WorldController@getSingleLevel');

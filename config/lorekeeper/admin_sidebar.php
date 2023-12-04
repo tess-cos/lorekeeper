@@ -248,6 +248,10 @@ return [
                 'url' => 'admin/data/items'
             ],
             [
+                'name' => 'Charms',
+                'url'  => 'admin/data/transformations',
+            ],
+            [
                 'name' => 'Pets',
                 'url' => 'admin/data/pets'
             ],
