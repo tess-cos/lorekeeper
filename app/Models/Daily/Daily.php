@@ -15,7 +15,7 @@ class Daily extends Model
      */
     protected $fillable = [
         'name', 'sort', 'has_image', 'has_button_image', 'description', 'parsed_description', 'is_active', 'is_progressable', 'is_timed_daily', 'start_at', 'end_at', 'daily_timeframe', 
-        'progress_display', 'is_loop', 'is_streak'
+        'progress_display', 'is_loop', 'is_streak', 'type', 'fee', 'currency_id'
     ];
 
     /**
@@ -69,6 +69,22 @@ class Daily extends Model
     public function timers()
     {
         return $this->hasMany('App\Models\Daily\DailyTimer', 'daily_id');
+    }
+
+    /**
+     * Get wheel (if it exists).
+     */
+    public function wheel()
+    {
+        return $this->hasOne('App\Models\Daily\DailyWheel', 'daily_id');
+    }
+
+    /**
+     * Get currency (if it exists).
+     */
+    public function currency()
+    {
+        return $this->belongsTo('App\Models\Currency\Currency');
     }
 
     /**
@@ -161,7 +177,18 @@ class Daily extends Model
      */
     public function getMaxStepAttribute()
     {
-        return $this->rewards()->get()->max(function ($reward) { return $reward->step; });
+        $max = $this->rewards()->get()->max(function ($reward) { return $reward->step; });
+        return ($max > 0) ? $max : 1;
+    }
+
+    /**
+     * Get the viewing URL of the daily.
+     *
+     * @return string
+     */
+    public function getViewUrlAttribute()
+    {
+        return url(__('dailies.dailies').'/'.$this->id);
     }
 
     /**********************************************************************************************
@@ -205,7 +232,7 @@ class Daily extends Model
                 $date = date("Y-m-d H:i:s", strtotime("+1 Month", strtotime('midnight first day of this month'))); 
                 break;
             case "weekly":
-                $date = date("Y-m-d H:i:s", strtotime("+1 Week",strtotime('last sunday'))); 
+                $date = date("Y-m-d H:i:s", strtotime("+1 Week +1 Day",strtotime('last sunday')));
                 break;
             case "daily":
                 $date = date("Y-m-d H:i:s", strtotime("+1 Day",strtotime('midnight')));

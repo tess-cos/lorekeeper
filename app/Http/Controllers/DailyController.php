@@ -50,8 +50,8 @@ class DailyController extends Controller
     public function getDaily($id, DailyService $service)
     {
         $daily = Daily::where('id', $id)->where('is_active', 1)->first();
-        $timer = (Auth::user()) ? DailyTimer::where('daily_id', $daily->id)->where("user_id", Auth::user()->id)->first() : null;
         if(!$daily) abort(404);
+        $timer = (Auth::user()) ? DailyTimer::where('daily_id', $daily->id)->where("user_id", Auth::user()->id)->first() : null;
 
         
         
@@ -74,23 +74,26 @@ class DailyController extends Controller
      */
     public function postRoll(Request $request, DailyService $service)
     {
-        $daily = Daily::where('id', $request->daily_id)->where('is_active', 1)->first();
         $request->validate(DailyTimer::$createRules);
-        $rewards = $service->rollDaily($request->only(['daily_id']), Auth::user());
+        $rewards = $service->rollDaily($request->only(['daily_id', 'step']), Auth::user());
 
         if(!$rewards) {
             foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
         } else {
             $rolledRewards = 0;
-            foreach($rewards as $type => $rewardList){
+            foreach($rewards as $rewardList){
                 foreach($rewardList as $reward){
                     $rolledRewards += 1;
                     flash('You received '.$reward['quantity'].'x '.$reward['asset']->name."!");
                 }
             }
             if($rolledRewards <= 0) flash('You received nothing. Better luck next time!');
+            
         }
-        return redirect()->back();
+
+        if(!$request->ajax()){
+            return redirect()->back();
+        }
 
     }
 
