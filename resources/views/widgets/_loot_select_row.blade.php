@@ -1,3 +1,7 @@
+@php
+if(!isset($showRecipes)) $showRecipes = false;
+@endphp
+
 <div id="lootRowData" class="hide">
     
     <table class="table table-sm">

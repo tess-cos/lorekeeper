@@ -1,3 +1,7 @@
+@php
+if(!isset($showRecipes)) $showRecipes = false;
+@endphp
+
 <div class="text-right mb-3">
     <a href="#" class="btn btn-outline-info" id="addLoot">Add {{ isset($progression) && $progression ? 'Progression' : 'Reward'  }}</a>
 </div>
