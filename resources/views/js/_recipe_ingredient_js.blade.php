@@ -225,6 +225,5 @@
         if($buttons.length == 1) $buttons.addClass('hide');
         else $buttons.removeClass('hide');
     }
-});
     
 </script>
