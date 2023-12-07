@@ -259,7 +259,8 @@ and allow for dynamic reward amounts to be generated based on user / admin selec
     <div id="collapsable-" class="form collapse">Select a criterion to populate this area.</div>
 </div>
 
-@include('widgets._loot_select_row', ['items' => $items, 'currencies' => $currencies, 'tables' => $tables, 'raffles' => $raffles, 'recipes' => $recipes, 'showLootTables' => true, 'showRaffles' => true, 'showRecipes' => true])
+@include('widgets._loot_select_row', ['items' => $items, 'currencies' => $currencies, 'pets' => $pets, 'tables' => $tables, 'raffles' => $raffles, 'recipes' => $recipes, 'showLootTables' => true, 'showRaffles' => true, 'showRecipes' => true])
+>>>>>>>>> Temporary merge branch 2
 
 @if($prompt->id)
     <h3 class="mt-5">Preview</h3>
