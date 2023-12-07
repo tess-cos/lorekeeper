@@ -538,6 +538,13 @@ return [
         'url' => 'gallery/view/{submission_id}'
     ],
 
+    // RECIPE_GRANT
+    600 => [
+        'name' => 'Recipe Grant',
+        'message' => 'You have received a staff grant of the crafting recipe {recipe_name} from <a href="{sender_url}">{sender_name}</a>. (<a href="{url}">View Unlocked Recipes</a>)',
+        'url' => 'crafting'
+    ],
+
     // DIRECT_MESSAGE_RECEIVED
     1005 => [
         'name' => 'Direct Message Received',

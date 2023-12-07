@@ -181,7 +181,7 @@
 <h3>Rewards</h3>
 <p>Rewards are credited on a per-user basis. Mods are able to modify the specific rewards granted at approval time.</p>
 <p>You can add loot tables containing any kind of currencies (both user- and character-attached), but be sure to keep track of which are being distributed! Character-only currencies cannot be given to users.</p>
-@include('widgets._loot_select', ['loots' => $prompt->rewards, 'showLootTables' => true, 'showRaffles' => true])
+@include('widgets._loot_select', ['loots' => $prompt->rewards, 'showLootTables' => true, 'showRaffles' => true, 'showRecipes' => true])
 
 <h3 class="mt-5">Reward Total<button class="btn btn-primary float-right add-calc" type="button">Tally</a></h3>
 <p>Criteria can be used in addition to or in replacement of rewards. They can be created under the "criterion" section of the admin panel,
@@ -236,7 +236,30 @@ and allow for dynamic reward amounts to be generated based on user / admin selec
     <div id="collapsable-" class="form collapse">Select a criterion to populate this area.</div>
 </div>
 
-@include('widgets._loot_select_row', ['items' => $items, 'currencies' => $currencies, 'tables' => $tables, 'raffles' => $raffles, 'showLootTables' => true, 'showRaffles' => true])
+<div class="skill-row hide mb-2" style="display: none;">
+    {!! Form::select('skill_id[]', $skills, null, ['class' => 'form-control mr-2 skill-select', 'placeholder' => 'Select Skill']) !!}
+    {!! Form::text('skill_quantity[]', null, ['class' => 'form-control mr-2', 'placeholder' => 'Amount of level']) !!}
+    <a href="#" class="remove-skill btn btn-danger mb-2">×</a>
+</div>
+
+@include('widgets._loot_select_row', ['items' => $items, 'currencies' => $currencies, 'pets' => $pets, 'gears' => $gears, 'weapons' => $weapons, 'tables' => $tables, 'raffles' => $raffles, 'showLootTables' => true, 'showRaffles' => true])
+
+<div id="copy-calc" class="card p-3 mb-2 pl-0 hide">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <a class="col-1 p-0" data-toggle="collapse" href="#collapsable-">
+            <i class="fas fa-angle-down" style="font-size: 24px"></i>
+        </a>
+        <div class="flex-grow-1 mr-2">
+            {!! Form::select('criterion_id[]', $criteria, null, ['class' => 'form-control criterion-select', 'placeholder' => 'Select a Criterion to set Minimum Requirements']) !!}
+        </div>
+        <div>
+           <button class="btn btn-danger delete-calc" type="button"><i class="fas fa-trash"></i></button>
+        </div>
+    </div>
+    <div id="collapsable-" class="form collapse">Select a criterion to populate this area.</div>
+</div>
+
+@include('widgets._loot_select_row', ['items' => $items, 'currencies' => $currencies, 'tables' => $tables, 'raffles' => $raffles, 'recipes' => $recipes, 'showLootTables' => true, 'showRaffles' => true, 'showRecipes' => true])
 
 @if($prompt->id)
     <h3 class="mt-5">Preview</h3>
@@ -251,7 +274,7 @@ and allow for dynamic reward amounts to be generated based on user / admin selec
 
 @section('scripts')
 @parent
-@include('js._loot_js', ['showLootTables' => true, 'showRaffles' => true])
+@include('js._loot_js', ['showLootTables' => true, 'showRaffles' => true, 'showRecipes' => true])
 <script>
 $( document ).ready(function() {
 

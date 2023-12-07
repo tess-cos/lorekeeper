@@ -85,7 +85,7 @@
 
 
         <h2 class="mt-4">Rewards</h2>
-        <div style="display: none;"> @include('widgets._loot_select', ['loots' => $submission->rewards, 'showLootTables' => true, 'showRaffles' => true])
+        <div style="display: none;"> @include('widgets._loot_select', ['loots' => $submission->rewards, 'showLootTables' => true, 'showRaffles' => true, 'showRecipes' => true])
         @if($submission->prompt_id)
             <div class="mb-3">
                 <h2>Skill Rewards</h2>
@@ -248,7 +248,7 @@
             </tr>
         </table>
     </div>
-    @include('widgets._loot_select_row', ['items' => $items, 'currencies' => $currencies, 'awards' => $awards, 'pets' => $pets, 'gears' => $gears, 'weapons' => $weapons, 'showLootTables' => true, 'showRaffles' => true])
+    @include('widgets._loot_select_row', ['items' => $items, 'currencies' => $currencies, 'awards' => $awards, 'pets' => $pets, 'gears' => $gears, 'weapons' => $weapons, 'showLootTables' => true, 'showRaffles' => true, 'showRecipes' => true])
 
     <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -288,7 +288,7 @@
 @section('scripts')
 @parent
 @if($submission->status == 'Pending')
-    @include('js._loot_js', ['showLootTables' => true, 'showRaffles' => true])
+    @include('js._loot_js', ['showLootTables' => true, 'showRaffles' => true, 'showRecipes' => true])
     @include('js._character_select_js')
 
     <script>

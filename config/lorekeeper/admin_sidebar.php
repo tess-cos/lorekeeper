@@ -104,6 +104,10 @@ return [
                 'url' => 'admin/grants/items'
             ],
             [
+                'name' => 'Recipe Grants',
+                'url' => 'admin/grants/recipes'
+            ],
+            [
                 'name' => 'Memento Grants',
                 'url' => 'admin/grants/awards'
             ],
@@ -246,6 +250,10 @@ return [
             [
                 'name' => 'Items',
                 'url' => 'admin/data/items'
+            ],
+            [
+                'name' => 'Recipes',
+                'url' => 'admin/data/recipes'
             ],
             [
                 'name' => 'Charms',

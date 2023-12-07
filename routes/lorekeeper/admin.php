@@ -161,44 +161,54 @@ Route::group(['prefix' => 'data', 'namespace' => 'Data', 'middleware' => 'power:
     Route::get('items/tag/{id}', 'ItemController@getAddItemTag');
     Route::post('items/tag/{id}', 'ItemController@postAddItemTag');
 
-    # AWARDS
-    Route::get('award-categories', 'AwardController@getIndex');
-    Route::get('award-categories/create', 'AwardController@getCreateAwardCategory');
-    Route::get('award-categories/edit/{id}', 'AwardController@getEditAwardCategory');
-    Route::get('award-categories/delete/{id}', 'AwardController@getDeleteAwardCategory');
-    Route::post('award-categories/create', 'AwardController@postCreateEditAwardCategory');
-    Route::post('award-categories/edit/{id?}', 'AwardController@postCreateEditAwardCategory');
-    Route::post('award-categories/delete/{id}', 'AwardController@postDeleteAwardCategory');
-    Route::post('award-categories/sort', 'AwardController@postSortAwardCategory');
+# AWARDS
+Route::get('award-categories', 'AwardController@getIndex');
+Route::get('award-categories/create', 'AwardController@getCreateAwardCategory');
+Route::get('award-categories/edit/{id}', 'AwardController@getEditAwardCategory');
+Route::get('award-categories/delete/{id}', 'AwardController@getDeleteAwardCategory');
+Route::post('award-categories/create', 'AwardController@postCreateEditAwardCategory');
+Route::post('award-categories/edit/{id?}', 'AwardController@postCreateEditAwardCategory');
+Route::post('award-categories/delete/{id}', 'AwardController@postDeleteAwardCategory');
+Route::post('award-categories/sort', 'AwardController@postSortAwardCategory');
 
-    Route::get('awards', 'AwardController@getAwardIndex');
-    Route::get('awards/create', 'AwardController@getCreateAward');
-    Route::get('awards/edit/{id}', 'AwardController@getEditAward');
-    Route::get('awards/delete/{id}', 'AwardController@getDeleteAward');
-    Route::post('awards/create', 'AwardController@postCreateEditAward');
-    Route::post('awards/edit/{id?}', 'AwardController@postCreateEditAward');
-    Route::post('awards/delete/{id}', 'AwardController@postDeleteAward');
+Route::get('awards', 'AwardController@getAwardIndex');
+Route::get('awards/create', 'AwardController@getCreateAward');
+Route::get('awards/edit/{id}', 'AwardController@getEditAward');
+Route::get('awards/delete/{id}', 'AwardController@getDeleteAward');
+Route::post('awards/create', 'AwardController@postCreateEditAward');
+Route::post('awards/edit/{id?}', 'AwardController@postCreateEditAward');
+Route::post('awards/delete/{id}', 'AwardController@postDeleteAward');
 
-    # PETS
-    Route::get('pet-categories', 'PetController@getIndex');
-    Route::get('pet-categories/create', 'PetController@getCreatePetCategory');
-    Route::get('pet-categories/edit/{id}', 'PetController@getEditPetCategory');
-    Route::get('pet-categories/delete/{id}', 'PetController@getDeletePetCategory');
-    Route::post('pet-categories/create', 'PetController@postCreateEditPetCategory');
-    Route::post('pet-categories/edit/{id?}', 'PetController@postCreateEditPetCategory');
-    Route::post('pet-categories/delete/{id}', 'PetController@postDeletePetCategory');
-    Route::post('pet-categories/sort', 'PetController@postSortPetCategory');
+# PETS
+Route::get('pet-categories', 'PetController@getIndex');
+Route::get('pet-categories/create', 'PetController@getCreatePetCategory');
+Route::get('pet-categories/edit/{id}', 'PetController@getEditPetCategory');
+Route::get('pet-categories/delete/{id}', 'PetController@getDeletePetCategory');
+Route::post('pet-categories/create', 'PetController@postCreateEditPetCategory');
+Route::post('pet-categories/edit/{id?}', 'PetController@postCreateEditPetCategory');
+Route::post('pet-categories/delete/{id}', 'PetController@postDeletePetCategory');
+Route::post('pet-categories/sort', 'PetController@postSortPetCategory');
 
-    Route::get('pets', 'PetController@getPetIndex');
-    Route::get('pets/create', 'PetController@getCreatePet');
-    Route::get('pets/edit/{id}', 'PetController@getEditPet');
-    Route::get('pets/delete/{id}', 'PetController@getDeletePet');
-    Route::post('pets/create', 'PetController@postCreateEditPet');
-    Route::post('pets/edit/{id?}', 'PetController@postCreateEditPet');
-    Route::post('pets/delete/{id}', 'PetController@postDeletePet');
+Route::get('pets', 'PetController@getPetIndex');
+Route::get('pets/create', 'PetController@getCreatePet');
+Route::get('pets/edit/{id}', 'PetController@getEditPet');
+Route::get('pets/delete/{id}', 'PetController@getDeletePet');
+Route::post('pets/create', 'PetController@postCreateEditPet');
+Route::post('pets/edit/{id?}', 'PetController@postCreateEditPet');
+Route::post('pets/delete/{id}', 'PetController@postDeletePet');
 
-    Route::post('pets/variants/{id?}', 'PetController@postEditVariants');
+Route::post('pets/variants/{id?}', 'PetController@postEditVariants');
 
+
+    # RECIPES
+    Route::get('recipes', 'RecipeController@getRecipeIndex');
+    Route::get('recipes/create', 'RecipeController@getCreateRecipe');
+    Route::get('recipes/edit/{id}', 'RecipeController@getEditRecipe');
+    Route::get('recipes/delete/{id}', 'RecipeController@getDeleteRecipe');
+    Route::post('recipes/create', 'RecipeController@postCreateEditRecipe');
+    Route::post('recipes/edit/{id?}', 'RecipeController@postCreateEditRecipe');
+    Route::post('recipes/delete/{id}', 'RecipeController@postDeleteRecipe');
+    
     # SHOPS
     Route::get('shops', 'ShopController@getIndex');
     Route::get('shops/create', 'ShopController@getCreateShop');
@@ -429,8 +439,11 @@ Route::group(['prefix' => 'grants', 'namespace' => 'Users', 'middleware' => 'pow
 
     Route::get('skills', 'GrantController@getSkills');
     Route::post('skills', 'GrantController@postSkills');
-
+    
     Route::get('item-search', 'GrantController@getItemSearch');
+
+    Route::get('recipes', 'GrantController@getRecipes');
+    Route::post('recipes', 'GrantController@postRecipes');
 
     Route::get('awards', 'GrantController@getAwards');
     Route::post('awards', 'GrantController@postAwards');

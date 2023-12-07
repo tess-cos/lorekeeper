@@ -78,6 +78,9 @@
                             <a class="dropdown-item" href="{{ url('designs') }}">
                                 Design Approvals
                             </a>
+                            <a class="dropdown-item" href="{{ url('crafting') }}">
+                                Crafting
+                            </a>
                             <a class="dropdown-item" href="{{ url('claims') }}">
                                 Claims
                             </a>

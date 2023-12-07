@@ -16,6 +16,7 @@ use App\Models\Item\ItemCategory;
 use App\Models\Currency\Currency;
 use App\Models\Loot\LootTable;
 use App\Models\Raffle\Raffle;
+use App\Models\Recipe\Recipe;
 use App\Models\Pet\Pet;
 use App\Models\Skill\Skill;
 use App\Models\Claymore\Gear;
@@ -106,6 +107,7 @@ class SubmissionController extends Controller
             'weapons' => Weapon::orderBy('name')->pluck('name', 'id'),
             'tables' => LootTable::orderBy('name')->pluck('name', 'id'),
             'raffles' => Raffle::where('rolled_at', null)->where('is_active', 1)->orderBy('name')->pluck('name', 'id'),
+            'recipes'=> Recipe::orderBy('name')->pluck('name', 'id'),
             'skills' => Skill::pluck('name', 'id')->toArray(),
             'count' => $count,
             'prompt' => $prompt,
@@ -169,6 +171,7 @@ class SubmissionController extends Controller
             'weapons' => Weapon::orderBy('name')->pluck('name', 'id'),
             'tables' => LootTable::orderBy('name')->pluck('name', 'id'),
             'raffles' => Raffle::where('rolled_at', null)->where('is_active', 1)->orderBy('name')->pluck('name', 'id'),
+            'recipes'=> Recipe::orderBy('name')->pluck('name', 'id'),
             'count' => Submission::where('prompt_id', $id)->where('status', 'Approved')->where('user_id', $submission->user_id)->count(),
             'rewardsData' => isset($submission->data['rewards']) ? parseAssetData($submission->data['rewards']) : null
         ] : []));

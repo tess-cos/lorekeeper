@@ -14,6 +14,7 @@ use App\Models\Currency\Currency;
 use App\Models\Loot\LootTable;
 use App\Models\Award\Award;
 use App\Models\Raffle\Raffle;
+use App\Models\Recipe\Recipe;
 use App\Models\Pet\Pet;
 use App\Models\Claymore\Gear;
 use App\Models\Claymore\Weapon;
@@ -198,6 +199,7 @@ class PromptController extends Controller
             'tables' => LootTable::orderBy('name')->pluck('name', 'id'),
             'limit_periods' => [null => 'None', 'Hour' => 'Hour', 'Day' => 'Day', 'Week' => 'Week', 'Month' => 'Month', 'Year' => 'Year'],
             'raffles' => Raffle::where('rolled_at', null)->where('is_active', 1)->orderBy('name')->pluck('name', 'id'),
+            'recipes'=> Recipe::orderBy('name')->pluck('name', 'id'),
             'criteria' => Criterion::active()->orderBy('name')->pluck('name', 'id'),
             'skills' => Skill::pluck('name', 'id')->toArray()
         ]);
@@ -227,6 +229,7 @@ class PromptController extends Controller
             'tables' => LootTable::orderBy('name')->pluck('name', 'id'),
             'limit_periods' => [null => 'None', 'Hour' => 'Hour', 'Day' => 'Day', 'Week' => 'Week', 'Month' => 'Month', 'Year' => 'Year'],
             'raffles' => Raffle::where('rolled_at', null)->where('is_active', 1)->orderBy('name')->pluck('name', 'id'),
+            'recipes'=> Recipe::orderBy('name')->pluck('name', 'id'),
             'criteria' => Criterion::active()->orderBy('name')->pluck('name', 'id'),
             'skills' => Skill::pluck('name', 'id')->toArray()
         ]);
