@@ -1,14 +1,14 @@
 @extends('home.layout')
 
-@section('home-title') Crafting @endsection
+@section('home-title') Spellcasting @endsection
 
 @section('home-content')
-{!! breadcrumbs(['Crafting' => 'crafting']) !!}
+{!! breadcrumbs(['Spellcasting' => 'crafting']) !!}
 
 <h1>
     Spellbook
 </h1>
-<p> A catalog of spells you have unlocked along with basic spells. </p>
+<p> A catalog of spells you have unlocked as well as basic spells. </p>
 
 <hr>
 
@@ -49,7 +49,7 @@ $( document ).ready(function() {
     $('.btn-craft').on('click', function(e) {
         e.preventDefault();
         var $parent = $(this).parent().parent().parent();
-        loadModal("{{ url('crafting/craft') }}/" + $parent.data('id'), $parent.data('name'));
+        loadModal("{{ url('spellcasting/craft') }}/" + $parent.data('id'), $parent.data('name'));
     });
 });
 </script>

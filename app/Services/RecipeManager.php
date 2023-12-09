@@ -60,7 +60,7 @@ class RecipeManager extends Service {
                             break;
                     }
 
-                    if (!$check) throw new \Exception('You require ' . $limit->reward->name . ' x ' . $limit->quantity . ' to craft this');
+                    if (!$check) throw new \Exception('You require ' . $limit->reward->name . ' x ' . $limit->quantity . ' to cast this');
                 }
             }
             // Check for sufficient currencies
@@ -87,30 +87,30 @@ class RecipeManager extends Service {
 
                 // Check for sufficient ingredients
                 $plucked = $this->pluckIngredients($user, $recipe, $stacks);
-                if (!$plucked) throw new \Exception('Insufficient ingredients selected.');
+                if (!$plucked) throw new \Exception('Insufficient subjects selected.');
 
                 // Debit the ingredients
                 $service = new InventoryManager();
                 $petService = new PetManager();
                 foreach ($plucked as $id => $quantity) {
                     $stack = str_contains($id, 'pet') ? UserPet::find(str_replace('pet', '', $id)) : UserItem::find($id);
-                    if (!(str_contains($id, 'pet') ? $petService : $service)->debitStack($user, 'Crafting', ['data' => 'Used in ' . $recipe->name . ' Recipe'], $stack, $quantity)) throw new \Exception('Items could not be removed.');
+                    if (!(str_contains($id, 'pet') ? $petService : $service)->debitStack($user, 'Spellcasting', ['data' => 'Part of ' . $recipe->name . ' Spell'], $stack, $quantity)) throw new \Exception('Subjects could not be used.');
                 }
             } else {
                 $items = $recipe->ingredients->whereIn('ingredient_type', ['Item', 'Pet']);
-                if (count($items) > 0) throw new \Exception('Insufficient ingredients selected.');
+                if (count($items) > 0) throw new \Exception('Insufficient subjects selected.');
             }
 
             // Debit the currency
             $service = new CurrencyManager();
             foreach ($currency_ingredients as $ingredient) {
-                if (!$service->debitCurrency($user, null, 'Crafting', 'Used in ' . $recipe->name . ' Recipe', Currency::find($ingredient->data[0]), $ingredient->quantity)) throw new \Exception('Currency could not be debited.');
+                if (!$service->debitCurrency($user, null, 'Spellcasting', 'Part of ' . $recipe->name . ' Spell', Currency::find($ingredient->data[0]), $ingredient->quantity)) throw new \Exception('Currency could not be debited.');
             }
 
             // Credit rewards
-            $logType = 'Crafting Reward';
+            $logType = 'Spellcasted';
             $craftingData = [
-                'data' => 'Received rewards from ' . $recipe->displayName . ' recipe'
+                'data' => 'Result from ' . $recipe->displayName . ' Spell'
             ];
 
             if (!fillUserAssets($recipe->rewardItems, null, $user, $logType, $craftingData)) throw new \Exception("Failed to distribute rewards to user.");

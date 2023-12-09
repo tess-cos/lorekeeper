@@ -78,9 +78,6 @@
                             <a class="dropdown-item" href="{{ url('designs') }}">
                                 Design Approvals
                             </a>
-                            <a class="dropdown-item" href="{{ url('crafting') }}">
-                                Crafting
-                            </a>
                             <a class="dropdown-item" href="{{ url('claims') }}">
                                 Claims
                             </a>
@@ -117,6 +114,9 @@
                         <a class="dropdown-item" href="{{ url(__('dailies.dailies')) }}">
                         {{__('dailies.dailies')}}
                         </a>
+                        <a class="dropdown-item" href="{{ url('spellcasting') }}">
+                                Spellcasting
+                            </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ url('raffles') }}">
                             Raffles

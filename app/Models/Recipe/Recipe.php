@@ -177,7 +177,7 @@ class Recipe extends Model
      */
     public function getIdUrlAttribute()
     {
-        return url('world/recipes/'.$this->id);
+        return url('world/spells/'.$this->id);
     }
 
     /**

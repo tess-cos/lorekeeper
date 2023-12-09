@@ -542,7 +542,7 @@ return [
     600 => [
         'name' => 'Spell Grant',
         'message' => 'You have received a staff grant of the magic spell {recipe_name} from <a href="{sender_url}">{sender_name}</a>. (<a href="{url}">View Unlocked Spells</a>)',
-        'url' => 'crafting'
+        'url' => 'spellcasting'
     ],
 
     // DIRECT_MESSAGE_RECEIVED

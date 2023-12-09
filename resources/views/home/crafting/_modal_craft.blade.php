@@ -50,7 +50,7 @@
     </div>
     @if($selected || $recipe->onlyCurrency)
         {{-- Check if sufficient ingredients have been selected? --}}
-        {!! Form::open(['url' => 'crafting/craft/' . $recipe->id]) !!}
+        {!! Form::open(['url' => 'spellcasting/craft/' . $recipe->id]) !!}
         @include('widgets._inventory_select', ['user' => Auth::user(), 'inventory' => $inventory, 'categories' => $categories, 'selected' => $selected, 'page' => $page])
         @include('widgets._pet_select', ['user' => Auth::user(), 'pets' => $pets, 'categories' => $categories, 'selected' => $selected, 'page' => $page])
         <div class="text-right">

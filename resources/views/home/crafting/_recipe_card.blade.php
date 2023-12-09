@@ -49,6 +49,6 @@
             ?>)</div>
             @endif
         </div>
-        <a class="btn btn-primary btn-block btn-craft" href="">Craft</a>
+        <a class="btn btn-primary btn-block btn-craft" href="/">Cast</a>
     </div>
 </div>

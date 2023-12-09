@@ -60,7 +60,7 @@
                         <div class="col-md-6">
                             <h5>Ingredients</h5>
                             @foreach($recipe->ingredients as $ingredient)
-                                <div class="alert alert-secondary">
+                                <div class="alert alert-secondary" style="background: #EBF0E3 !important;>
                                     @include('home.crafting._recipe_ingredient_entry', ['ingredient' => $ingredient])
                                 </div>
                             @endforeach
@@ -69,7 +69,7 @@
                             <h5>Rewards</h5>
                             @foreach($recipe->reward_items as $type)
                                 @foreach($type as $item)
-                                    <div class="alert alert-secondary">
+                                    <div class="alert alert-secondary" style="background: #EBF0E3 !important;">
                                         @include('home.crafting._recipe_reward_entry', ['reward' => $item])
                                     </div>
                                 @endforeach
@@ -79,7 +79,7 @@
 
                     @if(!$recipe->needs_unlocking || (Auth::check() && Auth::user()->hasRecipe($recipe->id)))
                         <div class="text-center">
-                            <h5><a href="{{ url('crafting') }}" class="btn btn-primary">
+                            <h5><a href="{{ url('spellcasting') }}" class="btn btn-secondary">
                                 Cast this from your spellbook!
                             </a></h5>
                         </div>

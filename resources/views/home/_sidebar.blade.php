@@ -23,8 +23,8 @@
         <div class="sidebar-item"><a href="{{ url('trades/open') }}" class="{{ set_active('trades/open*') }}">Trades</a></div>
     </li>
     <li class="sidebar-section">
-        <div class="sidebar-section-header">Crafting</div>
-        <div class="sidebar-item"><a href="{{ url('crafting') }}" class="{{ set_active('crafting') }}">My Spells</a></div>
+        <div class="sidebar-section-header">Spellcasting</div>
+        <div class="sidebar-item"><a href="{{ url('spellcasting') }}" class="{{ set_active('spellcasting') }}">My Spells</a></div>
         <div class="sidebar-item"><a href="{{ url('world/spells') }}" class="{{ set_active('world/spells') }}">All Spells</a></div>
     </li>
     <li class="sidebar-section" style="border-bottom-left-radius: .50rem; border-bottom-right-radius: .50rem; padding-bottom: 10px;">

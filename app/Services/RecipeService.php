@@ -258,10 +258,10 @@ class RecipeService extends Service {
 
         try {
             // Check first if the recipe is currently owned or if some other site feature uses it
-            if (DB::table('user_recipes')->where('recipe_id', $recipe->id)->exists()) throw new \Exception("At least one user currently owns this recipe. Please remove the recipe(s) before deleting it.");
-            if (DB::table('loots')->where('rewardable_type', 'Recipe')->where('rewardable_id', $recipe->id)->exists()) throw new \Exception("A loot table currently distributes this recipe as a potential reward. Please remove the recipe before deleting it.");
-            if (DB::table('prompt_rewards')->where('rewardable_type', 'Recipe')->where('rewardable_id', $recipe->id)->exists()) throw new \Exception("A prompt currently distributes this recipe as a reward. Please remove the recipe before deleting it.");
-            // FIXME if(DB::table('shop_stock')->where('recipe_id', $recipe->id)->exists()) throw new \Exception("A shop currently stocks this recipe. Please remove the recipe before deleting it.");
+            if (DB::table('user_recipes')->where('recipe_id', $recipe->id)->exists()) throw new \Exception("At least one user currently owns this spell. Please remove the spell(s) before deleting it.");
+            if (DB::table('loots')->where('rewardable_type', 'Recipe')->where('rewardable_id', $recipe->id)->exists()) throw new \Exception("A loot table currently distributes this spell as a potential reward. Please remove the spell before deleting it.");
+            if (DB::table('prompt_rewards')->where('rewardable_type', 'Recipe')->where('rewardable_id', $recipe->id)->exists()) throw new \Exception("A prompt currently distributes this spell as a reward. Please remove the spell before deleting it.");
+            // FIXME if(DB::table('shop_stock')->where('recipe_id', $recipe->id)->exists()) throw new \Exception("A shop currently stocks this spell. Please remove the spell before deleting it.");
 
             DB::table('user_recipes_log')->where('recipe_id', $recipe->id)->delete();
             DB::table('user_recipes')->where('recipe_id', $recipe->id)->delete();

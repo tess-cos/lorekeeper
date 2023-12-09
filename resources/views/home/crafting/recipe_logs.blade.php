@@ -3,7 +3,7 @@
 @section('profile-title') {{ $user->name }}'s Spellbook Log @endsection
 
 @section('profile-content')
-{!! breadcrumbs(['Crafting' => 'crafting', 'Spellbook' => 'recipebook', 'Logs' => 'spell-logs']) !!}
+{!! breadcrumbs(['Spellcasting' => 'crafting', 'Spellbook' => 'recipebook', 'Logs' => 'spell-logs']) !!}
 
 <h1>
     {!! $user->displayName !!}'s Spellbook Log
