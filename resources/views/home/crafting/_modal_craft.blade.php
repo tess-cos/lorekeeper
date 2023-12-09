@@ -1,12 +1,12 @@
 @if(!$recipe)
-    <div class="text-center">Invalid recipe selected.</div>
+    <div class="text-center">Invalid spell selected.</div>
 @else
     @if($recipe->imageUrl)
         <div class="text-center">
             <div class="mb-3"><img class="recipe-image" src="{{ $recipe->imageUrl }}"/></div>
         </div>
     @endif
-    <h3>Recipe Details <a class="small inventory-collapse-toggle collapse-toggle" href="#recipeDetails" data-toggle="collapse">Show</a></h3>
+    <h3>Spell Details <a class="small inventory-collapse-toggle collapse-toggle" href="#recipeDetails" data-toggle="collapse">Show</a></h3>
     <hr>
     <div class="collapse show" id="recipeDetails">
         <div class="row">
@@ -54,11 +54,11 @@
         @include('widgets._inventory_select', ['user' => Auth::user(), 'inventory' => $inventory, 'categories' => $categories, 'selected' => $selected, 'page' => $page])
         @include('widgets._pet_select', ['user' => Auth::user(), 'pets' => $pets, 'categories' => $categories, 'selected' => $selected, 'page' => $page])
         <div class="text-right">
-            {!! Form::submit('Craft', ['class' => 'btn btn-primary']) !!}
+            {!! Form::submit('Cast', ['class' => 'btn btn-primary']) !!}
         </div>
         {!! Form::close() !!}
     @else
-        <div class="alert alert-danger">You do not have all of the required recipe ingredients.</div>
+        <div class="alert alert-danger">You do not have all of the required spell ingredients.</div>
     @endif
 @endif
 

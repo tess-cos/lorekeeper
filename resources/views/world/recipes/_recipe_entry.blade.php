@@ -6,12 +6,12 @@
         <h3>
             @if($recipe->needs_unlocking)
                 @if(Auth::check() && Auth::user()->hasRecipe($recipe->id))
-                    <i class="fas fa-lock-open" data-toggle="tooltip" title="You have this recipe!"></i>
+                    <i class="fas fa-lock-open" data-toggle="tooltip" title="You have this spell!"></i>
                 @else
-                    <i class="fas fa-lock" style="opacity:0.5" data-toggle="tooltip" title="You do not have this recipe."></i>
+                    <i class="fas fa-lock" style="opacity:0.5" data-toggle="tooltip" title="You do not have this spell."></i>
                 @endif
             @else
-                <i class="fas fa-lock-open" data-toggle="tooltip" title="This recipe is automatically unlocked."></i>
+                <i class="fas fa-lock-open" data-toggle="tooltip" title="This spell is automatically unlocked."></i>
             @endif
 
             {!! $name !!} @if(isset($idUrl) && $idUrl) <a href="{{ $idUrl }}" class="world-entry-search text-muted"><i class="fas fa-search"></i></a>  @endif

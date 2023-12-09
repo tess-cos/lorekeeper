@@ -33,7 +33,7 @@ if(!isset($showRecipes)) $showRecipes = false;
                             @elseif($showRaffles && $loot->rewardable_type == 'Raffle')
                                 {!! Form::select('rewardable_id[]', $raffles, $loot->rewardable_id, ['class' => 'form-control raffle-select selectize', 'placeholder' => 'Select Raffle']) !!}
                         @elseif($showRecipes && $loot->rewardable_type == 'Recipe')
-                            {!! Form::select('rewardable_id[]', $recipes, $loot->rewardable_id, ['class' => 'form-control recipe-select selectize', 'placeholder' => 'Select Recipe']) !!}
+                            {!! Form::select('rewardable_id[]', $recipes, $loot->rewardable_id, ['class' => 'form-control recipe-select selectize', 'placeholder' => 'Select Spell']) !!}
                             @endif
                     </td>
                     <td>{!! Form::text('quantity[]', $loot->quantity, ['class' => 'form-control']) !!}</td>

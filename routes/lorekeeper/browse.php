@@ -75,7 +75,7 @@ Route::group(['prefix' => 'user', 'namespace' => 'Users'], function() {
     Route::get('{name}/ownership', 'UserController@getUserOwnershipLogs');
     Route::get('{name}/submissions', 'UserController@getUserSubmissions');
 
-    Route::get('{name}/recipe-logs', 'UserController@getUserRecipeLogs');
+    Route::get('{name}/spell-logs', 'UserController@getUserRecipeLogs');
     Route::get('{name}/exp-logs', 'UserController@getUserExpLogs');
     Route::get('{name}/level-logs', 'UserController@getUserLevelLogs');
     Route::get('{name}/stat-logs', 'UserController@getUserStatLogs');
@@ -145,7 +145,7 @@ Route::group(['prefix' => 'world'], function() {
     Route::get('prompt-categories', 'WorldController@getPromptCategories');
     Route::get('prompts', 'WorldController@getPrompts');
     Route::get('character-categories', 'WorldController@getCharacterCategories');
-    Route::get('recipes', 'WorldController@getRecipes');
+    Route::get('spells', 'WorldController@getRecipes');
     Route::get('recipes/{id}', 'WorldController@getRecipe');
     Route::get(__('transformations.transformations'), 'WorldController@getTransformations');
     Route::get('levels', 'WorldController@getLevels');

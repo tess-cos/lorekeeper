@@ -104,8 +104,8 @@ return [
                 'url' => 'admin/grants/items'
             ],
             [
-                'name' => 'Recipe Grants',
-                'url' => 'admin/grants/recipes'
+                'name' => 'Spell Grants',
+                'url' => 'admin/grants/spells'
             ],
             [
                 'name' => 'Memento Grants',
@@ -252,8 +252,8 @@ return [
                 'url' => 'admin/data/items'
             ],
             [
-                'name' => 'Recipes',
-                'url' => 'admin/data/recipes'
+                'name' => 'Spells',
+                'url' => 'admin/data/spells'
             ],
             [
                 'name' => 'Charms',

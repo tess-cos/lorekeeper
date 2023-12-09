@@ -1,13 +1,13 @@
 @extends('admin.layout')
 
-@section('admin-title') Grant Recipes @endsection
+@section('admin-title') Grant Spells @endsection
 
 @section('admin-content')
-{!! breadcrumbs(['Admin Panel' => 'admin', 'Grant Recipes' => 'admin/grants/recipes']) !!}
+{!! breadcrumbs(['Admin Panel' => 'admin', 'Grant Spells' => 'admin/grants/spells']) !!}
 
-<h1>Grant Recipes</h1>
+<h1>Grant Spells</h1>
 
-{!! Form::open(['url' => 'admin/grants/recipes']) !!}
+{!! Form::open(['url' => 'admin/grants/spells']) !!}
 
 <h3>Basic Information</h3>
 
@@ -17,16 +17,16 @@
 </div>
 
 <div class="form-group">
-    {!! Form::label('Recipe(s)') !!} {!! add_help('Must have at least 1 recipe.') !!}
+    {!! Form::label('Spell(s)') !!} {!! add_help('Must have at least 1 spell.') !!}
     <div id="recipeList">
         <div class="d-flex mb-2">
-            {!! Form::select('recipe_ids[]', $recipes, null, ['class' => 'form-control mr-2 default recipe-select', 'placeholder' => 'Select Recipe']) !!}
+            {!! Form::select('recipe_ids[]', $recipes, null, ['class' => 'form-control mr-2 default recipe-select', 'placeholder' => 'Select Spell']) !!}
             <a href="#" class="remove-recipe btn btn-danger mb-2 disabled"><i class="fas fa-times"></i></a>
         </div>
     </div>
     <div><a href="#" class="btn btn-primary" id="add-recipe">Add Recipe</a></div>
     <div class="recipe-row hide mb-2">
-        {!! Form::select('recipe_ids[]', $recipes, null, ['class' => 'form-control mr-2 recipe-select', 'placeholder' => 'Select Recipe']) !!}
+        {!! Form::select('recipe_ids[]', $recipes, null, ['class' => 'form-control mr-2 recipe-select', 'placeholder' => 'Select Spell']) !!}
         <a href="#" class="remove-recipe btn btn-danger mb-2"><i class="fas fa-times"></i></a>
     </div>
 </div>

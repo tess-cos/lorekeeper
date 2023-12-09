@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-{!! breadcrumbs(['World' => 'world', 'recipes' => 'world/recipes', $recipe->name => $recipe->idUrl]) !!}
+{!! breadcrumbs(['World' => 'world', 'Spells' => 'world/spells', $recipe->name => $recipe->idUrl]) !!}
 
 <div class="row">
     <div class="col-lg-6 col-lg-10 mx-auto">
@@ -23,12 +23,12 @@
                     <h1>
                         @if($recipe->needs_unlocking)
                             @if(Auth::check() && Auth::user()->hasRecipe($recipe->id))
-                                <i class="fas fa-lock-open" data-toggle="tooltip" title="You have this recipe!"></i>
+                                <i class="fas fa-lock-open" data-toggle="tooltip" title="You have this spell!"></i>
                             @else
-                                <i class="fas fa-lock" style="opacity:0.5" data-toggle="tooltip" title="You do not have this recipe."></i>
+                                <i class="fas fa-lock" style="opacity:0.5" data-toggle="tooltip" title="You do not have this spell."></i>
                             @endif
                         @else
-                            <i class="fas fa-lock-open" data-toggle="tooltip" title="This recipe is automatically unlocked."></i>
+                            <i class="fas fa-lock-open" data-toggle="tooltip" title="This spell is automatically unlocked."></i>
                         @endif
                         {!! $recipe->name !!}
                     </h1>
@@ -80,7 +80,7 @@
                     @if(!$recipe->needs_unlocking || (Auth::check() && Auth::user()->hasRecipe($recipe->id)))
                         <div class="text-center">
                             <h5><a href="{{ url('crafting') }}" class="btn btn-primary">
-                                Craft this from your Recipe Book!
+                                Cast this from your spellbook!
                             </a></h5>
                         </div>
                     @endif

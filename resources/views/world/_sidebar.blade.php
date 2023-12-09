@@ -17,8 +17,8 @@
         <div class="sidebar-item"><a href="{{ url('world/currencies') }}" class="{{ set_active('world/currencies*') }}">Currencies</a></div>
     </li>
     <li class="sidebar-section">
-        <div class="sidebar-section-header">Recipes</div>
-        <div class="sidebar-item"><a href="{{ url('world/recipes') }}" class="{{ set_active('world/recipes*') }}">All Recipes</a></div>
+        <div class="sidebar-section-header">Spells</div>
+        <div class="sidebar-item"><a href="{{ url('world/spells') }}" class="{{ set_active('world/spells*') }}">All Spells</a></div>
     </li>
     <li class="sidebar-section" style="border-bottom-left-radius: .50rem; border-bottom-right-radius: .50rem; padding-bottom: 10px;">
         <div class="sidebar-section-header">{{ ucfirst(__('awards.awards')) }}</div>

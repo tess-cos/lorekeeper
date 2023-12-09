@@ -7,7 +7,7 @@
                 @endif
                 <h4 class="mb-0 mt-0 d-inline col-form-label">{!! $recipe->displayName !!}</h4>
             </div>
-            <div class="col-auto mx-2 text-right"><a class="btn btn-secondary btn-sm ml-2 btn-craft w-100" style="line-height:1;" href="">Craft</a></div>
+            <div class="col-auto mx-2 text-right"><a class="btn btn-secondary btn-sm ml-2 btn-craft w-100" style="line-height:1;" href="">Cast</a></div>
         </div>
     </div>
 </div>

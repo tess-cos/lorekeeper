@@ -1,15 +1,15 @@
 @extends('admin.layout')
 
-@section('admin-title') Recipes @endsection
+@section('admin-title') Spells @endsection
 
 @section('admin-content')
-{!! breadcrumbs(['Admin Panel' => 'admin', 'Recipes' => 'admin/data/recipes']) !!}
+{!! breadcrumbs(['Admin Panel' => 'admin', 'Spells' => 'admin/data/spells']) !!}
 
-<h1>Recipes</h1>
+<h1>Spells</h1>
 
-<p>This is a list of recipes in the game that can be used to craft items.</p> 
+<p>This is a list of spells in the game that can be used to craft items.</p> 
 
-<div class="text-right mb-3"><a class="btn btn-primary" href="{{ url('admin/data/recipes/create') }}"><i class="fas fa-plus"></i> Create New Recipe</a></div>
+<div class="text-right mb-3"><a class="btn btn-primary" href="{{ url('admin/data/spells/create') }}"><i class="fas fa-plus"></i> Create New Spell</a></div>
 
 <div>
     {!! Form::open(['method' => 'GET', 'class' => 'form-inline justify-content-end']) !!}
@@ -23,7 +23,7 @@
 </div>
 
 @if(!count($recipes))
-    <p>No recipes found.</p>
+    <p>No spells found.</p>
 @else 
     {!! $recipes->render() !!}
     <table class="table table-sm category-table">
@@ -40,7 +40,7 @@
                         {{ $recipe->name }}
                     </td>
                     <td class="text-right">
-                        <a href="{{ url('admin/data/recipes/edit/'.$recipe->id) }}" class="btn btn-primary">Edit</a>
+                        <a href="{{ url('admin/data/spells/edit/'.$recipe->id) }}" class="btn btn-primary">Edit</a>
                     </td>
                 </tr>
             @endforeach

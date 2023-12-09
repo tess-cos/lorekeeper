@@ -6,13 +6,13 @@
 {!! breadcrumbs(['Crafting' => 'crafting']) !!}
 
 <h1>
-    My Recipe Book
+    Spellbook
 </h1>
-<p> This is a list of recipes that you have unlocked, as well as automatically unlocked recipes. </p>
+<p> A catalog of spells you have unlocked along with basic spells. </p>
 
 <hr>
 
-<h3>Free Recipes</h3>
+<h3>Basic Spells</h3>
 @if($default->count())
     <div class="row mx-0">
         @foreach($default as $recipe)
@@ -20,12 +20,12 @@
         @endforeach
     </div>
 @else
-    There are no free recipes.
+    There are no basic spells.
 @endif
 
 <hr>
 
-<h3>Your Unlocked Recipes</h3>
+<h3>Unlocked Spells</h3>
 @if(Auth::user()->recipes->count())
     <div class="row mx-0">
         @foreach(Auth::user()->recipes as $recipe)
@@ -33,10 +33,10 @@
         @endforeach
     </div>
 @else
-    You haven't unlocked any recipes!
+    You haven't unlocked any spells!
 @endif
 <div class="text-right mb-4">
-    <a href="{{ url(Auth::user()->url.'/recipe-logs') }}">View logs...</a>
+    <a href="{{ url(Auth::user()->url.'/spell-logs') }}">View logs...</a>
 </div>
 
 

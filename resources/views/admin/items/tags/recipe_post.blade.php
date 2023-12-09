@@ -3,7 +3,7 @@
         <tbody id="lootRow">
             <tr class="loot-row">
                 <td class="loot-row-select">
-                    {!! Form::select('rewardable_id[]', $recipes, null, ['class' => 'form-control recipe-select', 'placeholder' => 'Select Recipe']) !!}
+                    {!! Form::select('rewardable_id[]', $recipes, null, ['class' => 'form-control recipe-select', 'placeholder' => 'Select Spell']) !!}
                 </td>
                 <td>{!! Form::text('quantity[]', 1, ['class' => 'form-control']) !!}</td>
                 <td class="text-right"><a href="#" class="btn btn-danger remove-loot-button">Remove</a></td>

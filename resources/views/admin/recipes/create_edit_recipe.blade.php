@@ -1,17 +1,17 @@
 @extends('admin.layout')
 
-@section('admin-title') Recipes @endsection
+@section('admin-title') Spells @endsection
 
 @section('admin-content')
-{!! breadcrumbs(['Admin Panel' => 'admin', 'Recipes' => 'admin/data/recipes', ($recipe->id ? 'Edit' : 'Create').' Recipe' => $recipe->id ? 'admin/data/recipes/edit/'.$recipe->id : 'admin/data/recipes/create']) !!}
+{!! breadcrumbs(['Admin Panel' => 'admin', 'Spells' => 'admin/data/spells', ($recipe->id ? 'Edit' : 'Create').' Spell' => $recipe->id ? 'admin/data/spells/edit/'.$recipe->id : 'admin/data/spells/create']) !!}
 
-<h1>{{ $recipe->id ? 'Edit' : 'Create' }} Recipe
+<h1>{{ $recipe->id ? 'Edit' : 'Create' }} Spell
     @if($recipe->id)
-        <a href="#" class="btn btn-outline-danger float-right delete-recipe-button">Delete Recipe</a>
+        <a href="#" class="btn btn-outline-danger float-right delete-recipe-button">Delete Spell</a>
     @endif
 </h1>
 
-{!! Form::open(['url' => $recipe->id ? 'admin/data/recipes/edit/'.$recipe->id : 'admin/data/recipes/create', 'files' => true]) !!}
+{!! Form::open(['url' => $recipe->id ? 'admin/data/spells/edit/'.$recipe->id : 'admin/data/spells/create', 'files' => true]) !!}
 
 <h3>Basic Information</h3>
 
@@ -41,22 +41,22 @@
     {!! Form::textarea('description', $recipe->description, ['class' => 'form-control wysiwyg']) !!}
 </div>
 
-<h3>Restrict Recipe</h3>
+<h3>Restrict Spell</h3>
     <div class="form-group">
         {!! Form::checkbox('is_limited', 1, $recipe->is_limited, ['class' => 'is-limited-class form-check-label', 'data-toggle' => 'toggle']) !!}
-        {!! Form::label('is_limited', 'Should this recipe have a requirement?', ['class' => 'is-limited-label form-check-label ml-3']) !!} {!! add_help('If turned on, the recipe cannot be used/crafted unless the user currently owns all required items.') !!}
+        {!! Form::label('is_limited', 'Should this spell have a requirement?', ['class' => 'is-limited-label form-check-label ml-3']) !!} {!! add_help('If turned on, the spell cannot be used/crafted unless the user currently owns all required items.') !!}
     </div>
 
     <div class="br-form-group mb-1" style="display: none">
         @include('widgets._recipe_limit_select', ['limits' => $recipe->limits, 'showRecipes' => true])
     </div>
 
-<h3>Recipe Ingredients</h3>
+<h3>Spell Ingredients</h3>
 @include('widgets._recipe_ingredient_select', ['ingredients' => $recipe->ingredients])
 
 <hr>
 
-<h3>Recipe Rewards</h3>
+<h3>Spell Rewards</h3>
 @include('widgets._recipe_reward_select', ['rewards' => $recipe->rewards])
 
 <div class="text-right">
@@ -67,7 +67,7 @@
 
     @include('widgets._recipe_ingredient_select_row', ['items' => $items, 'categories' => $categories, 'currencies' => $currencies, 'pets' => $pets])
     @include('widgets._recipe_reward_select_row', ['items' => $items, 'currencies' => $currencies, 'tables' => $tables, 'raffles' => $raffles, 'pets' => $pets])
-    @include('widgets._recipe_limit_row', ['items' => $items, 'currencies' => $currencies, 'recipes' => $recipes, 'pets' => $pets])
+    @include('widgets._recipe_limit_row', ['items' => $items, 'currencies' => $currencies, 'spells' => $recipes, 'pets' => $pets])
 
 @if($recipe->id)
     <h3>Preview</h3>
@@ -89,7 +89,7 @@
 $( document ).ready(function() {    
     $('.delete-recipe-button').on('click', function(e) {
         e.preventDefault();
-        loadModal("{{ url('admin/data/recipes/delete') }}/{{ $recipe->id }}", 'Delete Recipe');
+        loadModal("{{ url('admin/data/recipes/delete') }}/{{ $recipe->id }}", 'Delete Spell');
     });
 
     $('.is-limited-class').change(function(e){

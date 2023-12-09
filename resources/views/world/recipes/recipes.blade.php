@@ -1,10 +1,10 @@
 @extends('world.layout')
 
-@section('title') Recipes @endsection
+@section('title') Spells @endsection
 
 @section('content')
-{!! breadcrumbs(['World' => 'world', 'Recipes' => 'world/recipes']) !!}
-<h1>Recipes</h1>
+{!! breadcrumbs(['World' => 'world', 'Spells' => 'world/spells']) !!}
+<h1>Spells</h1>
 
 <div>
     {!! Form::open(['method' => 'GET', 'class' => '']) !!}

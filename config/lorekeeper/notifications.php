@@ -540,8 +540,8 @@ return [
 
     // RECIPE_GRANT
     600 => [
-        'name' => 'Recipe Grant',
-        'message' => 'You have received a staff grant of the crafting recipe {recipe_name} from <a href="{sender_url}">{sender_name}</a>. (<a href="{url}">View Unlocked Recipes</a>)',
+        'name' => 'Spell Grant',
+        'message' => 'You have received a staff grant of the magic spell {recipe_name} from <a href="{sender_url}">{sender_name}</a>. (<a href="{url}">View Unlocked Spells</a>)',
         'url' => 'crafting'
     ],
 

@@ -562,7 +562,7 @@ class WorldController extends Controller
     }
 
     /**
-     * Shows an individual recipe;ss page.
+     * Shows an individual recipe page.
      *
      * @param  int  $id
      * @return \Illuminate\Contracts\Support\Renderable

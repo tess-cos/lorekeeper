@@ -1,10 +1,10 @@
 <li class="list-group-item">
-    <a class="card-title h5 collapse-title"  data-toggle="collapse" href="#redeemRecipe"> Redeem Recipe</a>
+    <a class="card-title h5 collapse-title"  data-toggle="collapse" href="#redeemRecipe"> Redeem Spell</a>
     <div id="redeemRecipe" class="collapse">
         {!! Form::hidden('tag', $tag->tag) !!}
 
         <p>
-            This action is not reversible. This will redeem a random recipe from the following list to your account.
+            This action is not reversible. This will redeem a random spell from the following list to your account.
             <br>
             Please be careful to not select a higher quantity to redeem than options listed below.
         </p>
@@ -24,7 +24,7 @@
         <p>
             Crossed out results above mean that you already have them.
             <br>
-            If there are no recipes that aren't crossed out, you have all recipes that can be found via this rewarding item!
+            If there are no spells that aren't crossed out, you have all spells that can be found via this rewarding item!
         </p>
 
         <div class="text-right">
