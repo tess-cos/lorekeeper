@@ -58,7 +58,7 @@
                         @endif
 
                         <div class="col-md-6">
-                            <h5>Ingredients</h5>
+                            <h5>Subjects</h5>
                             @foreach($recipe->ingredients as $ingredient)
                                 <div class="alert alert-secondary" style="background: #EBF0E3 !important;>
                                     @include('home.crafting._recipe_ingredient_entry', ['ingredient' => $ingredient])

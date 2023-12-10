@@ -29,7 +29,7 @@
                 </div>
             @endif
             <div class="col-md-6">
-                <h5>Ingredients</h5>
+                <h5>Subjects</h5>
                 @foreach($recipe->ingredients as $ingredient)
                     <div class="alert alert-secondary">
                         @include('home.crafting._recipe_ingredient_entry', ['ingredient' => $ingredient])
@@ -58,7 +58,7 @@
         </div>
         {!! Form::close() !!}
     @else
-        <div class="alert alert-danger">You do not have all of the required spell ingredients.</div>
+        <div class="alert alert-danger">You do not have all of the required spell subjects.</div>
     @endif
 @endif
 

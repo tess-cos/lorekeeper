@@ -1,11 +1,11 @@
     <div class="text-right mb-3">
-        <a href="#" class="btn btn-outline-info" id="addIngredient">Add Ingredient</a>
+        <a href="#" class="btn btn-outline-info" id="addIngredient">Add Subject</a>
     </div>
     <table class="table table-sm" id="ingredientTable">
         <thead>
             <tr>
-                <th width="35%">Ingredient Type</th>
-                <th width="35%">Ingredient</th>
+                <th width="35%">Subject Type</th>
+                <th width="35%">Subject</th>
                 <th width="20%">Quantity</th>
                 <th width="10%"></th>
             </tr>
@@ -17,7 +17,7 @@
                     <tr class="ingredient-row" data-row="{{ $row_counter }}">
                         <td>{!! Form::select('ingredient_type[' . $row_counter . ']', ['Item' => 'Item', 'MultiItem' => 'Multi Item', 'Category' => 'Category', 'MultiCategory' => 'Multi Category', 'Currency' => 'Currency', 'Pet' => 'Pet', 'MultiPet' => 'Multi Pet'], $ingredient->ingredient_type, [
                             'class' => 'form-control ingredient-type',
-                            'placeholder' => 'Select Ingredient Type',
+                            'placeholder' => 'Select Subject Type',
                         ]) !!}</td>
                         <td>{!! Form::select(
                             'ingredient_type[' . $row_counter . ']',
@@ -25,7 +25,7 @@
                             $ingredient->ingredient_type,
                             [
                                 'class' => 'form-control ingredient-type',
-                                'placeholder' => 'Select Ingredient Type',
+                                'placeholder' => 'Select Subject Type',
                             ],
                         ) !!}</td>
                         <td class="ingredient-row-select">

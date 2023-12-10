@@ -94,23 +94,23 @@ class RecipeManager extends Service {
                 $petService = new PetManager();
                 foreach ($plucked as $id => $quantity) {
                     $stack = str_contains($id, 'pet') ? UserPet::find(str_replace('pet', '', $id)) : UserItem::find($id);
-                    if (!(str_contains($id, 'pet') ? $petService : $service)->debitStack($user, 'Spellcasting', ['data' => 'Part of ' . $recipe->name . ' Spell'], $stack, $quantity)) throw new \Exception('Subjects could not be used.');
+                    if (!(str_contains($id, 'pet') ? $petService : $service)->debitStack($user, 'Spellcasting', ['data' => 'Part of ' . $recipe->name . ''], $stack, $quantity)) throw new \Exception('Subjects could not be used.');
                 }
             } else {
                 $items = $recipe->ingredients->whereIn('ingredient_type', ['Item', 'Pet']);
-                if (count($items) > 0) throw new \Exception('Insufficient subjects selected.');
+                if ($items) throw new \Exception('Insufficient subjects selected.');
             }
 
             // Debit the currency
             $service = new CurrencyManager();
             foreach ($currency_ingredients as $ingredient) {
-                if (!$service->debitCurrency($user, null, 'Spellcasting', 'Part of ' . $recipe->name . ' Spell', Currency::find($ingredient->data[0]), $ingredient->quantity)) throw new \Exception('Currency could not be debited.');
+                if (!$service->debitCurrency($user, null, 'Spellcasting', 'Part of ' . $recipe->name . '', Currency::find($ingredient->data[0]), $ingredient->quantity)) throw new \Exception('Currency could not be debited.');
             }
 
             // Credit rewards
             $logType = 'Spellcasted';
             $craftingData = [
-                'data' => 'Result from ' . $recipe->displayName . ' Spell'
+                'data' => 'Result from ' . $recipe->displayName . ''
             ];
 
             if (!fillUserAssets($recipe->rewardItems, null, $user, $logType, $craftingData)) throw new \Exception("Failed to distribute rewards to user.");

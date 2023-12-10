@@ -24,7 +24,7 @@
             <a href="#" class="remove-recipe btn btn-danger mb-2 disabled"><i class="fas fa-times"></i></a>
         </div>
     </div>
-    <div><a href="#" class="btn btn-primary" id="add-recipe">Add Recipe</a></div>
+    <div><a href="#" class="btn btn-primary" id="add-recipe">Add Spell</a></div>
     <div class="recipe-row hide mb-2">
         {!! Form::select('recipe_ids[]', $recipes, null, ['class' => 'form-control mr-2 recipe-select', 'placeholder' => 'Select Spell']) !!}
         <a href="#" class="remove-recipe btn btn-danger mb-2"><i class="fas fa-times"></i></a>

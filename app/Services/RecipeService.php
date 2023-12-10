@@ -51,14 +51,14 @@ class RecipeService extends Service {
 
             // if((isset($data['recipe_category_id']) && $data['recipe_category_id']) && !RecipeCategory::where('id', $data['recipe_category_id'])->exists()) throw new \Exception("The selected recipe category is invalid.");
 
-            if (!isset($data['ingredient_type'])) throw new \Exception('Please add at least one ingredient.');
-            if (!isset($data['rewardable_type'])) throw new \Exception('Please add at least one reward to the recipe.');
+            if (!isset($data['ingredient_type'])) throw new \Exception('Please add at least one subject.');
+            if (!isset($data['rewardable_type'])) throw new \Exception('Please add at least one reward to the spell.');
 
             $data = $this->populateData($data);
 
             foreach ($data['ingredient_type'] as $key => $type) {
-                if (!$type) throw new \Exception("Ingredient type is required.");
-                if (!$data['ingredient_data'][$key]) throw new \Exception("Ingredient data is required.");
+                if (!$type) throw new \Exception("Subject type is required.");
+                if (!$data['ingredient_data'][$key]) throw new \Exception("Subject data is required.");
                 if (!$data['ingredient_quantity'][$key] || $data['ingredient_quantity'][$key] < 1) throw new \Exception("Quantity is required and must be an integer greater than 0.");
             }
 
@@ -110,8 +110,8 @@ class RecipeService extends Service {
             if (Recipe::where('name', $data['name'])->where('id', '!=', $recipe->id)->exists()) throw new \Exception("The name has already been taken.");
             if ((isset($data['recipe_category_id']) && $data['recipe_category_id']) && !RecipeCategory::where('id', $data['recipe_category_id'])->exists()) throw new \Exception("The selected recipe category is invalid.");
 
-            if (!isset($data['ingredient_type'])) throw new \Exception('Please add at least one ingredient.');
-            if (!isset($data['rewardable_type'])) throw new \Exception('Please add at least one reward to the recipe.');
+            if (!isset($data['ingredient_type'])) throw new \Exception('Please add at least one subject.');
+            if (!isset($data['rewardable_type'])) throw new \Exception('Please add at least one reward to the spell.');
 
             $data = $this->populateData($data);
             $this->populateIngredients($recipe, $data);
@@ -172,7 +172,7 @@ class RecipeService extends Service {
         $recipe->ingredients()->delete();
 
         foreach ($data['ingredient_type'] as $key => $type) {
-            if (!count(array_filter($data['ingredient_data'][$key]))) throw new \Exception('One of the ingredients was not specified.');
+            if (!count(array_filter($data['ingredient_data'][$key]))) throw new \Exception('One of the subjects was not specified.');
             RecipeIngredient::create([
                 'recipe_id' => $recipe->id,
                 'ingredient_type' => $type,
@@ -300,7 +300,7 @@ class RecipeService extends Service {
 
             // Process recipes
             $recipes = Recipe::find($data['recipe_ids']);
-            if (!$recipes) throw new \Exception("Invalid recipes selected.");
+            if (!$recipes) throw new \Exception("Invalid spells selected.");
 
             foreach ($users as $user) {
                 foreach ($recipes as $recipe) {
@@ -311,7 +311,7 @@ class RecipeService extends Service {
                             'sender_name' => $staff->name
                         ]);
                     } else {
-                        throw new \Exception("Failed to credit recipes to " . $user->name . ".");
+                        throw new \Exception("Failed to credit spells to " . $user->name . ".");
                     }
                 }
             }
@@ -340,9 +340,9 @@ class RecipeService extends Service {
         try {
             if (is_numeric($recipe)) $recipe = Recipe::find($recipe);
 
-            // if($recipient->recipes->contains($recipe)) throw new \Exception($recipient->name." already has the recipe ".$recipe->displayName);
+            // if($recipient->recipes->contains($recipe)) throw new \Exception($recipient->name." already has the spell ".$recipe->displayName);
             if ($recipient->recipes->contains($recipe)) {
-                flash($recipient->name . " already has the recipe " . $recipe->displayName, 'warning');
+                flash($recipient->name . " already has the spell " . $recipe->displayName, 'warning');
                 return $this->commitReturn(false);
             }
 

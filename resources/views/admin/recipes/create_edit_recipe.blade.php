@@ -51,7 +51,7 @@
         @include('widgets._recipe_limit_select', ['limits' => $recipe->limits, 'showRecipes' => true])
     </div>
 
-<h3>Spell Ingredients</h3>
+<h3>Spell Subjects</h3>
 @include('widgets._recipe_ingredient_select', ['ingredients' => $recipe->ingredients])
 
 <hr>
@@ -89,7 +89,7 @@
 $( document ).ready(function() {    
     $('.delete-recipe-button').on('click', function(e) {
         e.preventDefault();
-        loadModal("{{ url('admin/data/recipes/delete') }}/{{ $recipe->id }}", 'Delete Spell');
+        loadModal("{{ url('admin/data/spells/delete') }}/{{ $recipe->id }}", 'Delete Spell');
     });
 
     $('.is-limited-class').change(function(e){

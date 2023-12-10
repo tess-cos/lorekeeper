@@ -125,8 +125,8 @@ class RecipeService extends Service
             }
 
             $options = $recipeOptions->pluck('id')->toArray();
-            if(!count($options)) throw new \Exception("There are no more options for this recipe redemption item.");
-            if(count($options) < array_sum($data['quantities'])) throw new \Exception("You have selected a quantity too high for the quantity of recipes you can unlock with this item.");
+            if(!count($options)) throw new \Exception("There are no more options for this spell redemption item.");
+            if(count($options) < array_sum($data['quantities'])) throw new \Exception("You have selected a quantity too high for the quantity of spells you can unlock with this item.");
 
             foreach($stacks as $key=>$stack) {
 
@@ -145,7 +145,7 @@ class RecipeService extends Service
                         // Distribute user rewards
                         if(!$rewards = fillUserAssets(parseAssetData($thisRecipe), $user, $user, 'Recipe Redemption', [
                             'data' => 'Redeemed from '.$stack->item->name
-                        ])) throw new \Exception("Failed to open recipe redemption item.");
+                        ])) throw new \Exception("Failed to open spell redemption item.");
                         flash($this->getRecipeRewardsString($rewards));
                     }
                 }

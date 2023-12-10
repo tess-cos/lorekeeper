@@ -204,10 +204,10 @@ Route::post('pets/variants/{id?}', 'PetController@postEditVariants');
     Route::get('spells', 'RecipeController@getRecipeIndex');
     Route::get('spells/create', 'RecipeController@getCreateRecipe');
     Route::get('spells/edit/{id}', 'RecipeController@getEditRecipe');
-    Route::get('recipes/delete/{id}', 'RecipeController@getDeleteRecipe');
+    Route::get('spells/delete/{id}', 'RecipeController@getDeleteRecipe');
     Route::post('spells/create', 'RecipeController@postCreateEditRecipe');
     Route::post('spells/edit/{id?}', 'RecipeController@postCreateEditRecipe');
-    Route::post('recipes/delete/{id}', 'RecipeController@postDeleteRecipe');
+    Route::post('spells/delete/{id}', 'RecipeController@postDeleteRecipe');
     
     # SHOPS
     Route::get('shops', 'ShopController@getIndex');

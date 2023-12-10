@@ -109,10 +109,10 @@ class RecipeController extends Controller {
             'is_limited', 'limit_type', 'limit_id', 'limit_quantity'
         ]);
         if ($id && $service->updateRecipe(Recipe::find($id), $data, Auth::user())) {
-            flash('Recipe updated successfully.')->success();
+            flash('Spell updated successfully.')->success();
         } else if (!$id && $recipe = $service->createRecipe($data, Auth::user())) {
-            flash('Recipe created successfully.')->success();
-            return redirect()->to('admin/data/recipes/edit/' . $recipe->id);
+            flash('Spell created successfully.')->success();
+            return redirect()->to('admin/data/spells/edit/' . $recipe->id);
         } else {
             foreach ($service->errors()->getMessages()['error'] as $error) flash($error)->error();
         }
@@ -142,7 +142,7 @@ class RecipeController extends Controller {
      */
     public function postDeleteRecipe(Request $request, RecipeService $service, $id) {
         if ($id && $service->deleteRecipe(Recipe::find($id))) {
-            flash('Recipe deleted successfully.')->success();
+            flash('Spell deleted successfully.')->success();
         } else {
             foreach ($service->errors()->getMessages()['error'] as $error) flash($error)->error();
         }
@@ -257,6 +257,6 @@ class RecipeController extends Controller {
         } else {
             foreach ($service->errors()->getMessages()['error'] as $error) flash($error)->error();
         }
-        return redirect()->to('admin/data/recipes/edit/' . $recipe->id);
+        return redirect()->to('admin/data/spells/edit/' . $recipe->id);
     }
 }

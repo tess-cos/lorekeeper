@@ -10,7 +10,7 @@
         @endif
         <div class="row">
             <div class="col-md-6">
-                <h5>Ingredients</h5>
+                <h5>Subjects</h5>
                 @for($i = 0; $i < count($recipe->ingredients) && $i < 3; ++$i)
                     <?php $ingredient = $recipe->ingredients[$i]?>
                     <div class="alert alert-secondary">
@@ -49,6 +49,6 @@
             ?>)</div>
             @endif
         </div>
-        <a class="btn btn-primary btn-block btn-craft" href="/">Cast</a>
+        <a class="btn btn-primary btn-block btn-craft" href="">Cast</a>
     </div>
 </div>

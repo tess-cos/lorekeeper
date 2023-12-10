@@ -4,7 +4,7 @@
             <tr class="ingredient-row">
                 <td>{!! Form::select('ingredient_type[]', ['Item' => 'Item', 'MultiItem' => 'Multi Item', 'Category' => 'Category', 'MultiCategory' => 'Multi Category', 'Currency' => 'Currency', 'Pet' => 'Pet', 'MultiPet' => 'Multi Pet', 'PetCategory' => 'Pet Category', 'MultiPetCategory' => 'Multi Pet Category'], null, [
                     'class' => 'form-control ingredient-type',
-                    'placeholder' => 'Select Ingredient Type',
+                    'placeholder' => 'Select Subject Type',
                 ]) !!}</td>
                 <td class="ingredient-row-select"></td>
                 <td>{!! Form::text('ingredient_quantity[]', 1, ['class' => 'form-control ingredient-quantity']) !!}</td>

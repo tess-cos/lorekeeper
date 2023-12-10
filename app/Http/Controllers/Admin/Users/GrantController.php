@@ -128,7 +128,7 @@ class GrantController extends Controller
     {
         $data = $request->only(['names', 'recipe_ids', 'data']);
         if($service->grantRecipes($data, Auth::user())) {
-            flash('Recipes granted successfully.')->success();
+            flash('Spells granted successfully.')->success();
         }
         else {
             foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
