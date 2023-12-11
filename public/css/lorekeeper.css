@@ -23,6 +23,11 @@
     src: url(../webfonts/Poppins-Regular.ttf)
 }
 
+@font-face {
+    font-family: Comfortaa;
+    src: url(../webfonts/Comfortaa-Regular.ttf)
+}
+
 /**************************************************************************************************
 
     Base styles
@@ -33,6 +38,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     text-transform: lowercase;
     font-family: Mali, serif;
     font-weight: bold;
+    color: #7b956d;
 }
 
 h6,
@@ -46,10 +52,10 @@ a.h1:hover, a.h2:hover, a.h3:hover, a.h4:hover, a.h5:hover {
 }
 
 a {
-    color: rgba(0, 0, 0, 0.7);
+    color: #D48C99;
 }
 
-p a, li a {color: #D48C99;}
+p a, li a, th, .card-header h5 {color: #D48C99;}
 
 .hd a {color: #D48C99;}
 
@@ -60,11 +66,13 @@ p a, li a {color: #D48C99;}
     text-decoration: none;
 }
 
-.cu a {color: #95b582;}
+.ht a {color: #7b956d;}
+
+.cu a, .display-species, .display-character {color: #95b582;}
 
 .sl a {font-weight: normal !important;}
 
-.ma a {color: #E5C1C7;}
+.ma a, .display-rarity {color: #E5C1C7;}
 
 a:hover {
     color: #CFDEBA;
@@ -78,6 +86,7 @@ body {
     font-size: 9.5pt;
     line-height: 20.5px;
     background-color: #fff;
+    color: #414b3c !important;
 }
 
 /**************************************************************************************************
@@ -343,8 +352,9 @@ hr {border-color: #EBF0E3 !important;}
 .sidebar .sidebar-section .sidebar-section-header {
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    color: #95b582;
     font-family: Poppins, serif; 
-    background-color: #fafafa;
+    background-color: #E0ECD0;
     font-size: 1-9.5pt;
     padding: 5px;
     border-bottom: 0px solid #95b582;
@@ -389,9 +399,9 @@ hr {border-color: #EBF0E3 !important;}
 
 .sidebar a {
     text-transform: lowercase;
-    font-family: Poppins, sans-serif;
-    color: #4a4a4a;
-    font-size: 11pt;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif;
+    color: #414b3c;
+    font-size: 12pt;
     letter-spacing: 0px;
     padding: 5px;
     padding-left: 15px;

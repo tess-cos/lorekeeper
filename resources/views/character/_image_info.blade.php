@@ -42,18 +42,18 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">Species</div>
+                    <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt; color: #7b956d;">Species</div>
                     <div class="col-lg-8 col-md-6 col-8">{!! $image->species_id ? $image->species->displayName : 'None' !!}</div>
                 </div>
                 @if($image->subtype_id)
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">{{ ucfirst(__('lorekeeper.subtype'))}}</div>
+                        <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt; color: #7b956d;">{{ ucfirst(__('lorekeeper.subtype'))}}</div>
                         <div class="col-lg-8 col-md-6 col-8">{!! $image->subtype_id ? $image->subtype->displayName : 'None' !!}</div>
                     </div>
                 @endif
                 @if ($image->transformation_id)
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">
+                        <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt; color: #7b956d;">
                             {{ (ucfirst(__('transformations.transformation'))) }} {!! add_help('The main image is always the active image') !!}
                         </div>
                         <div class="col-lg-8 col-md-6 col-8">
@@ -71,17 +71,17 @@
                 @endif
                 @if($image->character->factionSetting)
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">Faction</div>
+                        <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt; color: #7b956d;">Faction</div>
                         <div class="col-lg-8 col-md-6 col-8">{!! $image->character->faction ? $image->character->currentFaction : 'None' !!}{!! $character->factionRank ? ' ('.$character->factionRank->name.')' : null !!}</div>
                     </div>
                 @endif
                 <div class="row">
-                    <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">Rarity</div>
+                    <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt; color: #7b956d;">Rarity</div>
                     <div class="col-lg-8 col-md-6 col-8">{!! $image->rarity_id ? $image->rarity->displayName : 'None' !!}</div>
                 </div>
 <hr>
                 <div class="mb-3">
-                    <div style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">Traits</div>
+                    <div style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt; color: #7b956d;">Traits</div>
                     @if(Config::get('lorekeeper.extensions.traits_by_category'))
                         <div style="font-size: 9pt;">
                             @php $traitgroup = $image->features()->get()->groupBy('feature_category_id') @endphp
@@ -116,10 +116,10 @@
                     @endif
                 </div>
                 <hr>
-                <div>
+                <div style="color: #E5C1C7;">
                     <small><strong>Uploaded:</strong> {!! pretty_date($image->created_at) !!}</small>
                 </div>
-                <div style="margin-top: -5px;">
+                <div style="color: #E5C1C7; margin-top: -5px;">
                 <small><strong>Last Edited:</strong> {!! pretty_date($image->updated_at) !!}</small>
                 </div>
 

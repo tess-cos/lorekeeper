@@ -23,8 +23,8 @@
     @if(Config::get('lorekeeper.extensions.character_TH_profile_link') && $character->profile->link)
             <a class="btn btn-outline-info float-right" data-character-id="{{ $character->id }}" href="{{ $character->profile->link }}"><i class="fas fa-home"></i> Profile</a>
         @endif
-    @if(!$character->is_visible) <i class="fas fa-eye-slash"></i> @endif {!! $character->displayName !!}
+    @if(!$character->is_visible) <i class="fas fa-eye-slash"></i> @endif <span class="ht">{!! $character->displayName !!}</span>
 </h1>
-<div class="cu mb-3">
+<div class="hd mb-3">
     Owned by {!! $character->displayOwner !!}
 </div>
