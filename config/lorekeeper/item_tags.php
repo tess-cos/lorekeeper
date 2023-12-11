@@ -46,6 +46,6 @@ return [
     'recipe' => [
         'name' => 'Spell',
         'text_color' => '#ffffff',
-        'background_color' => '#6D18A7'
+        'background_color' => '#EDD3A0'
     ],
 ];

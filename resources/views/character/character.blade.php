@@ -27,7 +27,7 @@
                     </li>
                 @endforeach
                 <li>
-                    <h3>{!! add_help('Click on a '.__('transformations.transformation').' to view the image. If you don\'t see the '.__('transformations.transformation').' you\'re looking for, it may not have been uploaded yet.') !!}</h3>
+                    <h4 style="margin-top: 6px;">{!! add_help('Click on a '.__('transformations.transformation').' to view the image. If you don\'t see the '.__('transformations.transformation').' you\'re looking for, it may not have been uploaded yet.') !!}</h4>
                 </li>
             </ul>
         </div>
