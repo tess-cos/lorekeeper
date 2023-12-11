@@ -978,6 +978,15 @@ a[aria-expanded=true] .fa-chevron-right {
     color: #E5C1C7;
  }
 
+ .nav-tabs .nav-link, .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    background-color: #FBF5F6;
+    border-color: #f4e3e6;
+    color: #D48C99 !important;
+}
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    color: #D48C99;
+}
+
 /* NOTIFICATIONS *********************************************************************************/
 
 .notifications-table .unread,

@@ -33,7 +33,7 @@
             @endif
         </div>
 
-        <div class="form-group" style="display: none;">
+        <div class="form-group">
             {!! Form::label('transformation_id', 'Transformation') !!}
             @if ($request->character->is_myo_slot && $request->character->image->transformation_id)
                 <div class="alert alert-secondary">{!! $request->character->image->transformation->displayName !!}</div>

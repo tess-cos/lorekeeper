@@ -16,13 +16,13 @@
 
 @include('character._header', ['character' => $character])
 
-@if ($character->images()->where('is_valid', 1)->whereNotNull('transformation_id')->exists())
-        <div class="card-header mb-2" style="display: none;">
-            <ul class="nav nav-tabs card-header-tabs">
+@if ($character->images()->where('is_valid', 1)->whereNotNull('transformation_id'))
+        <div class="card-header mb-2" style="background: none !important; border-bottom: 1px solid #f7f7f7 !important; margin-bottom: 20px !important;">
+            <ul class="nav nav-tabs card-header-tabs" style="background: none !important;">
                 @foreach ($character->images()->where('is_valid', 1)->get() as $image)
                     <li class="nav-item">
-                        <a class="nav-link form-data-button {{ $image->id == $character->image->id ? 'active' : '' }}" data-toggle="tab" role="tab" data-id="{{ $image->id }}">
-                            {{ $image->transformation_id ? $image->transformation->name : 'Main' }}
+                        <a class="nav-link form-data-button {{ $image->id == $character->image->id ? 'active' : '' }}" style="border-color: #f4e3e6 !important; border-bottom: 0px !important;" data-toggle="tab" role="tab" data-id="{{ $image->id }}">
+                            {{ $image->transformation_id ? $image->transformation->name : 'Cosset' }}
                         </a>
                     </li>
                 @endforeach
@@ -91,11 +91,23 @@
 
 
 <div class="card character-bio">
-    <div class="card-header" style="background-color: #fafafa;"><h5 style="padding: 10px; margin-bottom: -5px; margin-top: -2.5px; margin-left: -8.5px;">description</h5>
-</div>
-<div class="card-body tab-content">
-@include('character._tab_notes', ['character' => $character])
-</div>
+    <div class="card-header" style="background-color: #fafafa;"><h5 style="padding: 10px; margin-bottom: -5px; margin-top: -2.5px; margin-left: -8.5px;">description
+    <a class="float-right" href="{{ url('reports/new?url=') . $character->url . '/profile' }}"><i class="fas fa-exclamation-triangle" data-toggle="tooltip" title="Click here to report this character's profile." style="opacity: 50%;"></i></a></h5></div>
+
+@if(Auth::check() && ($character->user_id == Auth::user()->id || Auth::user()->hasPower('manage_characters')))
+    
+@endif
+@if($character->profile->parsed_text)
+    
+        <div class="card-body parsed-text">
+                {!! $character->profile->parsed_text !!}
+        
+    </div><div class="text-right mb-2" style="padding: 5px;">
+        <a href="{{ $character->url . '/profile/edit' }}" class="btn btn-outline-info btn-sm"><i class="fas fa-cog"></i> Edit Profile</a>
+    </div>@else
+                                <div style="padding: 25px;">No description.</div>
+                           
+@endif
 </div><br /><br />
 <div class="card character-bio">
     <div class="card-header" style="background-color: #fafafa;">

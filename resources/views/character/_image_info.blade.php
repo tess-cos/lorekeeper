@@ -1,8 +1,8 @@
 {{-- Image Data --}}
 <div class="col-md-5 d-flex">
     <div class="card character-bio w-100">
-        <div class="card-header" style="background-color: #f4e3e6;">
-            <ul class="nav nav-tabs card-header-tabs">
+        <div class="card-header" style="background: none !important; border-bottom: 1px solid #f4e3e6 !important;">
+            <ul class="nav nav-tabs card-header-tabs" style="background: none !important;">
                 <li class="nav-item">
                     <a class="nav-link active" id="infoTab-{{ $image->id }}" data-toggle="tab" href="#info-{{ $image->id }}" role="tab">Info</a>
                 </li>
@@ -53,8 +53,8 @@
                 @endif
                 @if ($image->transformation_id)
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 col-4">
-                            <h5>{{ ucfirst(__('transformations.form')) }} {!! add_help('The main image is always the active image') !!}</h5>
+                        <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">
+                            {{ (ucfirst(__('transformations.transformation'))) }} {!! add_help('The main image is always the active image') !!}
                         </div>
                         <div class="col-lg-8 col-md-6 col-8">
                             <a href="{{ $image->transformation->url }}">
