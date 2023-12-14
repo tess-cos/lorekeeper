@@ -1,6 +1,6 @@
 <div class="card mb-4" style="border: 0px; margin-top: 20px;">
     <div class="card-body text-center" style="background-color: #f4e3e6;">
-        <h6 class="card-title" style="text-transform: uppercase; font-family: Poppins, serif;">current character</h6>
+        <h6 class="card-title" style="text-transform: uppercase; font-family: Poppins, serif; color: #4a4a4a;">current character</h6>
         <div class="profile-assets-content" style="background: none;">
             @if($character)
                 <div>
