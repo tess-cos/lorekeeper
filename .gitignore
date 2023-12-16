@@ -12,3 +12,5 @@ yarn-error.log
 /composer.lock
 *.env
 /composer.phar
+public/images/myo.png
+public/images/myo-th.png
