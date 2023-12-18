@@ -72,16 +72,14 @@
                         <h5 style="padding: 10px; margin-bottom: -5px; text-align: left;"><span style="color: #D48C99;">✿</span> <span style="color: #95b582;">{!! $character->name !!}'s</span> <a role="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">keepsakes
         <i style="color: #D48C99;" class="fa fa-chevron-right pull-right"></i>
         <i style="color: #D48C99;" class="fa fa-chevron-down pull-right"></i></a></h5></div>
-                    <div class="collapse card-body tab-content" id="collapseExample" style="width: 80%; margin: auto; text-align: center; padding-bottom: 10px;">@foreach($character->items()->where('count', '>', 0)->get() as $item)
-                            <div class="ml-3 mr-3" style="margin: auto;">
+                    <div class="row collapse card-body tab-content" id="collapseExample" style="width: 80%; margin: auto; text-align: center; padding-bottom: 10px; background-image:url(https://i.imgur.com/KpXntZH.png);">@foreach($character->items()->where('count', '>', 0)->get() as $item)
+                            <div class="col-sm-4" style="margin: auto;">
                                 @if($item->has_image)
-                                <a href="{{$item->idUrl}}"><img src="{{ $item->imageUrl }}" style="max-width: 25%; padding: 5px;"/></a>
+                                <a href="{{$item->idUrl}}"><img src="{{ $item->imageUrl }}" data-toggle="tooltip" title="{{ $item->name }}" style="max-width: 80%; padding: 5px; background-color: #fffbfc; padding: 15px; border-radius: 5px; border: 1px solid #f4e3e6;"/></a>
                                 @elseif($item->imageurl)
-                                <a href="{{$item->idUrl}}"><img src="{{ $item->imageUrl }}" style="max-width: 25%; padding: 5px;"/></a>
+                                <a href="{{$item->idUrl}}"><img src="{{ $item->imageUrl }}" data-toggle="tooltip" title="{{ $item->name }}" style="max-width: 80%; padding: 5px; background-color: #fffbfc; padding: 15px; border-radius: 5px; border: 1px solid #f4e3e6;"/></a>
                                 @else {!!$item->displayName !!}
                                 @endif
-                                <br>
-                                <a href="{{ $character->url . '/inventory' }}">{!! $item->name !!}</a>
                             </div>
                         @endforeach</div><br />
                         @else
