@@ -49,10 +49,10 @@
 </div>
 
 {{-- Info --}}
-@if($character->pets()->exists())<div class="row" style="width: 80%; padding: 15px; margin: auto; text-align: center; background: #fff; border: 0px solid #dedede; padding: 5px; padding-bottom: 10px; border-radius: 5px;">
+@if($character->pets()->exists())<div class="row" style="width: 90%; padding: 15px; margin: auto; text-align: center; background: #fff; border: 0px solid #dedede; padding: 5px; padding-bottom: 10px; border-radius: 5px;">
 <h5 style="text-align: left; padding: 10px; background-color: none; display: none;">cosprouts</h5>
                         @foreach($character->image->character->pets as $pet)
-                            <div class="col-md-4" style="margin: auto;">
+                            <div class="col-md-3" style="margin: auto;">
                                 @if($pet->has_image)
                                 <img class="img-fluid" src="{{ $pet->imageUrl }}" data-toggle="tooltip" title="{{ $pet->pet->name }}" style="max-width: 90%; padding: 5px;"/>
                                 @elseif($pet->pet->imageurl)
