@@ -68,17 +68,18 @@
         @endif
     </div>
     </div>
-    @if(Settings::get('event_teams') && $user->settings->team)
-        <div class="col-md-2 text-center">
+</div></div>
+
+@if(Settings::get('event_teams') && $user->settings->team)
+        <div class="text-center" style="padding: 20px; background-color: #E0ECD0; background-image: url(https://i.imgur.com/Hcdd9jq.png); width: 150px; margin: auto; border-radius: 10px; margin-bottom: 8px; margin-top: 4px;">
             <a href="{{ url('event-tracking') }}">
                 @if($user->settings->team->has_image)
-                    <img src="{{ $user->settings->team->imageUrl }}" class="mw-100"/>
+                    <img style="padding: 5px; margin-bottom: 4px;" src="{{ $user->settings->team->imageUrl }}" class="mw-100"/>
                 @endif
-                <h5>{{ $user->settings->team->name }}</h5>
+                <h5 style="background-color: #E0ECD0; padding: 5px;">{{ $user->settings->team->name }}</h5>
             </a>
         </div>
     @endif
-</div></div>
 
 @if(isset($user->profile->parsed_text))
     <div class="card mb-3" style="clear:both; border: 0px; padding: 0px;">

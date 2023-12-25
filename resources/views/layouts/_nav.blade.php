@@ -137,14 +137,18 @@
                         <div class="dropdown-divider"></div> 
                         <a class="dropdown-item" href="{{ url('gallery') }}">Gallery</a>
                         <div class="dropdown-divider"></div> 
-                        <a class="dropdown-item" href="{{ url('users') }}">
-                            Users
-                        </a>
                         <a class="dropdown-item" href="{{ url('masterlist') }}">
                             Cossetling Masterlist
                         </a>
                         <a class="dropdown-item" href="{{ url('sublist/myo') }}">
                             MYO Masterlist
+                        </a>
+                        <a class="dropdown-item" href="{{ url('sublist/npc') }}">
+                            NPC Masterlist
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ url('users') }}">
+                            Users
                         </a>
                     </div>
                 </li>

@@ -34,6 +34,12 @@
                             $rewardOptions['Loot Tables'][$type.'-'.$id] = $lootTable->getRawOriginal('display_name').' x'.$quantity.' (This reward is random)';
                         }
                         break;
+                        case 'recipes':
+                        foreach($group as $id=>$quantity) {
+                            $recipe = App\Models\Recipe\Recipe::where('id', $id)->first();
+                            $rewardOptions['Spells'][$type.'-'.$id] = $recipe->name.' x'.$quantity;
+                        }
+                        break;
                 }
             }
         @endphp

@@ -12,6 +12,7 @@ use App\Models\Award\Award;
 use App\Models\Pet\Pet;
 use App\Models\Loot\LootTable;
 use App\Models\Raffle\Raffle;
+use App\Models\Recipe\Recipe;
 
 class ChoiceboxService extends Service
 {
@@ -39,6 +40,7 @@ class ChoiceboxService extends Service
             'pets' => Pet::orderBy('name')->pluck('name', 'id'),
             'tables' => LootTable::orderBy('name')->pluck('name', 'id'),
             'raffles' => Raffle::where('rolled_at', null)->where('is_active', 1)->orderBy('name')->pluck('name', 'id'),
+            'recipes' => Recipe::orderBy('name')->pluck('name', 'id')
         ];
     }
 
@@ -101,6 +103,9 @@ class ChoiceboxService extends Service
                         break;
                     case 'Raffle':
                         $type = 'App\Models\Raffle\Raffle';
+                        break;
+                    case 'Recipe':
+                        $type = 'App\Models\Recipe\Recipe';
                         break;
                 }
                 $asset = $type::find($data['rewardable_id'][$key]);

@@ -66,9 +66,9 @@ p a, li a, th, .card-header h5 {color: #D48C99;}
     text-decoration: none;
 }
 
-.ht a {color: #7b956d;}
+.ht a, strong {color: #7b956d;}
 
-.cu a, .display-species, .display-character {color: #95b582;}
+.cu a, .display-species, .display-character, strong {color: #95b582;}
 
 .sl a {font-weight: normal !important;}
 
@@ -884,8 +884,12 @@ background-size: 7px;}
 .lenn-talk2 {width: 70%; margin: auto; padding: 25px; border-radius: 15px; background-color: #ffffff; border: 2.5px solid #5d675c; text-align: left;}
 
 
-.btn-primary:active, .btn-primary:visited, .badge-primary, .badge-secondary, .badge-info {
-    background-color: #CFDEBA !important; border-color: #CFDEBA; color: #4a4a4a; text-transform: capitalize;
+
+
+
+
+.btn-primary:active, .btn-primary, .btn-primary:visited, .badge-primary, .badge-secondary, .badge-info {
+    background-color: #CFDEBA !important; border-color: #CFDEBA !important; color: #4a4a4a; text-transform: capitalize;
 } 
 
 .badge-success {background-color: #bed0a6 !important;}
@@ -910,7 +914,7 @@ background-size: 7px;}
 }
 
 .btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
-    background-color: #E5C1C7 !important; border-color: #E5C1C7; color: #4a4a4a !important; text-transform: capitalize;
+    background-color: #E5C1C7 !important; border-color: #E5C1C7 !important; color: #4a4a4a !important; text-transform: capitalize;
 } 
 
 .btn-outline-success, .btn-outline-success:hover, .btn-outline-success:active, .btn-outline-success:visited {
@@ -925,11 +929,15 @@ background-size: 7px;}
     color:#E5C1C7; border-color: #E5C1C7; color: #D48C99 !important; text-transform: capitalize; }
 
 .btn-info, .btn-info:active, .btn-info:visited {
-        background-color: #E5C1C7 !important; border-color: #E5C1C7; color: #4a4a4a; text-transform: capitalize;
+        background-color: #E5C1C7 !important; border-color: #E5C1C7 !important; color: #4a4a4a; text-transform: capitalize;
     } 
 
-.btn-outline-info:hover, .btn-info:hover, .alert {
-        background-color: #f4e3e6 !important; border-color: #f4e3e6; color: #4a4a4a;
+.btn-outline-info:hover, .btn-info:hover, .alert, .bg-info {
+        background-color: #f4e3e6 !important; border-color: #f4e3e6 !important; color: #4a4a4a;
+    }
+
+    .bg-tertiary {
+        background-color: #f8f1f1 !important; border-color: #f8f1f1 !important; color: #4a4a4a;
     }
 
 .btn-dark { border: 0px !important;

@@ -23,16 +23,16 @@
         <div id="userItems" class="user-pets">
             <div class="row">
                 @foreach ($pets as $item)
-                    <div class="col-lg-2 col-sm-3 col-6 mb-3 user-pet category-all category-{{ $item->pet->item_category_id ?: 0 }} {{ isset($selected) && array_key_exists('pet'.$item->id, $selected) ? 'category-selected' : '' }} {{ $item->isTransferrable ? '' : 'select-disabled' }}" data-id="{{ $item->id }}"
+                    <div class="col-lg-2 col-sm-3 col-6 mb-3 user-pet category-all category-{{ $item->pet->item_category_id ?: 0 }} {{ isset($selected) && array_key_exists('pet'.$item->id, $selected) ? 'category-selected' : '' }} {{ $item->chara_id != NULL ? '' : 'select-disabled' }}" data-id="{{ $item->id }}"
                         data-name="{{ $user->name }}'s {{ $item->pet->name }} ">
-                        <div class="text-center pet-item {{ $item->isTransferrable ? '' : 'disabled' }}"
-                        @if (!$item->isTransferrable) data-toggle="tooltip" title="This pet is not currently use-able" @endif>
+                        <div class="text-center pet-item {{ $item->chara_id == NULL ? '' : 'disabled' }}"
+                        @if (!$item->chara_id == NULL) data-toggle="tooltip" title="This pet is currently attached to a character. Be careful!" @endif>
                             <div class="mb-1">
                                 <a class="pet-stack"><img src="{{ $item->pet->imageUrl }}" /></a>
                             </div>
                             <div>
-                                <a class="pet-stack pet-stack-name"><span style="color: #95b582; font-weight: 600;">{!!$item->pet_name !!}</span> {{ $item->pet->name }}</a>
-                                {!! Form::checkbox(isset($fieldName) && $fieldName ? $fieldName : 'pet_stack_id[]', $item->id, isset($selected) && array_key_exists('pet'.$item->id, $selected) ? true : false, ['class' => 'pet-checkbox show']) !!}
+                                <a class="pet-stack pet-stack-name"><span style="color: #95b582; font-weight: 600;">{!!$item->pet_name !!}</span> {{ $item->pet->name }}</a><br />
+                                {!! Form::checkbox(isset($fieldName) && $fieldName ? $fieldName : 'pet_stack_id[]', $item->id, isset($selected) && array_key_exists('pet'.$item->id, $selected) ? false : false, ['class' => 'pet-checkbox show']) !!}
                             </div>
                             <div>
                                 <a href="#" class="btn btn-xs btn-outline-info pet-info">Info</a>

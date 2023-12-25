@@ -67,8 +67,8 @@
                         @endif
                         <h3>{{ $team->name }}</h3>
                         <p>
-                            Members: {{ $team->members->count() }} ・
-                            Score: {{ $team->weightedScore }}
+                            <span style="display: none;">Members: {{ $team->members->count() }} <br /></span>
+                            <h5 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, sans-serif; color: #566151 !important;" >Score: {{ $team->weightedScore }}</h5>
                         </p>
                         @if(Auth::check() && !isset(Auth::user()->settings->team_id))
                             {!! Form::open(['url' => 'event-tracking/team/'.$team->id]) !!}

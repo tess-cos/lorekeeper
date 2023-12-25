@@ -34,7 +34,7 @@
         </div>
 
         <div class="form-group">
-            {!! Form::label('transformation_id', 'Transformation') !!}
+            {!! Form::label('transformation_id', 'Charm') !!}
             @if ($request->character->is_myo_slot && $request->character->image->transformation_id)
                 <div class="alert alert-secondary">{!! $request->character->image->transformation->displayName !!}</div>
             @else

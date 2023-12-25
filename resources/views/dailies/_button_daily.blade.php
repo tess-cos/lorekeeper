@@ -53,13 +53,13 @@
     <div class="card-body row p-0 m-auto w-100">
         @foreach($daily->rewards()->get()->groupBy('step') as $step => $rewards)
         @if($step > 0)
-        <div class="col-lg-2 col-6 w-100 {{ ($step > ($timer->step ?? 0)) ? 'bg-dark text-light' : '' }} text-center justify-content-center border p-0">
-            <div class="row w-100 p-1 m-auto {{ ($step <= ($timer->step ?? 0)) ? 'btn-primary' : 'bg-dark text-light border' }}">
+        <div class="col-lg-2 col-6 w-100 {{ ($step > ($timer->step ?? 0)) ? 'bg-tertiary text-light' : '' }} text-center justify-content-center border p-0">
+            <div class="row w-100 p-1 m-auto {{ ($step <= ($timer->step ?? 0)) ? 'btn-primary' : 'bg-info text-light border' }}">
                 <div class="col-lg col-6 h-100">
                     <h5 class="p-1 m-0">{{ $step }}</h5>
                 </div>
                 <div class="col p-0">
-                    <h5 class="p-1 m-0">@if($step > ($timer->step ?? 0))<i class="fa fa-lock"></i> Locked @else <i class="fa fa-unlock"></i> Unlocked @endif</h5>
+                    <h5 class="p-0 m-0">@if($step > ($timer->step ?? 0))<i class="fa fa-lock"></i> Locked @else <i class="fa fa-unlock"></i> Unlocked @endif</h5>
                 </div>
             </div>
             <div class="row w-100 p-0 m-auto">
