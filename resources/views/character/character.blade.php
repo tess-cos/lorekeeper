@@ -49,7 +49,7 @@
 </div>
 
 {{-- Info --}}
-@if($character->pets()->exists())<div class="row" style="width: 90%; padding: 15px; margin: auto; text-align: center; background: #fff; border: 0px solid #dedede; padding: 5px; padding-bottom: 10px; border-radius: 5px;">
+@if($character->pets()->exists())<div class="row" style="width: 100%; padding: 15px; margin: auto; text-align: center; background: #fff; border: 0px solid #dedede; padding: 5px; padding-bottom: 10px; border-radius: 5px;">
 <h5 style="text-align: left; padding: 10px; background-color: none; display: none;">cosprouts</h5>
                         @foreach($character->image->character->pets as $pet)
                             <div class="col-md-3" style="margin: auto;">
