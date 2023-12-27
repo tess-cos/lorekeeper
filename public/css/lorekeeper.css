@@ -223,6 +223,10 @@ border-top-right-radius: 95px;
    z-index: 2;
 }
 
+.navbar-brand:hover {
+    color: #E5C1C7 !important;
+}
+
 .navbar .row { width: 100%;}
 
 .navbar {  background-position: top;
