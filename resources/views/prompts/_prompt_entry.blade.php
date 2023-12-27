@@ -35,7 +35,7 @@
             @if(!count($prompt->rewards))
                 No rewards.
             @else
-                <table class="table table-sm" style="font-size: 9pt;">
+                <table class="table table-sm" style="font-size: 10pt;">
                     <thead>
                         <tr>
                             <th width="70%">Reward</th>

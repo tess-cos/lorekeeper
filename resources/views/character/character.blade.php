@@ -98,11 +98,7 @@
 @if($character->profile->parsed_text)
     
         <div class="card-body parsed-text">
-                {!! $character->profile->parsed_text !!}
-        
-    </div><div class="text-right mb-2" style="padding: 5px;">
-        <a href="{{ $character->url . '/profile/edit' }}" class="btn btn-outline-info btn-sm"><i class="fas fa-cog"></i> Edit Profile</a>
-    </div>@else
+                {!! $character->profile->parsed_text !!}</div>@else
                                 <div style="padding: 25px;">No description.</div>
                            
 @endif

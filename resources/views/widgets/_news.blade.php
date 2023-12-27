@@ -12,7 +12,7 @@
                         <span class="ml-2 small" style="margin-bottom: -2px;">Posted {!! $news->post_at ? pretty_date($news->post_at) : pretty_date($news->created_at) !!}</span>
                     </span>
                     @if($textPreview)
-                        <p class="pl-3">{!! substr(strip_tags(str_replace("<br />", "&nbsp;", $news->parsed_text)), 0, 85) !!}... <a style="color: #95b582;; font-weight: bold; font-family: Poppins, serif;" href="{!! $news->url !!}">read more <i class="fas fa-arrow-right"></i></a></p>
+                        <p class="pl-3">{!! substr(strip_tags(str_replace("<br />", "&nbsp;", $news->parsed_text)), 0, 85) !!}... <a style="font-weight: bold; font-family: Poppins, serif;" href="{!! $news->url !!}">read more <i class="fas fa-arrow-right"></i></a></p>
                     @endif
                 </div>
             @endforeach

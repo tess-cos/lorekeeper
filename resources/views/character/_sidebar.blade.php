@@ -9,7 +9,7 @@
         <div class="sidebar-item"><a href="{{ $character->url . '/bank' }}" class="{{ set_active('character/'.$character->slug.'/bank') }}">Bank</a></div>
         <div class="sidebar-item"><a href="{{ $character->url . '/'.__('awards.awardcase') }}" class="{{ set_active('character/'.$character->slug.'/'.__('awards.awardcase')) }}">{{ucfirst(__('awards.awards'))}}</a></div>
     </li>
-    <li class="sidebar-section">
+    <li class="sidebar-section" style="border-bottom-left-radius: .50rem; border-bottom-right-radius: .50rem; padding-bottom: 10px;">
         <div class="sidebar-section-header">History</div>
         <div class="sidebar-item"><a href="{{ $character->url . '/images' }}" class="{{ set_active('character/'.$character->slug.'/images') }}">Images</a></div>
         <div class="sidebar-item"><a href="{{ $character->url . '/change-log' }}" class="{{ set_active('character/'.$character->slug.'/change-log') }}">Change Log</a></div>
