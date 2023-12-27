@@ -1,10 +1,10 @@
 <div class="card mb-4">
     <div class="card-body text-center" style="background: transparent;">
-        <h5 class="card-title">Selected Character</h5>
+        <h5 class="card-title">Featured Character</h5>
         <div class="profile-assets-content">
             @if($character)
                 <div>
-                <a href="{{ $character->url }}"><img src="{{ $character->image->thumbnailUrl }}" class="img-thumbnail" alt="{{ $character->fullName }}" /></a>
+                <a href="{{ $character->url }}"><img style="background: #fcfcfc;" src="{{ $character->image->thumbnailUrl }}" class="img-thumbnail" alt="{{ $character->fullName }}" /></a>
                 </div>
                 <div class="my-1">
                     <a href="{{ $character->url }}" class="h5 mb-0"> @if(!$character->is_visible) <i class="fas fa-eye-slash"></i> @endif {{ $character->fullName }}</a>

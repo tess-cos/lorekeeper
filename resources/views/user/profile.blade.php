@@ -37,32 +37,32 @@
         <div class="mb-2">
         <div class="row no-gutters">
                     <div class="row col-md-6">
-            <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;"">Alias</div>
+            <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt; color: #7b956d;">Alias</div>
             <div class="col-9" style="text-transform: lowercase;">{!! $user->displayAlias !!}</div>
         </div>
         <div class="row col-md-6">
-            <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;">Joined</div>
+            <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt; color: #7b956d;">Joined</div>
             <div class="col-9" style="text-transform: lowercase;">{!! format_date($user->created_at, false) !!} ({{ $user->created_at->diffForHumans() }})</div>
         </div>
         <div class="row col-md-6">
-            <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;"">Rank</div>
+            <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt; color: #7b956d;">Rank</div>
             <div class="col-9" style="text-transform: lowercase;">{!! $user->rank->displayName !!} {!! add_help($user->rank->parsed_description) !!}</div>
         </div>
         @if($user->birthdayDisplay && isset($user->birthday))
             <div class="row col-md-6">
-                <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;"">Birthday</div>
+                <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt; color: #7b956d;">Birthday</div>
                 <div class="col-9">{!! $user->birthdayDisplay !!}</div>
             </div>
         @endif
         @if($user_enabled && isset($user->home_id))
             <div class="row col-md-6">
-                <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;"">Home</div>
+                <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt; color: #7b956d;">Home</div>
                 <div class="col-9">{!! $user->home ? $user->home->fullDisplayName : '-Deleted Location-' !!}</div>
             </div>
         @endif
         @if($user_factions_enabled && isset($user->faction_id))
             <div class="row col-md-6">
-                <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt;"">Faction</div>
+                <div class="col-3" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt; color: #7b956d;">Faction</div>
                 <div class="col-9">{!! $user->faction ? $user->faction->fullDisplayName : '-Deleted Faction-' !!}{!! $user->factionRank ? ' ('.$user->factionRank->name.')' : null !!}</div>
             </div>
         @endif
