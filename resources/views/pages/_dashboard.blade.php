@@ -9,13 +9,13 @@
   </div>
 
   <div class="dicn" style="width: 80%; margin: auto;">
-    <center><a href="{{ Auth::user()->url }}" class="btn btn-dark" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E0ECD0;">profile</a>
-<a href="{{ url('account/settings') }}" class="btn btn-dark" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E0ECD0;">settings</a>
-<a href="{{ url('trades/open') }}" class="btn btn-dark" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E0ECD0;">trades</a>
+    <center><a href="{{ Auth::user()->url }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">profile</a>
+<a href="{{ url('account/settings') }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">settings</a>
+<a href="{{ url('trades/open') }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">trades</a>
 
-<a href="{{ url('bank') }}" class="btn btn-dark" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E0ECD0;">bank</a>
-<a href="{{ url('inventory') }}" class="btn btn-dark" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E0ECD0;">inventory</a>
-<a href="{{ url(__('awards.awardcase')) }}" class="btn btn-dark" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E0ECD0">{{ ucfirst(__('awards.awards')) }}</a></center></div>
+<a href="{{ url('bank') }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">bank</a>
+<a href="{{ url('inventory') }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">inventory</a>
+<a href="{{ url(__('awards.awardcase')) }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">{{ ucfirst(__('awards.awards')) }}</a></center></div>
 
 
 
@@ -29,11 +29,11 @@
 </div>
 
 <div style="width: 90%; margin: auto;">
-    <center><a href="{{ url('characters') }}" class="btn btn-dark" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E0ECD0;">characters</a>
-<a href="{{ url('characters/myos') }}" class="btn btn-dark" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E0ECD0;">myo slots</a>
-<a href="{{ url('characters/transfers/incoming') }}" class="btn btn-dark" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E0ECD0;">character transfers</a>
+    <center><a href="{{ url('characters') }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">characters</a>
+<a href="{{ url('characters/myos') }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">myo slots</a>
+<a href="{{ url('characters/transfers/incoming') }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">character transfers</a>
 
-<a href="{{ Auth::user()->url . '/currency-logs' }}" class="btn btn-dark" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E0ECD0;">Currency Logs</a>
-<a href="{{ Auth::user()->url . '/item-logs' }}" class="btn btn-dark" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E0ECD0;">item logs</a>
-<a href="{{ Auth::user()->url . '/'.__('awards.award').'-logs' }}" class="btn btn-dark" style="font-family: Mali, serif; text-transform: lowercase; background-color: #E0ECD0;">{{ ucfirst(__('awards.award')) }} Logs</a></center></div>
+<a href="{{ Auth::user()->url . '/currency-logs' }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">Currency Logs</a>
+<a href="{{ Auth::user()->url . '/item-logs' }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">item logs</a>
+<a href="{{ Auth::user()->url . '/'.__('awards.award').'-logs' }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">{{ ucfirst(__('awards.award')) }} Logs</a></center></div>
 

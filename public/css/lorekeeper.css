@@ -384,7 +384,7 @@ hr {border-color: #EBF0E3 !important;}
     font-family: Poppins, serif; 
     background-color: #E0ECD0;
     font-size: 9.5pt;
-    padding: 5px;
+    padding: 4px;
     border-bottom: 0px solid #95b582;
 }
 
@@ -397,7 +397,8 @@ hr {border-color: #EBF0E3 !important;}
     font-family: Hachi Maru Pop, serif;
     text-transform: lowercase;
     font-weight: bold;
-    padding: 10px;
+    padding: 5px;
+    padding-bottom: 7.5px;
 }
 
 .sidebar .sidebar-header a {
@@ -457,6 +458,10 @@ hr {border-color: #EBF0E3 !important;}
     padding-right: 10px;
 }
 
+.sidebar a:active::before {
+    color: #fff !important;
+}
+
 .sidebar a:hover,
 .sidebar a:active,
 .sidebar a:focus,
@@ -480,7 +485,7 @@ hr {border-color: #EBF0E3 !important;}
     background-size: contain;
     position: absolute;
     top: -9px;
-    left: -13px;
+    left: -24px;
     z-index: 3;
 }
 
@@ -934,7 +939,7 @@ background-size: 7px;}
 
 
 
-.btn {padding: 10px; font-family: Poppins, sans-serif !important; text-transform: uppercase !important; font-size: 10pt;}
+.btn {font-family: Poppins, sans-serif;}
 
 .btn-primary:active, .btn-primary, .btn-primary:visited, .badge-primary, .badge-secondary, .badge-info {
     background-color: #CFDEBA !important; border-color: #CFDEBA !important; color: #4a4a4a; text-transform: capitalize;
