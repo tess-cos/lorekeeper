@@ -1140,7 +1140,7 @@ tr.outflow {
 .character-bio .nav-tabs.card-header-tabs .active {
     background-color: white;
     border-color: #f4e3e6;
-    border-bottom: #fff;
+    border-bottom: #fff !important;
 }
 
 [class*="form-"], .selectize-input { border-color: #E0ECD0 !important; }
