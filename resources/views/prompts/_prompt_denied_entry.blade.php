@@ -1,6 +1,6 @@
 <div class="row world-entry">
     @if($prompt->has_image)
-        <div class="col-md-3 world-entry-image"><div style="width:200px; height: 200px; background-color: #fff"></div></div>
+        <div class="col-md-3 world-entry-image"><div style="width:200px; height: 200px;"></div></div>
     @endif
     <div class="{{ $prompt->has_image ? 'col-md-9' : 'col-12' }}">
         <div class="mb-3">
@@ -16,7 +16,7 @@
             @endif
         </div>
         <div class="world-entry-text">
-            <h6 class="text-danger">This prompt requires you to have completed {!! $prompt->parent->displayName !!} {{ $prompt->parent_quantity }} {{ $prompt->parent_quantity > 1 ? 'times' : 'time'}}.</h6>
+            <h6 style="margin-bottom: -1.5px;" class="text-danger">This prompt requires you to have completed {!! $prompt->parent->displayName !!} {{ $prompt->parent_quantity }} {{ $prompt->parent_quantity > 1 ? 'times' : 'time'}}.</h6>
             <p>You cannot view any details until you have completed the prerequisite.</p>
         </div>
     </div>

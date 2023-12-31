@@ -52,7 +52,7 @@ a.h1:hover, a.h2:hover, a.h3:hover, a.h4:hover, a.h5:hover {
 }
 
 a {
-    color: #D48C99;
+    color: #95b582;
 }
 
 p a, li a, th, .card-header h5 {color: #D48C99;}
@@ -61,10 +61,12 @@ p a, li a, th, .card-header h5 {color: #D48C99;}
 
 .ct a {color: #4a4a4a;}
 
-.ct a:hover {
-    color: #E5C1C7;
+.ct a:hover, .nw a:hover {
+    color: #E5C1C7 !important;
     text-decoration: none;
 }
+
+.nw a {color: #C0D1A6 !important;}
 
 .ht a, strong, .font-weight-bold {color: #7b956d;}
 
@@ -73,6 +75,8 @@ p a, li a, th, .card-header h5 {color: #D48C99;}
 .sl a {font-weight: normal !important;}
 
 .ma a, .display-rarity {color: #E5C1C7;}
+
+.display-subtype, .display-transformation {color: #EDD3A0;}
 
 a:hover {
     color: #CFDEBA;
@@ -119,7 +123,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-image: url(https://i.imgur.com/XxrmiPC.png);
+    background-image: url(https://i.imgur.com/BJoRAeQ.png);
     background-repeat: repeat;
     background-attachment: fixed;
 }
@@ -138,7 +142,7 @@ main > .row {
 }
 
 .main-content {
-    background-color: white;
+    background-color: #fcfcfc;
     box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
@@ -250,6 +254,7 @@ border-bottom: 2px solid #F5F5F5; position: relative;}
     .navimgbg {width: 100%;
         height: 100%;
         background-color: #fafafa;
+        background-image: url(https://i.imgur.com/gJmKRXP.png);
         color: #fafafa;
         margin: auto;
     position: absolute;
@@ -276,15 +281,15 @@ hr {border-color: #EBF0E3 !important;}
 .dash {
     width: 75%;
     margin: auto;
-    background-image: url(https://i.imgur.com/TRNxyda.png);
+    background-image: url(https://i.imgur.com/FxAwS1f.png);
     background-repeat: repeat;
     border-radius: 25px;
     padding: 15px;
 }
 .top1 {
     padding: 15px;
-    background-color: #fff;
-    border: 1px solid #E5C1C7;
+    background-color: #fdfdfd;
+    border: 1px solid #EDD3A0;
     border-right: 0px;
     border-radius: 25px 0px 0px 25px;
 }
@@ -293,8 +298,8 @@ hr {border-color: #EBF0E3 !important;}
     padding: 15px;
     padding-left: 2px;
     text-align: left;
-    background-color: #fff;
-    border: 1px solid #E5C1C7;
+    background-color: #fdfdfd;
+    border: 1px solid #EDD3A0;
     border-left: 0px;
     border-radius: 0px 25px 25px 0px;
 }
@@ -303,11 +308,11 @@ hr {border-color: #EBF0E3 !important;}
     width: 65%;
     padding: 15px;
     padding-top: 5px;
-    background-color: #fff;
-    border: 1px solid #E5C1C7;
+    background-color: #fcfcfc;
+    border: 1px solid #EDD3A0;
+    background-image: url(https://i.imgur.com/hCr4tJa.png);
     border-right: 0px;
     border-radius: 25px 0px 0px 25px;
-    background-image: url(https://i.imgur.com/TRNxyda.png);
     background-repeat: repeat;
 }
 
@@ -317,8 +322,9 @@ hr {border-color: #EBF0E3 !important;}
     padding-bottom: 5px;
     padding-left: 15px;
     text-align: left;
-    background-color: #fff;
-    border: 1px solid #E5C1C7;
+    background-color: #fcfcfc;
+    background-image: url(https://i.imgur.com/QQLMo5N.png);
+    border: 1px solid #EDD3A0;
     border-left: 0px;
     border-radius: 0px 25px 25px 0px;
     background-color: #fff;
@@ -335,7 +341,7 @@ hr {border-color: #EBF0E3 !important;}
 
 .abt {
     padding: 15px;
-    background-color: #fff;
+    background-color: #fdfdfd;
     border: 2px dashed #95b582;
     border-radius: 25px;
     width: 90%;
@@ -344,7 +350,7 @@ hr {border-color: #EBF0E3 !important;}
 .abth {
     padding: 25px;
     width: 100%;
-    background-color: #fff;
+    background-color: #fdfdfd;
     font-family: Poppins, serif;
     font-size: 10.5pt;
     text-align: center;
@@ -390,6 +396,7 @@ hr {border-color: #EBF0E3 !important;}
 
 .sidebar .sidebar-header {
     background-color: #95b582;
+    background-image: url(https://i.imgur.com/QQLMo5N.png);
     padding-bottom: 4.5px;
     border-top-left-radius: .50rem; 
     border-top-right-radius: .50rem;
@@ -642,9 +649,13 @@ background-size: 7px;}
         width: 100% !important;
     }
 
-    .btn-dark { width: 100% !important;
+    .btn-dark, .btn-dash { width: 100% !important;
     border: 0px !important;
     color: #636363 !important; }
+
+    .dashd {display: none;}
+
+    .dashdd {font-size: 15pt !important;}
 
     .dimg {margin: auto; margin-top: 5px;}
 
@@ -769,12 +780,12 @@ background-size: 7px;}
 
 .site-footer .navbar {
     padding-bottom: 0;
-    background: #fff;
+    background: #fcfcfc;
     border: 0;
 }
 .site-footer .navbar .navbar-nav {
     flex-direction: row;
-    background: #fff;
+    background: #fcfcfc;
     z-index: 1;
 }
 .site-footer .navbar .navbar-nav .nav-link {
@@ -798,13 +809,15 @@ background-size: 7px;}
 **************************************************************************************************/
 .modal-header {
     border-bottom: 0px;
-    background:url(https://i.imgur.com/XxrmiPC.png) repeat;
+    background:url(https://i.imgur.com/hCr4tJa.png) repeat;
 }
 
 .modal-header .modal-title {
     line-height: 1em;
-     color: #95b582;
+     color: #fdfdfd;
 }
+
+.modal-content {border-color: #aeb889 !important;}
 
 .tooltip-inner {
     max-width: 350px !important;
@@ -966,6 +979,10 @@ background-size: 7px;}
     background-color: #bed0a6 !important; color: #4a4a4a;
 }
 
+.btn-dash {background-color: #E0ECD0; color: #636363; text-transform: lowercase; padding: 10px;}
+
+.btn-spell {background-color: #EDD3A0;}
+
 .btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
     background-color: #E5C1C7 !important; border-color: #E5C1C7 !important; color: #4a4a4a !important; text-transform: capitalize;
 } 
@@ -1002,6 +1019,10 @@ background-size: 7px;}
 
 .btn-dark:hover {
         background-color: #f4e3e6 !important; border: 0px; color: #4a4a4a;
+    }
+
+.btn-dash:hover {
+        background-color: #f4e3e6 !important;
     }
 
 .btn-danger, .btn-danger:hover, .btn-danger:active, .btn-danger:visited, .btn-danger toggle on {
@@ -1133,19 +1154,25 @@ tr.outflow {
     flex-grow: 1;
 }
 
+.card, .card-body {background-color: #fdfdfd !important;}
+
 .profile-assets .profile-inventory .profile-inventory-item img {
     max-width: 100%;
 }
 
 .character-bio .nav-tabs.card-header-tabs .active {
-    background-color: white;
+    background-color: #fdfdfd;
     border-color: #f4e3e6;
-    border-bottom: #fff !important;
+    border-bottom: transparent !important;
 }
 
 [class*="form-"], .selectize-input { border-color: #E0ECD0 !important; }
 
-.card-header, .nav-tabs { background: #FBF5F6 !important; border: 0px;}
+.form-control {background: #fdfdfd !important;}
+
+.nav-tabs { background: #f9f8f3 !important; border: 0px;} 
+
+.card-header { background: #f9f8f3 !important; border: 0px;} 
 
 #inboxType {background: none !important;}
 

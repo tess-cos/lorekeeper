@@ -25,8 +25,8 @@
         <div class="sidebar-item"><a href="{{ $user->url.'/currency-logs' }}" class="{{ set_active($user->url.'/currency-logs*') }}">Currency Logs</a></div>
         <div class="sidebar-item"><a href="{{ $user->url.'/'.__('awards.award').'-logs' }}" class="{{ set_active($user->url.'/award-logs*') }}">{{ucfirst(ucfirst(__('awards.award')))}} Logs</a></div>
         <div class="sidebar-item"><a href="{{ $user->url.'/pet-logs' }}" class="{{ set_active($user->url.'/pet-logs*') }}">Pet Logs</a></div>
-        <div class="sidebar-item"><a href="{{ $user->url.'/submissions' }}" class="{{ set_active($user->url.'/submissions*') }}">Submissions</a></div>
         <div class="sidebar-item"><a href="{{ $user->url.'/spell-logs' }}" class="{{ set_active($user->url.'/spell-logs*') }}">Spellbook</a></div>
+        <div class="sidebar-item"><a href="{{ $user->url.'/submissions' }}" class="{{ set_active($user->url.'/submissions*') }}">Submissions</a></div>
     </li>
 
     @if(Auth::check() && Auth::user()->hasPower('edit_user_info'))

@@ -8,15 +8,54 @@
     </div></div>
   </div>
 
-  <div class="dicn" style="width: 80%; margin: auto;">
-    <center><a href="{{ Auth::user()->url }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">profile</a>
-<a href="{{ url('account/settings') }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">settings</a>
-<a href="{{ url('trades/open') }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">trades</a>
-
-<a href="{{ url('bank') }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">bank</a>
-<a href="{{ url('inventory') }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">inventory</a>
-<a href="{{ url(__('awards.awardcase')) }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">{{ ucfirst(__('awards.awards')) }}</a></center></div>
-
+<div class="dicn" style="width: 95%; margin: auto;">
+<center>
+<span class="dashd" style="color: #EDD3A0; margin: auto; font-size: 20pt; position: relative; top: 5px;">🙜</span>
+<div class="dropdown" style="display: inline-block !important;">
+  <button class="btn btn-dash dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    For You
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="text-transform: lowercase; font-size: 11pt; line-height: 25px; background-color: #fcfcfc !important;">
+    <a class="dropdown-item" href="{{ Auth::user()->url }}">Profile</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="{{ url('account/settings') }}">Settings</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="{{ url('inventory') }}">Inventory</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="{{ url('bank') }}">Bank</a>
+  </div>
+</div>
+<span class="dashdd" style="color: #EDD3A0; margin: auto; font-size: 20pt; position: relative; top: 5px;">🙜</span>
+<div class="dropdown" style="display: inline-block !important;">
+  <button class="btn btn-dash dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    To Dos
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="text-transform: lowercase; font-size: 11pt; line-height: 25px; background-color: #fcfcfc !important;">
+    <a class="dropdown-item" href="{{ url(__('dailies.dailies')) }}">Dailies</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="{{ url('prompts/prompts') }}">Prompts</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="{{ url('spellcasting') }}">Spellcasting</a>
+  </div>
+</div>
+<span class="dashdd" style="color: #EDD3A0; margin: auto; font-size: 20pt; position: relative; top: 5px;">🙜</span>
+<div class="dropdown" style="display: inline-block !important;">
+  <button class="btn btn-dash dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Other
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="text-transform: lowercase; font-size: 11pt; line-height: 25px; background-color: #fcfcfc !important;">
+    <a class="dropdown-item" href="{{ url('info/guide') }}">Guidebook</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="{{ url('info/rules') }}">Rules & FAQ</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="{{ url('claims') }}">Claims</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="{{ url('info/rfl') }}">Raffles</a>
+  </div>
+</div>
+<span class="dashd" style="color: #EDD3A0; margin: auto; font-size: 20pt; position: relative; top: 5px;">🙜</span>
+</center>
+</div>
 
 
 <div class="dash row justify-content-center" style="width: 84%; background-image: none;">
@@ -27,13 +66,3 @@
   @include('widgets._selected_character_dash', ['character' => Auth::user()->settings->selectedCharacter, 'user' => Auth::user(), 'fullImage' => true])
   </div>
 </div>
-
-<div style="width: 90%; margin: auto;">
-    <center><a href="{{ url('characters') }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">characters</a>
-<a href="{{ url('characters/myos') }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">myo slots</a>
-<a href="{{ url('characters/transfers/incoming') }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">character transfers</a>
-
-<a href="{{ Auth::user()->url . '/currency-logs' }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">Currency Logs</a>
-<a href="{{ Auth::user()->url . '/item-logs' }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">item logs</a>
-<a href="{{ Auth::user()->url . '/'.__('awards.award').'-logs' }}" class="btn btn-dark" style="font-family: Poppins, sans-serif; text-transform: lowercase; background-color: #E0ECD0; padding: 8px;">{{ ucfirst(__('awards.award')) }} Logs</a></center></div>
-

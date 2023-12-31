@@ -24,7 +24,7 @@
                 <div class="col-md-4">
                     <h5>Requirements</h5>
 
-                    <div class="alert alert-secondary" style="background-color: #EBF0E3 !important;">
+                    <div class="alert alert-secondary" style="background-color: #f4e3e6 !important;">
                         <?php
                         $limits = [];
                         foreach($recipe->limits as $limit)
@@ -42,7 +42,7 @@
                 <h5>Subjects</h5>
                 @for($i = 0; $i < count($recipe->ingredients) && $i < 3; ++$i)
                     <?php $ingredient = $recipe->ingredients[$i]?>
-                    <div class="alert alert-secondary" style="background-color: #EBF0E3 !important;">
+                    <div class="alert alert-secondary" style="background-color: #FBF5F6 !important;">
                         @include('home.crafting._recipe_ingredient_entry', ['ingredient' => $ingredient])
                     </div>
                 @endfor
@@ -57,7 +57,7 @@
                     @foreach($type as $item)
                         @if($counter > 3) @break @endif
                         <?php ++$counter; ?>
-                        <div class="alert alert-secondary" style="background-color: #EBF0E3 !important;">
+                        <div class="alert alert-secondary" style="background-color: #FBF5F6 !important;">
                             @include('home.crafting._recipe_reward_entry', ['reward' => $item])
                         </div>
                     @endforeach

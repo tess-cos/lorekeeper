@@ -1,4 +1,4 @@
-<div class="card h-100" style="border: 0; background-color: #fcf9fa; padding: 15px;">
+<div class="card h-100" style="border: 0; background-color: #fafafa !important; padding: 15px; border-radius: 15px;">
     <div class="m-1">
         <div class="row">
             <div class="col-md-6 text-center align-self-center">

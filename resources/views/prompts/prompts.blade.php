@@ -45,7 +45,7 @@
                 if(Auth::check()) $submission = DB::table('submissions')->where('user_id', Auth::user()->id)->where('prompt_id', $prompt->parent_id)->where('status', 'Approved')->count();    
             @endphp
             @if(!Auth::check() || $submission < $prompt->parent_quantity)
-        <div class="card-body" style="background-color: #FBF5F6; border: 0px;">
+        <div class="card-body" style="background-color: #f9f8f3 !important; border: 0px;">
             @include('prompts._prompt_denied_entry', ['prompt' => $prompt])
             @else
         <div class="card-body">

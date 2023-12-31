@@ -157,7 +157,7 @@
                 <div class="mt-1">
                     <a href="{{ $character->url }}" class="h5 mb-0">@if(!$character->is_visible) <i class="fas fa-eye-slash"></i> @endif {{ $character->fullName }}</a>
                 </div>
-                <div style="font-size: 9pt;">
+                <div style="font-size: 10pt;">
                 {!! $character->image->rarity_id ? $character->image->rarity->displayName : 'No Rarity' !!} {!! $character->image->species_id ? $character->image->species->displayName : 'No '.ucfirst(__('lorekeeper.species')) !!} <br />{!! $character->displayOwner !!}
                 </div>
             </div>
