@@ -1,8 +1,8 @@
-<div class="card h-100" style="border: 0; background-color: #fafafa !important; padding: 15px; border-radius: 15px;">
+<div class="card h-100" style="border: 0; background-color: #f8f7f2 !important; padding: 5px; border-radius: 15px;">
     <div class="m-1">
         <div class="row">
             <div class="col-md-6 text-center align-self-center">
-                <a href="{{ $character->character->url }}"><img style="background: #fff; border: 1px solid #f4e3e6; padding: 5px;" src="{{ $loop->count == 1 ? $character->image->imageUrl : $character->image->thumbnailUrl }}" class="mw-100 img-thumbnail" alt="{{ $character->fullName }}" /></a>
+                <a href="{{ $character->character->url }}"><img style="background: #fff; border: 1px solid #f4e3e6; padding: 0px;" src="{{ $loop->count == 1 ? $character->image->imageUrl : $character->image->thumbnailUrl }}" class="mw-100 img-thumbnail" alt="{{ $character->fullName }}" /></a>
             </div>
             <div class="col-md text-center" style="padding: 15px;">
                 <div class="mt-2">

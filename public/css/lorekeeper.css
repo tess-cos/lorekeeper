@@ -1059,6 +1059,8 @@ background-size: 7px;}
     background-color: #E5C1C7 !important; color: #4a4a4a; text-transform: capitalize;
 }
 
+.img-thumbnail {border: 1px solid #f1efe8 !important; border-radius: 15px; padding: 12.5px !important; background: #f9f8f3 !important;}
+
 a[aria-expanded=true] .fa-chevron-right {
     display: none;
  }
@@ -1067,11 +1069,11 @@ a[aria-expanded=true] .fa-chevron-right {
  }
 
  .fa-lock-open {
-    color: #95b582;
+    color: #CFDEBA;
  }
 
  .fa-lock {
-    color: #E5C1C7;
+    color: #EDD3A0;
  }
 
  .nav-tabs .nav-link, .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {

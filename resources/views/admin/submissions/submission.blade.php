@@ -115,7 +115,7 @@
         </div>
         <div class="text-right mb-3">
             <a href="#" class="btn btn-outline-info" id="addCharacter">Add Character</a>
-            </div></div></div>
+            </div></div>
             
 
         @if(isset($inventory['user_items']))
@@ -220,7 +220,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
         <table>
             <tr class="character-reward-row">
 
