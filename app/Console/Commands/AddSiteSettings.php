@@ -105,6 +105,8 @@ class AddSiteSettings extends Command
 
         $this->addSiteSetting('group_currency', 1, 'ID of the group currency to award from gallery submissions (if enabled).');
 
+        $this->addSiteSetting('featured_character', 1, 'ID of the currently featured character.');
+
         $this->addSiteSetting('event_currency', 1, 'ID of the currency used for events.');
 
         $this->addSiteSetting('event_global_score', 0, '0: Event currency is only tracked individually, 1: A global tally of all event currency is also kept.');
