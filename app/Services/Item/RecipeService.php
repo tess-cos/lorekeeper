@@ -165,7 +165,7 @@ class RecipeService extends Service
      */
     private function getRecipeRewardsString($rewards)
     {
-        $results = "You have unlocked the following recipe: ";
+        $results = "You have unlocked the following spell: ";
         $result_elements = [];
         foreach($rewards as $assetType)
         {

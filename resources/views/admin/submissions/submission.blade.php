@@ -85,9 +85,9 @@
 
 
         <h2 class="mt-4">Rewards</h2>
-        <div style="display: none;"> @include('widgets._loot_select', ['loots' => $submission->rewards, 'showLootTables' => true, 'showRaffles' => true, 'showRecipes' => true])
+        @include('widgets._loot_select', ['loots' => $submission->rewards, 'showLootTables' => true, 'showRaffles' => true, 'showRecipes' => true])
         @if($submission->prompt_id)
-            <div class="mb-3">
+            <div style="display: none;" class="mb-3">
                 <h2>Skill Rewards</h2>
                 <div class="form-group">
                     <div id="skillList">
@@ -99,7 +99,7 @@
                 </div>
 
                 <hr />
-            </div></div>
+            </div>
 
             <div class="mb-3">
                 @include('home._prompt', ['prompt' => $submission->prompt, 'staffView' => true])

@@ -238,7 +238,7 @@ class Recipe extends Model
      */
     public function getUrlAttribute()
     {
-        return url('world/recipes?name='.$this->name);
+        return url('world/spells?name='.$this->name);
     }
 
     /**

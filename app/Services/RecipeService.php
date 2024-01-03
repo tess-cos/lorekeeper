@@ -49,7 +49,7 @@ class RecipeService extends Service {
         try {
             // if(isset($data['recipe_category_id']) && $data['recipe_category_id'] == 'none') $data['recipe_category_id'] = null;
 
-            // if((isset($data['recipe_category_id']) && $data['recipe_category_id']) && !RecipeCategory::where('id', $data['recipe_category_id'])->exists()) throw new \Exception("The selected recipe category is invalid.");
+            // if((isset($data['recipe_category_id']) && $data['recipe_category_id']) && !RecipeCategory::where('id', $data['recipe_category_id'])->exists()) throw new \Exception("The selected spell category is invalid.");
 
             if (!isset($data['ingredient_type'])) throw new \Exception('Please add at least one subject.');
             if (!isset($data['rewardable_type'])) throw new \Exception('Please add at least one reward to the spell.');
@@ -108,7 +108,7 @@ class RecipeService extends Service {
 
             // More specific validation
             if (Recipe::where('name', $data['name'])->where('id', '!=', $recipe->id)->exists()) throw new \Exception("The name has already been taken.");
-            if ((isset($data['recipe_category_id']) && $data['recipe_category_id']) && !RecipeCategory::where('id', $data['recipe_category_id'])->exists()) throw new \Exception("The selected recipe category is invalid.");
+            if ((isset($data['recipe_category_id']) && $data['recipe_category_id']) && !RecipeCategory::where('id', $data['recipe_category_id'])->exists()) throw new \Exception("The selected spell category is invalid.");
 
             if (!isset($data['ingredient_type'])) throw new \Exception('Please add at least one subject.');
             if (!isset($data['rewardable_type'])) throw new \Exception('Please add at least one reward to the spell.');
@@ -172,7 +172,7 @@ class RecipeService extends Service {
         $recipe->ingredients()->delete();
 
         foreach ($data['ingredient_type'] as $key => $type) {
-            if (!count(array_filter($data['ingredient_data'][$key]))) throw new \Exception('One of the subjects was not specified.');
+            if (!count(array_filter($data['ingredient_data'][$key]))) throw new \Exception('One of the spell subjects was not specified.');
             RecipeIngredient::create([
                 'recipe_id' => $recipe->id,
                 'ingredient_type' => $type,
