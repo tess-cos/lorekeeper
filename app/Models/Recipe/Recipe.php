@@ -197,7 +197,7 @@ class Recipe extends Model
      */
     public function getImageDirectoryAttribute()
     {
-        return 'images/data/recipes';
+        return 'images/data/spells';
     }
 
     /**
