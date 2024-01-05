@@ -82,8 +82,8 @@
     @endif
 
 @if(isset($user->profile->parsed_text))
-    <div class="card mb-3" style="clear:both; border: 0px; padding: 0px; background: transparent !important;">
-        <div class="card-body">
+    <div class="card mb-3" style="clear:both; border: 0px; padding: 0px;">
+        <div class="card-body" style="background: transparent !important;">
             {!! $user->profile->parsed_text !!}
         </div>
     </div>
