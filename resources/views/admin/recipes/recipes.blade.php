@@ -7,7 +7,7 @@
 
 <h1>Spells</h1>
 
-<p>This is a list of spells in the game that can be used to craft items.</p> 
+<p>This is a list of spells in the game that can be used to create items.</p> 
 
 <div class="text-right mb-3"><a class="btn btn-primary" href="{{ url('admin/data/spells/create') }}"><i class="fas fa-plus"></i> Create New Spell</a></div>
 
