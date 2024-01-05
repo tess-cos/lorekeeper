@@ -29,12 +29,11 @@
 @foreach($challenges as $challenge)
     <div class="card mb-4">
         <div class="card-header">
-            <h3>
-                {!! $challenge->displayName !!}
+            <h3 style="margin-top: 3.5px; float: left;">
+                {!! $challenge->displayName !!}</h3>
                 @if(Auth::check() && Auth::user()->canChallenge && (isset($showRegister) ? $showRegister : true))
                     <a href="#" class="float-right btn btn-success register-challenge-button" data-id="{{ $challenge->id }}">Register</a>
                 @endif
-            </h3>
         </div>
         <div class="card-body">
             {!! $challenge->parsed_description !!}
