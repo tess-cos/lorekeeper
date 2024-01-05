@@ -10,6 +10,7 @@
                 <div class="sidebar-item pr-3" style="padding-bottom: 3.5px;">{!! $currency->display($currency->quantity) !!}</div>
             @endforeach
         </li>
+        <br />
     @endif
 
     <li class="sidebar-section" style="border-bottom-left-radius: .50rem; border-bottom-right-radius: .50rem; padding-bottom: 10px;">
