@@ -18,7 +18,7 @@
 <hr style="border: 0px solid #fff; width: 100%;">
 <div class="row no-gutters">
     <div class="col-lg-2 p-2 d-flex justify-content-center align-items-center">
-        <img src="/images/avatars/{{ $user->avatar }}" style="max-width:125px; max-height:125px; margin-left: 0px; margin-right: 0px; margin-top: -8px; margin-bottom: 20px; border-radius:50%; padding: 10px; border: 1px solid #E5C1C7; background-color: #fff;" alt="{{ $user->name }}" >
+        <img src="/images/avatars/{{ $user->avatar }}" style="max-width:125px; max-height:125px; margin-left: 0px; margin-right: 0px; margin-top: -8px; margin-bottom: 20px; border-radius:50%; padding: 10px; border: 1px solid #E5C1C7; background-color: #fdfdfd !important;" alt="{{ $user->name }}" >
     </div>
 
     <div class="col-lg-10 p-2">
