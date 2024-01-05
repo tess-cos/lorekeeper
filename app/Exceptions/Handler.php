@@ -53,11 +53,6 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-    if ($exception instanceof Illuminate\Session\TokenMismatchException) {
-        Artisan::call('cache:clear');
-        Artisan::call('config:cache');
-        return Redirect::back();
-    }
-    return parent::render($request, $exception);
+        return parent::render($request, $exception);
     }
 }
