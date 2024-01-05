@@ -90,6 +90,10 @@ return [
                 'name' => 'Claim Submissions',
                 'url' => 'admin/claims'
             ],
+            [
+                'name' => 'Quest Logs',
+                'url' => 'admin/quests'
+            ],
         ]
     ],
     'Grants' => [
@@ -330,6 +334,10 @@ return [
                 'url' => 'admin/data/hunts'
             ],
 
+            [
+                'name' => 'Quests',
+                'url' => 'admin/data/quests'
+            ],
         ]
     ],
     'Raffles' => [

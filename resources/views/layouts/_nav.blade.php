@@ -102,6 +102,9 @@
                     <div class="dropdown-menu" aria-labelledby="loreDropdown">
                         <a class="dropdown-item" href="{{ url('prompts/prompts') }}">
                             Prompts
+                            <a class="dropdown-item" href="{{ url('quests') }}">
+                            Quests
+                        </a>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ url('shops') }}">

@@ -298,6 +298,15 @@ Route::post('pets/variants/{id?}', 'PetController@postEditVariants');
     Route::post('prompts/edit/{id?}', 'PromptController@postCreateEditPrompt');
     Route::post('prompts/delete/{id}', 'PromptController@postDeletePrompt');
 
+    # CHALLENGES
+    Route::get('quests', 'ChallengeController@getChallengeIndex');
+    Route::get('quests/create', 'ChallengeController@getCreateChallenge');
+    Route::get('quests/edit/{id}', 'ChallengeController@getEditChallenge');
+    Route::get('quests/delete/{id}', 'ChallengeController@getDeleteChallenge');
+    Route::post('quests/create', 'ChallengeController@postCreateEditChallenge');
+    Route::post('quests/edit/{id?}', 'ChallengeController@postCreateEditChallenge');
+    Route::post('quests/delete/{id}', 'ChallengeController@postDeleteChallenge');
+
  # TRANSFORMATIONS
  Route::get('transformations', 'TransformationController@getTransformationIndex');
  Route::get('transformations/create', 'TransformationController@getCreateTransformation');
@@ -620,6 +629,13 @@ Route::group(['prefix' => 'designs', 'middleware' => 'power:manage_characters'],
 
 Route::get('{type}/{status}', 'DesignController@getDesignIndex')->where('type', 'myo-approvals|design-approvals')->where('status', 'pending|approved|rejected');
 
+# CHALLENGES
+Route::group(['prefix' => 'quests', 'middleware' => 'power:manage_submissions'], function() {
+    Route::get('/', 'ChallengeController@getIndex');
+    Route::get('/{status}', 'ChallengeController@getIndex')->where('status', 'active|old');
+    Route::post('edit/{id}/{action}', 'ChallengeController@postChallenge');
+});
+
 # STATS - STATS
 Route::group(['prefix' => 'stats', 'namespace' => 'Stats', 'middleware' => 'power:edit_stats'], function() {
     // GET
@@ -634,6 +650,7 @@ Route::group(['prefix' => 'stats', 'namespace' => 'Stats', 'middleware' => 'powe
 
 
 });
+
 # STATS - LEVELS
 Route::group(['prefix' => 'levels', 'namespace' => 'Stats', 'middleware' => 'power:edit_levels'], function() {
     # USER

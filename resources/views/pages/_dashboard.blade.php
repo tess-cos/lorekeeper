@@ -48,7 +48,7 @@
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="{{ url('info/rules') }}">Rules & FAQ</a>
     <div class="dropdown-divider"></div>
-    <a class="dropdown-item" href="{{ url('claims') }}">Claims</a>
+    <a class="dropdown-item" href="{{ url('quests') }}">Quests</a>
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="{{ url('info/rfl') }}">Raffles</a>
   </div>
