@@ -3,7 +3,7 @@
         <h6 class="card-title" style="padding: 7px; letter-spacing: 0.5px; text-transform: uppercase; font-family: Poppins, serif; color: #7b956d !important;">Your {!! $character->image->species->displayName !!}</h6>
         <div class="profile-assets-content" style="background: none;">
             @if($character)
-                <div style="display: none;">
+                <div>
                     <a href="{{ $character->url }}"><img class="img-fluid" style="border-radius: 15px;" src="{{ isset($fullImage) && $fullImage ? $character->image->imageUrl : $character->image->thumbnailUrl }}" class="{{ isset($fullImage) && $fullImage ? '' : 'img-thumbnail' }}" alt="{{ $character->fullName }}" /></a>
                 </div>
                 <div class="my-1"  style="padding: 7px;">
