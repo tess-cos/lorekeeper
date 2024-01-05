@@ -5,12 +5,11 @@
         <li class="sidebar-section">
             <div class="sidebar-section-header">History</div>
             <div class="sidebar-item"><a href="{{ url('shops/history') }}" class="{{ set_active('shops/history') }}">My Purchase History</a></div>
-            <div class="sidebar-section-header">My Currencies</div>
+            <div class="sidebar-section-header" style="padding: 3.5px;">My Currencies</div>
             @foreach(Auth::user()->getCurrencies(true) as $currency)
-                <div class="sidebar-item pr-3" style="padding-bottom: 3.5px;">{!! $currency->display($currency->quantity) !!}</div>
+                <div class="sidebar-item pr-3">{!! $currency->display($currency->quantity) !!}</div>
             @endforeach
         </li>
-        <br />
     @endif
 
     <li class="sidebar-section" style="border-bottom-left-radius: .50rem; border-bottom-right-radius: .50rem; padding-bottom: 10px;">
