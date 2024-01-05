@@ -7,7 +7,7 @@
             <div class="sidebar-item"><a href="{{ url('shops/history') }}" class="{{ set_active('shops/history') }}">My Purchase History</a></div>
             <div class="sidebar-section-header">My Currencies</div>
             @foreach(Auth::user()->getCurrencies(true) as $currency)
-                <div class="sidebar-item pr-3" style="padding: 5px;">{!! $currency->display($currency->quantity) !!}</div>
+                <div class="sidebar-item pr-3" style="padding: 0px;">{!! $currency->display($currency->quantity) !!}</div>
             @endforeach
         </li>
     @endif
