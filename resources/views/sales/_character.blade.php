@@ -69,7 +69,7 @@
                         </div>
 
                         <p style="margin-bottom: 10px;">{!! $character->description !!}</p>
-                        <h6 style="font-size: 11.5pt; font-family: Poppins, serif;">
+                        <h6 style="font-size: 9.5pt; font-family: Poppins, serif;">
                         {!! $character->price !!}</h6>
                         {!! isset($character->link) || isset($character->data['end_point']) ? '<br/>' : '' !!}
                         @if(isset($character->data['end_point']))
