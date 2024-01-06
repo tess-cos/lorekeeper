@@ -1,6 +1,6 @@
 <div class="card mb-4" style="border: 1px #aeb889 solid; margin-top: 20px;">
     <div class="card-body text-center" style="background-color: #fcfcfc;">
-        <h6 class="card-title" style="padding: 7px; letter-spacing: 0.5px; text-transform: uppercase; font-family: Poppins, serif; color: #7b956d !important;">Your Character</h6>
+        <h6 class="card-title" style="padding: 7px; letter-spacing: 0.5px; text-transform: lowercase; font-family: Hachi Maru Pop, serif; color: #7b956d !important;">Selected Character</h6>
         <div class="profile-assets-content" style="background: none;">
             @if($character)
                 <div>

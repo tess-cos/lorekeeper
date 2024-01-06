@@ -4,7 +4,7 @@
  <img class="dimg" src="/images/avatars/{{ Auth::user()->avatar }}" style="float: left; max-width: 100px; max-height: 100px; border-radius: 999px; border: 2.5px solid #f4e3e6;">
 </div></div>
   <div class="top2"><div class="top2txt"><h3 class="dt">Welcome, <a style="color: #95b582;">{!! Auth::user()->displayName !!}</a>!</h3>
-        <div style="font-size: 9pt; font-weight: bold; color:#95b582;"> <i class="far fa-clock"></i> {!! LiveClock() !!}</div>
+        <div style="font-size: 11.5pt; font-weight: bold; color:#E5C1C7;"> <i class="far fa-clock"></i> {!! LiveClock() !!}</div>
     </div></div>
   </div>
 
