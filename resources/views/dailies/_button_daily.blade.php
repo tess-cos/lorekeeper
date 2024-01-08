@@ -62,7 +62,7 @@
                     <h5 class="p-0 m-0">@if($step > ($timer->step ?? 0))<i class="fa fa-lock"></i> Locked @else <i class="fa fa-unlock"></i> Unlocked @endif</h5>
                 </div>
             </div>
-            <div class="row w-100 p-2 m-auto">
+            <div class="row w-100 p-3 m-auto">
                 @if($daily->progress_display =='all' || ($step <= ($timer->step ?? 0)))
                     @foreach($rewards as $reward)
                     <div class="col-6">
