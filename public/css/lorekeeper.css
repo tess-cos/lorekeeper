@@ -76,7 +76,14 @@ p a, li a, th, .card-header h5 {color: #D48C99;}
 
 .ma a, .display-rarity {color: #E5C1C7;}
 
-.display-subtype, .display-transformation {color: #EDD3A0;}
+.display-subtype, .display-transformation, .text-warning {color: #EDD3A0 !important;}
+
+@supports (-webkit-text-stroke: 1px #E5C1C7) {
+    .text-warning {
+      -webkit-text-stroke: 1px #E5C1C7;
+      -webkit-text-fill-color: #EDD3A0;
+    }
+  }
 
 a:hover {
     color: #CFDEBA;

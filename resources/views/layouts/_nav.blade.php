@@ -18,7 +18,7 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     @if(Auth::check() && Auth::user()->is_news_unread && Config::get('lorekeeper.extensions.navbar_news_notif'))
-                        <a class="nav-link d-flex text-warning" href="{{ url('news') }}"><strong>News</strong><i class="fas fa-bell"></i></a>
+                        <a class="nav-link d-flex" href="{{ url('news') }}"><strong>News</strong><i class="fas fa-bell text-warning fa-bounce"></i></a>
                     @else
                         <a class="nav-link" style="color:#4A4A4A; font-size: 10pt;" href="{{ url('news') }}">News</a>
                     @endif
@@ -26,7 +26,7 @@
                 
                 <li class="nav-item">
                     @if(Auth::check() && Auth::user()->is_sales_unread && Config::get('lorekeeper.extensions.navbar_news_notif'))
-                        <a class="nav-link d-flex text-warning" href="{{ url('sales') }}"><strong>Sales</strong><i class="fas fa-bell"></i></a>
+                        <a class="nav-link d-flex" href="{{ url('sales') }}"><strong>Sales</strong><i class="fas fa-bell text-warning fa-bounce"></i></a>
                     @else
                         <a class="nav-link" style="color:#4A4A4A; font-size: 10pt;" href="{{ url('sales') }}">Sales</a>
                     @endif
