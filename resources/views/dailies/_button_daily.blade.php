@@ -59,7 +59,7 @@
                     <h5 class="p-1 m-0">{{ $step }}</h5>
                 </div>
                 <div class="col p-0">
-                    <h5 class="p-0 m-0">@if($step > ($timer->step ?? 0))<i class="fa fa-lock"></i> Locked @else <i class="fa fa-unlock"></i> Unlocked @endif</h5>
+                    <h5 class="p-1 m-0">@if($step > ($timer->step ?? 0))<i class="fa fa-lock"></i> Locked @else <i class="fa fa-unlock"></i> Unlocked @endif</h5>
                 </div>
             </div>
             <div class="row w-100 p-0 m-auto">
