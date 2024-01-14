@@ -75,9 +75,15 @@
                     <div class="row collapse card-body tab-content" id="collapseExample" style="width: 80%; margin: auto; text-align: center; padding-bottom: 10px; background-image:url(https://i.imgur.com/KpXntZH.png);">@foreach($character->items()->where('count', '>', 0)->get() as $item)
                             <div class="col-sm-4" style="margin: auto;">
                                 @if($item->has_image)
-                                <a href="{{$item->idUrl}}"><img src="{{ $item->imageUrl }}" data-toggle="tooltip" title="{{ $item->name }}" style="max-width: 80%; padding: 5px; background-color: #fffbfc; padding: 15px; border-radius: 5px; border: 1px solid #f4e3e6;"/></a>
+                                <a href="{{$item->idUrl}}"><img src="{{ $item->imageUrl }}" data-toggle="tooltip" title="{{ $item->name }}" style="max-width: 80%; filter: drop-shadow(3px 0 0 #C0D1A6) 
+        drop-shadow(0 3px 0 #C0D1A6)
+        drop-shadow(-3px 0 0 #C0D1A6) 
+        drop-shadow(0 -3px 0 #C0D1A6);"/></a>
                                 @elseif($item->imageurl)
-                                <a href="{{$item->idUrl}}"><img src="{{ $item->imageUrl }}" data-toggle="tooltip" title="{{ $item->name }}" style="max-width: 80%; padding: 5px; background-color: #fffbfc; padding: 15px; border-radius: 5px; border: 1px solid #f4e3e6;"/></a>
+                                <a href="{{$item->idUrl}}"><img src="{{ $item->imageUrl }}" data-toggle="tooltip" title="{{ $item->name }}" style="max-width: 80%; filter: drop-shadow(3px 0 0 #C0D1A6) 
+        drop-shadow(0 3px 0 #C0D1A6)
+        drop-shadow(-3px 0 0 #C0D1A6) 
+        drop-shadow(0 -3px 0 #C0D1A6);"/></a>
                                 @else {!!$item->displayName !!}
                                 @endif
                             </div>
