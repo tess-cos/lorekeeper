@@ -41,12 +41,12 @@ class ForagingController extends Controller
                 }
                 // if after all that there's still no characters
                 if (!count($characters)) {
-                    flash('You must have at least one character to forage.')->error();
+                    flash('You must select at least one character to travel.')->error();
 
                     return redirect()->back();
                 }
             } else {
-                flash('You must have at least one character to forage.')->error();
+                flash('You must select at least one character to travel.')->error();
 
                 return redirect()->back();
             }
@@ -66,7 +66,7 @@ class ForagingController extends Controller
     {
         if($service->initForage($id, Auth::user()))
         {
-            flash('You have begun to forage!')->info();
+            flash('The train has left!')->info();
         }
         else {
             foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
@@ -83,7 +83,7 @@ class ForagingController extends Controller
     {
         if($service->claimReward(Auth::user()))
         {
-            flash('Forage successful!')->success();
+            flash('The train has returned!')->success();
         }
         else {
             foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();

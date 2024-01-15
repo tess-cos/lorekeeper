@@ -1,38 +1,38 @@
 @extends('home.layout')
 
-@section('home-title') Foraging @endsection
+@section('home-title') Traveling @endsection
 
 @section('home-content')
 {!! breadcrumbs(['Foraging' => 'foraging']) !!}
 
 <h1>
-    Foraging
+    Traveling
 </h1>
 
-<p>Welcome to foraging! Here you can choose an area to check for goodies.</p>
-<p>Goods will be claimable after you return from scavenging! Usually, about
+<p>Hop aboard a train to visit a place in Latorre and find various goodies, including some that can use in spells!</p>
+<p>Select a character (whether yours or a NPC) to go on a trip. Goods will be claimable once they return from their travels.</p>
+<p>Do note, you get <strong>three</strong> train tickets every day with each trip taking about
     {{-- convert integer to minutes using carbon (multiple integer by 60) --}}
-    {{ Config::get('lorekeeper.foraging.forage_time') . ' minute' . (Config::get('lorekeeper.foraging.forage_time') > 1 ? 's' : '')}}
-    is the amount of time it takes to check out an area.</p>
+    {{ Config::get('lorekeeper.foraging.forage_time') . ' minute' . (Config::get('lorekeeper.foraging.forage_time') > 1 ? 's' : '')}}, give or take.</p>
 <div class="row">
     <div class="col-md-6">
         @if($user->foraging->foraged_at)
             <p>
-                Last Foraged: {!! pretty_date($user->foraging->foraged_at) !!}
+                <strong>Last Traveled:</strong> {!! pretty_date($user->foraging->foraged_at) !!}
             <br>
-                Foraging Stamina Left: {{ $user->foraging->stamina }}
+            <strong>Tickets Left:</strong> {{ $user->foraging->stamina }}
             </p>
         @endif
-    </div>
+    </div></div>
     @if(Config::get('lorekeeper.foraging.use_characters') && !$user->foraging->distribute_at)
-        <div class="col-md-6 justify-content-center text-center">
-            <h3>Current Character</h3>
+        <div class="col-md-6 justify-content-center text-center" style="margin: auto;">
+            <h3>all aboard!</h3>
             @if (!$user->foraging->character)
                 <p>No character selected!</p>
             @else
                 <div>
                     <a href="{{ $user->foraging->character->url }}">
-                        <img src="{{ $user->foraging->character->image->thumbnailUrl }}" style="width: 150px;" class="img-thumbnail" />
+                        <img src="{{ $user->foraging->character->image->thumbnailUrl }}" style="width: 180px;" class="img-thumbnail" />
                     </a>
                 </div>
                 <div class="mt-1">
@@ -49,7 +49,7 @@
             {!! Form::close() !!}
         </div>
     @endif
-</div>
+
 
 <hr class="w-50 ml-auto mr-auto" />
 
@@ -85,7 +85,7 @@
                 location.reload();
             }
 
-            var text = "Foraging complete in " + minutes + ":" + seconds + "!";
+            var text = "Train returns in " + minutes + ":" + seconds + "!";
             $("#time").text(text);
         }, 1000);
     }
@@ -117,11 +117,11 @@
         @if (Config::get('lorekeeper.foraging.use_characters') && $user->foraging->character)
             <div class="mb-1">
                 <a href="{{ $user->foraging->character->url }}">
-                    <img src="{{ $user->foraging->character->image->thumbnailUrl }}" style="width: 150px;" class="img-thumbnail" />
+                    <img src="{{ $user->foraging->character->image->thumbnailUrl }}" style="width: 180px;" class="img-thumbnail" />
                 </a>
             </div>
         @endif
-        <div id="time">Foraging complete in {{ $diff < 1 ? 'less than a minute' : $diff }}</div>
+        <div id="time">Train returns in {{ $diff < 1 ? 'less than a minute' : $diff }}</div>
         <p>Started {!! pretty_date($user->foraging->foraged_at)!!}
     </div>
 @elseif($user->foraging->distribute_at <= $now && $user->foraging->forage_id)
@@ -130,7 +130,7 @@
         @if (Config::get('lorekeeper.foraging.use_characters') && $user->foraging->character)
             <div class="mb-1">
                 <a href="{{ $user->foraging->character->url }}">
-                    <img src="{{ $user->foraging->character->image->thumbnailUrl }}" style="width: 150px;" class="img-thumbnail" />
+                    <img src="{{ $user->foraging->character->image->thumbnailUrl }}" style="width: 180px;" class="img-thumbnail" />
                 </a>
             </div>
         @endif
@@ -139,7 +139,7 @@
                 <img src="{{ $user->foraging->forage->imageUrl }}" class="mb-2" style="max-width: 30%;"/>
                 <br>
             @endif
-            {!! $user->foraging->forage->fancyDisplayName !!}
+            Train arrived from <strong>{!! $user->foraging->forage->fancyDisplayName !!}</strong>
             <br>
             {!! Form::submit('Claim Reward' , ['class' => 'btn btn-primary m-2']) !!}
         {!! Form::close() !!}
@@ -155,15 +155,13 @@
                 {!! Form::open(['url' => 'foraging/forage/'.$table->id ]) !!}
 
                     <div><img src="{{ $table->imageUrl }}" class="img-fluid mb-2"/></div>
-                    <div>{!! Form::button(($table->isVisible ? '' : '<i class="fas fa-crown"></i> ') . 'Forage in the ' . $table->display_name , ['class' => 'btn btn-primary m-2', 'type' => 'submit']) !!}</div>
+                    <div>{!! Form::button(($table->isVisible ? '' : '<i class="fas fa-crown"></i> ') . 'Visit ' . $table->display_name , ['class' => 'btn btn-primary m-2', 'type' => 'submit']) !!}</div>
 
-                        <div class="alert alert-info pb-0">
-                            <ul style="list-style: none;">
-                                <li>This forage costs {{$table->stamina_cost}} stamina.</li>
+                        <div class="alert alert-info mb-3">
+                                This trip requires {{$table->stamina_cost}} ticket(s).
                                 @if($table->has_cost)
-                                    <li>This forage costs {!! $table->currency->display($table->currency_quantity) !!}.</li>
+                                   <br />Along with {!! $table->currency->display($table->currency_quantity) !!}.
                                 @endif
-                            </ul>
                         </div>
                 {!! Form::close() !!}
             </div>
@@ -172,7 +170,7 @@
     @endif
 @else
     <div class="alert alert-info">
-        You've exhausted yourself today and have no stamina left. Come back tomorrow to continue foraging!
+        You've used all tickets for today. Come back tomorrow to continue traveling!
     </div>
 @endif
 @endsection

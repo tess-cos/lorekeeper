@@ -206,18 +206,18 @@ class ForageService extends Service
                 ]);
             }
 
-            if($user->foraging->stamina < 1) throw new \Exception('You have exhausted yourself already! Come back tomorrow.');
+            if($user->foraging->stamina < 1) throw new \Exception('You have used your tickets already! Come back tomorrow.');
 
             // check if a distribute_at already exists
-            if ($user->foraging->distribute_at) throw new \Exception('You have already begun foraging.');
+            if ($user->foraging->distribute_at) throw new \Exception('The train has already left.');
 
             // check if the forage has a cost and decrement currency accordingly
             $forage = Forage::findOrFail($id);
             if ($forage->has_cost && $forage->currency_id && $forage->currency_quantity > 0) {
-                if(!(new CurrencyManager)->debitCurrency($user, null, 'Foraging Cost', 'Cost to Forage in the ' . $forage->display_name, Currency::find($forage->currency_id), $forage->currency_quantity))
+                if(!(new CurrencyManager)->debitCurrency($user, null, 'Train Fare', 'Paid to Visit ' . $forage->display_name, Currency::find($forage->currency_id), $forage->currency_quantity))
                     throw new \Exception('Could not debit currency.');
             }
-            if (!$forage->loot()->count()) throw new \Exception('This forage has no rewards.');
+            if (!$forage->loot()->count()) throw new \Exception('This visit has no rewards.');
             if(Config::get('lorekeeper.foraging.use_characters') && !$user->foraging->character_id) throw new \Exception('Please select a character.');
 
             $user->foraging->forage_id = $id;
@@ -232,7 +232,7 @@ class ForageService extends Service
                 }
                 else {
                     // put in stamina stat shit here if you want
-                    throw new \Exception('Please ensure the decrement stamina area has been appropriately edited.');
+                    throw new \Exception('Please ensure the decrement ticket has been appropriately edited.');
                 }
             }
             else {
@@ -244,7 +244,7 @@ class ForageService extends Service
                 else {
                     // if you dont want a forage to take stamina set the stamina to 0 on the edit page
                     // dont use this here
-                    throw new \Exception('Please ensure the decrement stamina area has been appropriately edited.');
+                    throw new \Exception('Please ensure the decrement ticket has been appropriately edited.');
                 }
             }
 
@@ -265,25 +265,25 @@ class ForageService extends Service
         try {
 
             $forage = $user->foraging->forage;
-            if(!$forage) throw new \Exception('Error finding forage.');
+            if(!$forage) throw new \Exception('Error finding travels.');
 
-            if (!$user->foraging->forage_id) throw new \Exception('You have not started a forage yet.');
-            if (!$user->foraging->distribute_at) throw new \Exception('You have not started a forage yet.');
-            if (!$user->foraging->forage->loot()->count()) throw new \Exception('This forage has no rewards.');
+            if (!$user->foraging->forage_id) throw new \Exception('You have not started a trip yet.');
+            if (!$user->foraging->distribute_at) throw new \Exception('You have not started a trip yet.');
+            if (!$user->foraging->forage->loot()->count()) throw new \Exception('This trip has no rewards.');
             // check it's been forage_time since forage started
             $now = Carbon::now();
             // add forage time to foraged_at
             $distribute = $user->foraging->foraged_at->addMinutes(Config::get('lorekeeper.foraging.forage_time'));
-            if($now->lt($distribute)) throw new \Exception('You must wait until the forage is complete before claiming your rewards.');
+            if($now->lt($distribute)) throw new \Exception('You must wait until the trip is complete before claiming your rewards.');
             // check distribute_at also
             $distribute = $user->foraging->distribute_at;
-            if($now->lt($distribute)) throw new \Exception('You must wait until the forage is complete before claiming your rewards.');
+            if($now->lt($distribute)) throw new \Exception('You must wait until the trip is complete before claiming your rewards.');
 
             $rewards = $this->processRewards($forage, true);
 
-            $logType = 'Foraging Rewards';
+            $logType = 'Travel Rewards';
             $data = [
-                'data' => 'Received rewards for foraging in '. $forage->display_name . '.'
+                'data' => 'Found while visiting '. $forage->display_name . '.'
             ];
 
             if(!$rewards = fillUserAssets($rewards, $user, $user, $logType, $data)) throw new \Exception("Failed to distribute rewards.");
@@ -321,7 +321,7 @@ class ForageService extends Service
     private function getRewardsString($rewards, $character_name = null)
     {
         if(Config::get('lorekeeper.foraging.use_characters'))
-            $results = $character_name . " has found: ";
+            $results = $character_name . " brought back: ";
         else $results = "You have received: ";
         $result_elements = [];
         foreach($rewards as $assetType)
