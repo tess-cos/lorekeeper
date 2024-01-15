@@ -141,6 +141,15 @@ return [
             ]
         ]
     ],
+    'Foraging' => [
+        'power' => 'edit_inventories',
+        'links' => [
+            [
+                'name' => 'Forages',
+                'url' => 'admin/data/forages'
+            ],
+        ]
+    ],
     'Masterlist' => [
         'power' => 'manage_characters',
         'links' => [

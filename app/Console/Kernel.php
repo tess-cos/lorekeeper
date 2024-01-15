@@ -30,6 +30,8 @@ class Kernel extends ConsoleKernel
                 ->daily();
         $schedule->command('check-sales')
                 ->everyMinute();
+        $schedule->command('reset-foraging')
+                ->daily();
         $schedule->command('change-feature')
                 ->weekly();
         $schedule->command('check-pet-drops')
