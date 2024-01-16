@@ -281,14 +281,14 @@ Route::post('pets/variants/{id?}', 'PetController@postEditVariants');
     Route::post('loot-tables/delete/{id}', 'LootTableController@postDeleteLootTable');
 
     # FORAGING
-    Route::get('forages', 'ForageController@getIndex');
-    Route::get('forages/create', 'ForageController@getCreateForage');
-    Route::get('forages/edit/{id}', 'ForageController@getEditForage');
-    Route::get('forages/delete/{id}', 'ForageController@getDeleteForage');
-    Route::get('forages/roll/{id}', 'ForageController@getRollForage');
-    Route::post('forages/create', 'ForageController@postCreateEditForage');
-    Route::post('forages/edit/{id?}', 'ForageController@postCreateEditForage');
-    Route::post('forages/delete/{id}', 'ForageController@postDeleteForage');
+    Route::get('travels', 'ForageController@getIndex');
+    Route::get('travels/create', 'ForageController@getCreateForage');
+    Route::get('travels/edit/{id}', 'ForageController@getEditForage');
+    Route::get('travels/delete/{id}', 'ForageController@getDeleteForage');
+    Route::get('travels/roll/{id}', 'ForageController@getRollForage');
+    Route::post('travels/create', 'ForageController@postCreateEditForage');
+    Route::post('travels/edit/{id?}', 'ForageController@postCreateEditForage');
+    Route::post('travels/delete/{id}', 'ForageController@postDeleteForage');
 
     # PROMPTS
     Route::get('prompt-categories', 'PromptController@getIndex');

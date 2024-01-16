@@ -3,7 +3,7 @@
 @section('home-title') Traveling @endsection
 
 @section('home-content')
-{!! breadcrumbs(['Foraging' => 'foraging']) !!}
+{!! breadcrumbs(['Traveling' => 'foraging']) !!}
 
 <h1>
     Traveling
@@ -43,7 +43,7 @@
                     </a>
                 </div>
             @endif
-            {!! Form::open(['url' => 'foraging/edit/character']) !!}
+            {!! Form::open(['url' => 'traveling/edit/character']) !!}
                 {!! Form::select('character_id', $characters, $user->foraging->character_id, ['class' => 'form-control m-1', 'placeholder' => 'None Selected']) !!}
                 {!! Form::submit('Select Character', ['class' => 'btn btn-primary mb-2']) !!}
             {!! Form::close() !!}
@@ -134,7 +134,7 @@
                 </a>
             </div>
         @endif
-        {!! Form::open(['url' => 'foraging/claim' ]) !!}
+        {!! Form::open(['url' => 'traveling/claim' ]) !!}
             @if($user->foraging->forage->imageUr)
                 <img src="{{ $user->foraging->forage->imageUrl }}" class="mb-2" style="max-width: 30%;"/>
                 <br>
@@ -147,12 +147,12 @@
 @elseif($user->foraging->stamina > 0)
     {{-- Base State --}}
     @if(!count($tables))
-        <p>No active forages. Come back soon!</p>
+        <p>No active travel locations. Come back soon!</p>
     @else
     <div class="row text-center">
         @foreach($tables->sortByDesc('is_visible') as $table)
             <div class="col-md-4">
-                {!! Form::open(['url' => 'foraging/forage/'.$table->id ]) !!}
+                {!! Form::open(['url' => 'traveling/travel/'.$table->id ]) !!}
 
                     <div><img src="{{ $table->imageUrl }}" class="img-fluid mb-2"/></div>
                     <div>{!! Form::button(($table->isVisible ? '' : '<i class="fas fa-crown"></i> ') . 'Visit ' . $table->display_name , ['class' => 'btn btn-primary m-2', 'type' => 'submit']) !!}</div>
@@ -160,7 +160,7 @@
                         <div class="alert alert-info mb-3">
                                 This trip requires {{$table->stamina_cost}} ticket(s).
                                 @if($table->has_cost)
-                                   <br />Along with {!! $table->currency->display($table->currency_quantity) !!}.
+                                   <br />Along with a {!! $table->currency->display($table->currency_quantity) !!} train fare.
                                 @endif
                         </div>
                 {!! Form::close() !!}

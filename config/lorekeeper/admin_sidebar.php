@@ -141,12 +141,12 @@ return [
             ]
         ]
     ],
-    'Foraging' => [
+    'Traveling' => [
         'power' => 'edit_inventories',
         'links' => [
             [
-                'name' => 'Forages',
-                'url' => 'admin/data/forages'
+                'name' => 'Travels',
+                'url' => 'admin/data/travels'
             ],
         ]
     ],

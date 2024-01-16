@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User\UserForaging;
 use App\Models\Foraging\Forage;
+use App\Models\Character\Character;
 
 use App\Services\ForageService;
 use App\Http\Controllers\Controller;
@@ -30,7 +31,7 @@ class ForagingController extends Controller
             ]);
         }
 
-        $characters = Auth::user()->characters()->pluck('slug', 'id');
+        $characters = Auth::user()->characters->pluck('slug', 'id');
         if (!count($characters) && Config::get('lorekeeper.foraging.use_characters')) {
             if (Config::get('lorekeeper.foraging.npcs.enabled')) {
                 // check if we're using ids or category/rarity
@@ -41,12 +42,12 @@ class ForagingController extends Controller
                 }
                 // if after all that there's still no characters
                 if (!count($characters)) {
-                    flash('You must select at least one character to travel.')->error();
+                    flash('You must have at least one characterw to travel.')->error();
 
                     return redirect()->back();
                 }
             } else {
-                flash('You must select at least one character to travel.')->error();
+                flash('You must have at least one character to travel.')->error();
 
                 return redirect()->back();
             }

@@ -1,17 +1,17 @@
 @extends('admin.layout')
 
-@section('admin-title') Forages @endsection
+@section('admin-title') Travels @endsection
 
 @section('admin-content')
-{!! breadcrumbs(['Admin Panel' => 'admin', 'Forages' => 'admin/data/forages']) !!}
+{!! breadcrumbs(['Admin Panel' => 'admin', 'Travels' => 'admin/data/travels']) !!}
 
-<h1>Forages</h1>
+<h1>Travels</h1>
 
-<p>Forages will roll a random reward from the contents of the table.</p>
+<p>Travel locations will roll a random reward from the contents of the table.</p>
 
-<div class="text-right mb-3"><a class="btn btn-primary" href="{{ url('admin/data/forages/create') }}"><i class="fas fa-plus"></i> Create New Forage</a></div>
+<div class="text-right mb-3"><a class="btn btn-primary" href="{{ url('admin/data/travels/create') }}"><i class="fas fa-plus"></i> Create New Forage</a></div>
 @if(!count($tables))
-    <p>No Forages found.</p>
+    <p>No travel location found.</p>
 @else
     {!! $tables->render() !!}
     <div class="row ml-md-2 mb-4">
@@ -26,7 +26,7 @@
           <div class="col-4 col-md-4"> {!! $table->fancyDisplayName !!} </div>
           <div class="col-3 col-md-3"> {!! $table->is_active ? '<i class="fa fa-check text-success"></i>' : '<i class="fa fa-times text-danger"></i>' !!} </div>
           <div class="col-2 col-md-2 text-right">
-            <a href="{{ url('admin/data/forages/edit/'.$table->id) }}"  class="btn btn-primary py-0 px-2">Edit</a>
+            <a href="{{ url('admin/data/travels/edit/'.$table->id) }}"  class="btn btn-primary py-0 px-2">Edit</a>
           </div>
         </div>
         @endforeach

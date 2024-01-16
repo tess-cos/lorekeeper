@@ -89,11 +89,11 @@ class ForageController extends Controller
             'is_active', 'active_until', 'stamina_cost', 'has_cost', 'currency_id', 'currency_quantity'
         ]);
         if($id && $service->updateForage(Forage::find($id), $data)) {
-            flash('Forage updated successfully.')->success();
+            flash('Travel location updated successfully.')->success();
         }
         else if (!$id && $table = $service->createForage($data)) {
-            flash('Forage created successfully.')->success();
-            return redirect()->to('admin/data/forages/edit/'.$table->id);
+            flash('Travel location created successfully.')->success();
+            return redirect()->to('admin/data/travels/edit/'.$table->id);
         }
         else {
             foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
@@ -126,12 +126,12 @@ class ForageController extends Controller
     public function postDeleteForage(Request $request, ForageService $service, $id)
     {
         if($id && $service->deleteForage(Forage::find($id))) {
-            flash('Forage deleted successfully.')->success();
+            flash('Travel location deleted successfully.')->success();
         }
         else {
             foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
         }
-        return redirect()->to('admin/data/forages');
+        return redirect()->to('admin/data/travels');
     }
     
     /**

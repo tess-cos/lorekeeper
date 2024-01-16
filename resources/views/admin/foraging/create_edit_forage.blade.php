@@ -1,17 +1,17 @@
 @extends('admin.layout')
 
-@section('admin-title') Forages @endsection
+@section('admin-title') Travels @endsection
 
 @section('admin-content')
-{!! breadcrumbs(['Admin Panel' => 'admin', 'Forages' => 'admin/data/forages', ($table->id ? 'Edit' : 'Create').' Forage' => $table->id ? 'admin/data/forages/edit/'.$table->id : 'admin/data/forages/create']) !!}
+{!! breadcrumbs(['Admin Panel' => 'admin', 'Travels' => 'admin/data/travels', ($table->id ? 'Edit' : 'Create').' Travel' => $table->id ? 'admin/data/travels/edit/'.$table->id : 'admin/data/travels/create']) !!}
 
-<h1>{{ $table->id ? 'Edit' : 'Create' }} Forage
+<h1>{{ $table->id ? 'Edit' : 'Create' }} Travel Location
     @if($table->id)
-        <a href="#" class="btn btn-danger float-right delete-table-button">Delete Forage</a>
+        <a href="#" class="btn btn-danger float-right delete-table-button">Delete Travel Location</a>
     @endif
 </h1>
 
-{!! Form::open(['url' => $table->id ? 'admin/data/forages/edit/'.$table->id : 'admin/data/forages/create', 'files' => true]) !!}
+{!! Form::open(['url' => $table->id ? 'admin/data/travels/edit/'.$table->id : 'admin/data/travels/create', 'files' => true]) !!}
 
 <h3>Basic Information</h3>
 <div class="row">
@@ -34,7 +34,7 @@
         <img src="{{$table->imageUrl }}" class="img-fluid mr-2 mb-2" style="height: 10em;" />
         <br>
     @endif
-    {!! Form::label('Page Image (Optional)') !!} {!! add_help('Displays above the forage button.') !!}
+    {!! Form::label('Page Image (Optional)') !!} {!! add_help('Displays above the visit button.') !!}
     <div>{!! Form::file('image') !!}</div>
     <div class="text-muted">Recommended size: 100px x 100px</div>
 </div>
@@ -83,7 +83,7 @@
 
 <h3>Loot</h3>
 
-<p>These are the potential rewards from rolling on this forage, similar to loot tables. You can add items, currencies or a loot table. @if(!$table->id) You can test loot rolling after the loot table is created. @endif</p>
+<p>These are the potential rewards from this travel location, similar to loot tables. You can add items, currencies or a loot table. @if(!$table->id) You can test loot rolling after the loot table is created. @endif</p>
 <p>You can add any kind of currencies (both user- and character-attached), but be sure to keep track of which are being distributed! Character-only currencies cannot be given to users.</p>
 
 <div class="text-right mb-3">
@@ -197,12 +197,12 @@ $( document ).ready(function() {
 
     $('.delete-table-button').on('click', function(e) {
         e.preventDefault();
-        loadModal("{{ url('admin/data/forages/delete') }}/{{ $table->id }}", 'Delete Forage');
+        loadModal("{{ url('admin/data/travels/delete') }}/{{ $table->id }}", 'Delete Travel Location');
     });
 
     $('#testRoll').on('click', function(e) {
         e.preventDefault();
-        loadModal("{{ url('admin/data/forages/roll') }}/{{ $table->id }}?quantity=" + $('#rollQuantity').val(), 'Rolling Forage');
+        loadModal("{{ url('admin/data/travels/roll') }}/{{ $table->id }}?quantity=" + $('#rollQuantity').val(), 'Rolling Travel');
     });
 
     $('#addLoot').on('click', function(e) {

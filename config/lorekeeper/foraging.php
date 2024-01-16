@@ -7,7 +7,7 @@ return [
 
     // future stuff...
     // characters are mostly just visual for the moment.
-    'use_characters' => 1,
+    'use_characters' => 0,
     // characters will use stamina on user_stamina table, unless you have a stat for that
     // in which case search for CHARACTER_STAMINA_DECREMENT comment in ForageService.php to edit
 
@@ -20,7 +20,7 @@ return [
         'use_ids' => true,
         // array of character ids that can be used as NPCs if your site does not define NPCs as a category or rarity
         'ids' => [
-            // 1, 19,
+            // 7, 8,
         ],
     ],
 
