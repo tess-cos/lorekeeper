@@ -42,7 +42,7 @@ class ForagingController extends Controller
                 }
                 // if after all that there's still no characters
                 if (!count($characters)) {
-                    flash('You must have at least one characterw to travel.')->error();
+                    flash('You must have at least one character to travel.')->error();
 
                     return redirect()->back();
                 }
@@ -107,6 +107,6 @@ class ForagingController extends Controller
             }
         }
 
-        return redirect()->to('foraging');
+        return redirect()->to('traveling');
     }
 }

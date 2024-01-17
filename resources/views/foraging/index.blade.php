@@ -170,7 +170,7 @@
     @endif
 @else
     <div class="alert alert-info">
-        You've used all tickets for today. Come back tomorrow to continue traveling!
+        You've used all your tickets for today. Come back tomorrow to continue traveling!
     </div>
 @endif
 @endsection

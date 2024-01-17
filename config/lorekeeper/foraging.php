@@ -7,17 +7,17 @@ return [
 
     // future stuff...
     // characters are mostly just visual for the moment.
-    'use_characters' => 0,
+    'use_characters' => 1,
     // characters will use stamina on user_stamina table, unless you have a stat for that
     // in which case search for CHARACTER_STAMINA_DECREMENT comment in ForageService.php to edit
 
     // allows FTO / Non Owner users to use NPCs, and set the NPC character category
     'npcs' => [
         'enabled'            => true,
-        'category_or_rarity' => 'category',
-        'code' => 'npc',
+        'category_or_rarity' => 'character_category_id',
+        'code' => '1',
         // if this is set to true, the ids array will be used instead of the category or rarity
-        'use_ids' => true,
+        'use_ids' => false,
         // array of character ids that can be used as NPCs if your site does not define NPCs as a category or rarity
         'ids' => [
             // 7, 8,
