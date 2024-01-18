@@ -89,6 +89,7 @@ class UserShopController extends Controller
             'items' => $items,
             'shops' => UserShop::where('is_active', 1)->orderBy('sort', 'DESC')->get(),
             'currencies' => Currency::whereIn('id', UserShopStock::where('user_shop_id', $shop->id)->pluck('currency_id')->toArray())->get()->keyBy('id'),
+            'stocks' => UserShopStock::where('user_shop_id', $shop->id)->where('quantity', '>', 0)->orderBy('id', 'DESC')->paginate(30),
             'pets' => $pets,
             'petCategories' => $petCategories->keyBy('id'),
         ]);

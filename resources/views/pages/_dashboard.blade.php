@@ -35,6 +35,8 @@
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="{{ url('prompts/prompts') }}">Prompts</a>
     <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="{{ url('traveling') }}">Traveling</a>
+    <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="{{ url('spellcasting') }}">Spellcasting</a>
   </div>
 </div>

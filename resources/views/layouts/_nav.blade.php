@@ -81,11 +81,14 @@
                                 Claims
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ url('characters/transfers/incoming') }}">
-                                Character Transfers
-                            </a>
+                            <a class="dropdown-item" href="{{ url('usershops') }}">
+                            My Shop
+                        </a>
                             <a class="dropdown-item" href="{{ url('trades/open') }}">
                                 Trades
+                            </a>
+                            <a class="dropdown-item" href="{{ url('characters/transfers/incoming') }}">
+                                Character Transfers
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('reports') }}">
@@ -112,6 +115,9 @@
                         </a>
                         <a class="dropdown-item" href="{{ url('/trades/listings') }}">
                             Trade Plaza
+                        </a>
+                        <a class="dropdown-item" href="{{ url('usershops/shop-index') }}">
+                            Farmer's Market
                         </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ url(__('dailies.dailies')) }}">
@@ -155,12 +161,6 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ url('users') }}">
                             Users
-                        </a>
-                        <a class="dropdown-item" href="{{ url('usershops') }}">
-                            My Shops
-                        </a>
-                        <a class="dropdown-item" href="{{ url('usershops/shop-index') }}">
-                            All User Shops
                         </a>
                     </div>
                 </li>

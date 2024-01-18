@@ -39,7 +39,7 @@
         <div class="card-body">
             @include('world._entry', ['imageUrl' => $pet->imageUrl, 'name' => $pet->displayName, 'description' => $pet->parsed_description, 'searchUrl' => $pet->searchUrl])
             <div class="container mt-2">
-            @if($pet->variants()->exists())<h5 class="pl-2" >Variants</h5>
+            @if($pet->variants()->exists())<h5 class="pl-2">Variants</h5>
                 @foreach($pet->variants as $variant)
                     <div class="row world-entry p-2">
                         @if($variant->imageurl)
@@ -66,7 +66,7 @@
                     </div>
                 @endif
             </div>    
-        </div>   
+       
     </div>
 @endforeach
 {!! $pets->render() !!}
