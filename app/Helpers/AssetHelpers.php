@@ -49,22 +49,22 @@ function getAssetModelString($type, $namespaced = true)
             if($namespaced) return '\App\Models\Currency\Currency';
             else return 'Currency';
             break;
-
-        case 'pets': case 'pet':
+            
+        case 'pets':
             if($namespaced) return '\App\Models\Pet\Pet';
             else return 'Pet';
             break;
 
-        case 'weapons': case 'weapon': 
+        case 'weapons':
             if($namespaced) return '\App\Models\Claymore\Weapon';
             else return 'Weapon';
             break;
 
-        case 'gears': case 'gear':
+        case 'gears':
             if($namespaced) return '\App\Models\Claymore\Gear';
             else return 'Gear';
             break;
-
+            
         case 'raffle_tickets':
             if($namespaced) return '\App\Models\Raffle\Raffle';
             else return 'Raffle';
@@ -283,7 +283,19 @@ function fillUserAssets($assets, $sender, $recipient, $logType, $data)
         {
             $service = new \App\Services\AwardCaseManager;
             foreach($contents as $asset)
-                if(!$service->moveStack($sender, $recipient, $logType, $data, $asset['asset'])) return false;
+                if(!$service->moveStack($sender, $recipient, $logType, $data, $asset['asset'], $asset['quantity'])) return false;
+        }
+        elseif($key == 'user_awards' && count($contents))
+        {
+            $service = new \App\Services\AwardCaseManager;
+            foreach($contents as $asset)
+                if(!$service->moveStack($sender, $recipient, $logType, $data, $asset['asset'], $asset['quantity'])) return false;
+        }
+        elseif($key == 'user_awards' && count($contents))
+        {
+            $service = new \App\Services\AwardCaseManager;
+            foreach($contents as $asset)
+                if(!$service->moveStack($sender, $recipient, $logType, $data, $asset['asset'], $asset['quantity'])) return false;
         }
         elseif($key == 'characters' && count($contents))
         {

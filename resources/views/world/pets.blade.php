@@ -54,6 +54,18 @@
                                 <div style="display: none;">No variants.</div>
                             @endif
             </div> 
+                @if(isset($pet->category) && $pet->category)
+                    @if($pet->category->can_user_sell == 1 && $pet->allow_transfer)
+                        <div class="text-right mb-4">
+                            <a class="btn btn-secondary " href="{{ url('usershops/pet-search?pet_id='.$pet->id) }}"><i class="fas fa-search"></i>User Shop Search</a>
+                        </div>
+                    @endif
+                @elseif(!$pet->category && $pet->allow_transfer)
+                    <div class="text-right mb-4">
+                        <a class="btn btn-secondary " href="{{ url('usershops/pet-search?pet_id='.$pet->id) }}"><i class="fas fa-search"></i>User Shop Search</a>
+                    </div>
+                @endif
+            </div>    
         </div>   
     </div>
 @endforeach

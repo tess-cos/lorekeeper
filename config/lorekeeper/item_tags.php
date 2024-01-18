@@ -48,4 +48,10 @@ return [
         'text_color' => '#ffffff',
         'background_color' => '#EDD3A0'
     ],
+
+    'splice' => [
+        'name' => 'Splice',
+        'text_color' => '#ffffff',
+        'background_color' => '#a69bc6'
+    ]
 ];

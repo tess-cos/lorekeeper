@@ -89,6 +89,7 @@ Route::group(['prefix' => 'pets', 'namespace' => 'Users'], function() {
     Route::get('selector', 'PetController@getSelector');
 
     Route::post('pet/{id}', 'PetController@postClaimPetDrops');
+    Route::post('shop/{id}', 'PetController@postShopPet');
 });
 
 Route::group(['prefix' => 'gears', 'namespace' => 'Users'], function() {
@@ -174,6 +175,41 @@ Route::group(['prefix' => 'spellcasting', 'namespace' => 'Users'], function() {
     Route::get('/', 'CraftingController@getIndex');
     Route::get('craft/{id}', 'CraftingController@getCraftRecipe');
     Route::post('craft/{id}', 'CraftingController@postCraftRecipe');
+});
+
+Route::group(['prefix' => 'usershops', 'namespace' => 'Users'], function() {
+    Route::get('/', 'UserShopController@getUserIndex'); 
+    Route::get('create', 'UserShopController@getCreateShop');
+    Route::get('edit/{id}', 'UserShopController@getEditShop');
+    Route::get('delete/{id}', 'UserShopController@getDeleteShop');
+    Route::post('create', 'UserShopController@postCreateEditShop');
+    Route::post('edit/{id?}', 'UserShopController@postCreateEditShop');
+    Route::post('stock/{id}', 'UserShopController@postEditShopStock');
+    Route::post('delete/{id}', 'UserShopController@postDeleteShop');
+    Route::post('sort', 'UserShopController@postSortShop');
+    Route::get('/stock/edit/{id}', 'UserShopController@getEditShopStock');
+    Route::post('/stock/edit/{id}', 'UserShopController@postEditShopStock');
+    // delete
+    Route::get('/stock/remove/{id}', 'UserShopController@getRemoveShopStock'); 
+    Route::post('/stock/remove/{id}', 'UserShopController@postRemoveStock');
+    // misc
+    Route::get('/stock-type', 'UserShopController@getShopStockType');
+    Route::get('/history', 'UserShopController@getPurchaseHistory');
+    Route::get('item-search', 'UserShopController@getItemSearch');
+
+    Route::get('sales/{id}', 'UserShopController@getShopHistory');
+
+    Route::get('/stock/removepet/{id}', 'UserShopController@getRemoveShopStockPet'); 
+    Route::post('/stock/removepet/{id}', 'UserShopController@postRemovePet');
+
+    Route::get('pet-search', 'UserShopController@getPetSearch');
+});
+
+Route::group(['prefix' => 'usershops',], function() {
+    Route::get('/shop-index', 'UserShopController@getIndex'); 
+    Route::get('/shop/{id}', 'UserShopController@getShop'); 
+    Route::post('/shop/buy', 'UserShopController@postBuy');
+    Route::get('{id}/{stockId}', 'UserShopController@getShopStock')->where(['id' => '[0-9]+', 'stockId' => '[0-9]+']);
 });
 
 /**************************************************************************************************

@@ -105,6 +105,38 @@ class GrantController extends Controller
     }
 
     /**
+    * Show the pet grant page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getPets()
+    {
+        return view('admin.grants.pets', [
+            'users' => User::orderBy('id')->pluck('name', 'id'),
+            'pets' => Pet::orderBy('name')->pluck('name', 'id')
+        ]);
+    }
+
+    /** 
+     * Grants or removes pets from multiple users.
+     *
+     * @param  \Illuminate\Http\Request        $request
+     * @param  App\Services\InvenntoryManager  $service
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function postPets(Request $request, PetManager $service)
+    {
+        $data = $request->only(['names', 'pet_ids', 'quantities', 'data', 'disallow_transfer', 'notes']);
+        if($service->grantPets($data, Auth::user())) {
+            flash('Pets granted successfully.')->success();
+        }
+        else {
+            foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
+        }
+        return redirect()->back();
+    }
+
+    /**
      * Show the recipe grant page.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -192,38 +224,6 @@ class GrantController extends Controller
         $data = $request->only(['names', 'quantity', 'data']);
         if($service->grantExp($data, Auth::user())) {
             flash('EXP granted successfully.')->success();
-        }
-        else {
-            foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
-        }
-        return redirect()->back();
-    }
-
-    /**
-     * Show the pet grant page.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function getPets()
-    {
-        return view('admin.grants.pets', [
-            'users' => User::orderBy('id')->pluck('name', 'id'),
-            'pets' => Pet::orderBy('name')->pluck('name', 'id')
-        ]);
-    }
-
-    /**
-     * Grants or removes pets from multiple users.
-     *
-     * @param  \Illuminate\Http\Request        $request
-     * @param  App\Services\InvenntoryManager  $service
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function postPets(Request $request, PetManager $service)
-    {
-        $data = $request->only(['names', 'pet_ids', 'quantities', 'data', 'disallow_transfer', 'notes']);
-        if($service->grantPets($data, Auth::user())) {
-            flash('Pets granted successfully.')->success();
         }
         else {
             foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();

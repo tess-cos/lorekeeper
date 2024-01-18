@@ -538,6 +538,13 @@ return [
         'url' => 'gallery/view/{submission_id}'
     ],
 
+    // USER_SHOP_ITEM_SOLD
+    1104 => [
+        'name' => 'Shop Item Sold',
+        'message' => 'You have sold a {item_name} from <a href="{url}">{shop_name}</a> and have been credited {currency_quantity} {currency_name}.',
+        'url' => 'usershops/shop/{shop_id}'
+    ],
+
     // RECIPE_GRANT
     600 => [
         'name' => 'Spell Grant',

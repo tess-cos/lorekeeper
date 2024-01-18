@@ -97,7 +97,7 @@ class SpliceService extends Service
      */
     private function getSpliceRewardsString($rewards)
     {
-        $results = "You received: ";
+        $results = "You have received: ";
         $result_elements = [];
         foreach($rewards as $assetType)
         {

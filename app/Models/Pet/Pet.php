@@ -15,7 +15,7 @@ class Pet extends Model
      * @var array
      */
     protected $fillable = [
-        'pet_category_id', 'name', 'has_image', 'description', 'parsed_description', 'allow_transfer'
+        'pet_category_id', 'name', 'has_image', 'description', 'parsed_description', 'allow_transfer', 'pet_name'
     ];
 
     /**
@@ -24,7 +24,6 @@ class Pet extends Model
      * @var string
      */
     protected $table = 'pets';
-
     /**
      * Validation rules for creation.
      *
@@ -36,7 +35,6 @@ class Pet extends Model
         'description' => 'nullable',
         'image' => 'mimes:png',
     ];
-
     /**
      * Validation rules for updating.
      *
@@ -50,7 +48,6 @@ class Pet extends Model
     ];
 
     /**********************************************************************************************
-
         RELATIONS
 
     **********************************************************************************************/
@@ -173,7 +170,6 @@ class Pet extends Model
     {
         return public_path($this->imageDirectory);
     }
-
     /**
      * Gets the URL of the model's image.
      *

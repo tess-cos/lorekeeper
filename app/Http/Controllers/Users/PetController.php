@@ -19,6 +19,7 @@ use App\Services\InventoryManager;
 use App\Models\Character\Character;
 
 use App\Http\Controllers\Controller;
+use App\Models\Shop\UserShop;
 
 class PetController extends Controller
 {
@@ -64,16 +65,18 @@ class PetController extends Controller
 
         $tags = ItemTag::where('tag', 'splice')->where('is_active', 1)->pluck('item_id');
         $splices = UserItem::where('user_id', $stack->user_id)->whereIn('item_id', $tags)->where('count', '>', 0)->with('item')->get()->pluck('item.name', 'id');
+        $shops = UserShop::where('user_id', '=', Auth::user()->id)->pluck('name', 'id');
         return view('home._pet_stack', [
             'stack' => $stack,
             'chara' => $chara,
             'user' => Auth::user(),
             'userOptions' => ['' => 'Select User'] + User::visible()->where('id', '!=', $stack ? $stack->user_id : 0)->orderBy('name')->get()->pluck('verified_name', 'id')->toArray(),
             'readOnly' => $readOnly,
-            'splices' => $splices
+            'splices' => $splices,
+            'shopOptions' => $shops
         ]);
     }
-
+    
     /**
      * Transfers an pet stack to another user.
      *
@@ -92,7 +95,6 @@ class PetController extends Controller
         }
         return redirect()->back();
     }
-
     /**
      * Deletes an pet stack.
      *
@@ -241,11 +243,25 @@ class PetController extends Controller
 
         if($service->claimPetDrops($pet, $pet->user, $pet->drops)) {
             flash('Drops claimed successfully.')->success();
+        } 
+    }
+
+    /**
+     * transfers item to shop
+     *
+     * @param  \Illuminate\Http\Request       $request
+     * @param  App\Services\PetManager  $service
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function postShopPet(Request $request, PetManager $service, $id)
+    {
+        $pet = UserPet::find($id);
+        if($service->sendShopPet(Auth::user(), UserShop::where('id', $request->get('user_shop_id'))->first(), $pet)) {
+            flash('Pet transferred successfully.')->success();
         }
         else {
             foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
         }
         return redirect()->back();
     }
-
 }

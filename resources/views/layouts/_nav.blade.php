@@ -156,6 +156,12 @@
                         <a class="dropdown-item" href="{{ url('users') }}">
                             Users
                         </a>
+                        <a class="dropdown-item" href="{{ url('usershops') }}">
+                            My Shops
+                        </a>
+                        <a class="dropdown-item" href="{{ url('usershops/shop-index') }}">
+                            All User Shops
+                        </a>
                     </div>
                 </li>
                 <a href="https://discord.gg/YQqN7YqEGR"><img src="https://i.imgur.com/uWqtpz1.png" border="0" data-toggle="tooltip" title="Cossetlings Discord" style="position: relative; z-index: 2; width: 18px; margin-left: 8px; margin-top: 12px;"></a>

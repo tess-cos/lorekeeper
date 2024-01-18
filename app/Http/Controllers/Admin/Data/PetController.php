@@ -30,7 +30,6 @@ class PetController extends Controller
     */
 
     /**********************************************************************************************
-
         PET CATEGORIES
 
     **********************************************************************************************/
@@ -46,7 +45,6 @@ class PetController extends Controller
             'categories' => PetCategory::orderBy('sort', 'DESC')->get()
         ]);
     }
-
     /**
      * Shows the create pet category page.
      *
@@ -58,7 +56,6 @@ class PetController extends Controller
             'category' => new PetCategory
         ]);
     }
-
     /**
      * Shows the edit pet category page.
      *
@@ -86,7 +83,7 @@ class PetController extends Controller
     {
         $id ? $request->validate(PetCategory::$updateRules) : $request->validate(PetCategory::$createRules);
         $data = $request->only([
-            'name', 'description', 'image', 'remove_image'
+            'name', 'description', 'image', 'remove_image', 'can_user_sell'
         ]);
         if($id && $service->updatePetCategory(PetCategory::find($id), $data, Auth::user())) {
             flash('Category updated successfully.')->success();
@@ -100,7 +97,6 @@ class PetController extends Controller
         }
         return redirect()->back();
     }
-
     /**
      * Gets the pet category deletion modal.
      *
@@ -153,7 +149,6 @@ class PetController extends Controller
     }
 
     /**********************************************************************************************
-
         PETS
 
     **********************************************************************************************/
@@ -177,7 +172,6 @@ class PetController extends Controller
             'categories' => ['none' => 'Any Category'] + PetCategory::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray()
         ]);
     }
-
     /**
      * Shows the create pet page.
      *
@@ -190,7 +184,6 @@ class PetController extends Controller
             'categories' => ['none' => 'No category'] + PetCategory::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray()
         ]);
     }
-
     /**
      * Shows the edit pet page.
      *
@@ -233,7 +226,6 @@ class PetController extends Controller
         }
         return redirect()->back();
     }
-
     /**
      * Gets the pet deletion modal.
      *

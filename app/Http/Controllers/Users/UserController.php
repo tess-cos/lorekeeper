@@ -51,6 +51,8 @@ use App\Models\Claymore\Weapon;
 use App\Models\User\UserWeapon;
 
 use App\Http\Controllers\Controller;
+use App\Models\Shop\UserShop;
+
 
 class UserController extends Controller
 {
@@ -686,6 +688,23 @@ class UserController extends Controller
             'user' => $this->user,
             'characters' => true,
             'favorites' => $this->user->characters->count() ? GallerySubmission::whereIn('id', $userFavorites)->whereIn('id', GalleryCharacter::whereIn('character_id', $userCharacters)->pluck('gallery_submission_id')->toArray())->visible(Auth::check() ? Auth::user() : null)->accepted()->orderBy('created_at', 'DESC')->paginate(20) : null,
+            'sublists' => Sublist::orderBy('sort', 'DESC')->get()
+        ]);
+    }
+
+    /**
+     * Shows a user's characters.
+     *
+     * @param  string  $name
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getUserShops($name)
+    {
+        $shops = UserShop::visible()->where('user_id', $this->user->id);
+
+        return view('user.shops', [
+            'user' => $this->user,
+            'shops' => $shops->orderBy('sort', 'DESC')->get(),
             'sublists' => Sublist::orderBy('sort', 'DESC')->get()
         ]);
     }

@@ -21,7 +21,6 @@ class PetService extends Service
     */
 
     /**********************************************************************************************
-
         PET CATEGORIES
 
     **********************************************************************************************/
@@ -261,7 +260,6 @@ class PetService extends Service
     private function populateData($data, $pet = null)
     {
         if(isset($data['description']) && $data['description']) $data['parsed_description'] = parse($data['description']);
-
         if(!isset($data['allow_transfer'])) $data['allow_transfer'] = 0;
 
         if(isset($data['remove_image']))
@@ -276,7 +274,6 @@ class PetService extends Service
 
         return $data;
     }
-
     /**
      * Deletes an pet.
      *
@@ -336,7 +333,6 @@ class PetService extends Service
                                 $image = $data['variant_images'][$key];
                                 unset($data['variant_images'][$key]);
                             }
-
                             if($image) $this->handleImage($image, $tempVar->imagePath, $tempVar->imagefilename);
                         }
                     }
@@ -370,7 +366,6 @@ class PetService extends Service
                             $image = $data['variant_images'][$key];
                             unset($data['variant_images'][$key]);
                         }
-
 
                         if($image) $this->handleImage($image, $variant->imagePath, $variant->imagefilename);
                     }
