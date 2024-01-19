@@ -43,9 +43,11 @@
         @foreach($userRecipes as $categoryId=>$categoryrecipes)
             <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="category-{{ isset($categories[$categoryId]) ? $categoryId : 'misc'}}">
                 @foreach($categoryrecipes->chunk(4) as $chunk)
+                <div class="row mb-3">
                 @foreach($chunk as $recipe)
                 @include('home.crafting._smaller_recipe_card', ['recipe' => $recipe])
                 @endforeach
+</div>
                 @endforeach
             </div>
         @endforeach
