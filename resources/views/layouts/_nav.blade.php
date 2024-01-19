@@ -82,13 +82,13 @@
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('usershops') }}">
-                            My Shop
+                            Shop Stock
                         </a>
+                        <a class="dropdown-item" href="{{ url('characters/transfers/incoming') }}">
+                                Character Transfers
+                            </a>
                             <a class="dropdown-item" href="{{ url('trades/open') }}">
                                 Trades
-                            </a>
-                            <a class="dropdown-item" href="{{ url('characters/transfers/incoming') }}">
-                                Character Transfers
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('reports') }}">

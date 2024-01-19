@@ -9,8 +9,9 @@
 
 <p>This is a list of spells in the game that can be used to create items.</p> 
 
-<div class="text-right mb-3"><a class="btn btn-primary" href="{{ url('admin/data/spells/create') }}"><i class="fas fa-plus"></i> Create New Spell</a></div>
-
+<div class="text-right mb-3"><a class="btn btn-primary" href="{{ url('admin/data/spell-categories') }}"><i class="fas fa-folder"></i> Spell Categories</a>
+    <a class="btn btn-primary" href="{{ url('admin/data/spells/create') }}"><i class="fas fa-plus"></i> Create New Spell</a>
+</div>
 <div>
     {!! Form::open(['method' => 'GET', 'class' => 'form-inline justify-content-end']) !!}
         <div class="form-group mr-3 mb-3">

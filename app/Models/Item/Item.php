@@ -388,4 +388,24 @@ class Item extends Model
     {
         return $this->tags()->where('tag', $tag)->where('is_active', 1)->first();
     }
+
+    
+        /**
+     * Check if an item can be donated.
+     *
+     * @return bool
+     */
+    public function getCanUserSellAttribute()
+    {
+        //borrowed idea from donation shop
+        //it makes it a lot cleaner to check if a thing can be sold in a user shop
+        //ty merc :)
+
+        if(Auth::user()->hasPower('edit_inventories')) return 1;
+        if(Auth::check() && Auth::user()->hasPower('edit_inventories')) return 1;
+        if(!$this->allow_transfer) return 0;
+        if(!$this->category) return 1;
+        if($this->category && $this->category->can_user_sell) return 1;
+        else return 0;
+    }
 }

@@ -148,6 +148,7 @@ Route::group(['prefix' => 'world'], function() {
     Route::get('character-categories', 'WorldController@getCharacterCategories');
     Route::get('spells', 'WorldController@getRecipes');
     Route::get('spells/{id}', 'WorldController@getRecipe');
+    Route::get('spell-categories', 'WorldController@getRecipeCategories');
     Route::get(__('transformations.transformations'), 'WorldController@getTransformations');
     Route::get('levels', 'WorldController@getLevels');
     Route::get('levels/{type}', 'WorldController@getLevelTypes');

@@ -208,6 +208,15 @@ Route::post('pets/variants/{id?}', 'PetController@postEditVariants');
     Route::post('spells/create', 'RecipeController@postCreateEditRecipe');
     Route::post('spells/edit/{id?}', 'RecipeController@postCreateEditRecipe');
     Route::post('spells/delete/{id}', 'RecipeController@postDeleteRecipe');
+
+    Route::get('spell-categories', 'RecipeController@getIndex');
+    Route::get('spell-categories/create', 'RecipeController@getCreateRecipeCategory');
+    Route::get('spell-categories/edit/{id}', 'RecipeController@getEditRecipeCategory');
+    Route::get('spell-categories/delete/{id}', 'RecipeController@getDeleteRecipeCategory');
+    Route::post('spell-categories/create', 'RecipeController@postCreateEditRecipeCategory');
+    Route::post('spell-categories/edit/{id?}', 'RecipeController@postCreateEditRecipeCategory');
+    Route::post('spell-categories/delete/{id}', 'RecipeController@postDeleteRecipeCategory');
+    Route::post('spell-categories/sort', 'RecipeController@postSortRecipeCategory');
     
     # SHOPS
     Route::get('shops', 'ShopController@getIndex');
