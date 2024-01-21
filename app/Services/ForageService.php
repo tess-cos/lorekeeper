@@ -283,7 +283,7 @@ class ForageService extends Service
 
             $logType = 'Travel Rewards';
             $data = [
-                'data' => 'Found while visiting '. $forage->display_name . '.'
+                'data' => 'Visited '. $forage->display_name . ''
             ];
 
             if(!$rewards = fillUserAssets($rewards, $user, $user, $logType, $data)) throw new \Exception("Failed to distribute rewards.");

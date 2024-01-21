@@ -9,7 +9,7 @@
 
 <p>Travel locations will roll a random reward from the contents of the table.</p>
 
-<div class="text-right mb-3"><a class="btn btn-primary" href="{{ url('admin/data/travels/create') }}"><i class="fas fa-plus"></i> Create New Forage</a></div>
+<div class="text-right mb-3"><a class="btn btn-primary" href="{{ url('admin/data/travels/create') }}"><i class="fas fa-plus"></i> Create New Travel Location</a></div>
 @if(!count($tables))
     <p>No travel location found.</p>
 @else
