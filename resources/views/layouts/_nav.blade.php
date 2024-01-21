@@ -164,7 +164,7 @@
                         </a>
                     </div>
                 </li>
-                <a href="https://discord.gg/YQqN7YqEGR"><img src="https://i.imgur.com/uWqtpz1.png" border="0" data-toggle="tooltip" title="Cossetlings Discord" style="position: relative; z-index: 2; width: 18px; margin-left: 8px; margin-top: 12px;"></a>
+                <a href="https://discord.gg/YQqN7YqEGR"><img src="https://i.imgur.com/uWqtpz1.png" border="0" data-toggle="tooltip" title="Cossetlings Discord" class="dis" style="position: relative; z-index: 2; width: 18px; margin-left: 8px; margin-top: 12px;"></a>
                 <li>
             </ul>
 
@@ -199,10 +199,11 @@
                     @endif
 
                     @foreach(Auth::user()->getCurrencies(true) as $currency)
-                    <li class="nav-item" style="color: #4A4A4A; margin-top: 5px; margin-left: 2.5px; padding: 2.5px;">{!! $currency->display($currency->quantity) !!}</li>
+                    <li class="nav-item" style="color: #4A4A4A; margin-top: 5px; margin-left: 2.5px; padding: 2.5px;"> {!! $currency->display($currency->quantity) !!} @break($currency->id > 0)</li>
             @endforeach
-
-                    <li class="nav-item dropdown">
+            <li class="nav-item mbg"><a role="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="fas fa-briefcase" data-toggle="tooltip" title="Check All Currencies" style="color: #95b582; margin-top: 9px; font-size: 13pt; margin-left: 2.5px; margin-right: 2.5px; padding: 2.5px;"></span></a></li>
+            <div class="collapse" id="collapseExample" style="height: inherit; position: absolute; z-index: 3; top: 100%; max-width: 150px; background-color: #fafafa; margin: auto; padding: 10px; border-radius: 2.5px;">@foreach(Auth::user()->getCurrencies(true) as $currency)<span style="color: #4A4A4A; margin-top: 5px; margin-left: 2.5px; padding: 2.5px;"> {!! $currency->display($currency->quantity) !!}</span>@endforeach</div>
+            <li class="nav-item dropdown">
                         <a id="browseDropdown" class="nav-link dropdown-toggle" href="#" style="color:#4A4A4A; font-size: 10pt;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             Submit
                         </a>

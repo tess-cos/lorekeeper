@@ -621,6 +621,9 @@ background-size: 7px;}
     .site-header-image, .navimg, .navimgbg, .clk {
         display: none;
     }
+
+.mbg, .dis {margin-left: 0 !important; margin-right: 0 !important; padding: 0 !important;}
+
     .site-mobile-header {
         display: block;
         position: fixed;
