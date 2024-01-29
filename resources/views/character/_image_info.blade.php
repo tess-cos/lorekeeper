@@ -47,8 +47,8 @@
                 </div>
                 @if($image->subtype_id)
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt; color: #7b956d;">{{ ucfirst(__('lorekeeper.subtype'))}}</div>
-                        <div class="col-lg-8 col-md-6 col-8">{!! $image->subtype_id ? $image->subtype->displayName : 'None' !!}</div>
+                        <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt; color: #7b956d;">Subtype{{ ($image->subtype_id_2) ? 's' : '' }}</div>
+                        <div class="col-lg-8 col-md-6 col-8">{!! $image->subtype_id ? $image->subtype->displayName : 'None' !!} {{($image->subtype_id_2) ? '•' : '' }} {!! $image->subtype_id_2 ? $image->subtypeTwo->displayName : '' !!}</div>
                     </div>
                 @endif
                 @if ($image->transformation_id)

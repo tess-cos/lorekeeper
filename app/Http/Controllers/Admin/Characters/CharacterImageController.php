@@ -60,12 +60,13 @@ class CharacterImageController extends Controller
      * @param  Request  $request
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function getNewImageSubtype(Request $request) {
+    public function getNewImageSubtype(Request $request, $type) {
       $species = $request->input('species');
       $id = $request->input('id');
       return view('character.admin._upload_image_subtype', [
           'subtypes' => ['0' => 'Select '.ucfirst('lorekeeper.subtype')] + Subtype::where('species_id','=',$species)->orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
-          'subtype' => $id
+          'subtype' => $id,
+          'type' => $type
       ]);
     }
 
@@ -94,7 +95,7 @@ class CharacterImageController extends Controller
     public function postNewImage(Request $request, CharacterManager $service, $slug)
     {
         $request->validate(CharacterImage::$createRules);
-        $data = $request->only(['image', 'thumbnail', 'x0', 'x1', 'y0', 'y1', 'use_cropper', 'artist_url', 'artist_id', 'designer_url', 'designer_id', 'species_id', 'subtype_id', 'rarity_id', 'feature_id', 'feature_data', 'is_valid', 'is_visible', 'transformation_id',]);
+        $data = $request->only(['image', 'thumbnail', 'x0', 'x1', 'y0', 'y1', 'use_cropper', 'artist_url', 'artist_id', 'designer_url', 'designer_id', 'species_id', 'subtype_id', 'subtype_id_2', 'rarity_id', 'feature_id', 'feature_data', 'is_valid', 'is_visible', 'transformation_id',]);
         $this->character = Character::where('slug', $slug)->first();
         if(!$this->character) abort(404);
         if($service->createImage($data, $this->character, Auth::user())) {
@@ -137,7 +138,7 @@ class CharacterImageController extends Controller
      */
     public function postEditImageFeatures(Request $request, CharacterManager $service, $id)
     {
-        $data = $request->only(['species_id', 'subtype_id', 'rarity_id', 'feature_id', 'feature_data', 'transformation_id']);
+        $data = $request->only(['species_id', 'subtype_id', 'subtype_id_2', 'rarity_id', 'feature_id', 'feature_data', 'transformation_id']);
         $image = CharacterImage::find($id);
         if(!$image) abort(404);
         if($service->updateImageFeatures($data, $image, Auth::user())) {
@@ -155,12 +156,13 @@ class CharacterImageController extends Controller
      * @param  Request  $request
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function getEditImageSubtype(Request $request) {
+    public function getEditImageSubtype(Request $request, $type) {
       $species = $request->input('species');
       $id = $request->input('id');
       return view('character.admin._edit_features_subtype', [
           'image' => CharacterImage::find($id),
-          'subtypes' => ['0' => 'Select '.ucfirst(__('lorekeeper.subtype'))] + Subtype::where('species_id','=',$species)->orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
+          'subtypes' => ['0' => 'Select Subtype'] + Subtype::where('species_id','=',$species)->orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
+          'type' => $type
       ]);
     }
 

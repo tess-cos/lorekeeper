@@ -28,7 +28,7 @@
                 <div class="alert alert-secondary">{!! $request->character->image->subtype->displayName !!}</div>
             @else
                 <div id="subtypes">
-                  {!! Form::select('subtype_id', $subtypes, $request->subtype_id, ['class' => 'form-control', 'id' => 'subtype']) !!}
+                    {!! Form::select('subtype_id', $subtypes, $request->subtype_id, ['class' => 'form-control', 'id' => 'subtype']) !!}
                 </div>
             @endif
         </div>
@@ -40,6 +40,28 @@
             @else
                 <div id="transformations">
                     {!! Form::select('transformation_id', $transformations, $request->transformation_id, ['class' => 'form-control', 'id' => 'transformation']) !!}
+                </div>
+            @endif
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('subtype_id_2', 'Species Subtype (Secondary)') !!}
+            @if($request->character->is_myo_slot && $request->character->image->subtype_id_2) 
+                <div class="alert alert-secondary">{!! $request->character->image->subtypeTwo->displayName !!}</div>
+            @else
+                <div id="subtypes_2">
+                    {!! Form::select('subtype_id_2', $subtypes, $request->subtype_id_2, ['class' => 'form-control', 'id' => 'subtype_2']) !!}
+                </div>
+            @endif
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('subtype_id_2', 'Species Subtype (Secondary)') !!}
+            @if($request->character->is_myo_slot && $request->character->image->subtype_id_2) 
+                <div class="alert alert-secondary">{!! $request->character->image->subtypeTwo->displayName !!}</div>
+            @else
+                <div id="subtypes_2">
+                    {!! Form::select('subtype_id_2', $subtypes, $request->subtype_id_2, ['class' => 'form-control', 'id' => 'subtype_2']) !!}
                 </div>
             @endif
         </div>
@@ -95,7 +117,7 @@
             <div class="col-md-2 col-4"><h5>{{ ucfirst(__('lorekeeper.species')) }}</h5></div>
             <div class="col-md-10 col-8">{!! $request->species ? $request->species->displayName : 'None Selected' !!}</div>
         </div>
-        @if($request->subtype_id)
+        @if($request->subtype_id || ($request->character->is_myo_slot && $request->character->image->subtype_id))
         <div class="row">
             <div class="col-md-2 col-4"><h5>{{ ucfirst(__('lorekeeper.subtype')) }}</h5></div>
             <div class="col-md-10 col-8">
@@ -120,6 +142,18 @@
                         @endif
                     </div>
                 </div>
+        @endif
+        @if($request->subtype_id_2 || ($request->character->is_myo_slot && $request->character->image->subtype_id_2))
+        <div class="row">
+            <div class="col-md-2 col-4"><h5>Subtype</h5></div>
+            <div class="col-md-10 col-8">
+            @if($request->character->is_myo_slot && $request->character->image->subtype_id_2)
+                {!! $request->character->image->subtypeTwo->displayName !!}
+            @else
+                {!! $request->subtype_id_2 ? $request->subtypeTwo->displayName : 'None Selected' !!}
+            @endif
+            </div>
+        </div>
         @endif
         <div class="row">
             <div class="col-md-2 col-4"><h5>Rarity</h5></div>
@@ -151,7 +185,9 @@
     $.ajax({
       type: "GET", url: "{{ url('designs/traits/subtype') }}?species="+species+"&id="+id, dataType: "text"
     }).done(function (res) { $("#subtypes").html(res); }).fail(function (jqXHR, textStatus, errorThrown) { alert("AJAX call failed: " + textStatus + ", " + errorThrown); });
-
+    $.ajax({
+      type: "GET", url: "{{ url('designs/traits/subtype') }}?species="+species+"&id="+id, dataType: "text"
+    }).done(function (res) { $("#subtypes_2").html(res); }).fail(function (jqXHR, textStatus, errorThrown) { alert("AJAX call failed: " + textStatus + ", " + errorThrown); });
   });
 </script>
 

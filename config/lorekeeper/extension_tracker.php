@@ -12,6 +12,16 @@ return [
     //     'version' => '1.0.0',
     // ],
 
+    'second_subtype' => [
+        'key' => 'second_subtype',
+        'wiki_key' => 'Second_Subtype',
+        'creators' => json_encode([
+            'Mercury' => 'https://github.com/itinerare/',
+        ]),
+        'version' => '1.0.1',
+    ],
+
+
     'crafting_system' => [
         'key' => 'crafting_system',
         'wiki_key' => 'Crafting_System',

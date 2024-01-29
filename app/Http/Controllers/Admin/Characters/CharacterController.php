@@ -98,11 +98,12 @@ class CharacterController extends Controller
      * @param  Request  $request
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function getCreateCharacterMyoSubtype(Request $request) {
+    public function getCreateCharacterMyoSubtype(Request $request, $type) {
       $species = $request->input('species');
       return view('admin.masterlist._create_character_subtype', [
           'subtypes' => ['0' => 'Select '.ucfirst(__('lorekeeper.subtype'))] + Subtype::where('species_id','=',$species)->orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
-          'isMyo' => $request->input('myo')
+          'isMyo' => $request->input('myo'),
+          'type' => $type
       ]);
     }
 
@@ -157,7 +158,7 @@ class CharacterController extends Controller
             'x0', 'x1', 'y0', 'y1',
             'designer_id', 'designer_url',
             'artist_id', 'artist_url',
-            'species_id', 'subtype_id', 'rarity_id', 'feature_id', 'feature_data',
+            'species_id', 'subtype_id', 'subtype_id_2', 'rarity_id', 'feature_id', 'feature_data',
             'image', 'thumbnail', 'image_description', 'transformation_id', 'stats'
         ]);
         if ($character = $service->createCharacter($data, Auth::user())) {
@@ -187,7 +188,7 @@ class CharacterController extends Controller
             'x0', 'x1', 'y0', 'y1',
             'designer_id', 'designer_url',
             'artist_id', 'artist_url',
-            'species_id', 'subtype_id', 'rarity_id', 'feature_id', 'feature_data',
+            'species_id', 'subtype_id', 'subtype_id_2', 'rarity_id', 'feature_id', 'feature_data',
             'image', 'thumbnail', 'transformation_id', 'stats'
         ]);
         if ($character = $service->createCharacter($data, Auth::user(), true)) {

@@ -115,6 +115,11 @@ Traits
     {!! Form::select('subtype_id', $subtypes, old('subtype_id') ? : $character->image->subtype_id, ['class' => 'form-control', 'id' => 'subtype']) !!}
 </div>
 
+<div class="form-group" id="subtypes_2">
+    {!! Form::label('Secondary Subtype (Optional)') !!} 
+    {!! Form::select('subtype_id_2', $subtypes, old('subtype_id_2') ? : $character->image->subtype_id_2, ['class' => 'form-control', 'id' => 'subtype']) !!}
+</div>
+
 <div class="form-group" id="transformations">
     {!! Form::label(ucfirst(__('transformations.transformation')).' (Optional)') !!}
     {!! Form::select('transformation_id', $transformations, null, ['class' => 'form-control', 'id' => 'transformation']) !!}
@@ -294,8 +299,11 @@ $( "#species" ).change(function() {
   var species = $('#species').val();
   var id = '<?php echo($character->image->id); ?>';
   $.ajax({
-    type: "GET", url: "{{ url('admin/character/image/subtype') }}?species="+species+"&id="+id, dataType: "text"
+    type: "GET", url: "{{ url('admin/character/image/subtype/1') }}?species="+species+"&id="+id, dataType: "text"
   }).done(function (res) { $("#subtypes").html(res); }).fail(function (jqXHR, textStatus, errorThrown) { alert("AJAX call failed: " + textStatus + ", " + errorThrown); });
+  $.ajax({
+    type: "GET", url: "{{ url('admin/character/image/subtype/2') }}?species="+species+"&id="+id, dataType: "text"
+  }).done(function (res) { $("#subtypes_2").html(res); }).fail(function (jqXHR, textStatus, errorThrown) { alert("AJAX call failed: " + textStatus + ", " + errorThrown); });
 
 });
 
