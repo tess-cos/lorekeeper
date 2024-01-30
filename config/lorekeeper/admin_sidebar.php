@@ -344,9 +344,15 @@ return [
             ],
 
             [
+                'name' => 'Collections',
+                'url' => 'admin/data/collections'
+            ],
+
+            [
                 'name' => 'Quests',
                 'url' => 'admin/data/quests'
             ],
+            
         ]
     ],
     'Raffles' => [

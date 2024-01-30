@@ -2,7 +2,7 @@
     <table class="table table-sm">
         <tbody id="rewardRow">
             <tr class="reward-row">
-                <td>{!! Form::select('award_type[]', ['Item' => 'Item', 'Currency' => 'Currency'] + ($showLootTables ? ['LootTable' => 'Loot Table'] : []) + ($showRaffles ? ['Raffle' => 'Raffle Ticket'] : []), null, ['class' => 'form-control award-type', 'placeholder' => 'Select Reward Type']) !!}</td>
+                <td>{!! Form::select('award_type[]', ['Item' => 'Item', 'Currency' => 'Currency', 'Award' => ucfirst(__('awards.award'))]  + ($showLootTables ? ['LootTable' => 'Loot Table'] : []) + ($showRaffles ? ['Raffle' => 'Raffle Ticket'] : []), null, ['class' => 'form-control award-type', 'placeholder' => 'Select Reward Type']) !!}</td>
                 <td class="reward-row-select"></td>
                 <td>{!! Form::text('award_quantity[]', 1, ['class' => 'form-control']) !!}</td>
                 <td class="text-right"><a href="#" class="btn btn-danger remove-reward-button">Remove</a></td>

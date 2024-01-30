@@ -1202,6 +1202,8 @@ tr.outflow {
 
 .card-header { background: #f9f8f3 !important; border: 0px;} 
 
+.alert-entry { background-color: #f9f8f3 !important; border: 0px;} 
+
 #inboxType {background: none !important;}
 
 table {
@@ -1417,7 +1419,12 @@ input[type='checkbox'] {
         padding-left: 1rem;
     }
 }
-/*
+
+.collectionnotunlocked {               
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    zoom: 1;  /* needed to trigger "hasLayout" in IE if no width or height is set */ 
+ }/*
     Credit to Preimpression for all of this code. You can find their github here:
     https://github.com/preimpression
 

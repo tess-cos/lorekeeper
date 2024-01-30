@@ -171,6 +171,13 @@ Route::group(['prefix' => 'trades', 'namespace' => 'Users'], function() {
     Route::post('{id}/cancel-trade', 'TradeController@postCancelTrade');
 });
 
+
+# PROFILES
+Route::group(['prefix' => 'user', 'namespace' => 'Users'], function() {
+    Route::get('{name}/collection-logs', 'UserController@getUserCollectionLogs');
+    Route::get('{name}/shops', 'UserController@getUserShops');
+});
+
 Route::group(['prefix' => 'spellcasting', 'namespace' => 'Users'], function() {
     Route::get('/', 'CraftingController@getIndex');
     Route::get('craft/{id}', 'CraftingController@getCraftRecipe');
@@ -394,6 +401,13 @@ Route::group(['prefix' => 'comments', 'namespace' => 'Comments'], function() {
     Route::put('/{comment}', 'CommentController@update')->name('comments.update');
     Route::post('/{comment}', 'CommentController@reply')->name('comments.reply');
     Route::post('/{id}/feature', 'CommentController@feature')->name('comments.feature');
+});
+
+
+Route::group(['prefix' => 'collection', 'namespace' => 'Users'], function() {
+    Route::get('/', 'CollectionController@getIndex');
+    Route::get('complete/{id}', 'CollectionController@getCompleteCollection');
+    Route::post('complete/{id}', 'CollectionController@postCompleteCollection');
 });
 
 /**************************************************************************************************	

@@ -74,6 +74,8 @@ Route::group(['prefix' => 'user', 'namespace' => 'Users'], function() {
     Route::get('{name}/pet-logs', 'UserController@getUserPetLogs');
     Route::get('{name}/ownership', 'UserController@getUserOwnershipLogs');
     Route::get('{name}/submissions', 'UserController@getUserSubmissions');
+
+    Route::get('{name}/collection-logs', 'UserController@getUserCollectionLogs');
     Route::get('{name}/shops', 'UserController@getUserShops');
 
     Route::get('{name}/spell-logs', 'UserController@getUserRecipeLogs');
@@ -146,6 +148,10 @@ Route::group(['prefix' => 'world'], function() {
     Route::get('prompt-categories', 'WorldController@getPromptCategories');
     Route::get('prompts', 'WorldController@getPrompts');
     Route::get('character-categories', 'WorldController@getCharacterCategories');
+
+    Route::get('collections', 'WorldController@getCollections');
+    Route::get('collections/{id}', 'WorldController@getCollection');
+    Route::get('collection-categories', 'WorldController@getCollectionCategories');
     Route::get('spells', 'WorldController@getRecipes');
     Route::get('spells/{id}', 'WorldController@getRecipe');
     Route::get('spell-categories', 'WorldController@getRecipeCategories');
