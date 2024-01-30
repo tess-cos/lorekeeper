@@ -249,6 +249,10 @@ return [
                 'url' => 'admin/data/dailies'
             ],
             [
+                'name' => 'Activities',
+                'url' => 'admin/data/activities'
+            ],
+            [
                 'name' => 'Currencies',
                 'url' => 'admin/data/currencies'
             ],
