@@ -52,6 +52,77 @@ Route::group(['prefix' => 'inventory', 'namespace' => 'Users'], function() {
     Route::get('account-search', 'InventoryController@getAccountSearch');
 
     Route::get('selector', 'InventoryController@getSelector');
+
+    Route::get('quickstock', 'InventoryController@getQuickstock');
+    Route::post('quickstock-items', 'InventoryController@postQuickstock');
+});
+Route::group(['prefix' => __('awards.awardcase'), 'namespace' => 'Users'], function() {
+    Route::get('/', 'AwardCaseController@getIndex');
+    Route::post('edit', 'AwardCaseController@postEdit');
+    Route::post('claim/{id}', 'AwardCaseController@postClaimAward');
+    Route::get('selector', 'AwardCaseController@getSelector');
+});
+    Route::group(['prefix' => 'wishlists', 'namespace' => 'Users'], function() {
+        Route::get('/', 'WishlistController@getIndex');
+        Route::get('create', 'WishlistController@getCreateWishlist');
+        Route::get('{id}', 'WishlistController@getWishlist')->where('id', '[0-9]+');
+        Route::get('default', 'WishlistController@getWishlist');
+        Route::get('edit/{id}', 'WishlistController@getEditWishlist');
+        Route::get('delete/{id}', 'WishlistController@getDeleteWishlist');
+        Route::post('create', 'WishlistController@postCreateEditWishlist');
+        Route::post('edit/{id}', 'WishlistController@postCreateEditWishlist');
+        Route::post('delete/{id}', 'WishlistController@postDeleteWishlist');
+        Route::post('add/{item_id}', 'WishlistController@postCreateEditWishlistItem')->where('item_id', '[0-9]+');
+        Route::post('{id}/add/{item_id}', 'WishlistController@postCreateEditWishlistItem')->where('id', '[0-9]+')->where('item_id', '[0-9]+');
+        Route::post('default/update/{item_id}', 'WishlistController@postCreateEditWishlistItem')->where('item_id', '[0-9]+');
+        Route::post('{id}/update/{item_id}', 'WishlistController@postCreateEditWishlistItem')->where('id', '[0-9]+')->where('item_id', '[0-9]+');
+        Route::post('move/{item_id}', 'WishlistController@postMoveWishlistItem')->where('item_id', '[0-9]+');
+        Route::post('{id}/move/{item_id}', 'WishlistController@postMoveWishlistItem')->where('id', '[0-9]+')->where('item_id', '[0-9]+');
+});
+
+Route::group(['prefix' => 'pets', 'namespace' => 'Users'], function() {
+    Route::get('/', 'PetController@getIndex');
+    Route::post('transfer/{id}', 'PetController@postTransfer');
+    Route::post('delete/{id}', 'PetController@postDelete');
+    Route::post('name/{id}', 'PetController@postName');
+    Route::post('attach/{id}', 'PetController@postAttach');
+    Route::post('detach/{id}', 'PetController@postDetach');
+    Route::post('variant/{id}', 'PetController@postVariant');
+
+    Route::get('selector', 'PetController@getSelector');
+
+    Route::post('pet/{id}', 'PetController@postClaimPetDrops');
+    Route::post('shop/{id}', 'PetController@postShopPet');
+});
+
+Route::group(['prefix' => 'gears', 'namespace' => 'Users'], function() {
+    Route::get('/', 'GearController@getIndex');
+    Route::post('transfer/{id}', 'GearController@postTransfer');
+    Route::post('delete/{id}', 'GearController@postDelete');
+    Route::post('name/{id}', 'GearController@postName');
+    Route::post('attach/{id}', 'GearController@postAttach');
+    Route::post('detach/{id}', 'GearController@postDetach');
+    Route::post('upgrade/{id}', 'GearController@postUpgrade');
+
+    Route::get('selector', 'GearController@getSelector');
+});
+
+Route::group(['prefix' => 'weapons', 'namespace' => 'Users'], function() {
+    Route::get('/', 'WeaponController@getIndex');
+    Route::post('transfer/{id}', 'WeaponController@postTransfer');
+    Route::post('delete/{id}', 'WeaponController@postDelete');
+    Route::post('name/{id}', 'WeaponController@postName');
+    Route::post('attach/{id}', 'WeaponController@postAttach');
+    Route::post('detach/{id}', 'WeaponController@postDetach');
+    Route::post('upgrade/{id}', 'WeaponController@postUpgrade');
+    Route::post('image/{id}', 'WeaponController@postImage');
+
+    Route::get('selector', 'WeaponController@getSelector');
+});
+
+Route::group(['prefix' => __('safetydeposit.url'), 'namespace' => 'Users'], function() {
+    Route::get('/', 'StorageController@getIndex');
+    Route::post('withdraw', 'StorageController@postWithdraw');
 });
 Route::group(['prefix' => __('awards.awardcase'), 'namespace' => 'Users'], function() {
     Route::get('/', 'AwardCaseController@getIndex');
@@ -184,7 +255,20 @@ Route::group(['prefix' => 'spellcasting', 'namespace' => 'Users'], function() {
     Route::post('craft/{id}', 'CraftingController@postCraftRecipe');
 });
 
-Route::group(['prefix' => 'usershops', 'namespace' => 'Users'], function() {
+
+# PROFILES
+Route::group(['prefix' => 'user', 'namespace' => 'Users'], function() {
+    Route::get('{name}/collection-logs', 'UserController@getUserCollectionLogs');
+    Route::get('{name}/shops', 'UserController@getUserShops');
+});
+
+Route::group(['prefix' => 'spellcasting', 'namespace' => 'Users'], function() {
+    Route::get('/', 'CraftingController@getIndex');
+    Route::get('craft/{id}', 'CraftingController@getCraftRecipe');
+    Route::post('craft/{id}', 'CraftingController@postCraftRecipe');
+});
+
+Route::group(['prefix' => 'user-shops', 'namespace' => 'Users'], function() {
     Route::get('/', 'UserShopController@getUserIndex'); 
     Route::get('create', 'UserShopController@getCreateShop');
     Route::get('edit/{id}', 'UserShopController@getEditShop');
@@ -194,11 +278,7 @@ Route::group(['prefix' => 'usershops', 'namespace' => 'Users'], function() {
     Route::post('stock/{id}', 'UserShopController@postEditShopStock');
     Route::post('delete/{id}', 'UserShopController@postDeleteShop');
     Route::post('sort', 'UserShopController@postSortShop');
-    Route::get('/stock/edit/{id}', 'UserShopController@getEditShopStock');
-    Route::post('/stock/edit/{id}', 'UserShopController@postEditShopStock');
-    // delete
-    Route::get('/stock/remove/{id}', 'UserShopController@getRemoveShopStock'); 
-    Route::post('/stock/remove/{id}', 'UserShopController@postRemoveStock');
+
     // misc
     Route::get('/stock-type', 'UserShopController@getShopStockType');
     Route::get('/history', 'UserShopController@getPurchaseHistory');
@@ -206,13 +286,15 @@ Route::group(['prefix' => 'usershops', 'namespace' => 'Users'], function() {
 
     Route::get('sales/{id}', 'UserShopController@getShopHistory');
 
+    Route::post('quickstock/{id}', 'UserShopController@postQuickstockStock');
+
     Route::get('/stock/removepet/{id}', 'UserShopController@getRemoveShopStockPet'); 
     Route::post('/stock/removepet/{id}', 'UserShopController@postRemovePet');
 
     Route::get('pet-search', 'UserShopController@getPetSearch');
 });
 
-Route::group(['prefix' => 'usershops',], function() {
+Route::group(['prefix' => 'user-shops',], function() {
     Route::get('/shop-index', 'UserShopController@getIndex'); 
     Route::get('/shop/{id}', 'UserShopController@getShop'); 
     Route::post('/shop/buy', 'UserShopController@postBuy');

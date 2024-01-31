@@ -13,7 +13,7 @@ class UserShop extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'user_id','sort', 'has_image', 'description', 'parsed_description', 'is_active'
+        'name', 'user_id','sort', 'has_image', 'description', 'parsed_description', 'is_active','updated_at'
     ];
 
     /**
@@ -29,7 +29,7 @@ class UserShop extends Model
      * @var array
      */
     public static $createRules = [
-        'name' => 'required|unique:item_categories|between:3,100',
+        'name' => 'required|unique:user_shops|between:3,25',
         'description' => 'nullable',
         'image' => 'mimes:png',
     ];
@@ -40,7 +40,7 @@ class UserShop extends Model
      * @var array
      */
     public static $updateRules = [
-        'name' => 'required|between:3,100',
+        'name' => 'required|between:3,25',
         'description' => 'nullable',
         'image' => 'mimes:png',
     ];
@@ -56,7 +56,15 @@ class UserShop extends Model
      */
     public function stock() 
     {
-        return $this->hasMany('App\Models\Shop\UserShopStock');
+        return $this->hasMany('App\Models\Shop\UserShopStock')->orderBy('id', 'DESC');
+    }
+
+    /**
+     * Get the shop stock (visible & non 0 quantity for public display)
+     */
+    public function visibleStock() 
+    {
+        return $this->hasMany('App\Models\Shop\UserShopStock')->where('quantity', '>', 0)->where('is_visible', 1);
     }
 
     /**
@@ -97,11 +105,12 @@ class UserShop extends Model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeVisible($query, $user = null) {
+        
         if ($user && $user->hasPower('edit_inventories')) {
             return $query;
         }
 
-        return $query->where('is_active', 1);
+        return $query->where('is_active', 1)->whereRelation('user', 'is_banned', 0);
     }
 
     /**
@@ -178,7 +187,7 @@ class UserShop extends Model
      */
     public function getUrlAttribute()
     {
-        return url('/usershops/shop/'.$this->id);
+        return url('/user-shops/shop/'.$this->id);
     }
 
     /**
@@ -193,5 +202,14 @@ class UserShop extends Model
         $query = UserShopLog::where('user_shop_id', $this->id)->with('shop')->with('currency')->orderBy('id', 'DESC');
         if($limit) return $query->take($limit)->get();
         else return $query->paginate(30);
+    }
+
+        /**
+     * Gets the URL to edit shop
+     *
+     * @return string
+     */
+    public function getEditUrlAttribute() {
+        return url('/user-shops/edit/'.$this->id);
     }
 }

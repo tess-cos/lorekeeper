@@ -83,9 +83,17 @@
                                 Claims
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ url('usershops') }}">
-                            Shop Stock
-                        </a>
+                            @if(Auth::check())
+                            @if(Auth::user()->shops()->count() && Settings::get('user_shop_limit') == 1)
+                                <a class="dropdown-item" href="{{ url(Auth::user()->shops()->first()->editUrl) }}">
+                                    My Shop Stock
+                                </a>
+                            @else
+                                <a class="dropdown-item" href="{{ url('user-shops') }}">
+                                    My Shops
+                                </a>
+                            @endif
+                        @endif
                         <a class="dropdown-item" href="{{ url('characters/transfers/incoming') }}">
                                 Character Transfers
                             </a>

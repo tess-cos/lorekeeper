@@ -12,6 +12,7 @@ use App\Models\Shop\UserShopStock;
 use App\Models\Item\Item;
 use App\Models\Currency\Currency;
 use App\Services\InventoryManager;
+use App\Models\Item\ItemCategory;
 
 
 use App\Services\UserShopService;
@@ -70,6 +71,7 @@ class UserShopController extends Controller
             'shop' => $shop,
             'items' => Item::orderBy('name')->pluck('name', 'id'),
             'currencies' => Currency::where('is_user_owned', 1)->where('allow_user_to_user', 1)->orderBy('name')->pluck('name', 'id'),
+            'stocks' => UserShopStock::where('user_shop_id', $shop->id)->where('quantity', '>', 0)->orderBy('id', 'DESC')->paginate(30),
         ]);
     }
 
@@ -92,7 +94,7 @@ class UserShopController extends Controller
         }
         else if (!$id && $shop = $service->createShop($data, Auth::user())) {
             flash('Shop created successfully.')->success();
-            return redirect()->to('usershops/edit/'.$shop->id);
+            return redirect()->to('user-shops/edit/'.$shop->id);
         }
         else {
             foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
@@ -121,22 +123,6 @@ class UserShopController extends Controller
             foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
         }
         return redirect()->back();
-    }
-
-    /**
-     * Gets the stock deletion modal.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function getRemoveShopStock($id)
-    {
-        $stock = UserShopStock::find($id);
-        $shop = UserShop::where('id', $stock->user_shop_id)->first();
-        return view('home.user_shops._delete_stock', [
-            'stock' => $stock,
-            'shop' => $shop
-        ]);
     }
     
     /**
@@ -169,7 +155,7 @@ class UserShopController extends Controller
         else {
             foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
         }
-        return redirect()->to('usershops');
+        return redirect()->to('user-shops');
     }
 
     /**
@@ -183,26 +169,6 @@ class UserShopController extends Controller
     {
         if($service->sortShop($request->get('sort'))) {
             flash('Shop order updated successfully.')->success();
-        }
-        else {
-            foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
-        }
-        return redirect()->back();
-    }
-
-
-    /**
-     * Transfers inventory items back to a user.
-     *
-     * @param  \Illuminate\Http\Request       $request
-     * @param  App\Services\InventoryManager  $service
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function postRemoveStock(Request $request, InventoryManager $service)
-    {
-        $shop = UserShop::where('id', $request->get('user_shop_id'))->first();
-        if($service->sendShop($shop, $shop->user, UserShopStock::find($request->get('ids')), $request->get('quantities'))) {
-            flash('Item transferred successfully.')->success();
         }
         else {
             foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
@@ -229,23 +195,49 @@ class UserShopController extends Controller
      */
     public function getItemSearch(Request $request)
     { 
-        $item = Item::find($request->only(['item_id']))->first();
+        $items = Item::whereIn('id', (array) $request->get('item_ids') ?? [])->released()->get();
+        $category = ItemCategory::find($request->get('item_category_id'));
 
-        if($item) {
+        if($items) {
             // Gather all instances of this item
-            $shopItems = UserShopStock::where('item_id', $item->id)->where('stock_type', 'Item')->where('is_visible', 1)->where('quantity', '>', 0)->orderBy('cost', 'ASC')->get();
+            $shopItems = UserShopStock::whereIn('item_id', $items->pluck('id')->toArray())
+            ->where('stock_type', 'Item')->where('is_visible', 1)->where('quantity', '>', 0)->orderBy('cost', 'ASC')->get();
             $shops = UserShop::whereIn('id', $shopItems->pluck('user_shop_id')->toArray())->orderBy('name', 'ASC')->get()->paginate(20);
         }
 
+         // if there is a category, also get all items in that category
+         if ($category) {
+            $category_items = Item::where('item_category_id', $category->id)->get();
+
+            if ($shopItems) {
+                $shopItems = $shopItems->merge(UserShopStock::whereIn('item_id', $category_items->pluck('id')->toArray())
+                ->where('stock_type', 'Item')->where('is_visible', 1)->where('quantity', '>', 0)->orderBy('cost', 'ASC')->get());
+            }
+            else {
+                $shopItems = UserShopStock::whereIn('item_id', $category_items->pluck('id')->toArray())
+                ->where('stock_type', 'Item')->where('is_visible', 1)->where('quantity', '>', 0)->orderBy('cost', 'ASC')->get();
+            }
+
+            // add category items to items
+            $items = $items->merge($category_items);
+        }
+
+         // sort shop items by name
+         $shopItems = $shopItems->sortBy(function ($item, $key) {
+            return $item->item->name;
+        });
+
         return view('home.user_shops.search_items', [
-            'item' => $item ? $item : null,
-            'items' => Item::released()->orderBy('name')->pluck('name', 'id'),
-            'shopItems' => $item ? $shopItems : null, 
-            'shops' => $item ? $shops : null,
+            'searched_items' => count($items) ? $items : null,
+            'items'          => Item::released()->orderBy('name')->pluck('name', 'id'),
+            'shopItems'      => $items ? $shopItems : null,
+            'shops'          => $items ? $shops : null,
+            'categories'     => ItemCategory::orderBy('name')->pluck('name', 'id'),
+            'category'       => $category,
         ]);
     }
 
-/**
+    /**
      * Shows the user's purchase history.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -260,63 +252,21 @@ class UserShopController extends Controller
         ]);
     }
 
-        /**
-     * Gets the stock deletion modal.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function getRemoveShopStockPet($id)
-    {
-        $stock = UserShopStock::find($id);
-        $shop = UserShop::where('id', $stock->user_shop_id)->first();
-        return view('home.user_shops._delete_stock_pet', [
-            'stock' => $stock,
-            'shop' => $shop
-        ]);
-    }
-
-
-      /**
+    /**
      * transfers item to shop
      *
      * @param  \Illuminate\Http\Request       $request
-     * @param  App\Services\PetManager  $service
+     * @param  App\Services\InventoryManager  $service
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postRemovePet(Request $request, PetManager $service, $id)
+    public function postQuickstockStock(Request $request, UserShopService $service, $id)
     {
-        $stock = UserShopStock::find($id);
-        $shop = UserShop::where('id', $request->get('user_shop_id'))->first();
-        if($service->removePet($shop, $shop->user, $stock->data, $stock)) {
-            flash('Pet transferred successfully.')->success();
+        if($service->quickstockStock($request->only(['stock_id','quantity','is_visible','cost','currency_id']), UserShop::where('id', $id)->first(), Auth::user())) {
+            flash('Stock edited successfully.')->success();
         }
         else {
             foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
         }
         return redirect()->back();
-    }
-
-    /**
-     * Show the pet search page.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function getPetSearch(Request $request)
-    { 
-        $pet = Pet::find($request->only(['pet_id']))->first();
-
-        if($pet) {
-            // Gather all instances of this pet
-            $shopPets = UserShopStock::where('item_id', $pet->id)->where('stock_type', 'Pet')->where('is_visible', 1)->where('quantity', '>', 0)->orderBy('cost', 'ASC')->get();
-            $shops = UserShop::whereIn('id', $shopPets->pluck('user_shop_id')->toArray())->orderBy('name', 'ASC')->get()->paginate(20);
-        }
-
-        return view('home.user_shops.search_pets', [
-            'pet' => $pet ? $pet : null,
-            'pets' => Pet::orderBy('name')->pluck('name', 'id'),
-            'shopPets' => $pet ? $shopPets : null, 
-            'shops' => $pet ? $shops : null,
-        ]);
     }
 }

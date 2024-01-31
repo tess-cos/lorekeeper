@@ -10,6 +10,7 @@
     <div class="float-right mb-3">
         <a class="btn btn-primary" href="{{ url('inventory/account-search') }}"><i class="fas fa-fw fa-search mr-2"></i> Account Search</a>
         <a class="btn btn-primary" href="{{ url(__('safetydeposit.url')) }}"><i class="fas fa-fw fa-boxes mr-2"></i> {{ ucwords(__('safetydeposit.name')) }}</a>
+        <a class="btn btn-primary" href="{{ url('inventory/quickstock') }}"><i class="fas fa-truck"></i> Quickstock</a>
     </div>
 </h1>
 
