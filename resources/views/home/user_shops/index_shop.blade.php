@@ -8,12 +8,11 @@
     <h1>
         Farmer's Market
     </h1>
-    <p>This is a catalog of all user-owned shops, seperate from official site <a href="{{ url('shops') }}">shops</a>, that sell various goods you can purchase.</p>
+    <p>This is a catalog of user-owned shops, separate from official <a href="{{ url('shops') }}">site shops</a>, that sell various goods you can purchase.</p>
     <div class="text-right mb-3">
-        <a class="btn btn-primary" href="{{ url('user-shops/item-search') }}"><i class="fas fa-search mr-1"></i> Search by
-            Items</a>
-            <a class="btn btn-primary" href="{{ url('usershops/pet-search') }}"><i class="fas fa-search"></i> Search For a Pet</a>
-</div>
+        <a class="btn btn-primary" href="{{ url('user-shops/item-search') }}"><i class="fas fa-search mr-1"></i>Search by Items</a>
+        <a class="btn btn-primary" href="{{ url('user-shops/pet-search') }}"><i class="fas fa-search mr-1"></i>Search by Pets</a>
+    </div>
 
     @if (Auth::user()->isStaff)
         <div class="alert alert-info text-center">
@@ -24,10 +23,7 @@
     <div>
         {!! Form::open(['method' => 'GET', 'class' => 'form-inline justify-content-end']) !!}
         <div class="form-group mr-3 mb-3">
-            {!! Form::text('name', Request::get('name'), [
-                'class' => 'form-control',
-                'placeholder' => 'Search by Shop Name',
-            ]) !!}
+            {!! Form::text('name', Request::get('name'), ['class' => 'form-control', 'placeholder' => 'Search by Shop Name']) !!}
         </div>
         <div class="form-group mr-3 mb-3">
             {!! Form::select(
@@ -57,9 +53,7 @@
                 @if ($shop->has_image)
                     <div class="shop-image container">
                         <a href="{{ $shop->url }}">
-                            <img src="{{ $shop->shopImageUrl }}"
-                                style="max-width: 200px !important; max-height: 200px !important;"
-                                alt="{{ $shop->name }}" />
+                            <img src="{{ $shop->shopImageUrl }}" style="max-width: 200px !important; max-height: 200px !important;" alt="{{ $shop->name }}" />
                         </a>
                     </div>
                 @endif

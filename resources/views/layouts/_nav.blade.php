@@ -90,7 +90,7 @@
                                 </a>
                             @else
                                 <a class="dropdown-item" href="{{ url('user-shops') }}">
-                                    My Shops
+                                    My Shop
                                 </a>
                             @endif
                         @endif
@@ -126,7 +126,7 @@
                         <a class="dropdown-item" href="{{ url('/trades/listings') }}">
                             Trade Plaza
                         </a>
-                        <a class="dropdown-item" href="{{ url('usershops/shop-index') }}">
+                        <a class="dropdown-item" href="{{ url('user-shops/shop-index') }}">
                             Farmer's Market
                         </a>
                         <div class="dropdown-divider"></div>

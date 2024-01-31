@@ -589,7 +589,7 @@ class InventoryManager extends Service
     }
 
 
-    /**
+/**
      * quickstocks items between a user and shop.
      *
      * @param  \App\Models\User\User|\App\Models\Shop\UserShop          $sender

@@ -5,9 +5,9 @@
 @section('home.user_shops-content')
 {!! breadcrumbs(['User Shops' => 'user-shops/shop-index', 'Item Search' => 'user-shops/item-search']) !!}
 
-    <h1>User Shop Item Search</h1>
+    <h1>Market Item Search</h1>
 
-    <p>Select an item that you are looking to buy from other users, and you will be able to see if any shops are currently stocking it, as well as the cost of each user's items.</p>
+    <p>Select an item that you are looking to buy from other users, and you will be able to see if any shops in the market are currently stocking it, as well as the cost of each user's items.</p>
     <p>Items that are not currently stocked by any shops will not be shown.</p>
     <p>Selecting a category will limit the search to only items in that category, unless they have been specifically added to the search.</p>
 

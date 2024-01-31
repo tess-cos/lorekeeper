@@ -16,7 +16,7 @@
 
 Route::get('items/{id}', 'Users\InventoryController@getStack');
 Route::get(__('awards.awardcase').'/{id}', 'Users\AwardCaseController@getStack');
-Route::get('pets/{id}', 'Users\PetController@getStack');
+Route::get('pets/{id}', 'Users\PetController@getStack')->where(['id' => '[0-9]+']);
 Route::get('weapons/{id}', 'Users\WeaponController@getStack');
 Route::get('gears/{id}', 'Users\GearController@getStack');
 Route::get('items/character/{id}', 'Users\InventoryController@getCharacterStack');

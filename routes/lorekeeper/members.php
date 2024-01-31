@@ -159,8 +159,9 @@ Route::group(['prefix' => 'pets', 'namespace' => 'Users'], function() {
 
     Route::get('selector', 'PetController@getSelector');
 
+    Route::get('quickstock', 'PetController@getQuickstockPets');
     Route::post('pet/{id}', 'PetController@postClaimPetDrops');
-    Route::post('shop/{id}', 'PetController@postShopPet');
+    Route::post('quickstock', 'PetController@postQuickstock');
 });
 
 Route::group(['prefix' => 'gears', 'namespace' => 'Users'], function() {
@@ -286,12 +287,11 @@ Route::group(['prefix' => 'user-shops', 'namespace' => 'Users'], function() {
 
     Route::get('sales/{id}', 'UserShopController@getShopHistory');
 
-    Route::post('quickstock/{id}', 'UserShopController@postQuickstockStock');
-
     Route::get('/stock/removepet/{id}', 'UserShopController@getRemoveShopStockPet'); 
     Route::post('/stock/removepet/{id}', 'UserShopController@postRemovePet');
 
     Route::get('pet-search', 'UserShopController@getPetSearch');
+    Route::post('quickstock/{id}', 'UserShopController@postQuickstockStock');
 });
 
 Route::group(['prefix' => 'user-shops',], function() {

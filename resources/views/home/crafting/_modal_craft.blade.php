@@ -52,7 +52,7 @@
         {{-- Check if sufficient ingredients have been selected? --}}
         {!! Form::open(['url' => 'spellcasting/craft/' . $recipe->id]) !!}
         @include('widgets._inventory_select', ['user' => Auth::user(), 'inventory' => $inventory, 'categories' => $categories, 'selected' => $selected, 'page' => $page])
-        @include('widgets._pet_select', ['user' => Auth::user(), 'pets' => $pets, 'categories' => $categories, 'selected' => $selected, 'page' => $page])
+        @include('widgets._pet_select_sc', ['user' => Auth::user(), 'pets' => $pets, 'categories' => $categories, 'selected' => $selected, 'page' => $page])
         <div class="text-right">
             {!! Form::submit('Cast', ['class' => 'btn btn-primary']) !!}
         </div>
@@ -63,7 +63,7 @@
 @endif
 
 @include('widgets._inventory_select_js')
-@include('widgets._pet_select_js')
+@include('widgets._pet_select_sc_js')
 <script>
     $(document).keydown(function(e) {
     var code = e.keyCode || e.which;

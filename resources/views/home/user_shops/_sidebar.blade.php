@@ -24,5 +24,6 @@
         @endauth
         <div class="sidebar-item"><a href="{{ url('user-shops/shop-index') }}" class="{{ set_active('user-shops/shop-index*') }}">All User Shops</a></div>
         <div class="sidebar-item"><a href="{{ url('user-shops/item-search') }}" class="{{ set_active('user-shops/item-search*') }}">Search For Item</a></div>
+        <div class="sidebar-item"><a href="{{ url('user-shops/pet-search') }}" class="{{ set_active('user-shops/pet-search*') }}">Search For Pet</a></div>
 </li>
 </ul>
