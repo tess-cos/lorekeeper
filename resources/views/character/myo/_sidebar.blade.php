@@ -4,7 +4,7 @@
         <div class="sidebar-section-header">{{ucfirst(__('lorekeeper.character'))}}</div>
         <div class="sidebar-item"><a href="{{ $character->url . '/profile' }}" class="{{ set_active('myo/'.$character->id.'/profile') }}">Profile</a></div>
     </li>
-    <li class="sidebar-section">
+    <li class="sidebar-section" style="border-bottom-left-radius: .50rem; border-bottom-right-radius: .50rem; padding-bottom: 10px;">
         <div class="sidebar-section-header">History</div>
         <div class="sidebar-item"><a href="{{ $character->url . '/change-log' }}" class="{{ set_active('myo/'.$character->id.'/change-log') }}">Change Log</a></div>
         <div class="sidebar-item"><a href="{{ $character->url . '/ownership' }}" class="{{ set_active('myo/'.$character->id.'/ownership') }}">Ownership History</a></div>
