@@ -57,7 +57,7 @@ a {
 
 p a, li a, th, .card-header h5 {color: #D48C99;}
 
-.hd a  {color: #D48C99;}
+.hd a, .btn-link  {color: #D48C99 !important;}
 
 .ct a {color: #4a4a4a;}
 
