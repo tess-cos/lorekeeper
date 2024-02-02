@@ -534,3 +534,10 @@ Route::group(['prefix' => 'criteria'], function() {
     
     Route::get('guide/{id}', 'CriterionController@getCriterionGuide');
 });
+/**************************************************************************************************
+    Fetch Quests
+**************************************************************************************************/
+Route::group(['prefix' => 'helpwanted'], function() {
+    Route::get('/', 'FetchQuestController@getIndex');
+    Route::post('/new', 'FetchQuestController@postFetchQuest');
+});

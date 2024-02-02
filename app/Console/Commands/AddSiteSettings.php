@@ -111,6 +111,8 @@ class AddSiteSettings extends Command
 
         $this->addSiteSetting('featured_character', 1, 'ID of the currently featured character.');
 
+        $this->addSiteSetting('help_character', 1, 'ID of the current help wanted character.');
+
         $this->addSiteSetting('event_currency', 1, 'ID of the currency used for events.');
 
         $this->addSiteSetting('event_global_score', 0, '0: Event currency is only tracked individually, 1: A global tally of all event currency is also kept.');
@@ -127,6 +129,16 @@ class AddSiteSettings extends Command
 
         $this->addSiteSetting('max_strike_count', 3, 'Number of strikes a user can have before being automatically banned.');
 
+        $this->addSiteSetting('fetch_item', 1, 'ID of the currently requested fetch quest item.');
+
+        $this->addSiteSetting('fetch_currency_id', 1, 'ID for fetch currency');
+
+        $this->addSiteSetting('fetch_category_id', 1, 'ID for category to pull items from');
+
+        $this->addSiteSetting('fetch_reward', 10, 'MINIMUM Reward granted after fetch is completed');
+
+        $this->addSiteSetting('fetch_reward_max', 100, 'MAXIMUM Reward granted after fetch is completed');
+        
         $this->line("\nSite settings up to date!");
 
         $this->addSiteSetting('claymore_cooldown', 0, 'Number of days to add to the cooldown timer when a pet/weapon/gear is attached.');
