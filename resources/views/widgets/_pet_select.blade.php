@@ -38,7 +38,7 @@
                             <a class="pet-stack"><img src="{{ $item->pet->variantimage($item->variant_id) }}" /></a>
                         </div>
 
-                        <div class="{{ $item->pet_name ? 'btn-dark' : 'btn-primary' }} btn btn-sm my-1">
+                        <div class="{{ $item->pet_name ? 'btn-secondary' : 'btn-primary' }} btn btn-sm my-1">
                             {!! $item->pet_name ?? $item->pet->name !!}
                             @if ($item->chara_id)
                                 <span data-toggle="tooltip" title="Attached to a character."><i
