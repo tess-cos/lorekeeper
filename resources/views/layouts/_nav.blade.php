@@ -120,16 +120,6 @@
                         </a>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="{{ url('shops') }}">
-                            Shops
-                        </a>
-                        <a class="dropdown-item" href="{{ url('/trades/listings') }}">
-                            Trade Plaza
-                        </a>
-                        <a class="dropdown-item" href="{{ url('user-shops/shop-index') }}">
-                            Farmer's Market
-                        </a>
-                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ url(__('dailies.dailies')) }}">
                         {{__('dailies.dailies')}}
                         </a>
@@ -139,6 +129,16 @@
                         <a class="dropdown-item" href="{{ url('spellcasting') }}">
                                 Spellcasting
                             </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ url('shops') }}">
+                            Shops
+                        </a>
+                        <a class="dropdown-item" href="{{ url('/trades/listings') }}">
+                            Trade Plaza
+                        </a>
+                        <a class="dropdown-item" href="{{ url('user-shops/shop-index') }}">
+                            Farmer's Market
+                        </a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ url('raffles') }}">
                             Raffles

@@ -8,6 +8,7 @@
     </li>
     <li class="sidebar-section" style="border-bottom-left-radius: .50rem; border-bottom-right-radius: .50rem; padding-bottom: 10px;">
     <div class="sidebar-section-header">Other</div>
+        <div class="sidebar-item"><a href="{{ url('activities') }}">Activities</a></div>
         <div class="sidebar-item"><a href="{{ url('helpwanted') }}">Help Wanted</a></div>
     </li>
 </ul>

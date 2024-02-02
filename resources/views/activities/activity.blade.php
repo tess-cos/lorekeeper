@@ -3,7 +3,7 @@
 @section('activities-title') {{ $activity->name }} @endsection
 
 @section('activities-content')
-{!! breadcrumbs(['Activities' => 'activities', $activity->name => $activity->url]) !!}
+{!! breadcrumbs([ucfirst(__('dailies.dailies')) => __('dailies.dailies'), 'Activities' => 'activities', $activity->name => $activity->url]) !!}
 
 <h1>
     {{ $activity->name }}

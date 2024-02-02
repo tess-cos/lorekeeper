@@ -3,7 +3,7 @@
 @section('activities-title') Shop Index @endsection
 
 @section('activities-content')
-{!! breadcrumbs(['Activities' => 'activities']) !!}
+{!! breadcrumbs([ucfirst(__('dailies.dailies')) => __('dailies.dailies'), 'Activities' => 'activities']) !!}
 
 <h1>
     Activities
