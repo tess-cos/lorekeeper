@@ -1533,6 +1533,34 @@ input[type='checkbox'] {
 }
 .member-image{
     position: relative;
+    flex-wrap: wrap;
+    gap: 5%;
+    justify-content: center;
+}
+
+.square-grid > div {
+    flex: 0 0 12%;
+}
+
+
+.square-grid.lg > div {
+    flex: 0 0 30%;
+}
+
+.square-grid.xl > div {
+    flex: 0 0 47%;
+}
+
+.square-grid .square-column img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.square-grid .square-column .img-thumbnail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1;
 }
 
 /* RECIPES ***************************************************************************************/

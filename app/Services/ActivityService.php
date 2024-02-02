@@ -131,7 +131,6 @@ class ActivityService extends Service {
 
     try {
       // Delete shop stock
-      $activity->stock()->delete();
 
       if ($activity->has_image) $this->deleteImage($activity->ImagePath, $activity->ImageFileName);
       $activity->delete();
