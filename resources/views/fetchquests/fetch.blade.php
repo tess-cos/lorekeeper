@@ -7,7 +7,7 @@
 {!! breadcrumbs([ucfirst(__('dailies.dailies')) => __('dailies.dailies'), 'Help Wanted' => 'Help Wanted']) !!}
 
 <h1>Help Wanted</h1>
-<p>Courtesy of the Watcher's Guild, this is a magic flyer post with a written item request from a cossetling in need.</p><p>You can fulfill the request by turning in the item for a currency reward!
+<p>Courtesy of the Watcher's Guild, this is a magic notice for an item requested by a cossetling in need.</p><p>You can fulfill the request by turning in the item for a currency reward!
 Requests change daily so make sure to check back.</p>
 
 <div class="row" style="width: 65%; margin: auto;">
