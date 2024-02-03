@@ -66,7 +66,7 @@ p a, li a, th, .card-header h5 {color: #D48C99;}
     text-decoration: none;
 }
 
-.nw a {color: #C0D1A6 !important;}
+.nw a, .asp {color: #C0D1A6 !important;}
 
 .ht a, strong, .font-weight-bold {color: #7b956d;}
 

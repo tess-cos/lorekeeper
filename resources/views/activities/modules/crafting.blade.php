@@ -2,9 +2,9 @@
     @foreach ($recipes as $recipe)
         <div @class([
             'col-12' => count($recipes) === 1,
-            'col-lg-6' => count($recipes) > 1,
+            'col-12' => count($recipes) > 1,
         ])>
-            <div class="d-flex mt-4">
+            <div class="d-flex mt-2">
                 <h2>{{ $recipe->name }}</h2>
                 @if ($activity->service->checkRecipe(Auth::user(), $recipe))
                     {!! Form::open(['url' => 'activities/' . $activity->id . '/act']) !!}
@@ -56,13 +56,30 @@
                                             <div class="img-thumbnail"><img class="greyscale" src="{{ $ingredient->ingredient->currencyIconUrl }}" /></div>
                                         @endif
                                     @break
+
+                                    @case('Pet')
+                                        @php
+                                            $user = Auth::user();
+                                            $userOwned = intval(
+                                                \App\Models\User\UserPet::where('user_id', $user->id)
+                                                    ->where('pet_id', $ingredient->ingredient->id)
+                                                    ->where('count', '>', 0)
+                                                    ->sum('count'),
+                                            );
+                                        @endphp
+                                        @if ($userOwned > $ingredient->quantity)
+                                            <div class="img-thumbnail" style="border: 1px solid grey;"><img style="max-width: 150px;" src="{{ $ingredient->ingredient->image_url }}" /></div>
+                                        @else
+                                            <div class="img-thumbnail"><img class="greyscale" style="max-width: 150px;" src="{{ $ingredient->ingredient->image_url }}" /></div>
+                                        @endif
+                                    @break
                                 @endswitch
                                 <div class="text-center">{!! $ingredient->ingredient->displayName !!} x{{ $ingredient->quantity }}</div>
                             </div>
                         @endforeach
                     </div>
                 </div>
-                <div class="d-flex align-items-center justify-content-center"><i style="font-size: 2rem;" class="fas fa-random"></i></div>
+                <div class="d-flex align-items-center justify-content-center"><i style="font-size: 2rem;" class="asp fas fa-random"></i></div>
                 <div style="flex: 1">
                     <div class="square-grid @if (count($recipes) === 1) lg @else xl @endif justify-content-start">
                         @foreach ($recipe->reward_items as $type)
