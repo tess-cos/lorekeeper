@@ -17,6 +17,9 @@
         <div class="form-group mr-3 mb-3">
             {!! Form::text('name', Request::get('name'), ['class' => 'form-control', 'placeholder' => 'Name']) !!}
         </div>
+        <div class="form-group mr-3 mb-3">
+            {!! Form::select('is_visible', $is_visible, Request::get('is_visible'), ['class' => 'form-control']) !!}
+        </div>
         <div class="form-group mb-3">
             {!! Form::submit('Search', ['class' => 'btn btn-primary']) !!}
         </div>
@@ -31,6 +34,7 @@
         <thead>
             <tr>
                 <th>Name</th>
+                <th>Is Visible</th>
                 <th></th>
             </tr>
         </thead>
@@ -40,6 +44,7 @@
                     <td>
                         {{ $recipe->name }}
                     </td>
+                    <td>{{ $recipe->is_visible ? 'Active' : '' }}</td>
                     <td class="text-right">
                         <a href="{{ url('admin/data/spells/edit/'.$recipe->id) }}" class="btn btn-primary">Edit</a>
                     </td>

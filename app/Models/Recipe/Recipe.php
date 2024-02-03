@@ -15,7 +15,7 @@ class Recipe extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'has_image', 'needs_unlocking', 'description', 'parsed_description', 'reference_url', 'artist_alias' ,'artist_url', 'is_limited', 'recipe_category_id'
+        'name', 'has_image', 'needs_unlocking', 'description', 'is_visible', 'parsed_description', 'reference_url', 'artist_alias' ,'artist_url', 'is_limited', 'recipe_category_id'
     ];
 
     protected $appends = ['image_url'];
@@ -146,6 +146,20 @@ class Recipe extends Model
     {
         return $query->where('needs_unlocking', 1);
     }
+
+    
+    /**
+     * Scope a query to show only visible collections.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeVisible($query, $withHidden = 0)
+    {
+        if($withHidden) return $query;
+        return $query->where('is_visible', 1);
+    }
+
 
     /**********************************************************************************************
 

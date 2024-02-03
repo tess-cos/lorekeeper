@@ -1085,6 +1085,8 @@ background-size: 7px;}
     background-color: #E5C1C7 !important; color: #4a4a4a; text-transform: capitalize;
 }
 
+.border-info {border-color: #dee2e6 !important;}
+
 .img-thumbnail {border: 1px solid #f1efe8 !important; border-radius: 15px; padding: 12.5px !important; background: #f9f8f3 !important;}
 
 a[aria-expanded=true] .fa-chevron-right {

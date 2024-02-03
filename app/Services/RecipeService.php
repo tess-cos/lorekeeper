@@ -21,7 +21,7 @@ use App\Models\Recipe\RecipeReward;
 use App\Models\Recipe\RecipeLimit;
 
 use App\Services\InventoryManager;
-
+ 
 class RecipeService extends Service {
     /*
     |--------------------------------------------------------------------------
@@ -128,6 +128,8 @@ class RecipeService extends Service {
             }
             unset($data['remove_image']);
         }
+
+        if(!isset($data['is_visible'])) $data['is_visible'] = 0;
 
         return $data;
     }

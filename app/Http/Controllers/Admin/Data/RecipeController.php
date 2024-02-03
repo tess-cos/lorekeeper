@@ -55,12 +55,15 @@ class RecipeController extends Controller {
      */
     public function getRecipeIndex(Request $request) {
         $query = Recipe::query();
-        $data = $request->only(['name']);
+        $data = $request->only(['name', 'is_visible']);
+        if(isset($data['is_visible']) && $data['is_visible'] != 'none') 
+            $query->where('is_visible', $data['is_visible']);
         if (isset($data['name']))
             $query->where('name', 'LIKE', '%' . $data['name'] . '%');
         return view('admin.recipes.recipes', [
             'recipes' => $query->paginate(20)->appends($request->query()),
             'recipe_categories' => recipeCategory::orderBy('sort', 'DESC')->get(),
+            'is_visible' => ['none' => 'Any Status', '0' => 'Unreleased', '1' => 'Released'],
         ]);
     }
     
@@ -179,11 +182,11 @@ class RecipeController extends Controller {
             'recipe' => new Recipe,
             'items' => Item::orderBy('name')->pluck('name', 'id'),
             'categories' => ItemCategory::orderBy('name')->pluck('name', 'id'),
-            'recipe_categories' => ['none' => 'No category'] + RecipeCategory::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
+            'recipe_categories' => RecipeCategory::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
             'currencies' => Currency::where('is_user_owned', 1)->orderBy('name')->pluck('name', 'id'),
             'tables' => LootTable::orderBy('name')->pluck('name', 'id'),
             'raffles' => Raffle::where('rolled_at', null)->where('is_active', 1)->orderBy('name')->pluck('name', 'id'),
-            'recipes' => Recipe::orderBy('name')->pluck('name', 'id'),
+            'recipes' => ['none' => 'No parent'] + Recipe::visible()->pluck('name', 'id')->toArray(),
             'pets' => Pet::orderBy('name')->pluck('name', 'id'),
             'petCategories' => PetCategory::orderBy('sort', 'DESC')->pluck('name', 'id'),
         ]);
@@ -202,11 +205,11 @@ class RecipeController extends Controller {
             'recipe' => $recipe,
             'items' => Item::orderBy('name')->pluck('name', 'id'),
             'categories' => ItemCategory::orderBy('name')->pluck('name', 'id'),
-            'recipe_categories' => ['none' => 'No category'] + RecipeCategory::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
+            'recipe_categories' => RecipeCategory::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
             'currencies' => Currency::where('is_user_owned', 1)->orderBy('name')->pluck('name', 'id'),
             'tables' => LootTable::orderBy('name')->pluck('name', 'id'),
             'raffles' => Raffle::where('rolled_at', null)->where('is_active', 1)->orderBy('name')->pluck('name', 'id'),
-            'recipes' => Recipe::orderBy('name')->pluck('name', 'id'),
+            'recipes' => ['none' => 'No parent'] + Recipe::visible()->where('id', '!=', $recipe->id)->pluck('name', 'id')->toArray(),
             'pets' => Pet::orderBy('name')->pluck('name', 'id'),
             'petCategories' => PetCategory::orderBy('sort', 'DESC')->pluck('name', 'id'),
         ]);
@@ -223,7 +226,7 @@ class RecipeController extends Controller {
     public function postCreateEditRecipe(Request $request, RecipeService $service, $id = null) {
         $id ? $request->validate(Recipe::$updateRules) : $request->validate(Recipe::$createRules);
         $data = $request->only([
-            'name', 'description', 'image', 'remove_image', 'needs_unlocking',
+            'name', 'description', 'image', 'remove_image', 'needs_unlocking', 'is_visible',
             'ingredient_type', 'ingredient_data', 'ingredient_quantity', 'recipe_category_id',
             'rewardable_type', 'rewardable_id', 'reward_quantity',
             'is_limited', 'limit_type', 'limit_id', 'limit_quantity'

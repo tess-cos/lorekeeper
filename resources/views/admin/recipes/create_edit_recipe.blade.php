@@ -50,6 +50,11 @@
     {!! Form::textarea('description', $recipe->description, ['class' => 'form-control wysiwyg']) !!}
 </div>
 
+<div class="form-group">
+    {!! Form::checkbox('is_visible', 1, $recipe->id ? $recipe->is_visible : 1, ['class' => 'form-check-input', 'data-toggle' => 'toggle']) !!}
+    {!! Form::label('is_visible', 'Is Visible', ['class' => 'form-check-label ml-3']) !!} {!! add_help('If turned off, the spell will not be visible.') !!}
+</div>
+
 <h3>Restrict Spell</h3>
     <div class="form-group">
         {!! Form::checkbox('is_limited', 1, $recipe->is_limited, ['class' => 'is-limited-class form-check-label', 'data-toggle' => 'toggle']) !!}

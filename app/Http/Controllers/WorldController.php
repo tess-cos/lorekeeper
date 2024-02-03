@@ -626,7 +626,7 @@ class WorldController extends Controller
      */
     public function getRecipes(Request $request)
     {
-        $query = Recipe::query();
+        $query = Recipe::visible();
         $data = $request->only(['recipe_category_id', 'name', 'sort']);
 
         if(isset($data['recipe_category_id']) && $data['recipe_category_id'] != 'none')
@@ -674,7 +674,7 @@ class WorldController extends Controller
      */
     public function getRecipe($id)
     {
-        $recipe = Recipe::where('id', $id)->first();
+        $recipe = Recipe::visible('id', $id)->first();
         $categories = RecipeCategory::orderBy('sort', 'DESC')->get();
         if(!$recipe) abort(404);
 

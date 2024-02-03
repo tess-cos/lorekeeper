@@ -15,7 +15,7 @@
                     {!! Form::close() !!}
                 @else
                     <div class="alert alert-warning p-1 px-2 ml-2 text-center">
-                        You don't have everything for this recipe yet!
+                        You don't have everything for this spell yet!
                     </div>
                 @endif
             </div>
