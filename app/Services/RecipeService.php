@@ -129,8 +129,6 @@ class RecipeService extends Service {
             unset($data['remove_image']);
         }
 
-        if(!isset($data['is_visible'])) $data['is_visible'] = 0;
-
         return $data;
     }
 
@@ -307,6 +305,8 @@ class RecipeService extends Service {
             }
             unset($data['remove_image']);
         }
+
+        if(!isset($data['is_visible'])) $data['is_visible'] = 0;
 
         return $data;
     }
