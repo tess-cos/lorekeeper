@@ -1,6 +1,6 @@
 
 @foreach ($recipes as $recipe)
-<div style="margin: auto;">@if ($activity->service->checkRecipe(Auth::user(), $recipe))
+<div style="margin: auto; margin-top: -10px;">@if ($activity->service->checkRecipe(Auth::user(), $recipe))
                     {!! Form::open(['url' => 'activities/' . $activity->id . '/act']) !!}
                     {!! Form::hidden('recipe_id', $recipe->id) !!}
                     <div class="text-center">
@@ -9,7 +9,7 @@
                     {!! Form::close() !!}
                 @else
                     <div class="alert alert-warning p-1 px-2 ml-2 text-center">
-                        You don't have everything for this spell yet!
+                        You don't have everything for this activity yet!
                     </div>
                 @endif</div>
                 @endforeach

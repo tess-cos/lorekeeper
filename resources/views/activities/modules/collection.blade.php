@@ -32,7 +32,7 @@
     {!! Form::close() !!}
     @else
     <div class="alert alert-warning text-center">
-        You don't have everything for this collection yet!
+        You don't have everything for this activity yet!
     </div>
     @endif
 </div>
