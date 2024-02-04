@@ -21,6 +21,9 @@ use App\Models\Trade;
 use App\Models\User\UserItem;
 use App\Models\Stat\Stat;
 
+use App\Models\Character\CharacterDrop;
+use App\Models\Character\CharacterDropData;
+
 use App\Services\AwardCaseManager;
 use App\Services\CharacterManager;
 use App\Services\CurrencyManager;
@@ -65,9 +68,11 @@ class CharacterController extends Controller
             'userOptions' => User::query()->orderBy('name')->pluck('name', 'id')->toArray(),
             'rarities' => ['0' => 'Select Rarity'] + Rarity::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
             'specieses' => ['0' => 'Select '.ucfirst(__('lorekeeper.species'))] + Species::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
+            'dropSpecies' => Species::whereIn('id', CharacterDropData::pluck('species_id')->toArray())->pluck('id')->toArray(),
             'subtypes' => ['0' => 'Pick a '.ucfirst(__('lorekeeper.species')).' First'],
             'features' => Feature::orderBy('name')->pluck('name', 'id')->toArray(),
             'transformations' => ['0' => 'Select '.ucfirst(__('transformations.transformation'))] + Transformation::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
+            'parameters' => ['0' => 'Pick a Species First'],
             'isMyo' => false,
             'stats' => Stat::orderBy('name')->get(),
         ]);
@@ -84,9 +89,11 @@ class CharacterController extends Controller
             'userOptions' => User::query()->orderBy('name')->pluck('name', 'id')->toArray(),
             'rarities' => ['0' => 'Select Rarity'] + Rarity::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
             'specieses' => ['0' => 'Select '.ucfirst(__('lorekeeper.species'))] + Species::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
+            'dropSpecies' => Species::whereIn('id', CharacterDropData::pluck('species_id')->toArray())->pluck('id')->toArray(),
             'subtypes' => ['0' => 'Pick a '.ucfirst(__('lorekeeper.species')).' First'],
             'features' => Feature::orderBy('name')->pluck('name', 'id')->toArray(),
             'transformations' => ['0' => 'Select '.ucfirst(__('transformations.transformation'))] + Transformation::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
+            'parameters' => ['0' => 'Pick a Species First'],
             'isMyo' => true,
             'stats' => Stat::orderBy('name')->get(),
         ]);
@@ -141,6 +148,20 @@ class CharacterController extends Controller
         ]);
     }
 
+     /**
+     * Shows the edit group portion of the form.
+     *
+     * @param  Request  $request
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getCreateCharacterMyoGroup(Request $request) {
+        $species = $request->input('species');
+        return view('admin.masterlist._create_character_group', [
+            'parameters' => ['0' => 'Select Group'] + CharacterDropData::where('species_id', $species)->first()->parameterArray,
+            'isMyo' => $request->input('myo')
+        ]);
+    }
+
     /**
      * Creates a character.
      *
@@ -159,7 +180,7 @@ class CharacterController extends Controller
             'designer_id', 'designer_url',
             'artist_id', 'artist_url',
             'species_id', 'subtype_id', 'subtype_id_2', 'rarity_id', 'feature_id', 'feature_data',
-            'image', 'thumbnail', 'image_description', 'transformation_id', 'stats'
+            'image', 'thumbnail', 'image_description', 'transformation_id', 'stats', 'parameters'
         ]);
         if ($character = $service->createCharacter($data, Auth::user())) {
             flash(ucfirst(__('lorekeeper.character')).' created successfully.')->success();
@@ -189,7 +210,7 @@ class CharacterController extends Controller
             'designer_id', 'designer_url',
             'artist_id', 'artist_url',
             'species_id', 'subtype_id', 'subtype_id_2', 'rarity_id', 'feature_id', 'feature_data',
-            'image', 'thumbnail', 'transformation_id', 'stats'
+            'image', 'thumbnail', 'transformation_id', 'stats', 'parameters'
         ]);
         if ($character = $service->createCharacter($data, Auth::user(), true)) {
             flash('MYO slot created successfully.')->success();
@@ -725,4 +746,70 @@ class CharacterController extends Controller
             'slots' => Character::myo(1)->orderBy('id', 'DESC')->paginate(30),
         ]);
     }
+
+      /**
+     * Shows a character's drops page.
+     *
+     * @param  string  $slug
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getCharacterDrops($slug)
+    {
+        if(!$this->character->image->species->hasDrops || (!$this->character->drops->dropData->isActive && (!Auth::check() || !Auth::user()->hasPower('manage_characters')))) abort(404);
+        return view('character.drops', [
+            'character' => $this->character,
+            'drops' => $this->character->drops
+        ]);
+    }
+
+    /**
+     * Claims character drops.
+     *
+     * @param  \Illuminate\Http\Request       $request
+     * @param  App\Services\InventoryManager  $service
+     * @param  string                         $slug
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function postClaimCharacterDrops(Request $request, InventoryManager $service, $slug)
+    {
+        if(!Auth::check()) abort(404);
+        if($this->character->user_id != Auth::user()->id) abort(404);
+        $drops = $this->character->drops;
+        if(!$drops) abort(404);
+
+        if($service->claimCharacterDrops($this->character, $this->character->user, $this->character->drops)) {
+            flash('Drops claimed successfully.')->success();
+        }
+        else {
+            foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
+        }
+        return redirect()->back();
+    }
+
+
+      /**
+     * Edits character drops.
+     *
+     * @param  \Illuminate\Http\Request       $request
+     * @param  string                         $slug
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function postEditCharacterDrop(Request $request, $slug)
+    {
+        if(!Auth::check()) abort(404);
+        $this->character = Character::where('slug', $slug)->first();
+        if(!$this->character) abort(404);
+        $drops = $this->character->drops;
+        if(!$request['drops_available']) $request['drops_available'] = 0;
+
+        if ($drops->update(['parameters' => $request['parameters'], 'drops_available' => $request['drops_available']])) {
+            flash('Character drops updated successfully.')->success();
+            return redirect()->to($this->character->url.'/drops');
+        }
+        else {
+            flash('Failed to update character drops.')->error();
+        }
+        return redirect()->back()->withInput();
+    }
+
 }

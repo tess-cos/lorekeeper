@@ -235,6 +235,12 @@
         {!! Form::select('transformation_id', $transformations, null, ['class' => 'form-control']) !!}
     </div>
 
+    <div class="card mb-3 hide" id="dropOptions">
+        <div class="card-body" id="groups">
+            {!! Form::label('Group (Optional)') !!} {!! add_help('This is used for character drops. If no value is set, it will be randomly rolled from the species\' groups.') !!}
+            {!! Form::select('parameters', $parameters, old('parameters'), ['class' => 'form-control', 'id' => 'parameter']) !!}
+        </div>
+
     <div class="form-group">
         {!! Form::label('Traits') !!} @if($isMyo) {!! add_help('These traits will be listed as required traits for the slot. The user will still be able to add on more traits, but not be able to remove these. This is allowed to conflict with the rarity above; you may add traits above the '.__('lorekeeper.character').'\'s specified rarity.') !!} @endif
         <div id="featureList">
@@ -282,6 +288,15 @@
       $.ajax({
         type: "GET", url: "{{ url('admin/masterlist/check-subtype/2') }}?species="+species+"&myo="+myo, dataType: "text"
       }).done(function (res) { $("#subtypes_2").html(res); }).fail(function (jqXHR, textStatus, errorThrown) { alert("AJAX call failed: " + textStatus + ", " + errorThrown); });
+      var $dropOptions = $('#dropOptions');
+      var $dropSpecieses = '<?php echo(json_encode($dropSpecies)); ?>';
+      if($dropSpecieses.includes(species)) {
+          $dropOptions.removeClass('hide');
+          $.ajax({
+            type: "GET", url: "{{ url('admin/masterlist/check-group') }}?species="+species+"&myo="+myo, dataType: "text"
+            }).done(function (res) { $("#groups").html(res); }).fail(function (jqXHR, textStatus, errorThrown) { alert("AJAX call failed: " + textStatus + ", " + errorThrown); });
+        }
+      else $dropOptions.addClass('hide');
     });
 </script>
 

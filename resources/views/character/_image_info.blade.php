@@ -43,7 +43,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt; color: #7b956d;">Species</div>
-                    <div class="col-lg-8 col-md-6 col-8">{!! $image->species_id ? $image->species->displayName : 'None' !!}</div>
+                    <div class="col-lg-8 col-md-6 col-8">{!! $image->species_id ? $image->species->displayName : 'None' !!}{{ $image->species_id && $image->species->hasDrops ? $character->drops->group : '' }}</div>
                 </div>
                 @if($image->subtype_id)
                     <div class="row">

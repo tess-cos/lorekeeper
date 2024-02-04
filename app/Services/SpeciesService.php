@@ -128,6 +128,11 @@ class SpeciesService extends Service
             if(CharacterImage::where('species_id', $species->id)->exists()) throw new \Exception("A character image with this species exists. Please change its species first.");
 
             if($species->has_image) $this->deleteImage($species->speciesImagePath, $species->speciesImageFileName);
+            // Delete character drops and drop data if they exist
+            if($species->dropData->exists()) {
+                $species->dropData->characterDrops()->delete();
+                $species->dropData->delete();
+            }
             $species->delete();
 
             return $this->commitReturn(true);

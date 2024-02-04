@@ -722,5 +722,56 @@ class InventoryManager extends Service
         }
         return $this->rollbackReturn(false);
     }
+
+      /**
+     * Transfers items between user stacks.
+     *
+     * @param  \App\Models\Character\Character      $sender
+     * @param  \App\Models\User\User                $recipient
+     * @param  \App\Models\Character\CharacterDrop  $drops
+     * @param  int                                  $quantities
+     * @return bool
+     */
+    public function claimCharacterDrops($character, $user, $drops)
+    {
+        DB::beginTransaction();
+
+        try {
+            if(!$drops->drops_available) throw new \Exception('This character doesn\'t have any available drops.');
+            if(!$drops->dropData->isActive) throw new \Exception('Drops are not currently active for this species.');
+
+            // Assemble data
+            $type = 'Character Drop';
+            $data = [
+                'data' => 'Collected from '.$character->displayName,
+                'notes' => 'Collected ' . format_date(Carbon::now())
+            ];
+
+            // Credit item(s), calulating quantity for each individual drop if relevant
+            $itemData = $drops->dropData->data['items'];
+            $successes = 0;
+            for($i = $drops->drops_available; $i > 0; $i--) if($drops->speciesItem && $this->creditItem(null, Auth::user(), $type, $data, $drops->speciesItem,
+                is_numeric($drops->speciesQuantity) ?
+                $drops->speciesQuantity :
+                mt_rand($itemData['species'][$drops->parameters]['min'], $itemData['species'][$drops->parameters]['max'])
+            )) $successes += 1;
+            for($i = $drops->drops_available; $i > 0; $i--) if($drops->subtypeItem && $this->creditItem(null, Auth::user(), $type, $data, $drops->subtypeItem,
+                is_numeric($drops->subtypeQuantity) ?
+                $drops->subtypeQuantity :
+                mt_rand($itemData[$character->image->subtype_id][$drops->parameters]['min'], $itemData[$character->image->subtype_id][$drops->parameters]['max'])
+            )) $successes += 1;
+            if($successes != $drops->items->count() * $drops->drops_available) throw new \Exception('Failed to collect all drops.');
+
+            // Clear the number of available drops
+            $drops->update(['drops_available' => 0]);
+
+            return $this->commitReturn(true);
+        } catch(\Exception $e) {
+            $this->setError('error', $e->getMessage());
+        }
+        return $this->rollbackReturn(false);
+    }
+
+
     
 }

@@ -46,6 +46,8 @@ class Kernel extends ConsoleKernel
                 ->daily();
         $schedule->command('change-help')
                 ->daily();
+        $schedule->command('check-character-drops')
+                ->everyMinute();
     }
 
     /**

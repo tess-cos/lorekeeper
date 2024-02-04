@@ -179,6 +179,10 @@ return [
                 'url' => 'admin/masterlist/trades/incoming'
             ],
             [
+                'name' => 'Character Drops',
+                'url' => 'admin/data/character-drops'
+            ],
+            [
                 'name' => 'Design Updates',
                 'url' => 'admin/design-approvals/pending'
             ],

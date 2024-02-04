@@ -544,6 +544,7 @@ Route::group(['prefix' => 'masterlist', 'namespace' => 'Characters', 'middleware
     Route::post('create-myo', 'CharacterController@postCreateMyo');
 
     Route::get('check-subtype/{type}', 'CharacterController@getCreateCharacterMyoSubtype');
+    Route::get('check-group', 'CharacterController@getCreateCharacterMyoGroup');
     Route::get('check-stats', 'CharacterController@getCreateCharacterMyoStats');
     Route::get('check-transformation', 'CharacterController@getCreateCharacterMyoTransformation');
 });
@@ -609,12 +610,15 @@ Route::group(['prefix' => 'myo', 'namespace' => 'Characters', 'middleware' => 'p
 
     Route::get('{id}/description', 'CharacterController@getEditMyoDescription');
     Route::post('{id}/description', 'CharacterController@postEditMyoDescription');
+    
 
     Route::get('{id}/profile', 'CharacterController@getEditMyoProfile');
     Route::post('{id}/profile', 'CharacterController@postEditMyoProfile');
 
     Route::get('{id}/delete', 'CharacterController@getMyoDelete');
     Route::post('{id}/delete', 'CharacterController@postMyoDelete');
+
+    Route::post('{slug}/drops', 'CharacterController@postEditCharacterDrop');
 
     Route::post('{id}/settings', 'CharacterController@postMyoSettings');
 
