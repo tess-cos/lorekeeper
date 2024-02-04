@@ -266,40 +266,52 @@ class SpeciesController extends Controller
         return redirect()->back();
     }
 
-     /**
-    * Shows the create character drop data page.
-    *
-    * @return \Illuminate\Contracts\Support\Renderable
-    */
-   public function getCreateDrop()
-   {
-       return view('admin.specieses.create_edit_drop', [
-           'drop' => new CharacterDropData,
-           'specieses' => Species::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
-           'subtypes' => Subtype::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
-       ]);
-   }
-   
+    
     /**
-   * Shows the edit character drop data page.
-   *
-   * @param  int  $id
-   * @return \Illuminate\Contracts\Support\Renderable
-   */
-  public function getEditDrop($id)
-  {
-      $characterDrop = CharacterDropData::find($id);
-      if(!$characterDrop) abort(404);
-      return view('admin.specieses.create_edit_drop', [
-          'drop' => $characterDrop,
-          'specieses' => Species::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
-          'subtypes' => Subtype::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
-          'items' => Item::orderBy('name')->pluck('name', 'id')
-      ]);
-  }
+     * Shows the character drop index.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getDropIndex()
+    {
+        return view('admin.specieses.character_drops', [
+            'drops' => CharacterDropData::orderBy('species_id', 'ASC')->paginate(20)
+        ]);
+    }
 
+    /**
+     * Shows the create character drop data page.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getCreateDrop()
+    {
+        return view('admin.specieses.create_edit_drop', [
+            'drop' => new CharacterDropData,
+            'specieses' => Species::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
+            'subtypes' => Subtype::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
+        ]);
+    }
 
-  /**
+    /**
+     * Shows the edit character drop data page.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function getEditDrop($id)
+    {
+        $characterDrop = CharacterDropData::find($id);
+        if(!$characterDrop) abort(404);
+        return view('admin.specieses.create_edit_drop', [
+            'drop' => $characterDrop,
+            'specieses' => Species::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
+            'subtypes' => Subtype::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
+            'items' => Item::orderBy('name')->pluck('name', 'id')
+        ]);
+    }
+
+    /**
      * Creates or edits character drop data.
      *
      * @param  \Illuminate\Http\Request           $request
@@ -311,7 +323,7 @@ class SpeciesController extends Controller
     {
         $id ? $request->validate(CharacterDropData::$updateRules) : $request->validate(CharacterDropData::$createRules);
         $data = $request->only([
-            'species_id', 'label', 'weight', 'drop_frequency', 'drop_interval', 'is_active', 'item_id', 'min_quantity', 'max_quantity', 'drop_name'
+            'species_id', 'label', 'weight', 'drop_frequency', 'drop_interval', 'is_active', 'item_id', 'min_quantity', 'max_quantity', 'drop_name', 'is_active', 'cap'
         ]);
         if($id && $service->updateCharacterDrop(CharacterDropData::find($id), $data, Auth::user())) {
             flash('Character drop updated successfully.')->success();
@@ -326,7 +338,7 @@ class SpeciesController extends Controller
         return redirect()->back();
     }
 
-     /**
+    /**
      * Gets the character drop data deletion modal.
      *
      * @param  int  $id
@@ -339,6 +351,7 @@ class SpeciesController extends Controller
             'drop' => $drop,
         ]);
     }
+
     /**
      * Deletes a subtype.
      *
