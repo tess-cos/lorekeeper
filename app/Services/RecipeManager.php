@@ -98,7 +98,7 @@ class RecipeManager extends Service {
                 }
             } else {
                 $items = $recipe->ingredients->whereIn('ingredient_type', ['Item', 'Pet']);
-                if ($items) throw new \Exception('Insufficient subjects selected.');
+                if (count($items) > 0) throw new \Exception('Insufficient subjects selected.');
             }
 
             // Debit the currency

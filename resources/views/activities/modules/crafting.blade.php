@@ -1,3 +1,18 @@
+
+@foreach ($recipes as $recipe)
+<div style="margin: auto;">@if ($activity->service->checkRecipe(Auth::user(), $recipe))
+                    {!! Form::open(['url' => 'activities/' . $activity->id . '/act']) !!}
+                    {!! Form::hidden('recipe_id', $recipe->id) !!}
+                    <div class="text-center">
+                        {!! Form::submit('Submit', ['class' => 'btn btn-success btn-md ml-3']) !!}
+                    </div>
+                    {!! Form::close() !!}
+                @else
+                    <div class="alert alert-warning p-1 px-2 ml-2 text-center">
+                        You don't have everything for this spell yet!
+                    </div>
+                @endif</div>
+                @endforeach
 <div class="row no-gutters" @if (count($recipes) > 1) style="font-size: 10px" @endif>
     @foreach ($recipes as $recipe)
         <div @class([
@@ -5,22 +20,10 @@
             'col-12' => count($recipes) > 1,
         ])>
             <div class="d-flex mt-2">
-                <h2>{{ $recipe->name }}</h2>
-                @if ($activity->service->checkRecipe(Auth::user(), $recipe))
-                    {!! Form::open(['url' => 'activities/' . $activity->id . '/act']) !!}
-                    {!! Form::hidden('recipe_id', $recipe->id) !!}
-                    <div class="text-right">
-                        {!! Form::submit('Craft!', ['class' => 'btn btn-success btn-sm ml-3']) !!}
-                    </div>
-                    {!! Form::close() !!}
-                @else
-                    <div class="alert alert-warning p-1 px-2 ml-2 text-center">
-                        You don't have everything for this spell yet!
-                    </div>
-                @endif
+                <h2 style="display: none;">{{ $recipe->name }}</h2>
             </div>
-            <div class="d-flex" style="gap: 10px;">
-                <div style="flex: 1">
+            <div class="d-flex" style="gap: 10px; display: none !important;">
+                <div style="flex: 1;">
                     <div class="square-grid @if (count($recipes) === 1) lg @else xl @endif justify-content-end">
                         @foreach ($recipe->ingredients as $ingredient)
                             <div class="square-column text-center">

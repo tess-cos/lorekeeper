@@ -149,7 +149,7 @@ class Recipe extends Model
 
     
     /**
-     * Scope a query to show only visible collections.
+     * Scope a query to show only visible recipes.
      *
      * @param  \Illuminate\Database\Eloquent\Builder  $query
      * @return \Illuminate\Database\Eloquent\Builder
