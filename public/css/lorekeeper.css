@@ -415,6 +415,10 @@ hr {border-color: #EBF0E3 !important;}
     padding-bottom: 7.5px;
 }
 
+.sidebar .sidebar-header-fc {
+    background-color: none;
+}
+
 .sidebar .sidebar-header a {
     color: white;
     font-family: Hachi Maru Pop, serif;
@@ -427,7 +431,7 @@ hr {border-color: #EBF0E3 !important;}
     color: rgba(255, 255, 255, 0.8);
 }
 
-.sidebar-header a::before {
+.sidebar-header a::before, .sidebar-header-fc a::before {
     display: none;
 }
 
@@ -460,19 +464,19 @@ hr {border-color: #EBF0E3 !important;}
     background-color: #f4e3e6;
 }
 
-.sidebar a::before {
+.sidebar li a::before {
     content: "✿";
     color: #f4e3e6;
     align-content: top;
     margin-right: 10px;
 }
 
-.sidebar a:hover::before {
+.sidebar li a:hover::before {
     color: #fff;
     padding-right: 10px;
 }
 
-.sidebar a:active::before {
+.sidebar li a:active::before {
     color: #fff !important;
 }
 

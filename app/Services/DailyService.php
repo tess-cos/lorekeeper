@@ -385,7 +385,7 @@ class DailyService extends Service
             // Distribute user rewards
             $logType = ucwords(__('dailies.daily')) . ' Rewards';
             $dailyData = [
-                'data' => 'Received rewards for ' . $daily->display_name . ' (<a href="' . $daily->viewUrl . '">#' . $daily->id . '</a>)'
+                'data' => 'Received rewards for ' . $daily->display_name . ''
             ];
 
             $assets = fillUserAssets($rewards, null, $user, $logType, $dailyData);
