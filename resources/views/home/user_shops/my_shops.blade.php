@@ -7,11 +7,11 @@
 
 <h1>Shops</h1>
 
-<p>Here is a list of your user-owned shops. </p> 
-<p>The sorting order reflects the order in which the shops will be listed on the shop index.</p>
-@if(Settings::get('user_shop_limit') > 0)
-<p> You may make a maximum of <b>{{Settings::get('user_shop_limit')}}</b> shops.</p>
+<p>Here is a list of your shops on the Farmer's Market. @if(Settings::get('user_shop_limit') > 0)
+You are allowed a maximum of <b>{{Settings::get('user_shop_limit')}}</b> shops.
 @endif
+</p> 
+<p>The sorting order reflects the order in which the shops will be listed on the shop index.</p>
 
 <div class="text-right mb-3"><a class="btn btn-primary" href="{{ url('user-shops/create') }}"><i class="fas fa-plus"></i> Create New Shop</a></div>
 @if(!count($shops))
