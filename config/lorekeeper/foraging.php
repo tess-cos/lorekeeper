@@ -3,7 +3,7 @@
 return [
 
     // minutes to wait for forage to complete
-    'forage_time' => 1,
+    'forage_time' => 60,
 
     // future stuff...
     // characters are mostly just visual for the moment.
