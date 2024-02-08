@@ -16,8 +16,9 @@
 
             {!! $name !!} @if(isset($idUrl) && $idUrl) <a href="{{ $idUrl }}" class="world-entry-search text-muted"><i class="fas fa-search"></i></a>  @endif
         </h3>
+
         @if($recipe->recipe_category_id)<div>
-        <div class="hd" style="margin-bottom: 5px;"><strong>Category:</strong> {!! $recipe->category->displayName !!}</div>
+        <div class="hd" style="margin-bottom: 5px;"><strong>Category:</strong> {!! $recipe->category->displayName !!}</div></div>
     @endif
         <div class="row">
 
@@ -69,4 +70,4 @@
             </div>
         </div>
     </div>
-</div>
+ </div>
