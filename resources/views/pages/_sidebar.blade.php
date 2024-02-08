@@ -12,7 +12,7 @@
             </li>
 <li class="sidebar-header-fc p-1" style="border-bottom-left-radius: .50rem; border-bottom-right-radius: .50rem; padding-bottom: 10px;">
             <div style="text-align: center; font-size: 10pt; text-transform: lowercase; padding-bottom: 15px;">
-            <span style="color: #E5C1C7;">✿</span> courtesy of {{$featured->user->name}} <span style="color: #E5C1C7;">✿</span>
+            courtesy of {{$featured->user->name}}
             </div>
 
         @else
