@@ -118,14 +118,6 @@ class CraftingService extends Service {
         if (!$service->debitCurrency($user, null, 'Activity', 'Used in ' . $recipe->name . '', Currency::find($ingredient->data[0]), $ingredient->quantity)) throw new \Exception('Currency could not be debited.');
       }
 
-      // Credit rewards
-      $logType = 'Activity Reward';
-      $craftingData = [
-        'data' => 'From ' . $recipe->name . ''
-      ];
-
-      if (!fillUserAssets($recipe->rewardItems, null, $user, $logType, $craftingData)) throw new \Exception("Failed to distribute rewards to user.");
-
       flash(getRewardsString($rewards));
 
       return $this->commitReturn(true);
