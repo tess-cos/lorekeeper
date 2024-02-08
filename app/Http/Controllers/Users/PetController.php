@@ -226,7 +226,7 @@ class PetController extends Controller
         ]);
     }
 
-    /**
+     /**
      * Claims pet drops.
      *
      * @param  \Illuminate\Http\Request       $request
@@ -246,8 +246,13 @@ class PetController extends Controller
 
         if($service->claimPetDrops($pet, $pet->user, $pet->drops)) {
             flash('Drops claimed successfully.')->success();
-        } 
+        }
+        else {
+            foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
+        }
+        return redirect()->back();
     }
+    
 
     /**
      * transfers item to shop
