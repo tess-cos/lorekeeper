@@ -674,7 +674,7 @@ class WorldController extends Controller
      */
     public function getRecipe($id)
     {
-        $recipe = Recipe::visible->where('id', $id)->first();
+        $recipe = Recipe::visible()->where('id', $id)->first();
         $categories = RecipeCategory::orderBy('sort', 'DESC')->get();
         if(!$recipe) abort(404);
 
