@@ -50,7 +50,7 @@ function getAssetModelString($type, $namespaced = true)
             else return 'Currency';
             break;
             
-        case 'pets':
+            case 'pets': case 'pet':
             if($namespaced) return '\App\Models\Pet\Pet';
             else return 'Pet';
             break;
