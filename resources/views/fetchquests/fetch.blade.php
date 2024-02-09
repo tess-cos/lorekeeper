@@ -10,10 +10,10 @@
 <p>Courtesy of the Watcher's Guild, this is a magic notice for an item requested by a cossetling in need.</p><p>You can fulfill the request by turning in the item for some gratitude!
 Requests change daily so make sure to check back.</p>
 
-<div class="row" style="width: 85%; margin: auto;">
+<div class="row" style="width: 65%; margin: auto;">
 @if(isset($help) && $help)
 <h3>✿ @if($help->name) {!! $help->name !!} @else {!! $help->displayname !!} @endif has a request!</h3><br /></div>
-<div class="row" style="width: 85%; margin: auto;">
+<div class="row" style="width: 65%; margin: auto;">
 <div class="col-sm-6" style="align-content: center;">
 <center><div>
                 <a href="{{ $help->url }}"><img src="{{ $help->image->thumbnailUrl }}" class="img-thumbnail" /></a>
