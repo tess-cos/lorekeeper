@@ -13,7 +13,7 @@ Requests change daily so make sure to check back.</p>
 <div class="row" style="width: 85%; margin: auto;">
 @if(isset($help) && $help)
 <h3>✿ @if($help->name) {!! $help->name !!} @else {!! $help->displayname !!} @endif has a request!</h3>
-<div class="col-md-4">
+<div class="col-sm-6">
             <div>
                 <a href="{{ $help->url }}"><img src="{{ $help->image->thumbnailUrl }}" class="img-thumbnail" /></a>
             </div>
