@@ -982,8 +982,6 @@ background-size: 7px;}
 
 .mal-talk2 {width: 70%; margin: auto; padding: 25px; border-radius: 15px; background-color: #ffffff; border: 2.5px solid #a7b8ca; text-align: left;}
 
-
-
 .btn {font-family: Poppins, sans-serif;}
 
 .btn-primary:active, .btn-primary, .btn-primary:visited, .badge-primary, .badge-secondary, .badge-info {
@@ -1205,6 +1203,7 @@ tr.outflow {
 [class*="form-"], .selectize-input { border-color: #E0ECD0 !important; }
 
 .form-control {background: #fdfdfd !important;}
+input.form-control.bg-dark.text-light {color: #666 !important;}
 
 .nav-tabs { background: #f9f8f3 !important; border: 0px;} 
 
