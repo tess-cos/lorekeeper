@@ -82,7 +82,7 @@
 
             if((seconds == '00' && minutes == '00' && hours >= date.getUTCHours()) || hours > date.getUTCHours()) {
                 // reload page
-                location.reload();
+                location.reload;
             }
 
             var text = "Train returns in " + minutes + ":" + seconds + "!";
