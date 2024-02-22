@@ -267,7 +267,7 @@ class SpeciesController extends Controller
     }
 
     
-    /**
+        /**
      * Shows the character drop index.
      *
      * @return \Illuminate\Contracts\Support\Renderable
@@ -356,13 +356,13 @@ class SpeciesController extends Controller
      * Deletes a subtype.
      *
      * @param  \Illuminate\Http\Request     $request
-     * @param  App\Services\CharacterDropService  $service
+     * @param  App\Services\SpeciesService  $service
      * @param  int                          $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postDeleteDrop(Request $request, CharacterDropService $service, $id)
+    public function postDeleteDrop(Request $request, SpeciesService $service, $id)
     {
-        if($id && $service->deleteCharacterDrop(CharacterDropData::find($id))) {
+        if($id && $service->deleteDropData(CharacterDropData::find($id))) {
             flash('Drop data deleted successfully.')->success();
         }
         else {

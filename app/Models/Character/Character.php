@@ -290,10 +290,11 @@ class Character extends Model
         return $this->hasMany('App\Models\Character\CharacterSkill', 'character_id');
     }
 
+    
     /**
      * Get the character's character drop data.
      */
-    public function drops() 
+    public function drops()
     {
         if(!CharacterDrop::where('character_id', $this->id)->first()) {
             $drop = new CharacterDrop;

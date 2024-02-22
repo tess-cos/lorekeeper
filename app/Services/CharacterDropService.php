@@ -5,6 +5,7 @@ use App\Services\Service;
 use DB;
 use Config;
 
+use Illuminate\Support\Arr;
 use App\Models\Item\Item;
 use App\Models\Species\Species;
 use App\Models\Species\Subtype;
@@ -42,11 +43,11 @@ class CharacterDropService extends Service
             $data['parameters'] = json_encode($paramData);
 
             $data['data']['frequency'] = ['frequency' => $data['drop_frequency'], 'interval' => $data['drop_interval']];
-            $data['data']['is_active'] = isset($data['is_active']) && $data['is_active'] ? $data['is_active'] : 0;
+            $data['is_active'] = isset($data['is_active']) && $data['is_active'] ? $data['is_active'] : 0;
             $data['data']['drop_name'] = isset($data['drop_name']) ? $data['drop_name'] : null;
             $data['data'] = json_encode($data['data']);
 
-            $drop = CharacterDropData::create(array_only($data, ['species_id', 'parameters', 'data']));
+            $drop = CharacterDropData::create(Arr::only($data, ['species_id', 'parameters', 'data']));
 
             return $this->commitReturn($drop);
         } catch(\Exception $e) {
@@ -99,11 +100,12 @@ class CharacterDropService extends Service
             }
 
             $data['data']['frequency'] = ['frequency' => $data['drop_frequency'], 'interval' => $data['drop_interval']];
-            $data['data']['is_active'] = isset($data['is_active']) && $data['is_active'] ? $data['is_active'] : 0;
+            $data['is_active'] = isset($data['is_active']) && $data['is_active'] ? $data['is_active'] : 0;
             $data['data']['drop_name'] = isset($data['drop_name']) ? $data['drop_name'] : null;
+            $data['data']['cap'] = isset($data['cap']) ? $data['cap'] : null;
             $data['data'] = json_encode($data['data']);
 
-            $drop->update(array_only($data, ['species_id', 'parameters', 'data']));
+            $drop->update(Arr::only($data, ['species_id', 'parameters', 'data', 'is_active']));
 
             return $this->commitReturn($drop);
         } catch(\Exception $e) {
@@ -126,7 +128,7 @@ class CharacterDropService extends Service
             // Check first if the table is currently in use
             // - Prompts
             // - Box rewards (unfortunately this can't be checked easily)
-            if(CharacterDropData::where('id', $drop->id)->exists()) throw new \Exception('A character has drops using this data. Consider disabling drops instead.');
+            if(CharacterDrop::where('drop_id', $drop->id)->exists()) throw new \Exception('A character has drops using this data. Consider disabling drops instead.');
 
             $drop->characterDrops()->delete();
             $drop->delete();
