@@ -239,7 +239,7 @@
         <div class="card-body" id="groups">
             {!! Form::label('Group (Optional)') !!} {!! add_help('This is used for character drops. If no value is set, it will be randomly rolled from the species\' groups.') !!}
             {!! Form::select('parameters', $parameters, old('parameters'), ['class' => 'form-control', 'id' => 'parameter']) !!}
-        </div>
+        </div></div>
 
     <div class="form-group">
         {!! Form::label('Traits') !!} @if($isMyo) {!! add_help('These traits will be listed as required traits for the slot. The user will still be able to add on more traits, but not be able to remove these. This is allowed to conflict with the rarity above; you may add traits above the '.__('lorekeeper.character').'\'s specified rarity.') !!} @endif
