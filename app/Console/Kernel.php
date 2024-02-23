@@ -33,7 +33,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('reset-foraging')
                 ->daily();
         $schedule->command('change-feature')
-                ->weekly();
+                ->weeklyOn(1, '12:00');
         $schedule->command('check-pet-drops')
                 ->everyMinute();
         $schedule->command('restock-shops')

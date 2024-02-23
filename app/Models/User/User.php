@@ -1134,9 +1134,9 @@ class User extends Authenticatable implements MustVerifyEmail
         // If there is no log, by default, the cooldown is null
         if(!$log) return null;
         // If the cooldown would already be up, it is null
-        if($log->created_at->addMinutes(1440) <= Carbon::now()) return null;
+        if($log->created_at->addMinutes(720) <= Carbon::now()) return null;
         // Otherwise, calculate the remaining time
-        return $log->created_at->addMinutes(1440);
+        return $log->created_at->addMinutes(720);
         return null;
     }
 }
