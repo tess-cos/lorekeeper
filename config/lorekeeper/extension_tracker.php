@@ -80,7 +80,7 @@ return [
             'TGI'  => 'https://github.com/tjgallaha/',
             'Ne-wt' => 'https://github.com/ne-wt/',
         ]),
-        'version' => '2.0.0',
+        'version' => '2.0.1',
     ],
     'selected_character' => [
         'key' => 'selected_character',
