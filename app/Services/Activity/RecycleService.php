@@ -163,7 +163,7 @@ class RecycleService extends Service {
 
       foreach ($data['stack_id'] as $stackId) {
         $stack = UserItem::find($stackId);
-        if (!(new InventoryManager)->debitStack($stack->user, 'Turned in to' . $activity->name, ['data' => ''], $stack, $data['stack_quantity'][$stackId]))
+        if (!(new InventoryManager)->debitStack($stack->user, 'Turned in to ' . $activity->name, ['data' => ''], $stack, $data['stack_quantity'][$stackId]))
           throw new \Exception('Failed to remove item');
       }
 
