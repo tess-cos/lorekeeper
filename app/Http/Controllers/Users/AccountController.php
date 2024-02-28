@@ -204,6 +204,24 @@ class AccountController extends Controller
     }
 
     /**
+     * Changes text speed
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Services\UserService  $service
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function postTextSpeed(Request $request, UserService $service)
+    {
+        if($service->updateTextSpeed($request->input('text_speed'), Auth::user())) {
+            flash('Setting updated successfully.')->success();
+        }
+        else {
+            foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
+        }
+        return redirect()->back();
+    }
+
+    /**
      * Shows the notifications page.
      *
      * @return \Illuminate\Contracts\Support\Renderable

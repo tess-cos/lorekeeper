@@ -17,11 +17,19 @@
             @endif
         </div>
         <div class="world-entry-text">
-            <p>{{ $prompt->summary }}</p>
+            @if($prompt->summary)
+                @php
+                    $summary = preg_replace('/\@dialogue\(([0-9]+)\)/', ''.view("components.dialogue", ["id" => "$1"]).'', $prompt->summary);
+                @endphp
+                <p>{!! $summary !!}</p>
+            @endif
             <div style="text-align: right;" class="mb-3"><a data-toggle="collapse" style="color: #D48C99 !important; text-align: right;" href="#prompt-{{ $prompt->id }}" @if(isset($isPage)) aria-expanded="true" @endif)><strong>Show details...</strong></a></div>
             <div class="collapse @if(isset($isPage)) show @endif mb-5" id="prompt-{{ $prompt->id }}">
                 @if($prompt->parsed_description)
-                    {!! $prompt->parsed_description !!}
+                    @php
+                        $text = preg_replace('/<p>@dialogue\(([0-9]+)\)<\/p>/', ''.view("components.dialogue", ["id" => "$1"]).'', $prompt->parsed_description);
+                    @endphp
+                    {!! $text !!}
                 @else
                     <p>No further details.</p>
                 @endif

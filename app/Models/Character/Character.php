@@ -308,6 +308,14 @@ class Character extends Model
         return $this->hasOne('App\Models\Character\CharacterDrop', 'character_id');
     }
 
+    /**
+     * Get the dialogue images for the character
+     */
+    public function dialogueImages()
+    {
+        return $this->hasMany('App\Models\Character\CharacterDialogueImage', 'character_id');
+    }
+
     /**********************************************************************************************
 
         SCOPES

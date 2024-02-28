@@ -295,4 +295,9 @@ Route::group(['prefix' => 'mail', 'namespace' => 'Users'], function() {
 **************************************************************************************************/
 Route::group(['prefix' => 'terms'], function() {
     Route::get('/accept', 'TermsController@acceptTerms');
+});/**************************************************************************************************
+    Dialogue
+**************************************************************************************************/
+Route::group(['prefix' => 'dialogue'], function() {
+    Route::get('get-text', 'DialogueController@getText');
 });
