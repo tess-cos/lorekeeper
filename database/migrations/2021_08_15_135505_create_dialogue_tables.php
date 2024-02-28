@@ -16,7 +16,7 @@ class CreateDialogueTables extends Migration
         Schema::create('dialogues', function (Blueprint $table) {
             $table->engine = 'MyISAM';
             $table->id();
-            $table->text('dialogue')->string('dialogue', 191)->index();
+            $table->text('dialogue', 191)->default(null)->nullable()->index();
             //
             $table->string('speaker_name')->default(null)->nullable();
             $table->integer('speaker_id')->default(null)->nullable();
