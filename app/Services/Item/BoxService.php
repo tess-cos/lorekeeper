@@ -164,7 +164,7 @@ class BoxService extends Service
                         if(!$rewards = fillUserAssets(parseAssetData($stack->item->tag('box')->data), $user, $user, 'Box Rewards', [
                             'data' => 'Received rewards from opening '.$stack->item->name
                         ])) throw new \Exception("Failed to open box.");
-                        flash($this->getBoxRewardsString($rewards));
+                        flash($this->getRewardsString($rewards))->success();
                     }
                 }
             }
@@ -174,6 +174,15 @@ class BoxService extends Service
         }
         return $this->rollbackReturn(false);
     }
+
+    /**     
+    *Returns a string of the rewards so the user can see what they have received.
+    *
+* @param mixed $rewards
+*/
+private function getRewardsString($rewards) {
+    return 'You have received: '.createRewardsString($rewards);
+}
 
     /**
      * Acts upon the item when used from the inventory.

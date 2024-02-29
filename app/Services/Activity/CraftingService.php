@@ -118,7 +118,7 @@ class CraftingService extends Service {
         if (!$service->debitCurrency($user, null, 'Activity', 'Used in ' . $recipe->name . '', Currency::find($ingredient->data[0]), $ingredient->quantity)) throw new \Exception('Currency could not be debited.');
       }
 
-      flash(getRewardsString($rewards));
+      flash($this->getRewardsString($rewards))->success();
 
       return $this->commitReturn(true);
     } catch (\Exception $e) {
@@ -142,4 +142,13 @@ class CraftingService extends Service {
 
     return $completed;
   }
+
+  /**     
+    *Returns a string of the rewards so the user can see what they have received.
+    *
+* @param mixed $rewards
+*/
+private function getRewardsString($rewards) {
+  return 'You have received: '.createRewardsString($rewards);
+}
 }

@@ -68,7 +68,7 @@ p a, li a, th, .card-header h5 {color: #D48C99;}
 
 .nw a, .asp {color: #C0D1A6 !important;}
 
-.ht a, strong, .font-weight-bold {color: #7b956d;}
+.ht a, strong, .font-weight-bold, .alert a {color: #7b956d;}
 
 .cu a, .display-species, .display-character, strong {color: #95b582;}
 

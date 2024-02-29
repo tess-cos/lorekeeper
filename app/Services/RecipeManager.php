@@ -113,7 +113,11 @@ class RecipeManager extends Service {
                 'data' => 'Result from ' . $recipe->displayName . ''
             ];
 
-            if (!fillUserAssets($recipe->rewardItems, null, $user, $logType, $craftingData)) throw new \Exception("Failed to distribute rewards to user.");
+            if (!($rewards = fillUserAssets($recipe->rewardItems, null, $user, $logType, $craftingData))) {
+                throw new \Exception('Failed to distribute rewards to user.');
+            }
+
+            flash($this->getRewardsString($rewards))->success();
 
             return $this->commitReturn(true);
         } catch (\Exception $e) {
@@ -121,6 +125,15 @@ class RecipeManager extends Service {
         }
         return $this->rollbackReturn(false);
     }
+
+    /**     
+    *Returns a string of the rewards so the user can see what they have received.
+    *
+* @param mixed $rewards
+*/
+private function getRewardsString($rewards) {
+    return 'You have received: '.createRewardsString($rewards);
+}
 
     /**
      * Plucks stacks from a given Collection of user items that meet the crafting requirements of a recipe
