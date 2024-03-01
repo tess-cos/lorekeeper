@@ -71,11 +71,6 @@
     {!! Form::select('rarity_id', $rarities, $tag->getData()['rarity_id'], ['class' => 'form-control']) !!}
 </div>
 
-<div class="form-group">
-    {!! Form::label(ucfirst(__('lorekeeper.character')).' Rarity') !!} {!! add_help('This will lock the slot into a particular rarity. Leave it blank if you would like to give the user more choices.') !!}
-    {!! Form::select('rarity_id', $rarities, $tag->getData()['rarity_id'], ['class' => 'form-control']) !!}
-</div>
-
 @section('scripts')
 @parent
 @include('widgets._character_create_options_js')
