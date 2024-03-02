@@ -107,7 +107,7 @@ class PromptsController extends Controller
      */
     public function getPrompt(Request $request, $id)
     {
-        $prompt = Prompt::where('id', $id)->get()->first();
+        $prompt = Prompt::active()->where('id', $id)->get()->first();
 
         if(!$prompt) abort(404);
 
