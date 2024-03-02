@@ -1,22 +1,22 @@
 <div id="box" class="hide mb-2">
     <div class="row no-gutters">
         <div id='image-container' class="col-2">
-            <div id="image"></div>
+            <div id="image" style="position: relative; left: 15px; background-color: #f9f8f3; border-radius: 5px; padding: 5px;"></div>
         </div>
-        <div id='main-dialogue' class="col-10">
-            <h3 class="card-header col-12" id="name"></h3>
+        <div id='main-dialogue' class="col-10" style="padding: 35px; padding-top: 0px;">
+            <h3 class="card-header col-12" id="name" style="background: #f9f8f3 !important; border-radius: 5px;"></h3>
             <div class="dialogue" id="dialogue"></div>
         </div>
     </div>
     <div class="col-12 mt-3">
         <div class="float-right dialogue-responses">
-            <div class='btn btn-warning mr-1 stop' onclick="stopTypeWrite()"><i class="fas fa-angle-double-right"></i></div>
-            <div class="row" id="responses"></div>
+            <div style="margin-left: -50.5px;" class='btn btn-dia1 mr-1 stop' onclick="stopTypeWrite()"><i class="fas fa-angle-double-right"></i></div>
+            <div class="row" id="responses" style="width: 100%;"></div>
         </div>
     </div>
 </div>
 
-<div class="hide btn btn-primary dialogue-button mx-2 mb-1"></div>
+<div class="hide btn btn-dia1 dialogue-button mx-2 mb-1"></div>
 
 {{-- SCRIPTS AREA --}}
 <script>
@@ -113,14 +113,14 @@
                             $('.stop').addClass('hide');
                             for(var i = 0; i < responses.length; i++) {
                                 var response = responses[i];
-                                $("#responses").append("<br><div class='btn btn-primary mr-1' onClick='response("+ response['id'] +")'>" + response['name'] + "</div>").hide().fadeIn(200);
+                                $("#responses").append("<br><div style='margin-left: -30.5px;' class='btn btn-dia1 mr-1' onClick='response("+ response['id'] +")'>" + response['name'] + "</div>").hide().fadeIn(200);
                             }
                         }
                         else {
                             $('.stop').addClass('hide');
                             for(var i = 0; i < responses.length; i++) {
                                 var response = responses[i];
-                                $("#responses").append("<br><div class='btn btn-primary mr-1' onClick='response("+ response['id'] +")'><i class='fas fa-caret-down'></i></div>").hide().fadeIn(200);
+                                $("#responses").append("<br><div style='margin-left: -30.5px;' class='btn btn-dia1 mr-1' onClick='response("+ response['id'] +")'><i class='fas fa-caret-down'></i></div>").hide().fadeIn(200);
                             }
                         }
                     }

@@ -6,12 +6,12 @@
 {!! breadcrumbs([$page->title => $page->url]) !!}
 <h1>{{ $page->title }}</h1>
 
-<div class="mb-4">
+<div class="mb-4" style="display: none;">
     <div><strong>Created:</strong> {!! format_date($page->created_at) !!}</div>
     <div><strong>Last updated:</strong> {!! format_date($page->updated_at) !!}</div>
 </div>  
 
-<div class="site-page-content parsed-text">
+<div class="site-page-content parsed-text" style="padding-top: 25px;">
     {!! $text !!}
 </div>
 
