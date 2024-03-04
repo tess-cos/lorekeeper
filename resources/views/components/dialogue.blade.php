@@ -120,7 +120,7 @@
                             $('.stop').addClass('hide');
                             for(var i = 0; i < responses.length; i++) {
                                 var response = responses[i];
-                                $("#responses").append("<br><div style='margin-left: -30.5px;' class='btn btn-dia1 mr-1' onClick='response("+ response['id'] +")'><i class='fas fa-caret-down'></i></div>").hide().fadeIn(200);
+                                $("#responses").append("<br><div style='margin-left: -30.5px;' class='btn btn-dia1 mr-1' onClick='response("+ response['id'] +")'>" + response['name'] + "</div>").hide().fadeIn(200);
                             }
                         }
                     }
