@@ -1,8 +1,8 @@
 {!! Form::open(['url' => 'activities/' . $activity->id . '/act']) !!}
-<h3>Select Items to Turn In</h3>
+<div style="display: none;"><h3>Select Items to Turn In</h3>
 @if($activity->data->quantity)
 <p>You are required to select {{ $activity->data->quantity }} item(s) to turn in.</p>
-@endif
+@endif</div>
 <h3>Inventory <a class="small inventory-collapse-toggle collapse-toggle" href="#inventturnin" data-toggle="collapse">Show</a></h3>
 <hr>
     <div class="collapse collapse" id="inventturnin">
