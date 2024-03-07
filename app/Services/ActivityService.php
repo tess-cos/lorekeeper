@@ -130,8 +130,6 @@ class ActivityService extends Service {
     DB::beginTransaction();
 
     try {
-      // Delete shop stock
-
       if ($activity->has_image) $this->deleteImage($activity->ImagePath, $activity->ImageFileName);
       $activity->delete();
 

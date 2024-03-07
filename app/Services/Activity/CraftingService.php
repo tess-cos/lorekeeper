@@ -6,9 +6,7 @@ use App\Models\Currency\Currency;
 use App\Models\Recipe\Recipe;
 use App\Models\User\UserCurrency;
 use App\Models\User\UserItem;
-use App\Models\User\UserPet;
 use App\Services\CurrencyManager;
-use App\Services\PetManager;
 use App\Services\InventoryManager;
 use App\Services\RecipeManager;
 use App\Services\Service;
@@ -78,14 +76,6 @@ class CraftingService extends Service {
       $isComplete = $this->checkRecipe($user, $recipe);
       if (!$isComplete) throw new \Exception('You haven\'t gotten all the subjects yet for this spell.');
 
-      // Credit rewards
-      $logType = 'Activity Reward';
-      $rewardData = [
-        'data' => 'From ' . $recipe->name . ''
-      ];
-
-      if (!$rewards = fillUserAssets($recipe->rewardItems, null, $user, $logType, $rewardData)) throw new \Exception("Failed to distribute rewards to user.");
-
       // Complete the recipe ----  NOTE: This could be done with less code duplication with RecipeManager but hrmmm would be duplicative processing also.
       // Check for sufficient currencies
       $user_currencies = $user->getCurrencies(true);
@@ -98,7 +88,7 @@ class CraftingService extends Service {
       // Check for sufficient ingredients
       $manager = new RecipeManager;
       $ingredients = $manager->pluckIngredients($user, $recipe);
-      if (count($ingredients) > 0) throw new \Exception('Insufficient subjects.');
+      if ($recipe->ingredients->where('ingredient_type', 'Item')->count() > 0 && !$ingredients) throw new \Exception('Insufficient subjects.');
       // Debit the ingredients
       $service = new InventoryManager();
       foreach ($ingredients as $id => $quantity) {
@@ -106,17 +96,20 @@ class CraftingService extends Service {
         if (!$service->debitStack($user, 'Activity', ['data' => 'Used in ' . $recipe->name . ''], $stack, $quantity)) throw new \Exception('Items could not be removed.');
       }
 
-      $service = new PetManager();
-      foreach ($ingredients as $id => $quantity) {
-        $stack = UserPet::find($id);
-        if (!$service->debitStack($user, 'Activity', ['data' => 'Used in ' . $recipe->name . ''], $stack, $quantity)) throw new \Exception('Pets could not be removed.');
-      }
-
       // Debit the currency
       $service = new CurrencyManager();
       foreach ($currency_ingredients as $ingredient) {
         if (!$service->debitCurrency($user, null, 'Activity', 'Used in ' . $recipe->name . '', Currency::find($ingredient->data[0]), $ingredient->quantity)) throw new \Exception('Currency could not be debited.');
       }
+
+      
+      // Credit rewards
+      $logType = 'Activity Reward';
+      $rewardData = [
+        'data' => 'From ' . $recipe->name . ''
+      ];
+
+      if (!$rewards = fillUserAssets($recipe->rewardItems, null, $user, $logType, $rewardData)) throw new \Exception("Failed to distribute rewards to user.");
 
       flash($this->getRewardsString($rewards))->success();
 
@@ -134,8 +127,6 @@ class CraftingService extends Service {
         $userOwned = UserItem::where('user_id', $user->id)->where('item_id', $ingredient->ingredient->id)->where('count', '>', 0)->sum('count');
       elseif ($ingredient->ingredient_type === 'Currency')
         $userOwned = UserCurrency::where('user_id', $user->id)->where('currency_id', $ingredient->ingredient->id)->sum('quantity');
-      elseif ($ingredient->ingredient_type === 'Pet')
-        $userOwned = UserPet::where('user_id', $user->id)->where('pet_id', $ingredient->ingredient->id)->where('count', '>', 0)->sum('count');
 
       if (intval($userOwned) < $ingredient->quantity) $completed = false;
     }
@@ -149,6 +140,6 @@ class CraftingService extends Service {
 * @param mixed $rewards
 */
 private function getRewardsString($rewards) {
-  return 'You have received: '.createRewardsString($rewards);
+    return 'You have received: '.createRewardsString($rewards);
 }
 }
