@@ -36,9 +36,10 @@ class SiteFormManager extends Service
             if (isset($data['action']) && $data['action'] == 'submit' && !$form->canSubmit($user)) throw new \Exception("This form cannot be submitted at the time.");
 
             $nextNumber = $form->latestSubmissionNumber() + 1;
-            foreach ($form->questions as $key => $question) {
+            foreach ($form->questions as $key => $question) {                
                 $existingAnswer = SiteFormAnswer::where('user_id', $user->id)->where('question_id', $question->id)->where('submission_number', $submissionNumber)->first();
-                if ($isEdit && $existingAnswer) {
+                // Is edit and not a valid multichoice question
+                if ($isEdit && $existingAnswer && !($question->is_multichoice && $question->has_options)) {
                     //update existing answer
                     $answer = $data[$question->id];
                     if ($question->is_mandatory && empty($answer)) throw new \Exception("Question " . $key + 1 . " cannot be empty, as it is mandatory!");
@@ -50,6 +51,23 @@ class SiteFormManager extends Service
                         } else {
                             $existingAnswer->update([
                                 'answer' => $answer,
+                            ]);
+                        }
+                    }
+                    // Cause if it didn't have options multichoice doesn't mean anything
+                } else if ($question->is_multichoice && $question->has_options) {
+                    // Always clear out existing answers for multi-choice easier than trying to figure out which to remove / update / etc.
+                    $answers = SiteFormAnswer::where('user_id', $user->id)->where('question_id', $question->id)->where('submission_number', $submissionNumber);
+                    $answers->delete();
+                    if (isset($data[$question->id])) {
+                        $answers = $data[$question->id];
+                        foreach ($answers as $key => $answer) {
+                            SiteFormAnswer::create([
+                                'form_id' => $form->id,
+                                'question_id' => $question->id,
+                                'option_id' => $answer,
+                                'user_id' => $user->id,
+                                'submission_number' => $isEdit ? $submissionNumber : $nextNumber
                             ]);
                         }
                     }

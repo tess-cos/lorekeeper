@@ -38,7 +38,7 @@ class SiteFormService extends Service
             $data['user_id'] = $user->id;
             $form = SiteForm::create($data);
 
-            $this->createFormQuestions($data['questions'], $data['options'], $data['is_mandatory'] ?? [], $form);
+            $this->createFormQuestions($data['questions'], $data['options'], $data['is_mandatory'] ?? [], $data['is_multichoice'] ?? [], $form);
             $this->populateRewards(Arr::only($data, ['rewardable_type', 'rewardable_id', 'quantity']), $form);
 
             return $this->commitReturn($form);
@@ -64,7 +64,7 @@ class SiteFormService extends Service
             $data = $this->populateFormData($data);
             $data['user_id'] = $user->id;
             $form->update($data);
-            $this->updateFormQuestions($data['questions'], $data['options'], $data['is_mandatory'] ?? [], $form);
+            $this->updateFormQuestions($data['questions'], $data['options'], $data['is_mandatory'] ?? [], $data['is_multichoice'] ?? [], $form);
             $this->populateRewards(Arr::only($data, ['rewardable_type', 'rewardable_id', 'quantity']), $form);
             return $this->commitReturn($form);
         } catch (\Exception $e) {
@@ -133,7 +133,7 @@ class SiteFormService extends Service
      * @param  App\Models\Forms\SiteForm  $form
      * @return array
      */
-    private function createFormQuestions($questions, $options, $isMandatory, $form)
+    private function createFormQuestions($questions, $options, $isMandatory, $isMultichoice, $form)
     {
         $questions = array_filter($questions);
         if (count($questions) <= 0) throw new \Exception("A form must have at least one question.");
@@ -146,7 +146,8 @@ class SiteFormService extends Service
                     'form_id' => $form->id,
                     'question' => $question,
                     'has_options' => count($op) > 0,
-                    'is_mandatory' => isset($isMandatory[$id]) ? 1 : 0
+                    'is_mandatory' => isset($isMandatory[$id]) ? 1 : 0,
+                    'is_multichoice' => isset($isMultichoice[$id]) ? 1 : 0
                 ]);
 
                 //save options
@@ -168,7 +169,7 @@ class SiteFormService extends Service
      * @param  App\Models\Forms\SiteForm  $form
      * @return array
      */
-    private function updateFormQuestions($questions, $options, $isMandatory, $form)
+    private function updateFormQuestions($questions, $options, $isMandatory, $isMultichoice, $form)
     {
         $questions = array_filter($questions);
 
@@ -184,7 +185,8 @@ class SiteFormService extends Service
                 $question->update([
                     'question' => $questionData,
                     'has_options' => count($optionsData) > 0,
-                    'is_mandatory' => isset($isMandatory[$question->id]) ? 1 : 0
+                    'is_mandatory' => isset($isMandatory[$question->id]) ? 1 : 0,
+                    'is_multichoice' => isset($isMultichoice[$question->id]) ? 1 : 0
                 ]);
 
                 //remove question from array so we dont re-create it later
@@ -231,7 +233,7 @@ class SiteFormService extends Service
             }
         }
         //then just create the rest anew if needed
-        if (count($questions) > 0) $this->createFormQuestions($questions, $options, $isMandatory, $form);
+        if (count($questions) > 0) $this->createFormQuestions($questions, $options, $isMandatory, $isMultichoice, $form);
     }
 
     /**
