@@ -11,7 +11,7 @@
     <div class="media-body row mw-100 mx-0" style="flex:1;flex-wrap:wrap;">
         @if(isset($compact) && !$compact)
         <div class="d-none d-md-block">
-            <img class="mr-3 mt-2 cc-3" src="/images/avatars/{{ $comment->commenter->avatar }}" style="width:70px; height:70px; border-radius:50%; border: 2px solid #f4e3e6;" alt="{{ $comment->commenter->name }} Avatar">
+            <img class="mr-3 mt-2 cc-4" src="/images/avatars/{{ $comment->commenter->avatar }}" style="width:70px; height:70px; border-radius:50%; border: 2px solid #f4e3e6;" alt="{{ $comment->commenter->name }} Avatar">
         </div>
         @endif
         <div class="d-block" style="flex:1">
@@ -37,13 +37,13 @@
         @if(Auth::check())
             <div class="my-1">
                 @can('reply-to-comment', $comment)
-                    <button data-toggle="modal" data-target="#reply-modal-{{ $comment->getKey() }}" class="btn btn-sm px-3 py-2 px-sm-2 py-sm-1  btn-dark text-uppercase" style="background-color: #EBF0E3;"><i class="fas fa-comment"></i><span class="ml-2 d-none d-sm-inline-block">Reply</span></button>
+                    <button data-toggle="modal" data-target="#reply-modal-{{ $comment->getKey() }}" class="btn btn-sm px-3 py-2 px-sm-2 py-sm-1  btn-dark text-uppercase bb-2" style="background-color: #EBF0E3;"><i class="fas fa-comment"></i><span class="ml-2 d-none d-sm-inline-block">Reply</span></button>
                 @endcan
                 @can('edit-comment', $comment)
-                    <button data-toggle="modal" data-target="#comment-modal-{{ $comment->getKey() }}" class="btn btn-sm px-3 py-2 px-sm-2 py-sm-1  btn-dark text-uppercase" style="background-color: #EBF0E3;"><i class="fas fa-edit"></i><span class="ml-2 d-none d-sm-inline-block">Edit</span></button>
+                    <button data-toggle="modal" data-target="#comment-modal-{{ $comment->getKey() }}" class="btn btn-sm px-3 py-2 px-sm-2 py-sm-1  btn-dark text-uppercase bb-2" style="background-color: #EBF0E3;"><i class="fas fa-edit"></i><span class="ml-2 d-none d-sm-inline-block">Edit</span></button>
                 @endcan
                 @if(((Auth::user()->id == $comment->commentable_id) || Auth::user()->isStaff) && (isset($compact) && !$compact))
-                    <button data-toggle="modal" data-target="#feature-modal-{{ $comment->getKey() }}" class="btn btn-sm px-3 py-2 px-sm-2 py-sm-1  btn-dark text-success text-uppercase" style="background-color: #EBF0E3;"><i class="fas fa-star"></i><span class="ml-2 d-none d-sm-inline-block">{{$comment->is_featured ? 'Unf' : 'F' }}eature Comment</span></button>
+                    <button data-toggle="modal" data-target="#feature-modal-{{ $comment->getKey() }}" class="btn btn-sm px-3 py-2 px-sm-2 py-sm-1  btn-dark text-success text-uppercase bb-2" style="background-color: #EBF0E3;"><i class="fas fa-star"></i><span class="ml-2 d-none d-sm-inline-block">{{$comment->is_featured ? 'Unf' : 'F' }}eature Comment</span></button>
                 @endif
                 @can('delete-comment', $comment)
                     <button data-toggle="modal" data-target="#delete-modal-{{ $comment->getKey() }}" class="btn btn-sm px-3 py-2 px-sm-2 py-sm-1 btn-outline-danger text-uppercase"><i class="fas fa-minus-circle"></i><span class="ml-2 d-none d-sm-inline-block">Delete</span></button>
