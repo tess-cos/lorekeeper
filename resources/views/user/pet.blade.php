@@ -23,10 +23,10 @@
                                 <a href="#" class="inventory-stack"><img src="{{ $pet->VariantImage($pet->pivot->variant_id) }}" class="img-fluid"/></a>
                             </div>
                             <div>
-                                <a href="#" class="inventory-stack inventory-stack-name">{{ $pet->name }}</a>
+                                <a href="#" class="inventory-stack inventory-stack-name bac-1">{{ $pet->name }}</a>
                             </div>
                             <div>
-                                <span class="badge px-3 py-2 mb-1" style="font-size:95%; background-color: #E5C1C7; color: #fff;">{{ $pet->pivot->pet_name }}</span>
+                                <span class="badge px-3 py-2 mb-1 bb-7" style="font-size:95%; background-color: #E5C1C7; color: #fff;">{{ $pet->pivot->pet_name }}</span>
                             </div>
                         </div>
                     @endforeach

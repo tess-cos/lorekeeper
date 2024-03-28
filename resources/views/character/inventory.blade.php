@@ -37,7 +37,7 @@
                                 <a href="#" class="inventory-stack"><img src="{{ $stack->first()->imageUrl }}" alt="{{ $stack->first()->name }}"/></a>
                             </div>
                             <div class="{{ $canName ? 'text-muted' : '' }}">
-                                <a href="#" class="inventory-stack inventory-stack-name">{{ $stack->first()->name }} x{{ $stack->sum('pivot.count') }}</a>
+                                <a href="#" class="inventory-stack inventory-stack-name bac-1">{{ $stack->first()->name }} x{{ $stack->sum('pivot.count') }}</a>
                             </div>
                             @if($canName && $stackName)
                                 <div>

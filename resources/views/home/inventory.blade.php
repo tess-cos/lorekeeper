@@ -18,7 +18,7 @@
 
 @foreach($items as $categoryId=>$categoryItems)
     <div class="card mb-3 inventory-category">
-        <h5 class="card-header inventory-header">
+        <h5 class="card-header inventory-header ht">
             {!! isset($categories[$categoryId]) ? '<a href="'.$categories[$categoryId]->searchUrl.'">'.$categories[$categoryId]->name.'</a>' : 'Miscellaneous' !!}
             <a class="small inventory-collapse-toggle collapse-toggle collapsed" href="#{!! isset($categories[$categoryId]) ? str_replace(' ', '', $categories[$categoryId]->name) : 'miscellaneous' !!}" data-toggle="collapse">Show</a></h3>
         </h5>
@@ -33,7 +33,7 @@
                                 </div>
                             @endif
                             <div>
-                                <a href="#" class="inventory-stack inventory-stack-name">{{ $stack->first()->name }} x{{ $stack->sum('pivot.count') }}</a>
+                                <a href="#" class="inventory-stack inventory-stack-name bac-1">{{ $stack->first()->name }} x{{ $stack->sum('pivot.count') }}</a>
                             </div>
                         </div>
                     @endforeach

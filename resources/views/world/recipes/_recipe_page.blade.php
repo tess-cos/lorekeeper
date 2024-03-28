@@ -42,7 +42,7 @@
                             <div class="col-md-12">
                                 <h5>Requirements</h5>
 
-                                <div class="alert alert-secondary" style="background: #f4e3e6 !important;">
+                                <div class="alert alert-recipe" style="background: #f4e3e6 !important;">
                                     <?php
                                     $limits = [];
                                     foreach($recipe->limits as $limit)
@@ -60,7 +60,7 @@
                         <div class="col-md-6">
                             <h5>Subjects</h5>
                             @foreach($recipe->ingredients as $ingredient)
-                                <div class="alert alert-secondary" style="background: #FBF5F6 !important;">
+                                <div class="alert alert-recipe cc-5" style="background: #FBF5F6;">
                                     @include('home.crafting._recipe_ingredient_entry', ['ingredient' => $ingredient])
                                 </div>
                             @endforeach
@@ -69,7 +69,7 @@
                             <h5>Rewards</h5>
                             @foreach($recipe->reward_items as $type)
                                 @foreach($type as $item)
-                                    <div class="alert alert-secondary" style="background: #FBF5F6 !important;">
+                                    <div class="alert alert-recipe cc-5" style="background: #FBF5F6;">
                                         @include('home.crafting._recipe_reward_entry', ['reward' => $item])
                                     </div>
                                 @endforeach

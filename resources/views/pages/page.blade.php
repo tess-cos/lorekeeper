@@ -9,18 +9,16 @@
 <div class="mb-4" style="display: none;">
     <div><strong>Created:</strong> {!! format_date($page->created_at) !!}</div>
     <div><strong>Last updated:</strong> {!! format_date($page->updated_at) !!}</div>
-</div>  
+</div>
 
 <div class="site-page-content parsed-text" style="padding-top: 25px;">
     {!! $text !!}
 </div>
 
 @if($page->can_comment)
-    <div class="container">
-        @comments(['model' => $page,
-                'perPage' => 5
-            ])
-    </div>
+    @comments(['model' => $page,
+            'perPage' => 5
+        ])
 @endif
 
 @endsection

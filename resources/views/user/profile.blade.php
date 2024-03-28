@@ -18,7 +18,7 @@
 <hr style="border: 0px solid #fff; width: 100%;">
 <div class="row no-gutters">
     <div class="col-lg-2 p-2 d-flex justify-content-center align-items-center">
-        <img src="/images/avatars/{{ $user->avatar }}" style="max-width:125px; max-height:125px; margin-left: 0px; margin-right: 0px; margin-top: -8px; margin-bottom: 20px; border-radius:50%; padding: 10px; border: 1px solid #E5C1C7; background-color: #fdfdfd !important;" alt="{{ $user->name }}" >
+        <img class="bb2" src="/images/avatars/{{ $user->avatar }}" style="max-width:125px; max-height:125px; margin-left: 0px; margin-right: 0px; margin-top: -8px; margin-bottom: 20px; border-radius:50%; padding: 10px; border: 1px solid #E5C1C7; background-color: #fdfdfd;" alt="{{ $user->name }}" >
     </div>
 
     <div class="col-lg-10 p-2">
@@ -95,7 +95,7 @@
     </div>
     <div class="col-md-6 mb-4 profile-assets" style="clear:both;">
         <div class="card profile-currencies profile-assets-card mb-4">
-            <div class="card-body text-center">
+            <div class="card-body text-center bb-3">
                 <h5 class="card-title">Bank</h5>
                 <div class="profile-assets-content">
                     @foreach($user->getCurrencies(false) as $currency)
@@ -106,7 +106,7 @@
             </div>
         </div>
         <div class="card profile-inventory profile-assets-card">
-            <div class="card-body text-center">
+            <div class="card-body text-center bb-3">
                 <h5 class="card-title">Inventory</h5>
                 <div class="profile-assets-content">
                     @if(count($items))
@@ -132,9 +132,9 @@
 </div>
 
     <div class="card mb-3">
-        <div class="card-body text-center">
+        <div class="card-body text-center bb-3">
             <h5 class="card-title">{{ ucfirst(__('awards.awards')) }}</h5>
-            <div class="card-body">
+            <div class="card-body bb-3">
                 @if(count($awards))
                     <div class="row">
                         @foreach($awards as $award)
@@ -156,9 +156,9 @@
     </div>
 
     <div class="card mb-3">
-        <div class="card-body text-center">
+        <div class="card-body text-center bb-3">
             <h5 class="card-title">Pets</h5>
-            <div class="card-body">
+            <div class="card-body bb-3">
             @if(count($pets))
                     <div class="row">
                         @foreach($pets as $pet)

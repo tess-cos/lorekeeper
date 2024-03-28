@@ -41,6 +41,7 @@ use App\Models\WorldExpansion\FactionRank;
 use App\Models\WorldExpansion\FactionRankMember;
 use App\Models\Trade;
 
+use App\Models\Theme;
 use App\Traits\Commenter;
 use App\Models\Item\Item;
 
@@ -60,7 +61,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'name', 'alias', 'rank_id', 'email', 'password', 'is_news_unread', 'is_banned', 'has_alias', 'avatar', 'is_sales_unread', 'birthday', 'home_id', 'home_changed', 'faction_id', 'faction_changed', 'has_accepted_terms'
+        'name', 'alias', 'rank_id', 'email', 'password', 'is_news_unread', 'is_banned', 'has_alias', 'avatar', 'is_sales_unread', 'theme_id', 'decorator_theme_id', 'birthday', 'home_id', 'home_changed', 'faction_id', 'faction_changed', 'has_accepted_terms'
     ];
 
     /**
@@ -117,6 +118,32 @@ class User extends Authenticatable implements MustVerifyEmail
     public function settings()
     {
         return $this->hasOne('App\Models\User\UserSettings');
+    }
+
+    /**
+     * Get user theme.
+     */
+    public function theme()
+    {
+        return $this->belongsTo('App\Models\Theme');
+    }
+
+    /**
+     * Get user decorator .
+     */
+    public function decoratorTheme() {
+        return $this->belongsTo('App\Models\Theme', 'decorator_theme_id');
+    }
+
+
+    /**
+     * Get User Granted Themes 
+     */
+    /**
+     * Get user theme.
+     */
+    public function themes() {
+        return $this->belongsToMany('App\Models\Theme', 'user_themes')->withPivot('id');
     }
 
     /**
@@ -343,6 +370,18 @@ class User extends Authenticatable implements MustVerifyEmail
 
     **********************************************************************************************/
 
+    /**
+     * Checks if the user has the named recipe
+     *
+     * @return bool
+     */
+    public function hasTheme($theme_id) {
+        $theme = Theme::find($theme_id);
+        $user_has = $this->recipes && $this->recipes->contains($theme);
+        $default = $theme->is_user_selectable;
+        return $default ? true : $user_has;
+    }
+    
     /**
      * Get the user's alias.
      *

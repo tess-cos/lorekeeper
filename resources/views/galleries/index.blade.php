@@ -14,7 +14,7 @@
             <div class="card-header" style="background-color: #FBF5F6;">
                 <h4 style="padding: 2px; margin-top: 5px;">
                     {!! $gallery->displayName !!}
-                    @if(Auth::check() && $gallery->canSubmit(Auth::user())) <a href="{{ url('gallery/submit/'.$gallery->id) }}" class="btn btn-primary float-right" style="background-color: #fcfcfc !important; border: none !important; margin-top: -3px;"><i class="fas fa-plus" style="color: #E5C1C7 !important;"></i></a> @endif
+                    @if(Auth::check() && $gallery->canSubmit(Auth::user())) <a href="{{ url('gallery/submit/'.$gallery->id) }}" class="btn btn-plus float-right" style="background-color: #fcfcfc; border: none !important; margin-top: -3px;"><i class="fas fa-plus bb-5" style="color: #E5C1C7;"></i></a> @endif
                 </h4>
                 @if($gallery->children->count() || (isset($gallery->start_at) || isset($gallery->end_at)))
                     <p>

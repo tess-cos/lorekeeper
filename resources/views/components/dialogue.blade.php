@@ -1,10 +1,10 @@
 <div id="box" class="hide mb-2">
     <div class="row no-gutters">
         <div id='image-container' class="col-2">
-            <div id="image" style="position: relative; left: 15px; background-color: #f9f8f3; border-radius: 5px; padding: 5px;"></div>
+            <div id="image" class="bb" style="position: relative; left: 15px; background-color: #f9f8f3; border-radius: 5px; padding: 5px;"></div>
         </div>
         <div id='main-dialogue' class="col-10" style="padding: 35px; padding-top: 0px;">
-            <h3 class="card-header col-12" id="name" style="background: #f9f8f3 !important; border-radius: 5px;"></h3>
+            <h3 class="card-header col-12" id="name" style="background: #f9f8f3; border-radius: 5px;"></h3>
             <div class="dialogue" id="dialogue"></div>
         </div>
     </div>

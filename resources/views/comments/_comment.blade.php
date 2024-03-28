@@ -11,7 +11,7 @@
     <div class="media-body row mw-100 mx-0" style="flex:1;flex-wrap:wrap;">
         @if(isset($compact) && !$compact)
         <div class="d-none d-md-block">
-            <img class="mr-3 mt-2" src="/images/avatars/{{ $comment->commenter->avatar }}" style="width:70px; height:70px; border-radius:50%; border: 2px solid #f4e3e6;" alt="{{ $comment->commenter->name }} Avatar">
+            <img class="mr-3 mt-2 cc-3" src="/images/avatars/{{ $comment->commenter->avatar }}" style="width:70px; height:70px; border-radius:50%; border: 2px solid #f4e3e6;" alt="{{ $comment->commenter->name }} Avatar">
         </div>
         @endif
         <div class="d-block" style="flex:1">
@@ -21,7 +21,7 @@
                 </h5>
                 @if($comment->is_featured)<div style="text-transform: lowercase;" class="ml-1 text-muted text-right col-6 mx-0 pr-1"><small class="text-success">Featured by Owner</small></div> @endif
             </div>
-            <div class="p-3 rounded {{ $comment->is_featured ? 'cmtf' : '' }} " style="border: 1px solid #E0ECD0;"><p style="padding: 5px;">{!! nl2br($markdown->line($comment->comment)) !!} </p>
+            <div class="card p-3 rounded {{ $comment->is_featured ? 'cmtf' : '' }} " style="border: 1px solid #E0ECD0;"><p style="padding: 5px;">{!! nl2br($markdown->line($comment->comment)) !!} </p>
             <p class="pt-1 text-right mb-0">
                 <small class="text-muted">{!! $comment->created_at !!}
                 @if($comment->created_at != $comment->updated_at) 

@@ -18,22 +18,22 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     @if(Auth::check() && Auth::user()->is_news_unread && Config::get('lorekeeper.extensions.navbar_news_notif'))
-                        <a class="nav-link d-flex" href="{{ url('news') }}"><strong>News</strong><i class="fas fa-bell text-warning fa-bounce"></i></a>
+                        <a class="nav-link d-flex cc-1" href="{{ url('news') }}"><strong>News</strong><i class="fas fa-bell text-warning fa-bounce"></i></a>
                     @else
-                        <a class="nav-link" style="color:#4A4A4A; font-size: 10pt;" href="{{ url('news') }}">News</a>
+                        <a class="nav-link cc-1" style="color:#4A4A4A; font-size: 10pt;" href="{{ url('news') }}">News</a>
                     @endif
                 </li>
                 
                 <li class="nav-item">
                     @if(Auth::check() && Auth::user()->is_sales_unread && Config::get('lorekeeper.extensions.navbar_news_notif'))
-                        <a class="nav-link d-flex" href="{{ url('sales') }}"><strong>Sales</strong><i class="fas fa-bell text-warning fa-bounce"></i></a>
+                        <a class="nav-link d-flex cc-1" href="{{ url('sales') }}"><strong>Sales</strong><i class="fas fa-bell text-warning fa-bounce"></i></a>
                     @else
-                        <a class="nav-link" style="color:#4A4A4A; font-size: 10pt;" href="{{ url('sales') }}">Sales</a>
+                        <a class="nav-link cc-1" style="color:#4A4A4A; font-size: 10pt;" href="{{ url('sales') }}">Sales</a>
                     @endif
                 </li>
                 @if(Auth::check())
                     <li class="nav-item dropdown">
-                        <a id="inventoryDropdown" class="nav-link dropdown-toggle" style="color:#4A4A4A; font-size: 10pt;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="inventoryDropdown" class="nav-link dropdown-toggle cc-1" style="color:#4A4A4A; font-size: 10pt;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             Home
                         </a>
 
@@ -65,7 +65,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a id="queueDropdown" class="nav-link dropdown-toggle" style="color:#4A4A4A; font-size: 10pt;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="queueDropdown" class="nav-link dropdown-toggle cc-1" style="color:#4A4A4A; font-size: 10pt;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             Activity
                         </a>
                         <div class="dropdown-menu" aria-labelledby="queueDropdown">
@@ -108,7 +108,7 @@
                     </li>
                 @endif
                 <li class="nav-item dropdown">
-                    <a id="loreDropdown" class="nav-link dropdown-toggle" style="color:#4A4A4A; font-size: 10pt;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <a id="loreDropdown" class="nav-link dropdown-toggle cc-1" style="color:#4A4A4A; font-size: 10pt;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         Play
                     </a>
 
@@ -146,7 +146,7 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a id="browseDropdown" class="nav-link dropdown-toggle" style="color:#4A4A4A; font-size: 10pt;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <a id="browseDropdown" class="nav-link dropdown-toggle cc-1" style="color:#4A4A4A; font-size: 10pt;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         Browse
                     </a>
 
@@ -174,7 +174,7 @@
                         </a>                        
                     </div>
                 </li>
-                <a href="https://discord.gg/YQqN7YqEGR"><img src="https://i.imgur.com/uWqtpz1.png" border="0" data-toggle="tooltip" title="Cossetlings Discord" class="dis" style="position: relative; z-index: 2; width: 18px; margin-left: 8px; margin-top: 12px;"></a>
+                <div class="dis2"><a href="https://discord.gg/YQqN7YqEGR"><img src="https://i.imgur.com/uWqtpz1.png" border="0" data-toggle="tooltip" title="Cossetlings Discord" class="dis" style="position: relative; z-index: 2; width: 18px; margin-left: 8px; margin-top: 12px;"></a></div>
                 <li>
             </ul>
 
@@ -183,19 +183,19 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" style="color:#4A4A4A; font-size: 10pt;" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link cc-1" style="color:#4A4A4A; font-size: 10pt;" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" style="color:#4A4A4A; font-size: 10pt;" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link cc-1" style="color:#4A4A4A; font-size: 10pt;" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
                 @else
                     @if(Auth::user()->isStaff)
                         <li class="nav-item d-flex">
-                            <a class="nav-link position-relative display-inline-block"  style="color: #E5C1C7;" href="{{ url('admin') }}"><i class="fas fa-crown"></i>
+                            <a class="nav-link cc-2 position-relative display-inline-block"  style="color: #E5C1C7;" href="{{ url('admin') }}"><i class="fas fa-crown"></i>
                               @if (Auth::user()->hasAdminNotification(Auth::user()))
-                                <span class="position-absolute text-dark" style="background-color: #EDD3A0; border-radius: 999px; height: auto; top: -2px; right: -5px; padding: 1px 6px 1px 6px; font-weight:bold; font-size: 0.8em;">
+                                <span class="position-absolute text-dark aca" style="background-color: #EDD3A0; border-radius: 999px; height: auto; top: -2px; right: -5px; padding: 1px 6px 1px 6px; font-weight:bold; font-size: 0.8em;">
                                   {{ Auth::user()->hasAdminNotification(Auth::user()) }}
                                 </span>
                               @endif
@@ -204,17 +204,17 @@
                     @endif
                     @if(Auth::user()->notifications_unread)
                         <li class="nav-item">
-                            <a class="nav-link btn btn-sm" style="background-color: #EDD3A0;" href="{{ url('notifications') }}"><span class="fas fa-envelope"></span> {{ Auth::user()->notifications_unread }}</a>
+                            <a class="nav-link cc-5 btn btn-sm" style="background-color: #EDD3A0;" href="{{ url('notifications') }}"><span class="fas fa-envelope"></span> {{ Auth::user()->notifications_unread }}</a>
                         </li>
                     @endif
 
                     @foreach(Auth::user()->getCurrencies(true) as $currency)
                     <li class="nav-item" style="color: #4A4A4A; margin-top: 5px; margin-left: 2.5px; padding: 2.5px;"> {!! $currency->display($currency->quantity) !!} @break($currency->id > 0)</li>
             @endforeach
-            <li class="nav-item mbg"><a role="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="fas fa-briefcase" data-toggle="tooltip" title="Check All Currencies" style="color: #95b582; margin-top: 9px; font-size: 13pt; margin-left: 2.5px; margin-right: 2.5px; padding: 2.5px; padding-left: 3px;"></span></a></li>
-            <div class="collapse" id="collapseExample" style="height: inherit; position: absolute; z-index: 3; top: 100%; max-width: auto; background-color: #fafafa; margin: auto; padding: 10px; border-radius: 2.5px; font-family: Mali; text-transform: lowercase;">@foreach(Auth::user()->getCurrencies(true) as $currency)<span style="color: #4A4A4A; margin-top: 5px; margin-left: 0.5px; padding: 2.5px;"> {!! $currency->display($currency->quantity) !!}</span>@endforeach</div>
+            <li class="nav-item mbg"><a role="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="fas fa-briefcase bb-5" data-toggle="tooltip" title="Check All Currencies" style="color: #95b582; margin-top: 9px; font-size: 13pt; margin-left: 2.5px; margin-right: 2.5px; padding: 2.5px; padding-left: 3px;"></span></a></li>
+            <div class="collapse bb-6" id="collapseExample" style="height: inherit; position: absolute; z-index: 3; top: 100%; max-width: auto; background-color: #fafafa; margin: auto; padding: 10px; border-radius: 2.5px; font-family: Mali; text-transform: lowercase;">@foreach(Auth::user()->getCurrencies(true) as $currency)<span class="bb-6" style="color: #4A4A4A; margin-top: 5px; margin-left: 0.5px; padding: 2.5px;"> {!! $currency->display($currency->quantity) !!}</span>@endforeach</div>
             <li class="nav-item dropdown">
-                        <a id="browseDropdown" class="nav-link dropdown-toggle" href="#" style="color:#4A4A4A; font-size: 10pt;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="browseDropdown" class="nav-link dropdown-toggle cc-1" href="#" style="color:#4A4A4A; font-size: 10pt;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             Submit
                         </a>
 
@@ -232,7 +232,7 @@
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color:#4A4A4A; font-size: 10pt;" href="{{ Auth::user()->url }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle cc-1" style="color:#4A4A4A; font-size: 10pt;" href="{{ Auth::user()->url }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 

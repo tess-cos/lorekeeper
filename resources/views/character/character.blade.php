@@ -17,11 +17,11 @@
 @include('character._header', ['character' => $character])
 
 @if ($character->images()->where('is_valid', 1)->whereNotNull('transformation_id'))
-        <div class="card-header mb-2" style="background: none !important; border-bottom: 1px solid #f7f7f7 !important; margin-bottom: 20px !important;">
-            <ul class="nav nav-tabs card-header-tabs" style="background: none !important;">
+        <div class="card-header mb-2 gbg" style="background: none !important; border-bottom: 1px solid #f7f7f7; margin-bottom: 20px !important;">
+            <ul class="nav nav-tabs card-header-tabs gbg" style="background: none !important;">
                 @foreach ($character->images()->where('is_valid', 1)->get() as $image)
                     <li class="nav-item">
-                        <a class="nav-link form-data-button {{ $image->id == $character->image->id ? 'active' : '' }}" style="border-color: #f4e3e6 !important; border-bottom: 0px !important;" data-toggle="tab" role="tab" data-id="{{ $image->id }}">
+                        <a class="nav-link form-data-button gbg {{ $image->id == $character->image->id ? 'active' : '' }}" style="border-color: #f4e3e6; border-bottom: 0px !important;" data-toggle="tab" role="tab" data-id="{{ $image->id }}">
                             {{ $image->transformation_id ? $image->transformation->name : 'Cosset' }}
                         </a>
                     </li>
@@ -60,7 +60,7 @@
                                 @else {!!$pet->pet->displayName !!}
                                 @endif
                                 <br>
-                                <span class="badge" style="font-size:95%; background-color: #fafafa; color: #95b582;">{!! $pet->pet_name !!}</span>
+                                <span class="badge alert alert-recipe" style="font-size:95%; background-color: #fafafa; color: #95b582;">{!! $pet->pet_name !!}</span>
                             </div>
                         @endforeach</div>
                         @else
@@ -68,11 +68,11 @@
                             @endif
                         <br />
 
-                        @if($character->items()->where('count', '>', 0)->exists())<div class="card-header" style="width: 80%; padding: 15px; margin: auto; text-align: center; background-color: #fafafa; border: 1px solid #dedede; padding: 5px; padding-bottom: 10px; border-radius: 5px;">
+                        @if($character->items()->where('count', '>', 0)->exists())<div class="card-header kep1" style="width: 80%; padding: 15px; margin: auto; text-align: center; background-color: #fafafa; border: 1px solid #dedede; padding: 5px; padding-bottom: 10px; border-radius: 5px;">
                         <h5 style="padding: 10px; margin-bottom: -5px; text-align: left;"><span style="color: #D48C99;">✿</span> <span style="color: #95b582;">{!! $character->name !!}'s</span> <a role="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">keepsakes
         <i style="color: #D48C99;" class="fa fa-chevron-right pull-right"></i>
         <i style="color: #D48C99;" class="fa fa-chevron-down pull-right"></i></a></h5></div>
-                    <div class="row collapse card-body tab-content" id="collapseExample" style="width: 80%; margin: auto; text-align: center; padding-bottom: 10px; background-image:url(https://i.imgur.com/KpXntZH.png);">@foreach($character->items()->where('count', '>', 0)->get() as $item)
+                    <div class="row collapse card-body tab-content kep" id="collapseExample" style="width: 80%; margin: auto; text-align: center; padding-bottom: 10px; background-image:url(https://i.imgur.com/KpXntZH.png);">@foreach($character->items()->where('count', '>', 0)->get() as $item)
                             <div class="col-sm-4" style="margin: auto;">
                                 @if($item->has_image)
                                 <a href="{{$item->idUrl}}"><img src="{{ $item->imageUrl }}" data-toggle="tooltip" title="{{ $item->name }}" style="max-width: 80%; filter: drop-shadow(3px 0 0 #C0D1A6) 

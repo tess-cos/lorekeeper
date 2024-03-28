@@ -47,5 +47,11 @@ return [
         'name' => 'Spell',
         'text_color' => '#ffffff',
         'background_color' => '#EDD3A0'
+    ],
+
+    'theme' => [
+        'name' => 'Theme',
+        'text_color' => "#ffffff",
+        'background_color' => '#EDD3A0'
     ]
 ];

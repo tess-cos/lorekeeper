@@ -19,7 +19,7 @@
                         @else
                            
                         @endif
-                        <br /> {{ $submission->favorites->count() }} {!! Form::button('<i class="fas fa-star"></i> ', ['style' => 'border:0; border-radius:.5em; background: none;', 'class' => ($submission->favorites->where('user_id', Auth::user()->id)->first() != null ? 'btn-success' : ''), 'data-toggle' => 'tooltip', 'title' => ($submission->favorites->where('user_id', Auth::user()->id)->first() == null ? 'Add to' : 'Remove from').' your Favorites', 'type' => 'submit']) !!} ・ {{ App\Models\Comment::where('commentable_type', 'App\Models\Gallery\GallerySubmission')->where('commentable_id', $submission->id)->where('type', 'User-User')->count() }} <i class="fas fa-comment"></i>
+                        <br /> {{ $submission->favorites->count() }} {!! Form::button('<i class="fas fa-star"></i> ', ['style' => 'border:0; border-radius:.5em; background: none;', 'class' => ($submission->favorites->where('user_id', Auth::user()->id)->first() != null ? 'btn-success' : 'btn-plus'), 'data-toggle' => 'tooltip', 'title' => ($submission->favorites->where('user_id', Auth::user()->id)->first() == null ? 'Add to' : 'Remove from').' your Favorites', 'type' => 'submit']) !!} ・ {{ App\Models\Comment::where('commentable_type', 'App\Models\Gallery\GallerySubmission')->where('commentable_id', $submission->id)->where('type', 'User-User')->count() }} <i class="fas fa-comment"></i>
                 {!! Form::close() !!}
             @else
                 @if(isset($gallery) && !$gallery)

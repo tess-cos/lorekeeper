@@ -43,7 +43,7 @@
             @endif
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item" style="background-color: #fdfdfd !important;">
+            <li class="list-group-item" style="background-color: #fdfdfd;">
                 <a class="card-title h4 collapse-title" data-toggle="collapse" href="#prompts-{{ $challenge->id }}"> Prompts</a>
                 <div id="prompts-{{ $challenge->id }}" class="collapse">
                     <ul class="list-group list-group-flush">

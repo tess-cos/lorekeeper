@@ -4,7 +4,7 @@
     <li class="sidebar-section p-1">
         @if(isset($featured) && $featured)
             <li class="sidebar-header-fc">
-                <a href="{{ $featured->url }}"><img style="width: 90%; margin-left: 3.5px; background-color: #f4e3e6 !important;" src="{{ $featured->image->thumbnailUrl }}" class="img-thumbnail" /></a>
+                <a href="{{ $featured->url }}"><img style="width: 90%; margin-left: 3.5px; background-color: #f4e3e6;" src="{{ $featured->image->thumbnailUrl }}" class="img-thumbnaill" /></a>
 </li>
 
 

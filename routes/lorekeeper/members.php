@@ -23,11 +23,13 @@ Route::group(['prefix' => 'notifications', 'namespace' => 'Users'], function() {
 Route::group(['prefix' => 'account', 'namespace' => 'Users'], function() {
     Route::get('settings', 'AccountController@getSettings');
     Route::post('profile', 'AccountController@postProfile');
+    Route::post('theme', 'AccountController@postTheme');
     Route::post('password', 'AccountController@postPassword');
     Route::post('email', 'AccountController@postEmail');
     Route::post('location', 'AccountController@postLocation');
     Route::post('faction', 'AccountController@postFaction');
     Route::post('avatar', 'AccountController@postAvatar');
+    Route::post('theme', 'AccountController@postTheme');
     Route::get('aliases', 'AccountController@getAliases');
     Route::get('make-primary/{id}', 'AccountController@getMakePrimary');
     Route::post('make-primary/{id}', 'AccountController@postMakePrimary');

@@ -28,6 +28,8 @@
     src: url(../webfonts/Comfortaa-Regular.ttf)
 }
 
+@import url(css/all.min.css);
+
 /**************************************************************************************************
 
     Base styles
@@ -96,7 +98,7 @@ body {
     min-height: 100vh;
     font-size: 10.5pt;
     line-height: 22.5px;
-    background-color: #fff;
+    background-color: transparent;
     color: #414b3c !important;
 }
 
@@ -1040,11 +1042,17 @@ background-size: 7px;}
         background-color: #f8f1f1 !important; border-color: #f8f1f1 !important; color: #4a4a4a;
     }
 
+.list-group-item {background-color: #fdfdfd !important;}    
+
 .btn-dark { border: 0px !important;
         color: #636363 !important; }
 
 .alert-secondary {
         background-color: #E0ECD0 !important; border: 0px; color: #4a4a4a;
+    }
+
+.alert-recipe {
+        background-color: #FBF5F6 !important; border: 0px; color: #4a4a4a;
     }
 
 .btn-dark:hover {
@@ -1213,11 +1221,22 @@ tr.outflow {
 .form-control {background: #fdfdfd !important;}
 input.form-control.bg-dark.text-light {color: #666 !important;}
 
+input::file-selector-button {background: #E0ECD0 !important; border: 1px solid #f9f8f3 !important;}
+
 .nav-tabs { background: #f9f8f3 !important; border: 0px;} 
 
 .card-header { background: #f9f8f3 !important; border: 0px;} 
 
-.alert-entry { background-color: #f9f8f3 !important; border: 0px;} 
+.alert-entry, .bb { background-color: #f9f8f3 !important; border: 0px;} 
+
+.bb-3 { background-color: #fdfdfd !important; border: 0px;} 
+
+.fc2
+{
+    background-image: url("https://i.imgur.com/9jQsuri.png");
+}
+
+.img-thumbnaill {border: 1px solid #eedde0; border-radius: 15px; padding: 12.5px !important; background: #f4e3e6;}
 
 #inboxType {background: none !important;}
 
@@ -1249,6 +1268,8 @@ table tr th:last-child {
 .tooltip.show {
     opacity: 1.5;
 } 
+
+.bb-2 {background-color: #aeb889 !important;}
 
 /* INVENTORY *************************************************************************************/
 

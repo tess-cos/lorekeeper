@@ -14,7 +14,8 @@ use App\Models\Raffle\Raffle;
 use App\Models\Recipe\Recipe;
 use App\Models\Pet\Pet;
 use App\Models\Claymore\Gear;
-use App\Models\Claymore\Weapon;
+use App\Models\Claymore\Weapon;use App\Models\Theme;
+
 class BoxService extends Service
 {
     /*
@@ -44,6 +45,7 @@ class BoxService extends Service
             'recipes'=> Recipe::orderBy('name')->pluck('name', 'id'),
             'gears' => Gear::orderBy('name')->pluck('name', 'id'),
             'weapons' => Weapon::orderBy('name')->pluck('name', 'id'),
+            'themes' => Theme::orderBy('name')->where('is_user_selectable', 0)->pluck('name', 'id'),
         ];
     }
 
@@ -121,6 +123,9 @@ class BoxService extends Service
                         break;
                     case 'Recipe':
                         $type = 'App\Models\Recipe\Recipe';
+                        break;
+                    case 'Theme':
+                        $type = 'App\Models\Theme';
                         break;
                 }
                 $asset = $type::find($data['rewardable_id'][$key]);

@@ -190,11 +190,11 @@
             </div>
             <div class="card-body">
                 In the rich text editor:
-                <div class="alert alert-secondary">
+                <div class="alert alert-recipe">
                     [thumb={{ $submission->id }}]
                 </div>
                 In a comment:
-                <div class="alert alert-secondary">
+                <div class="alert alert-recipe">
                     @if(isset($submission->hash) && !isset($submission->content_warning))
                         [![Image]({{$submission->thumbnailUrl }})]({{ $submission->url }})
                     @else
@@ -208,11 +208,9 @@
 
 <!-- Comments -->
 @if($submission->isVisible)
-    <div class="container">
-        @comments(['model' => $submission,
-                'perPage' => 5
-            ])
-    </div>
+    @comments(['model' => $submission,
+            'perPage' => 5
+        ])
 @endif
 
 @endsection
