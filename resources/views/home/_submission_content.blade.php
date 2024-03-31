@@ -160,7 +160,7 @@
             @endif
         </div>
     @endforeach
-    </div>
+    </div></div>
 @endforeach
 @endif
 
