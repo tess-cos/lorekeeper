@@ -136,10 +136,10 @@
                     <br>
                 {{ $bonus[0]['Character_Bonus']['points'] ? $bonus[0]['Character_Bonus']['points'] : 'No bonus'}} character points
             </div>
-        </div>
+        </div></div>
         <hr>
     @endif
-@endif</div>
+@endif
 
 @if(isset($submission->data['criterion']))
 <h2 class="mt-5">Reward Total</h2>
@@ -160,7 +160,7 @@
             @endif
         </div>
     @endforeach
-    </div></div>
+    </div>
 @endforeach
 @endif
 
