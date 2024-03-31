@@ -1,5 +1,5 @@
 <div class="card mb-4" style="margin-top: 20px; border: 0px;">
-    <div class="card-header bb-2" style="background-color: #aeb889; border: 0px;">
+    <div class="card-header bb-2a" style="background-color: #aeb889; border: 0px;">
         <h4 class="mb-0 ct-2" style="color: #fdfdfd;">✿ Recent News</h4>
     </div>
 
