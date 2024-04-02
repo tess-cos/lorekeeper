@@ -56,7 +56,7 @@
             <div class="col-md-2 col-4"><h5>Submitted</h5></div>
             <div class="col-md-10 col-8">{!! format_date($submission->created_at) !!} ({{ $submission->created_at->diffForHumans() }})</div>
         </div>
-    </div>
+    
     <h2>Comments</h2>
     <div class="card mb-3"><div class="card-body">{!! nl2br(htmlentities($submission->comments)) !!}</div></div>
     @if(Auth::check() && $submission->staff_comments && ($submission->user_id == Auth::user()->id || Auth::user()->hasPower('manage_submissions')))
@@ -112,11 +112,10 @@
             @foreach($submission->characters as $character)
                 @include('widgets._character_select_entry', ['characterCurrencies' => $characterCurrencies, 'items' => $items, 'tables' => $tables, 'character' => $character, 'characterAwards' => $characterAwards,'expanded_rewards' => $expanded_rewards, 'submission' => true])
             @endforeach
-        </div>
+            </div>
         <div class="text-right mb-3">
             <a href="#" class="btn btn-outline-info" id="addCharacter">Add Character</a>
-            </div></div>
-            
+          </div>  
 
         @if(isset($inventory['user_items']))
         <h2>Add-Ons</h2>
@@ -171,8 +170,8 @@
         <div class="text-right">
             <a href="#" class="btn btn-danger mr-2" id="rejectionButton">Reject</a>
             <a href="#" class="btn btn-success" id="approvalButton">Approve</a>
-        </div>
-
+            </div>
+            
     {!! Form::close() !!}
 
     <div id="characterComponents" class="hide">
@@ -216,11 +215,9 @@
                             <div class="text-right">
                                 <a href="#" class="btn btn-outline-primary btn-sm add-reward">Add Reward</a>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
+                            </div>   
+                
+           
         <table>
             <tr class="character-reward-row">
 
@@ -276,7 +273,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+     
     
 @else
     <div class="alert alert-danger">This {{ $submission->prompt_id ? 'submission' : 'claim' }} has already been processed.</div>
