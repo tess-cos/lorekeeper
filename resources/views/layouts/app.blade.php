@@ -147,10 +147,10 @@
                         @endif
                         @if(Auth::check() && !Config::get('lorekeeper.extensions.navbar_news_notif'))
                             @if(Auth::user()->is_news_unread)
-                                <div class="alert alert-info"><a href="{{ url('news') }}">There is a new news post!</a></div>
+                                <div class="alert alert-info"><a href="{{ url('news') }}">☘︎ There is a new announcement!</a></div>
                             @endif
                             @if(Auth::user()->is_sales_unread)
-                                <div class="alert alert-info"><a href="{{ url('sales') }}">There is a new sales post!</a></div>
+                                <div class="alert alert-info"><a href="{{ url('sales') }}">☘︎ There is a new sales post!</a></div>
                             @endif
                         @endif
                         @include('flash::message')

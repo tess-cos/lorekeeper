@@ -15,7 +15,7 @@
   <button class="btn btn-dash dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     For You
   </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="text-transform: lowercase; font-size: 11pt; line-height: 25px; background-color: #fcfcfc !important;">
+  <div class="dropdown-menu bb" aria-labelledby="dropdownMenuButton" style="text-transform: lowercase; font-size: 11pt; line-height: 25px; background-color: #fcfcfc;">
     <a class="dropdown-item" href="{{ Auth::user()->url }}">Profile</a>
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="{{ url('account/settings') }}">Settings</a>
@@ -30,7 +30,7 @@
   <button class="btn btn-dash dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     To Dos
   </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="text-transform: lowercase; font-size: 11pt; line-height: 25px; background-color: #fcfcfc !important;">
+  <div class="dropdown-menu bb" aria-labelledby="dropdownMenuButton" style="text-transform: lowercase; font-size: 11pt; line-height: 25px; background-color: #fcfcfc;">
     <a class="dropdown-item" href="{{ url(__('dailies.dailies')) }}">Dailies</a>
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="{{ url('prompts/prompts') }}">Prompts</a>
@@ -45,7 +45,7 @@
   <button class="btn btn-dash dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Other
   </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="text-transform: lowercase; font-size: 11pt; line-height: 25px; background-color: #fcfcfc !important;">
+  <div class="dropdown-menu bb" aria-labelledby="dropdownMenuButton" style="text-transform: lowercase; font-size: 11pt; line-height: 25px; background-color: #fcfcfc;">
     <a class="dropdown-item" href="{{ url('info/guide') }}">Guidebook</a>
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="{{ url('info/rules') }}">Rules & FAQ</a>
