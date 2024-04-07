@@ -131,7 +131,7 @@ class GalleryController extends Controller
     private function postStaffComments($id, $data, GalleryManager $service)
     {
         if($service->postStaffComments($id, $data, Auth::user())) {
-            flash('Comments updated succesfully.')->success();
+            flash('Comments updated successfully.')->success();
         }
         else {
             foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
@@ -150,7 +150,7 @@ class GalleryController extends Controller
     private function postValue($id, $data, GalleryManager $service)
     {
         if($service->postValueSubmission($id, $data, Auth::user())) {
-            flash('Submission evaluated succesfully.')->success();
+            flash('Submission evaluated successfully.')->success();
         }
         else {
             foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();

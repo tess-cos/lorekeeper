@@ -1458,7 +1458,7 @@ class CharacterManager extends Service
                 if($user->id == $requested->id ) {
                     // Create a relation with the character 
                     if($service->createLink($chara1, $chara2, true)) {
-                        flash('Link created succesfully!')->success();
+                        flash('Link created successfully!')->success();
                     }
                     else {
                         foreach ($service->errors()->getMessages()['error'] as $error) {
@@ -1472,7 +1472,7 @@ class CharacterManager extends Service
                     // If denied the row is deleted, if accepted it updates the ids
                     // create 'unapproved' link
                         if($service->createLink($chara1, $chara2, false)) {
-                            flash('Link request created succesfully!')->success();
+                            flash('Link request created successfully!')->success();
                         }
                         else {
                             foreach ($service->errors()->getMessages()['error'] as $error) {

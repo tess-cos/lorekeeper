@@ -26,7 +26,7 @@ class LinkController extends Controller
         $this->deleteNotif($id);
 
         if(!$this->postAcceptLink($id)) {
-            flash('Link accepted succesfully!')->success();
+            flash('Link accepted successfully!')->success();
             return redirect()->back();
         }
         else {
@@ -39,7 +39,14 @@ class LinkController extends Controller
     {
         $this->deleteNotif($id);
 
-        $this->postRejectLink($id);
+        if(!$this->postRejectLink($id)) {
+            flash('Link rejected successfully!')->success();
+            return redirect()->back();
+        }
+        else {
+            flash('Something went wrong :(')->error();
+            return redirect()->back();
+        }
     }
 
     public function postAcceptLink($id)
@@ -87,14 +94,11 @@ class LinkController extends Controller
     public function postRejectLink($id)
     {
         $relation = CharacterRelation::find($id);
-        if($relation->inverse->exists())
+        if(isset($relation->inverse) && $relation->inverse->exists())
         {
             $relation->inverse->delete();
         }
         $relation->delete();
-
-        flash('Link rejected successfully.')->success();
-        return redirect()->to('/notifications');
     }
 
     private function deleteNotif($id)
