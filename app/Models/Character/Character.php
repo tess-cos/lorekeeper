@@ -15,6 +15,7 @@ use App\Models\User\UserCharacterLog;
 use App\Models\Character\CharacterCategory;
 use App\Models\Character\CharacterTransfer;
 use App\Models\Character\CharacterBookmark;
+use App\Models\Character\CharacterRelation;
 
 use App\Models\Character\CharacterCurrency;
 use App\Models\Currency\Currency;
@@ -55,7 +56,7 @@ class Character extends Model
         'is_sellable', 'is_tradeable', 'is_giftable',
         'sale_value', 'transferrable_at', 'is_visible',
         'is_gift_art_allowed', 'is_gift_writing_allowed', 'is_trading', 'sort',
-        'is_myo_slot', 'name', 'trade_id', 'owner_url', 'class_id', 'home_id', 'home_changed', 'faction_id', 'faction_changed'
+        'is_myo_slot', 'name', 'trade_id', 'is_links_open', 'owner_url', 'class_id', 'home_id', 'home_changed', 'faction_id', 'faction_changed'
     ];
 
     /**
@@ -314,6 +315,14 @@ class Character extends Model
     public function dialogueImages()
     {
         return $this->hasMany('App\Models\Character\CharacterDialogueImage', 'character_id');
+    }
+
+    /*
+    * Get the links for this character
+    */
+    public function links()
+    {
+       return $this->hasMany('App\Models\Character\CharacterRelation', 'chara_1')->where('status', 'Approved');
     }
 
     /**********************************************************************************************

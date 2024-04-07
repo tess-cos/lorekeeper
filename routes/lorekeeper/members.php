@@ -315,6 +315,12 @@ Route::group(['prefix' => 'character', 'namespace' => 'Characters'], function() 
     Route::post('{slug}/drops', 'CharacterController@postClaimCharacterDrops');
 
     Route::post('{slug}/'.__('awards.awardcase').'/edit', 'CharacterController@postAwardEdit');
+    Route::get('{slug}/links/edit', 'CharacterController@getEditCharacterLinks');
+    Route::post('{slug}/links/edit', 'CharacterController@postEditCharacterLinks');
+
+    Route::post('{slug}/links/info/{id}', 'CharacterController@postEditCharacterLinkInfo');
+    Route::post('{slug}/links/delete/{id}', 'CharacterController@postDeleteCharacterLink');
+    
     Route::post('{slug}/inventory/edit', 'CharacterController@postInventoryEdit');
 
     Route::post('{slug}/bank/transfer', 'CharacterController@postCurrencyTransfer');
@@ -337,6 +343,11 @@ Route::group(['prefix' => 'character', 'namespace' => 'Characters'], function() 
     Route::post('{slug}/level-area/exp-grant', 'LevelController@postExpGrant');
     Route::post('{slug}/level-area/stat-grant', 'LevelController@postStatGrant');
 });
+
+
+Route::get('links/accept/{id}', 'LinkController@getAcceptLink');
+Route::get('links/reject/{id}', 'LinkController@getRejectLink');
+// LINKS
 
 Route::group(['prefix' => 'myo', 'namespace' => 'Characters'], function() {
     Route::get('{id}/profile/edit', 'MyoController@getEditCharacterProfile');
