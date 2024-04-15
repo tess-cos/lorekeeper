@@ -1,6 +1,9 @@
 
 @foreach ($recipes as $recipe)
 <div style="margin: auto; margin-top: -10px;">@if ($activity->service->checkRecipe(Auth::user(), $recipe))
+<div class="mt-2 text-center" style="padding: 12.5px !important; margin-left: 15px;">
+                <h6>{{ $recipe->name }}</h6>
+            </div>
                     {!! Form::open(['url' => 'activities/' . $activity->id . '/act']) !!}
                     {!! Form::hidden('recipe_id', $recipe->id) !!}
                     <div class="text-center">

@@ -174,24 +174,23 @@ class CharacterController extends Controller
     {
         $types = [
             '???',
-            'Acquaintence',
+            'Acquaintance',
             'Best Friends',
             'Boss and Employee',
-            'Co-workers',
-            'Crushing',
+            'Coworkers',
+            'Crush',
             'Enemy',
             'Family',
             'Friends',
             'Frenemies',
             'It\'s Complicated',
-            'Life Partners',
+            'Life Partner',
             'On-and-Off',
             'Partners in Crime',
             'Past Relationship',
-            'Polyamorous Relationship',
             'Rival',
-            'Roomate',
-            'Significant Others',
+            'Roommate',
+            'Significant Other',
         ];
 
         return view('character.links', [

@@ -9,31 +9,30 @@
 
     <h2>{{ $character->fullName }}'s Links</h2>
     @if (count($character->links))
-        <div class="container mt-4">
+        <div class="container mt-3 row">
             @foreach($character->links as $link)
-                <div class="row mb-2 justify-content-center">
-                    @include('character._link_character', ['character' => $character])
-                    @include('character._link_character', ['character' => $link->character])
-                </div>
+                <div class="mb-1 justify-content-center" style="margin: auto; margin-top: 55px; max-width: 75%;">
+                    
+                <div style="left: -70px; position: relative;">@include('character._link_character', ['character' => $character])</div>
+                <div style="z-index: 2; top: -85px; left: 80px; position: relative;">@include('character._link_character', ['character' => $link->character])
+                
 
-                <div class="card mb-2">
+                <div class="row"><div style="padding: 5px;"><a href="{{ $character->url }}" class="h5 mb-0">@if(!$character->is_visible) <i class="fas fa-eye-slash"></i> @endif {{ $character->fullName }}</a></div>
+            & <div style="padding: 5px;"><a href="{{ $link->character->url }}" class="h5 mb-0">@if(!$link->character->is_visible) <i class="fas fa-eye-slash"></i> @endif {{ $link->character->fullName }}</a></div>
+            </div></div></div>
+
+                <div class="card mb-1 col-md-5" style="background: none !important;">
                     <div class="card-header">
-                        <div class="row">
-                            <ul class="col-5 nav nav-tabs card-header-tabs">
-                                <li class="nav-item ml-4">
-                                    <a class="nav-link active"  data-toggle="tab" role="tab">Info</a>      
-                                </li>
-                            </ul>
-                            <h6 class="text-center text-uppercase"><b>Relationship Status: {{ $link->type }}</b></h6>
-                        </div>
+                        
+                            <h6 class="text-center text-uppercase"><b>Relationship: {{ $link->type }}</b></h6>
+                        
                     </div>
                 
-                    <div class="card-body tab-content">   
+                    <div class="card-body" style="background: none !important;">   
                         {{-- Basic info  --}}
-                        <div class="tab-pane fade show active">
-                            <div class="row">
-                                <div class="col-md-6 mb-md-0 mb-2">
-                                    <div class="m-2">
+                        
+                                <div class="row">
+                                    <div class="m-2" style="width: 100%;">
                                         @if(Auth::check() && ($character->user_id == Auth::user()->id || Auth::user()->hasPower('manage_characters')))
                                             {!! Form::open(['url' => $character->url .'/links/info/'.$link->id]) !!}
                                             {!! Form::hidden('chara_1', $character->id) !!}
@@ -46,23 +45,24 @@
                                             </div>
                                             {!! Form::close() !!}
                                         @else
-                                            <div class="m-4">{{ $link->info }}</div>
+                                            <div class="m-2">{{ $link->info }}</div>
                                         @endif
                                     </div>
-                                    @if(Auth::check() && ($character->user_id == Auth::user()->id || Auth::user()->hasPower('manage_characters')))
-                                        <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    @endif
+                                    
                                 </div>
-                                <div class="col-md-6 mb-md-0 mb-2">
+                                <div class="row">
                                     <div class="card m-2">
                                         <div class="m-4">{{ $link->inverse->info }}</div>
                                     </div>
                                 </div>
+                                
                             </div>
-                        </div>
-                    </div>
+                        
+                        @if(Auth::check() && ($character->user_id == Auth::user()->id || Auth::user()->hasPower('manage_characters')))
+                                        <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    @endif
                 </div>
 
             @if (!$loop->last)
