@@ -1,9 +1,20 @@
 
 @foreach ($recipes as $recipe)
-<div style="margin: auto; margin-top: -10px;">@if ($activity->service->checkRecipe(Auth::user(), $recipe))
+<div style="margin: auto; margin-top: -10px; margin-left: -10px;">@if ($activity->service->checkRecipe(Auth::user(), $recipe))
 <div class="mt-2 text-center" style="padding: 12.5px !important; margin-left: 15px;">
-                <h6>{{ $recipe->name }}</h6>
+                <h5>{{ $recipe->name }}</h5>
             </div>
+                    <div class="square-grid @if (count($recipes) === 1) lg @else xl @endif justify-content-start">
+                        @foreach ($recipe->reward_items as $type)
+                            @foreach ($type as $reward)
+                                <div class="square-column text-center" style="max-width: 50%; margin-bottom: 10px;">
+                                    @if (isset($reward['asset']->image_url))
+                                        <div class="img-thumbnail greyscale"><img style="max-width: 100px;" src="{{ $reward['asset']->image_url }}" /></div>
+                                    @endif
+                            @endforeach
+                        @endforeach
+                    </div>
+                </div>
                     {!! Form::open(['url' => 'activities/' . $activity->id . '/act']) !!}
                     {!! Form::hidden('recipe_id', $recipe->id) !!}
                     <div class="text-center">
@@ -11,9 +22,9 @@
                     </div>
                     {!! Form::close() !!}
                 @else
-                    <div class="alert alert-warning p-1 px-2 ml-2 text-center">
+                    <div style="padding: 15px; margin-bottom: -35px; margin-top: 15px;"><div class="alert alert-warning p-1 px-2 ml-2 text-center">
                         You don't have everything for this activity yet!
-                    </div>
+                        </div></div>
                 @endif</div>
                 @endforeach
 <div class="row no-gutters" @if (count($recipes) > 1) style="font-size: 10px" @endif>

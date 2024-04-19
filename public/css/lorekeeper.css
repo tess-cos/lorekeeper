@@ -350,6 +350,14 @@ hr {border-color: #EBF0E3 !important;}
 
 .dt {word-break: break-word;}
 
+.ttm {
+    background-color: #fcfcfc;
+    border: 1px solid #EDD3A0;
+    background-image: url(https://i.imgur.com/hCr4tJa.png);
+    background-repeat: repeat;
+}
+
+
 .abt {
     padding: 15px;
     background-color: #fdfdfd;
