@@ -9,22 +9,22 @@
 
     <h2>{{ $character->fullName }}'s Links</h2>
     @if (count($character->links))
-        <div class="container mt-3 row">
+        <div class="container mt-1 row">
             @foreach($character->links as $link)
-                <div class="mb-1 justify-content-center" style="margin: auto; margin-top: 55px; max-width: 75%;">
+                <div class="mb-1 justify-content-center" style="margin: auto; margin-top: 55px; width: 35%;">
                     
                 <div style="left: -70px; position: relative;">@include('character._link_character', ['character' => $character])</div>
-                <div style="z-index: 2; top: -85px; left: 80px; position: relative;">@include('character._link_character', ['character' => $link->character])
+                <div style="z-index: 2; top: -85px; left: 80px; position: relative; margin-bottom: -80px;">@include('character._link_character', ['character' => $link->character])
                 
 
-                <div class="row"><div style="padding: 5px;"><a href="{{ $character->url }}" class="h5 mb-0">@if(!$character->is_visible) <i class="fas fa-eye-slash"></i> @endif {{ $character->fullName }}</a></div>
-            & <div style="padding: 5px;"><a href="{{ $link->character->url }}" class="h5 mb-0">@if(!$link->character->is_visible) <i class="fas fa-eye-slash"></i> @endif {{ $link->character->fullName }}</a></div>
-            </div></div></div>
+                
+            </div><div style="padding: 0px; margin-top: 4px; margin-bottom: 1px; text-align: center;"><a href="{{ $character->url }}" class="h5 mb-0">@if(!$character->is_visible) <i class="fas fa-eye-slash"></i> @endif {{ $character->fullName }}</a></div>
+            <h3 style="margin-left: 5px; margin-right: 5px; margin-bottom: -1px; text-align: center;">&</h3> <div style="padding: 0px; margin-top: 1px; text-align: center;"><a href="{{ $link->character->url }}" class="h5 mb-0">@if(!$link->character->is_visible) <i class="fas fa-eye-slash"></i> @endif {{ $link->character->fullName }}</a></div></div>
 
                 <div class="card mb-1 col-md-5" style="background: none !important;">
                     <div class="card-header">
                         
-                            <h6 class="text-center text-uppercase"><b>Relationship: {{ $link->type }}</b></h6>
+                            <h6 class="text-center text-uppercase" style="font-family: Poppins, sans-serif; !important;"><b>✿ {{ $link->type }}</b></h6>
                         
                     </div>
                 
@@ -33,6 +33,7 @@
                         
                                 <div class="row">
                                     <div class="m-2" style="width: 100%;">
+                                    @if(!$character->is_visible) <i class="fas fa-eye-slash"></i> @endif {{ $character->fullName }} Thoughts
                                         @if(Auth::check() && ($character->user_id == Auth::user()->id || Auth::user()->hasPower('manage_characters')))
                                             {!! Form::open(['url' => $character->url .'/links/info/'.$link->id]) !!}
                                             {!! Form::hidden('chara_1', $character->id) !!}
@@ -50,8 +51,12 @@
                                     </div>
                                     
                                 </div>
+                                
+                                <span style="float: right;">@if(!$link->character->is_visible) <i class="fas fa-eye-slash"></i> @endif {{ $link->character->fullName }} Thoughts</span><br />
                                 <div class="row">
+                                   
                                     <div class="card m-2">
+                                    
                                         <div class="m-4">{{ $link->inverse->info }}</div>
                                     </div>
                                 </div>

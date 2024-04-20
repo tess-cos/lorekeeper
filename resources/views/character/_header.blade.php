@@ -1,6 +1,10 @@
 <div class="character-masterlist-categories">
     @if(!$character->is_myo_slot)
         {!! $character->category->displayName !!} ・ {!! $character->image->species->displayName !!} ・ {!! $character->image->rarity->displayName !!}
+
+        @if(config('lorekeeper.extensions.character_theme.show_on_masterlist'))
+            {!! $character->image->theme ? ' ・ ' . $character->image->theme : '' !!}
+        @endif
     @else
         {{ __('lorekeeper.myo') }} @if($character->image->species_id) ・ {!! $character->image->species->displayName !!}@endif @if($character->image->rarity_id) ・ {!! $character->image->rarity->displayName !!}@endif
     @endif
@@ -13,7 +17,7 @@
             @if(!$character->is_myo_slot)
                 <span class="btn {{ $character->is_gift_writing_allowed == 1 ? 'badge-success' : ($character->is_gift_writing_allowed == 2 ? 'badge-warning text-light' : 'badge-danger') }} float-right ml-1" data-toggle="tooltip" title="{{ $character->is_gift_writing_allowed == 1 ? 'OPEN for gift writing.' : ($character->is_gift_writing_allowed == 2 ? 'PLEASE ASK before gift writing.' : 'CLOSED for gift writing.') }}"><i class="fas fa-file-alt" style="padding: 2.5px !important; font-size: 12pt;"></i></span>
                 <span class="btn {{ $character->is_gift_art_allowed == 1 ? 'badge-success' : ($character->is_gift_art_allowed == 2 ? 'badge-warning text-light' : 'badge-danger') }} float-right ml-1" data-toggle="tooltip" title="{{ $character->is_gift_art_allowed == 1 ? 'OPEN for gift art.' : ($character->is_gift_art_allowed == 2 ? 'PLEASE ASK before gift art.' : 'CLOSED for gift art.') }}"><i class="fas fa-pencil-ruler" style="padding: 2.5px !important; font-size: 12pt;"></i></span>
-                <span class="btn {{ $character->is_links_open == 1 ? 'badge-success' : 'badge-danger' }} float-right ml-2" data-toggle="tooltip" title="{{ $character->is_links_open == 1 ? 'OPEN for link requests.' : 'CLOSED for link requests.' }}"><i class="fas fa-link"></i></span>
+                <span style="display: none;" class="btn {{ $character->is_links_open == 1 ? 'badge-success' : 'badge-danger' }} float-right ml-2" data-toggle="tooltip" title="{{ $character->is_links_open == 1 ? 'OPEN for link requests.' : 'CLOSED for link requests.' }}"><i class="fas fa-link"></i></span>
             @endif    
         </div>
     @endif

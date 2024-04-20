@@ -231,6 +231,11 @@
     </div>
 
     <div class="form-group">
+        {!! Form::label(ucfirst(__('character_theme.theme')).' ' . (config('lorekeeper.extensions.character_theme.is_required') ? '(Required)' : '(Optional)')) !!}
+        {!! Form::text('theme', old('theme'), ['class' => 'form-control']) !!}
+    </div>
+
+    <div class="form-group">
         {!! Form::label(ucfirst(__('transformations.transformation')).' (Optional)') !!} {!! add_help('This will make the image have the selected '.__('transformations.transformation').' id.') !!}
         {!! Form::select('transformation_id', $transformations, null, ['class' => 'form-control']) !!}
     </div>

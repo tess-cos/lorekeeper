@@ -95,7 +95,7 @@ class CharacterImageController extends Controller
     public function postNewImage(Request $request, CharacterManager $service, $slug)
     {
         $request->validate(CharacterImage::$createRules);
-        $data = $request->only(['image', 'thumbnail', 'x0', 'x1', 'y0', 'y1', 'use_cropper', 'artist_url', 'artist_id', 'designer_url', 'designer_id', 'species_id', 'subtype_id', 'subtype_id_2', 'rarity_id', 'feature_id', 'feature_data', 'is_valid', 'is_visible', 'transformation_id',]);
+        $data = $request->only(['image', 'thumbnail', 'x0', 'x1', 'y0', 'y1', 'use_cropper', 'artist_url', 'artist_id', 'designer_url', 'designer_id', 'species_id', 'subtype_id', 'subtype_id_2', 'rarity_id', 'feature_id', 'feature_data', 'is_valid', 'is_visible','theme', 'transformation_id',]);
         $this->character = Character::where('slug', $slug)->first();
         if(!$this->character) abort(404);
         if($service->createImage($data, $this->character, Auth::user())) {
@@ -138,7 +138,7 @@ class CharacterImageController extends Controller
      */
     public function postEditImageFeatures(Request $request, CharacterManager $service, $id)
     {
-        $data = $request->only(['species_id', 'subtype_id', 'subtype_id_2', 'rarity_id', 'feature_id', 'feature_data', 'transformation_id']);
+        $data = $request->only(['species_id', 'subtype_id', 'subtype_id_2', 'rarity_id', 'feature_id', 'feature_data', 'transformation_id','theme']);
         $image = CharacterImage::find($id);
         if(!$image) abort(404);
         if($service->updateImageFeatures($data, $image, Auth::user())) {

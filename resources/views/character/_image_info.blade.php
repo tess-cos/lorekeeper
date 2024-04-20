@@ -79,9 +79,15 @@
                     <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt; color: #7b956d;">Rarity</div>
                     <div class="col-lg-8 col-md-6 col-8">{!! $image->rarity_id ? $image->rarity->displayName : 'None' !!}</div>
                 </div>
-<hr>
+                @if($image->theme)
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt; color: #7b956d;">{{ucfirst(__('character_theme.theme'))}}</div>
+                        <div class="col-lg-8 col-md-6 col-8">{!! $image->theme !!}</div>
+                    </div>
+                @endif
+
                 <div class="mb-3">
-                    <div style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt; color: #7b956d;">Traits</div>
+                    <div style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt; color: #7b956d; margin-top: 5px;">Traits</div>
                     @if(Config::get('lorekeeper.extensions.traits_by_category'))
                         <div style="font-size: 9pt;">
                             @php $traitgroup = $image->features()->get()->groupBy('feature_category_id') @endphp

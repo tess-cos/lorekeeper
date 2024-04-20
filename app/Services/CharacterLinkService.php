@@ -128,11 +128,14 @@ class CharacterLinkService extends Service
             'On-and-Off',
             'Partners in Crime',
             'Past Relationship',
+            'Exes',
+            'Bitter Exes',
             'Interested In',
             'Rival',
             'Dislikes',
             'Significant Other',
             'Soulmate',
+            'Two Peas in a Pod',
         ];
 
         // info

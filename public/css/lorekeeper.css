@@ -351,11 +351,16 @@ hr {border-color: #EBF0E3 !important;}
 .dt {word-break: break-word;}
 
 .ttm {
-    background-color: #fcfcfc;
-    border: 1px solid #EDD3A0;
-    background-image: url(https://i.imgur.com/hCr4tJa.png);
+    background-color: #fbf5f6;
+    border: 1px solid #fbf5f6;
+    background-image: url(https://i.imgur.com/KpXntZH.png);
     background-repeat: repeat;
 }
+ .ttmt {color: #95b582; text-shadow:
+    -1px -1px 0 #fbf5f6, 
+    1px -1px 0 #fbf5f6,
+    -1px 1px 0 #fbf5f6,
+     1px 1px 0 #fbf5f6;}
 
 
 .abt {

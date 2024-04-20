@@ -180,7 +180,7 @@ class CharacterController extends Controller
             'designer_id', 'designer_url',
             'artist_id', 'artist_url',
             'species_id', 'subtype_id', 'subtype_id_2', 'rarity_id', 'feature_id', 'feature_data',
-            'image', 'thumbnail', 'image_description', 'transformation_id', 'stats', 'parameters'
+            'image', 'thumbnail', 'image_description', 'transformation_id', 'stats', 'parameters','theme'
         ]);
         if ($character = $service->createCharacter($data, Auth::user())) {
             flash(ucfirst(__('lorekeeper.character')).' created successfully.')->success();
@@ -210,7 +210,7 @@ class CharacterController extends Controller
             'designer_id', 'designer_url',
             'artist_id', 'artist_url',
             'species_id', 'subtype_id', 'subtype_id_2', 'rarity_id', 'feature_id', 'feature_data',
-            'image', 'thumbnail', 'transformation_id', 'stats', 'parameters'
+            'image', 'thumbnail', 'transformation_id', 'stats', 'parameters','theme'
         ]);
         if ($character = $service->createCharacter($data, Auth::user(), true)) {
             flash('MYO slot created successfully.')->success();
