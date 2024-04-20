@@ -10,10 +10,10 @@
 <h2>Comments</h2>
 
 @if($request->status == 'Draft' && $request->user_id == Auth::user()->id)
-    <p><h5>Enter the flower/plant your cossetling is based on.</h5>You can also enter an optional comment about your submission (e.g. calculations) that staff will consider when reviewing your request.</p>
+    <p>Enter an optional comment about your submission that staff will consider when reviewing your request. If you don't have a comment, click the Save button once to mark this section complete regardless.</p>
     {!! Form::open(['url' => 'designs/'.$request->id.'/comments']) !!}
         <div class="form-group">
-            {!! Form::label('Comments') !!}
+            {!! Form::label('Comments (Optional)') !!}
             {!! Form::textarea('comments', $request->comments, ['class' => 'form-control']) !!}
         </div>
         <div class="text-right">
