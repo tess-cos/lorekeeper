@@ -4,11 +4,11 @@
         <div class="sidebar-section-header">{{ ucfirst(__('lorekeeper.character')) }}</div>
         <div class="sidebar-item"><a href="{{ $character->url }}" class="{{ set_active('character/'.$character->slug) }}">Information</a></div>
         <div class="sidebar-item"><a href="{{ $character->url . '/profile' }}" class="{{ set_active('character/'.$character->slug.'/profile') }}">Profile</a></div>
-        <div class="sidebar-item"><a href="{{ $character->url . '/links' }}" class="{{ set_active('character/'.$character->slug.'/links') }}">Links</a></div>
         <div class="sidebar-item"><a href="{{ $character->url . '/gallery' }}" class="{{ set_active('character/'.$character->slug.'/gallery') }}">Gallery</a></div>
+        <div class="sidebar-item"><a href="{{ $character->url . '/links' }}" class="{{ set_active('character/'.$character->slug.'/links') }}">Links</a></div>
         <div class="sidebar-item"><a href="{{ $character->url . '/inventory' }}" class="{{ set_active('character/'.$character->slug.'/inventory') }}">Inventory</a></div>
-        <div class="sidebar-item"><a href="{{ $character->url . '/bank' }}" class="{{ set_active('character/'.$character->slug.'/bank') }}">Bank</a></div>
-        <div class="sidebar-item"><a href="{{ $character->url . '/'.__('awards.awardcase') }}" class="{{ set_active('character/'.$character->slug.'/'.__('awards.awardcase')) }}">{{ucfirst(__('awards.awards'))}}</a></div>
+        <div style="display: none;" class="sidebar-item"><a href="{{ $character->url . '/bank' }}" class="{{ set_active('character/'.$character->slug.'/bank') }}">Bank</a></div>
+        <div style="display: none;" class="sidebar-item"><a href="{{ $character->url . '/'.__('awards.awardcase') }}" class="{{ set_active('character/'.$character->slug.'/'.__('awards.awardcase')) }}">{{ucfirst(__('awards.awards'))}}</a></div>
         @if($character->image->species->hasDrops && ($character->drops->dropData->isActive || (Auth::check() && Auth::user()->hasPower('manage_characters'))))
     <div class="sidebar-item"><a href="{{ $character->url . '/drops' }}" class="{{ set_active('character/'.$character->slug.'/drops') }}">Collect {{ isset($character->drops->dropData->data['drop_name']) ? $character->drops->dropData->data['drop_name'].'' : 'Drops' }}</a></div>
         @endif

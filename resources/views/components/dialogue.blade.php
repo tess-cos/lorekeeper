@@ -99,7 +99,7 @@
             if (pointer <= text.length) {
                 // set image above text
                 if(data['img_url'] && data['img_url'] != '') {
-                    target.innerHTML = data['img_url'] + '<hr> <br>' + text.substring(0, pointer);
+                    target.innerHTML = '<center>' + data['img_url'] + '<hr> <br> </center>' + text.substring(0, pointer);
                 }
                 else target.innerHTML = text.substring(0, pointer);
             } 

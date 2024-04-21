@@ -82,7 +82,7 @@
                 @if($image->theme)
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-4" style="font-family: Mali, serif;text-transform: lowercase; font-weight: bold; font-size: 11pt; color: #7b956d;">{{ucfirst(__('character_theme.theme'))}}</div>
-                        <div class="col-lg-8 col-md-6 col-8">{!! $image->theme !!}</div>
+                        <div class="col-lg-8 col-md-6 col-8 asp">{!! $image->theme !!}</div>
                     </div>
                 @endif
 

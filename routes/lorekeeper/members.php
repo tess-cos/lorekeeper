@@ -259,6 +259,9 @@ Route::group(['prefix' => 'spellcasting', 'namespace' => 'Users'], function() {
     Route::post('craft/{id}', 'CraftingController@postCraftRecipe');
 });
 
+Route::group(['prefix' => 'event-tracking'], function() {
+    Route::get('/', 'EventController@getEventTracking');
+});
 
 # PROFILES
 Route::group(['prefix' => 'user', 'namespace' => 'Users'], function() {
