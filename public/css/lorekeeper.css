@@ -1004,6 +1004,14 @@ background-size: 7px;}
 
 .mal-talk2 {width: 70%; margin: auto; padding: 25px; border-radius: 15px; background-color: #fdfdfd; border: 2.5px solid #a7b8ca; text-align: left;}
 
+.yue-talk1 {color: #b25867; text-shadow:
+    -1px -1px 0 #4a4a4a, 
+    1px -1px 0 #4a4a4a,
+    -1px 1px 0 #4a4a4a,
+     1px 1px 0 #4a4a4a; width: 70%; padding-bottom: 2.5px; font-family: Mali, serif; font-weight: bold; font-size: 16.5pt; letter-spacing: 1.5px; margin: auto; text-align: left;}
+
+.yue-talk2 {width: 70%; margin: auto; padding: 25px; border-radius: 15px; background-color: #fdfdfd; border: 2.5px solid #b25867; text-align: left;}
+
 .btn {font-family: Poppins, sans-serif;}
 
 .btn-primary:active, .btn-primary, .btn-primary:visited, .badge-primary, .badge-secondary, .badge-info {
