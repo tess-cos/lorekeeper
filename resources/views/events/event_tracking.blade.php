@@ -12,10 +12,10 @@
 
 @if($currency->id)
     @if(Settings::get('event_global_goal') != 0)
-        <div class="progress mb-2" style="height: 2em;">
+        <div class="progress mb-2" style="height: 2em; margin-top: 10px; margin-bottom: 10px;">
             <div class="progress-bar bg-success" role="progressbar" style="width: {{ $progress }}%" aria-valuenow="{{ $progress }}" aria-valuemin="0" aria-valuemax="{{ Settings::get('event_global_goal') }}">
                 @if($total && $total->quantity > 0)
-                    <h5 class="align-self-center my-2">{{ $total ? $total->quantity : 0 }}/{{ Settings::get('event_global_goal') }}</h5>
+                    <h5 class="align-self-center my-2 waha-1">{{ $total ? $total->quantity : 0 }}/{{ Settings::get('event_global_goal') }}</h5>
                 @endif
             </div>
         </div>

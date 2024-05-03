@@ -93,20 +93,20 @@ class CraftingService extends Service {
       $service = new InventoryManager();
       foreach ($ingredients as $id => $quantity) {
         $stack = UserItem::find($id);
-        if (!$service->debitStack($user, 'Activity', ['data' => 'Used in ' . $recipe->name . ''], $stack, $quantity)) throw new \Exception('Items could not be removed.');
+        if (!$service->debitStack($user, 'Activity', ['data' => 'Used in ' . $activity->name . ''], $stack, $quantity)) throw new \Exception('Items could not be removed.');
       }
 
       // Debit the currency
       $service = new CurrencyManager();
       foreach ($currency_ingredients as $ingredient) {
-        if (!$service->debitCurrency($user, null, 'Activity', 'Used in ' . $recipe->name . '', Currency::find($ingredient->data[0]), $ingredient->quantity)) throw new \Exception('Currency could not be debited.');
+        if (!$service->debitCurrency($user, null, 'Activity', 'Used in ' . $activity->name . '', Currency::find($ingredient->data[0]), $ingredient->quantity)) throw new \Exception('Currency could not be debited.');
       }
 
       
       // Credit rewards
       $logType = 'Activity Reward';
       $rewardData = [
-        'data' => 'From ' . $recipe->name . ''
+        'data' => 'From ' . $activity->name . ''
       ];
 
       if (!$rewards = fillUserAssets($recipe->rewardItems, null, $user, $logType, $rewardData)) throw new \Exception("Failed to distribute rewards to user.");

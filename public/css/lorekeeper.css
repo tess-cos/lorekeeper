@@ -1062,7 +1062,7 @@ background-size: 7px;}
         background-color: #E5C1C7 !important; border-color: #E5C1C7 !important; color: #4a4a4a; text-transform: capitalize;
     } 
 
-.btn-outline-info:hover, .btn-success:hover, .btn-info:hover, .alert, .bg-info {
+.btn-outline-info:hover, .btn-success:hover, .btn-info:hover, .alert, .bg-info, .bg-success {
         background-color: #f4e3e6 !important; border-color: #f4e3e6 !important; color: #4a4a4a;
     }
 
