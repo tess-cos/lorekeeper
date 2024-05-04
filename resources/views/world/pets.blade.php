@@ -56,7 +56,7 @@
             </div> 
                 @if ($pet->canUserSell)
                     <div class="text-right mb-4">
-                        <a class="btn btn-secondary " href="{{ url('user-shops/pet-search?pet_ids=' . $pet->id) }}"><i class="fas fa-shopping-cart mr-2"></i>User Shops</a>
+                        <a class="btn btn-secondary " href="{{ url('user-shops/pet-search?pet_ids=' . $pet->id) }}"><i class="fas fa-shopping-cart mr-2"></i>Farmer's Market</a>
                     </div>
                 @endif
             </div>    

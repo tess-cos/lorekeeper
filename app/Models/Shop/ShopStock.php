@@ -30,7 +30,7 @@ class ShopStock extends Model
      * @var array
      */
     public static $createRules = [
-        'purchase_limit_timeframe' => 'in:lifetime,yearly,monthly,weekly,daily',
+        'purchase_limit_timeframe' => 'in:lifetime,yearly,every 3 months,monthly,weekly,daily',
     ];
 
     /**********************************************************************************************
@@ -73,9 +73,12 @@ class ShopStock extends Model
             case "yearly":
                 $date = strtotime('January 1st');
                 break;
-            case "monthly":
-                $date = strtotime('midnight first day of this month');
+            case "every 3 months":
+                $date = strtotime('midnight -3 months');
                 break;
+            case "monthly":
+                    $date = strtotime('midnight first day of this month');
+                    break;
             case "weekly":
                 $date = strtotime('last sunday');
                 break;
