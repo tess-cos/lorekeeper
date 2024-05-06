@@ -360,9 +360,9 @@ class SpeciesController extends Controller
      * @param  int                          $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postDeleteDrop(Request $request, SpeciesService $service, $id)
+    public function postDeleteDrop(Request $request, CharacterDropService $service, $id)
     {
-        if($id && $service->deleteDropData(CharacterDropData::find($id))) {
+        if($id && $service->deleteCharacterDrop(CharacterDropData::find($id))) {
             flash('Drop data deleted successfully.')->success();
         }
         else {

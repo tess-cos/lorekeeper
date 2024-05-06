@@ -128,7 +128,7 @@ class CharacterDropService extends Service
             // Check first if the table is currently in use
             // - Prompts
             // - Box rewards (unfortunately this can't be checked easily)
-            if(CharacterDrop::where('drop_id', $drop->id)->exists()) throw new \Exception('A character has drops using this data. Consider disabling drops instead.');
+            if(CharacterDropData::where('id', $drop->id)->exists()) throw new \Exception('A character has drops using this data. Consider disabling drops instead.');
 
             $drop->characterDrops()->delete();
             $drop->delete();
