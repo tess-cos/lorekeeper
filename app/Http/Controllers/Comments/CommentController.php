@@ -25,6 +25,7 @@ use App\Models\Report\Report;
 use App\Models\SitePage;
 use App\Models\TradeListing;
 use App\Models\User\UserIp;
+use App\Models\Forms\SiteForm;
 
 use Notifications;
 
@@ -137,6 +138,12 @@ class CommentController extends Controller implements CommentControllerInterface
                 else $recipient = $submission->user;
                 $post = (($type != 'User-User') ? 'your gallery submission\'s staff comments' : 'your gallery submission');
                 $link = (($type != 'User-User') ? $submission->queueUrl . '/#comment-' . $comment->getKey() : $submission->url . '/#comment-' . $comment->getKey());
+                break;
+            case 'App\Models\Forms\SiteForm':
+                $form = SiteForm::find($comment->commentable_id);
+                $recipient = $form->user; // User that has been commented on (or owner of form post)
+                $post = 'your form';
+                $link = $form->url . '/#comment-' . $comment->getKey();
                 break;
             }
 

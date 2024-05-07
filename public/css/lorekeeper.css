@@ -1024,6 +1024,8 @@ background-size: 7px;}
 
 .badge-danger {background-color: #f4e3e6 !important; color: #f8f8f8;}
 
+.bg-warning {background-color: #f4e3e6 !important; color: #7b956d;}
+
 .text-success {color: #95b582 !important;}
 
 .cmtf {border: #95b582; background-color: #EBF0E3; }
@@ -1233,6 +1235,8 @@ tr.outflow {
 }
 
 .card, .card-body {background-color: #fdfdfd !important;}
+
+.bg-light {background-color: #fcfcfc !important;}
 
 .profile-assets .profile-inventory .profile-inventory-item img {
     max-width: 100%;

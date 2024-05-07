@@ -515,6 +515,26 @@ Route::group(['prefix' => 'comments', 'namespace' => 'Comments'], function() {
     Route::post('/{id}/feature', 'CommentController@feature')->name('comments.feature');
 });
 
+/**************************************************************************************************
+    Forms & Polls
+**************************************************************************************************/
+Route::group(['prefix' => 'forms'], function() {
+    Route::post('/send/{id}', 'SiteFormController@postSiteForm');
+    Route::get('/send/{id}', 'SiteFormController@editSiteForm');
+    Route::post('/like/{id}', 'SiteFormController@postLikeAnswer');
+    Route::post('/unlike/{id}', 'SiteFormController@postUnlikeAnswer');
+});
+
+/**************************************************************************************************
+    Forms & Polls
+**************************************************************************************************/
+Route::group(['prefix' => 'forms'], function() {
+    Route::post('/send/{id}', 'SiteFormController@postSiteForm');
+    Route::get('/send/{id}', 'SiteFormController@editSiteForm');
+    Route::post('/like/{id}', 'SiteFormController@postLikeAnswer');
+    Route::post('/unlike/{id}', 'SiteFormController@postUnlikeAnswer');
+});
+
 Route::group(['prefix' => 'collection', 'namespace' => 'Users'], function() {
     Route::get('/', 'CollectionController@getIndex');
     Route::get('complete/{id}', 'CollectionController@getCompleteCollection');
@@ -529,7 +549,7 @@ Route::group(['prefix' => 'traveling', 'namespace' => 'Users'], function() {
     Route::post('/travel/{id}', 'ForagingController@postForage');
     Route::post('/claim', 'ForagingController@postClaim');
     Route::post('edit/character', 'ForagingController@postEditCharacter');
-});
+}); -
 /**************************************************************************************************
     User Mail - mod mail is in browse, so banned users can view mail
 **************************************************************************************************/

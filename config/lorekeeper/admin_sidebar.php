@@ -68,6 +68,10 @@ return [
             [
                 'name' => 'Dialogues',
                 'url' => 'admin/dialogue'
+            ],
+            [
+                'name' => 'Forms & Polls',
+                'url' => 'admin/forms'
             ]
         ]
     ],
