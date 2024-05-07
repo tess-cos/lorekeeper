@@ -12,6 +12,6 @@
     @endforeach
     {!! $forms->render() !!}
 @else
-    <div>No forms or polls were posted yet.</div>
+    <div>No questionnaires were posted yet.</div>
 @endif
 @endsection
