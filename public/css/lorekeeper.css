@@ -1043,7 +1043,9 @@ background-size: 7px;}
 
 .btn-dash {background-color: #E0ECD0; color: #636363; text-transform: lowercase; padding: 10px;}
 
-.btn-spell {background-color: #EDD3A0;}
+.btn-spell {background-color: #EDD3A0 !important;}
+
+.progress-bar {background-color: #EDD3A0 !important; color: #4a4a4a !important;}
 
 .btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
     background-color: #E5C1C7 !important; border-color: #E5C1C7 !important; color: #4a4a4a !important; text-transform: capitalize;
