@@ -297,11 +297,4 @@ Route::group(['prefix' => 'terms'], function() {
 **************************************************************************************************/
 Route::group(['prefix' => 'dialogue'], function() {
     Route::get('get-text', 'DialogueController@getText');
-});/**************************************************************************************************
-    Forms & Polls
-**************************************************************************************************/
-Route::group(['prefix' => 'forms'], function() {
-    Route::get('/', 'SiteFormController@getIndex');
-    Route::get('{id}.{slug?}', 'SiteFormController@getSiteForm');
-    Route::get('{id}.', 'SiteFormController@getSiteForm');
 });
