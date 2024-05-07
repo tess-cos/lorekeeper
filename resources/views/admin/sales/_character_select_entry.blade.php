@@ -21,7 +21,7 @@
 
                     <div class="form-group mb-2">
                         {!! Form::label('Type') !!}
-                        {!! Form::select('sale_type[]', ['flatsale' => 'Flatsale', 'auction' => 'Auction', 'ota' => 'OTA', 'xta' => 'XTA', 'raffle' => 'Raffle', 'flaffle' => 'Flatsale Raffle', 'pwyw' => 'Pay What You Want'], $character->type, ['class' => 'form-control character-sale-type', 'placeholder' => 'Select Sale Type']) !!}
+                        {!! Form::select('sale_type[]', ['flatsale' => 'Flatsale', 'auction' => 'Auction', 'ota' => 'OTA', 'xta' => 'XTA', 'raffle' => 'Raffle', 'flaffle' => 'Flaffle', 'pwyw' => 'Pay What You Want'], $character->type, ['class' => 'form-control character-sale-type', 'placeholder' => 'Select Sale Type']) !!}
                     </div>
 
                     <div class="saleType">

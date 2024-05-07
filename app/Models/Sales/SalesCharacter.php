@@ -104,7 +104,7 @@ class SalesCharacter extends Model
                 return 'XTA';
                 break;
             case 'flaffle':
-                return 'Flatsale Raffle';
+                return 'Flaffle';
                 break;
             case 'raffle':
                 return 'Raffle';
