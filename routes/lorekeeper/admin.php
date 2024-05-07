@@ -482,7 +482,7 @@ Route::group(['prefix' => 'news', 'middleware' => 'power:edit_pages'], function(
 
 
 # FORMS
-Route::group(['prefix' => 'forms', 'middleware' => 'power:edit_pages'], function() {
+Route::group(['prefix' => 'questionnaires', 'middleware' => 'power:edit_pages'], function() {
 
     Route::get('/', 'SiteFormController@getIndex');
     Route::get('create', 'SiteFormController@getCreateSiteForm');

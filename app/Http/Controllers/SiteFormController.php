@@ -90,7 +90,7 @@ class SiteFormController extends Controller
         $rewardsString = $service->postSiteForm($form, $request->all(), Auth::user());
         if (isset($rewardsString) && $rewardsString !== false) {
             flash('Response posted successfully! ' . $rewardsString)->success();
-            return redirect()->to('/forms/send/' . $form->id . '?action=edit&number=' . $request['submission_number']);
+            return redirect()->to('/questionnaires/send/' . $form->id . '?action=edit&number=' . $request['submission_number']);
         } else {
             foreach ($service->errors()->getMessages()['error'] as $error) flash($error)->error();
         }

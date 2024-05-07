@@ -153,7 +153,7 @@ class SiteForm extends Model
      */
     public function getUrlAttribute()
     {
-        return url('forms/'.$this->slug);
+        return url('questionnaires/'.$this->slug);
     }
 
     public function getStartDateAttribute(){

@@ -1,11 +1,11 @@
 @extends('admin.layout')
 
 @section('admin-title')
-    Forms & Polls
+    Questionnaires
 @endsection
 
 @section('admin-content')
-    {!! breadcrumbs(['Admin Panel' => 'admin', 'Forms & Polls' => 'admin/forms', ($form->id ? 'Edit' : 'Create') . ' Post' => $form->id ? 'admin/forms/edit/' . $form->id : 'admin/forms/create']) !!}
+    {!! breadcrumbs(['Admin Panel' => 'admin', 'Questionnaires' => 'admin/questionnaires', ($form->id ? 'Edit' : 'Create') . ' Post' => $form->id ? 'admin/questionnaires/edit/' . $form->id : 'admin/questionnaires/create']) !!}
 
     <h1>{{ $form->id ? 'Edit' : 'Create' }} Form
         @if ($form->id)
@@ -13,7 +13,7 @@
         @endif
     </h1>
 
-    {!! Form::open(['url' => $form->id ? 'admin/forms/edit/' . $form->id : 'admin/forms/create', 'files' => true]) !!}
+    {!! Form::open(['url' => $form->id ? 'admin/questionnaires/edit/' . $form->id : 'admin/questionnaires/create', 'files' => true]) !!}
 
     <h3>Basic Information</h3>
     <div class="row">
@@ -212,7 +212,7 @@
         $(document).ready(function() {
             $('.delete-form-button').on('click', function(e) {
                 e.preventDefault();
-                loadModal("{{ url('admin/forms/delete') }}/{{ $form->id }}", 'Delete Form');
+                loadModal("{{ url('admin/questionnaires/delete') }}/{{ $form->id }}", 'Delete Form');
             });
 
             $('#is_timed').change(function() {

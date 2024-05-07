@@ -1,6 +1,6 @@
 @if ($action == 'edit')
     @if ($number && $number <= $form->latestSubmissionNumber())
-        {!! Form::open(['url' => 'forms/send/' . $form->id]) !!}
+        {!! Form::open(['url' => 'questionnaires/send/' . $form->id]) !!}
         <h2> Edit Form Submission {{ $number }}</h2>
         Questions marked with * are mandatory.
         <div class="border rounded p-4">
@@ -58,7 +58,7 @@
         @endforeach
     @endif
 @else
-    {!! Form::open(['url' => 'forms/send/' . $form->id]) !!}
+    {!! Form::open(['url' => 'questionnaires/send/' . $form->id]) !!}
     <h2> Submit Form </h2>
     Questions marked with * are mandatory.
 

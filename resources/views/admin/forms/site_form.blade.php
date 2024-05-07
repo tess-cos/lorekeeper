@@ -1,15 +1,15 @@
 @extends('admin.layout')
 
-@section('admin-title') Forms & Polls @endsection
+@section('admin-title') Questionnaires @endsection
 
 @section('admin-content')
-{!! breadcrumbs(['Admin Panel' => 'admin', 'Forms & Polls' => 'admin/forms']) !!}
+{!! breadcrumbs(['Admin Panel' => 'admin', 'Questionnaires' => 'admin/questionnaires']) !!}
 
-<h1>Forms & Polls</h1>
+<h1>Questionnaires</h1>
 
 <p>You can create forms and polls here. Forms allow for multiple questions in one, but you can also do a single, poll-like question.</p>
 
-<div class="text-right mb-3"><a class="btn btn-primary" href="{{ url('admin/forms/create') }}"><i class="fas fa-plus"></i> Create New Form</a></div>
+<div class="text-right mb-3"><a class="btn btn-primary" href="{{ url('admin/questionnaires/create') }}"><i class="fas fa-plus"></i> Create New Form</a></div>
 @if(!count($forms))
     <p>No forms found.</p>
 @else
@@ -30,8 +30,8 @@
           </div>
           <div class="col-6 col-md-2">{!! pretty_date($form->created_at) !!}</div>
           <div class="col-6 col-md-2">{!! pretty_date($form->updated_at) !!}</div>
-          <div class="col-6 col-md-1"><a href="{{ url('admin/forms/edit/'.$form->id) }}" class="btn btn-primary py-0 px-2 w-100">Edit</a></div>
-          <div class="col-6 col-md-2 text-right"><a href="{{ url('admin/forms/results/'.$form->id) }}" class="btn btn-secondary py-0 px-2 w-100">View Results</a></div>
+          <div class="col-6 col-md-1"><a href="{{ url('admin/questionnaires/edit/'.$form->id) }}" class="btn btn-primary py-0 px-2 w-100">Edit</a></div>
+          <div class="col-6 col-md-2 text-right"><a href="{{ url('admin/questionnaires/results/'.$form->id) }}" class="btn btn-secondary py-0 px-2 w-100">View Results</a></div>
 
         </div>
         @endforeach

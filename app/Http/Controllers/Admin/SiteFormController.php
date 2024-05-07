@@ -89,7 +89,7 @@ class SiteFormController extends Controller
         }
         else if (!$id && $site_form = $service->createSiteForm($data, Auth::user())) {
             flash('SiteForm created successfully.')->success();
-            return redirect()->to('admin/forms/edit/'.$site_form->id);
+            return redirect()->to('admin/questionnaires/edit/'.$site_form->id);
         }
         else {
             foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
@@ -127,7 +127,7 @@ class SiteFormController extends Controller
         else {
             foreach($service->errors()->getMessages()['error'] as $error) flash($error)->error();
         }
-        return redirect()->to('admin/forms');
+        return redirect()->to('admin/questionnaires');
     }
 
         

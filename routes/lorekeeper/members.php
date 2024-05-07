@@ -518,7 +518,7 @@ Route::group(['prefix' => 'comments', 'namespace' => 'Comments'], function() {
 /**************************************************************************************************
     Forms & Polls
 **************************************************************************************************/
-Route::group(['prefix' => 'forms'], function() {
+Route::group(['prefix' => 'questionnaires'], function() {
     Route::post('/send/{id}', 'SiteFormController@postSiteForm');
     Route::get('/send/{id}', 'SiteFormController@editSiteForm');
     Route::post('/like/{id}', 'SiteFormController@postLikeAnswer');
@@ -528,7 +528,7 @@ Route::group(['prefix' => 'forms'], function() {
 /**************************************************************************************************
     Forms & Polls
 **************************************************************************************************/
-Route::group(['prefix' => 'forms'], function() {
+Route::group(['prefix' => 'questionnaires'], function() {
     Route::post('/send/{id}', 'SiteFormController@postSiteForm');
     Route::get('/send/{id}', 'SiteFormController@editSiteForm');
     Route::post('/like/{id}', 'SiteFormController@postLikeAnswer');
@@ -544,7 +544,7 @@ Route::group(['prefix' => 'collection', 'namespace' => 'Users'], function() {
 /**************************************************************************************************
     Forms & Polls
 **************************************************************************************************/
-Route::group(['prefix' => 'forms'], function() {
+Route::group(['prefix' => 'questionnaires'], function() {
     Route::get('/', 'SiteFormController@getIndex');
     Route::get('{id}.{slug?}', 'SiteFormController@getSiteForm');
     Route::get('{id}.', 'SiteFormController@getSiteForm');

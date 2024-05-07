@@ -101,10 +101,9 @@
                                 Trades
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ url('forms') }}">
-                            Site Forms & Polls
+                            <a class="dropdown-item" href="{{ url('questionnaires') }}">
+                            Questionnaires
                         </a>
-                        <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ url('reports') }}">
                                 My Reports
                             </a>

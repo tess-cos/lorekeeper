@@ -70,8 +70,8 @@ return [
                 'url' => 'admin/dialogue'
             ],
             [
-                'name' => 'Forms & Polls',
-                'url' => 'admin/forms'
+                'name' => 'Questionnaires',
+                'url' => 'admin/questionnaires'
             ]
         ]
     ],

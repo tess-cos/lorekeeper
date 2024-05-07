@@ -54,11 +54,11 @@
                                             @if ($user)
                                                 <div class="text-right">
                                                     @if ($answer->hasLiked($user))
-                                                        {!! Form::open(['url' => 'forms/unlike/' . $answer->id]) !!}
+                                                        {!! Form::open(['url' => 'questionnaires/unlike/' . $answer->id]) !!}
                                                         {{ $answer->likes()->count() }} {!! Form::button('<i class="fas fa-heart h4"></i>', ['type' => 'submit', 'class' => 'border-0 bg-transparent btn']) !!}
                                                         {!! Form::close() !!}
                                                     @else
-                                                        {!! Form::open(['url' => 'forms/like/' . $answer->id]) !!}
+                                                        {!! Form::open(['url' => 'questionnaires/like/' . $answer->id]) !!}
                                                         {{ $answer->likes()->count() }} {!! Form::button('<i class="far fa-heart h4"></i>', ['type' => 'submit', 'class' => 'border-0 bg-transparent btn']) !!}
                                                         {!! Form::close() !!}
                                                     @endif

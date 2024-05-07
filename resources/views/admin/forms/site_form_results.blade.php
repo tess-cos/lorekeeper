@@ -1,9 +1,9 @@
 @extends('admin.layout')
 
-@section('admin-title') Forms & Polls @endsection
+@section('admin-title') Questionnaires @endsection
 
 @section('admin-content')
-{!! breadcrumbs(['Admin Panel' => 'admin', 'Forms & Polls' => 'admin/forms', 'Form Results' => '']) !!}
+{!! breadcrumbs(['Admin Panel' => 'admin', 'Questionnaires' => 'admin/questionnaires', 'Form Results' => '']) !!}
 
 <h1>
     Form Results

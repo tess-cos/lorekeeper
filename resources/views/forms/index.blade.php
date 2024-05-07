@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title') Site Forms & Polls @endsection
+@section('title') Questionnaires @endsection
 
 @section('content')
-{!! breadcrumbs(['Site Forms & Polls' => 'forms']) !!}
-<h1>Site Forms & Polls</h1>
+{!! breadcrumbs(['Questionnaires' => 'questionnaires']) !!}
+<h1>Questionnaires</h1>
 @if(count($forms))
     {!! $forms->render() !!}
     @foreach($forms as $form)
