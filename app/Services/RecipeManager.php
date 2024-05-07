@@ -22,6 +22,7 @@ use App\Models\User\UserPet;
 use App\Services\InventoryManager;
 use App\Services\CurrencyManager;
 use Illuminate\Database\Eloquent\Collection;
+use App\Models\Recipe\RecipeLog;
 
 class RecipeManager extends Service {
 
@@ -63,6 +64,15 @@ class RecipeManager extends Service {
                     if (!$check) throw new \Exception('You require ' . $limit->reward->name . ' x ' . $limit->quantity . ' to cast this');
                 }
             }
+
+            //then check the individual completion limit +timeframe
+            if ($recipe->limit) {
+                if (!$recipe->checkLimit($recipe, $user)) {
+                    throw new \Exception("You have already crafted this recipe the maximum number of times.");
+                }
+
+            }
+
             // Check for sufficient currencies
             $user_currencies = $user->getCurrencies(true);
             $currency_ingredients = $recipe->ingredients->where('ingredient_type', 'Currency');
@@ -118,6 +128,12 @@ class RecipeManager extends Service {
             }
 
             flash($this->getRewardsString($rewards))->success();
+
+            // make a log of the action.
+            $Log = RecipeLog::create([
+            'recipe_id' => $recipe->id,
+            'user_id' => $user->id,
+            ]);
 
             return $this->commitReturn(true);
         } catch (\Exception $e) {

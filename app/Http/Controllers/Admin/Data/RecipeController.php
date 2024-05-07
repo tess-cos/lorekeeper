@@ -189,6 +189,7 @@ class RecipeController extends Controller {
             'recipes' => ['none' => 'No parent'] + Recipe::visible()->pluck('name', 'id')->toArray(),
             'pets' => Pet::orderBy('name')->pluck('name', 'id'),
             'petCategories' => PetCategory::orderBy('sort', 'DESC')->pluck('name', 'id'),
+            'limit_periods' => [null => 'None', 'Hour' => 'Hour', 'Day' => 'Day', 'Week' => 'Week', 'Month' => 'Month', 'Year' => 'Year'],
         ]);
     }
 
@@ -212,6 +213,7 @@ class RecipeController extends Controller {
             'recipes' => ['none' => 'No parent'] + Recipe::visible()->where('id', '!=', $recipe->id)->pluck('name', 'id')->toArray(),
             'pets' => Pet::orderBy('name')->pluck('name', 'id'),
             'petCategories' => PetCategory::orderBy('sort', 'DESC')->pluck('name', 'id'),
+            'limit_periods' => [null => 'None', 'Hour' => 'Hour', 'Day' => 'Day', 'Week' => 'Week', 'Month' => 'Month', 'Year' => 'Year'],
         ]);
     }
 
@@ -229,7 +231,8 @@ class RecipeController extends Controller {
             'name', 'description', 'image', 'remove_image', 'needs_unlocking', 'is_visible',
             'ingredient_type', 'ingredient_data', 'ingredient_quantity', 'recipe_category_id',
             'rewardable_type', 'rewardable_id', 'reward_quantity',
-            'is_limited', 'limit_type', 'limit_id', 'limit_quantity'
+            'is_limited', 'limit_type', 'limit_id', 'limit_quantity',
+            'limit', 'limit_period',
         ]);
         if ($id && $service->updateRecipe(Recipe::find($id), $data, Auth::user())) {
             flash('Spell updated successfully.')->success();

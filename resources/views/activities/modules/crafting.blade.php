@@ -38,6 +38,33 @@
             </div>
             <div class="d-flex" style="gap: 10px; display: none !important;">
                 <div style="flex: 1;">
+            <div class="d-flex mt-4">
+                <h2>{{ $recipe->name }}</h2>
+                @if ($recipe->checkLimit($recipe, Auth::user()))
+                    @if ($activity->service->checkRecipe(Auth::user(), $recipe))
+                        {!! Form::open(['url' => 'activities/' . $activity->id . '/act']) !!}
+                        {!! Form::hidden('recipe_id', $recipe->id) !!}
+                        <div class="text-right">
+                            {!! Form::submit('Craft!', ['class' => 'btn btn-success btn-sm ml-3']) !!}
+                        </div>
+                        {!! Form::close() !!}
+                    @else
+                        <div class="alert alert-warning p-1 px-2 ml-2 text-center">
+                            You don't have everything for this spell yet!
+                        </div>
+                    @endif
+                @endif
+            </div>
+            @if ($recipe->checkLimit($recipe, Auth::user()) && isset($recipe->limit) && isset($recipe->limit_period))
+                <div class="alert alert-info p-1 px-2 ml-2 text-center">You can craft this recipe {{ $recipe->limit }} time(s)
+                    {{ $recipe->limit_period ? ' per ' . strtolower($recipe->limit_period) : '' }}.</div>
+            @else
+            <div class="alert alert-danger p-1 px-2 ml-2 text-center">
+                        You have already casted this spell the maximum number of times.
+                    </div>
+            @endif
+            <div class="d-flex" style="gap: 10px;">
+                <div style="flex: 1">
                     <div class="square-grid @if (count($recipes) === 1) lg @else xl @endif justify-content-end">
                         @foreach ($recipe->ingredients as $ingredient)
                             <div class="square-column text-center">
