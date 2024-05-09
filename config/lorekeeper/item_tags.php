@@ -53,5 +53,17 @@ return [
         'name' => 'Theme',
         'text_color' => "#ffffff",
         'background_color' => '#EDD3A0'
-    ]
+    ],
+
+    'trait' => [
+        'name' => 'Trait',
+        'text_color' => '#ffffff',
+        'background_color' => '#EDD3A0'
+    ],
+    
+    'trait_remover' => [
+        'name' => 'Redesign',
+        'text_color' => '#ffffff',
+        'background_color' => '#EDD3A0'
+    ],
 ];

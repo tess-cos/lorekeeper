@@ -201,6 +201,8 @@ class DesignController extends Controller
             'rarities' => ['0' => 'Select Rarity'] + Rarity::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
             'features' => Feature::orderBy('name')->pluck('name', 'id')->toArray(),
             'transformations' => ['0' => 'Select '.ucfirst(__('transformations.transformation'))] + Transformation::orderBy('sort', 'DESC')->pluck('name', 'id')->toArray(),
+            'choiceFeatures' => $r->getAttachedTraitSelect(),
+            'itemFeatures' => $r->getAttachedTraitSelects()
         ]);
     }
 

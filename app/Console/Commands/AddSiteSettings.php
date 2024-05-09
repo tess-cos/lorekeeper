@@ -141,6 +141,9 @@ class AddSiteSettings extends Command
         
         $this->addSiteSetting('default_theme', 0, 'ID of the default theme users should see. 0: Disabled, shows default lorekeeper. This setting is overwritten by the users theme setting.');
 
+        $this->addSiteSetting('trait_remover_needed', 0, '0: No item needed to remove traits via design update. 1: Trait Remover item needed to remove traits via design update.');
+        $this->addSiteSetting('trait_per_item', 0, '0: One item unlocks x traits for selection, and x of them can be chosen. 1: One item unlocks x traits for selection, only one of them can be chosen.');
+
         $this->line("\nSite settings up to date!");
 
         $this->addSiteSetting('claymore_cooldown', 0, 'Number of days to add to the cooldown timer when a pet/weapon/gear is attached.');
