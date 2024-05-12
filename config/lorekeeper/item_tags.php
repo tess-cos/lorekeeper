@@ -62,7 +62,7 @@ return [
     ],
     
     'trait_remover' => [
-        'name' => 'Redesign',
+        'name' => 'Pruner',
         'text_color' => '#ffffff',
         'background_color' => '#EDD3A0'
     ],
