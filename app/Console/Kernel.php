@@ -48,6 +48,9 @@ class Kernel extends ConsoleKernel
                 ->daily();
         $schedule->command('check-character-drops')
                 ->everyMinute();
+        $schedule->command('reset-hol')
+                ->daily();
+
     }
 
     /**

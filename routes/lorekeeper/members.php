@@ -516,6 +516,28 @@ Route::group(['prefix' => 'comments', 'namespace' => 'Comments'], function() {
 });
 
 /**************************************************************************************************
+    Higher or Lower
+**************************************************************************************************/
+
+Route::group(['prefix' => 'malcolms-mailpile'], function() {
+    Route::get('/', 'HolController@getIndex');
+
+    Route::get('play', 'HolController@playHol');
+    Route::post('play/guess', 'HolController@postGuess');
+});
+
+/**************************************************************************************************
+    Higher or Lower
+**************************************************************************************************/
+
+Route::group(['prefix' => 'malcolms-mailpile'], function() {
+    Route::get('/', 'HolController@getIndex');
+
+    Route::get('play', 'HolController@playHol');
+    Route::post('play/guess', 'HolController@postGuess');
+});
+
+/**************************************************************************************************
     Forms & Polls
 **************************************************************************************************/
 Route::group(['prefix' => 'questionnaires'], function() {

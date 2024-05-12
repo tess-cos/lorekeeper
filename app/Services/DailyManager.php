@@ -54,7 +54,7 @@ class DailyManager extends Service
 
             // Check and debit the fee in case the daily has a fee
             if ($daily->currency && $daily->fee > 0) {
-                if (!(new CurrencyManager)->debitCurrency($user, null, 'Daily Fee', 'Paid fee for ' . __('dailies.daily') . ' (<a href="' . $daily->viewUrl . '">#' . $daily->id . '</a>)', $daily->currency, $daily->fee)) throw new \Exception("You do not own enough currency to roll this daily.");
+                if (!(new CurrencyManager)->debitCurrency($user, null, 'Daily Fee', 'Paid fee for <a href="' . $daily->viewUrl . '">' . $daily->name . '</a>', $daily->currency, $daily->fee)) throw new \Exception("You do not own enough currency to roll this daily.");
             }
 
             //get daily timer now that we know we can roll. if none exists, create one.
