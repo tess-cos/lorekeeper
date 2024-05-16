@@ -1,13 +1,13 @@
 
 @foreach ($recipes as $recipe)
 <div style="margin: auto; margin-top: -10px; margin-left: -10px;">@if ($activity->service->checkRecipe(Auth::user(), $recipe))
-<div class="mt-2 text-center" style="padding: 12.5px !important; margin-left: 15px;">
+<div class="mt-2 text-center" style="padding: 12.5px !important; padding-bottom: 2.5px !important; margin-left: 15px;">
                 <h5>{{ $recipe->name }}</h5>
             </div>
                     <div class="square-grid @if (count($recipes) === 1) lg @else xl @endif justify-content-start">
                         @foreach ($recipe->reward_items as $type)
                             @foreach ($type as $reward)
-                                <div class="square-column text-center" style="max-width: 50%; margin-bottom: 10px;">
+                                <div class="square-column text-center" style="max-width: 50%; margin-bottom: 5px;">
                                     @if (isset($reward['asset']->image_url))
                                         <div class="img-thumbnail greyscale"><img style="max-width: 100px;" src="{{ $reward['asset']->image_url }}" /></div>
                                     @endif

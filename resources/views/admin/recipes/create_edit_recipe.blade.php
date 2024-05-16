@@ -73,14 +73,14 @@
 <h3>Spell Rewards</h3>
 @include('widgets._recipe_reward_select', ['rewards' => $recipe->rewards])
 
-    <h3>Craft Limits</h3>
-    <p>Limit the number of times a user can craft this recipe. Leave blank to allow endless crafts.</p>
-    <p>Set a number into number of crafts. This will be applied for all time if you leave period blank, or per time period (ex: once a month, twice a week) if selected.</p>
-    <p>These limits will apply to any recipes added into activities as well, so be cautious.</p>
+    <h3>Spell Limits</h3>
+    <p>Limit the number of times a user can cast this spell. Leave blank to allow endless casts.</p>
+    <p>Set a number into number of casts. This will be applied for all time if you leave period blank, or per time period (ex: once a month, twice a week) if selected.</p>
+    <p>These limits will apply to any spells added into activities as well, so be cautious.</p>
     <div class="row">
         <div class="col-md-4">
             <div class="form-group">
-                {!! Form::label('limit', 'Number of Crafts (Optional)') !!} {!! add_help('Enter a number to limit how many times a user can craft this. Leave blank to allow endless crafts.') !!}
+                {!! Form::label('limit', 'Number of Crafts (Optional)') !!} {!! add_help('Enter a number to limit how many times a user can craft this. Leave blank to allow endless casts.') !!}
                 {!! Form::text('limit', $recipe->limit, ['class' => 'form-control']) !!}
             </div>
         </div>
