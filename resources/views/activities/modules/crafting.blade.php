@@ -7,7 +7,7 @@
                     <div class="square-grid @if (count($recipes) === 1) lg @else xl @endif justify-content-start">
                         @foreach ($recipe->reward_items as $type)
                             @foreach ($type as $reward)
-                                <div class="square-column text-center" style="max-width: 50%; margin-bottom: 5px;">
+                                <div class="square-column text-center" style="max-width: 50%; margin-bottom: 5px; display: none;">
                                     @if (isset($reward['asset']->image_url))
                                         <div class="img-thumbnail greyscale"><img style="max-width: 100px;" src="{{ $reward['asset']->image_url }}" /></div>
                                     @endif
