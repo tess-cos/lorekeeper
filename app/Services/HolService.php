@@ -30,9 +30,9 @@ class HolService extends Service
 
             //roll second number
             //hopefully this prevents a tie occuring between the 2 numbers
-            $secondnumber = mt_rand(1, 15);
+            $secondnumber = mt_rand(2, 15);
             while ($secondnumber == $number) {
-                $secondnumber = mt_rand(1, 15);
+                $secondnumber = mt_rand(2, 15);
             }
 
             $guess = $data['guess'];
